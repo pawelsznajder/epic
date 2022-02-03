@@ -18,14 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
+title: EpIC
 email: pawel.sznajder@ncbj.gov.pl
 description: >- 
   Monte Carlo generator for exclusive processes
 # baseurl: "" # the subpath of your site, e.g. /blog
 # url: "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: /PROJECT
-url: http://USERNAME.github.io
+baseurl: /epic
+url: http://pawelsznajder.github.io
 twitter_username: ""
 github_username:  pawelsznajder
 
