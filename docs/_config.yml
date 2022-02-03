@@ -22,8 +22,6 @@ title: EpIC
 email: pawel.sznajder@ncbj.gov.pl
 description: >- 
   Monte Carlo generator for exclusive processes
-# baseurl: "" # the subpath of your site, e.g. /blog
-# url: "" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: /epic
 url: http://pawelsznajder.github.io
 twitter_username: ""
@@ -33,7 +31,6 @@ github_username:  pawelsznajder
 theme: jekyll-theme-minimal 
 plugins:
   - jekyll-feed
-  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
