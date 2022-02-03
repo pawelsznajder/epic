@@ -1,2 +1,3 @@
-# epic
-Monte Carlo generator for exclusive processes
+# README 
+
+Monte Carlo generator based on PARTONS

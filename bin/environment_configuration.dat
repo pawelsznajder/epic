@@ -1,0 +1,21 @@
+# environment_configuration.dat
+#
+# The content of this file is stored in the database during the insertion of data,
+# so latter one can easily reproduce the used computational environment.
+
+# You can fill the field system with the content of the command "uname -a",
+# and fill the other fields with the software versions.
+# E.g. g++: 4.9.2
+
+# TODO: Fill this.
+
+system: 
+g++:
+qt:
+smfl:
+eigen3:
+cln:
+gsl:
+elementary-utils: 
+numa: 
+partons: 

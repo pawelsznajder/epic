@@ -1,0 +1,11 @@
+
+These tables correspond to CFFs of KM20 model from arXiv:2007.00029.
+
+luamp*.dat files contain values of total CFF = Qu^2*CFF_u + Qd^2*CFF_d + ...,
+while ldamp*.dat, lsamp*.dat and lgamp*.dat contain zeros.
+
+It is assumed that MILOU code will just add four values and thus
+end up with correct total CFF usable for DVCS phenomenology.
+
+Kresimir Kumericki (Uni Zagreb) / kkumer@phy.hr
+02/07/2020

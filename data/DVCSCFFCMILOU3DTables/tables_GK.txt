@@ -1,0 +1,3 @@
+tables produced with PARTONS using GK GPD model (GK16Numerical module)
+Pawel Sznajder (NCBJ) / pawel.sznajder@ncbj.gov.pl
+23/06/2020
