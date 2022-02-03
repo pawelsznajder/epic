@@ -26,6 +26,7 @@ baseurl: /epic
 url: http://pawelsznajder.github.io
 twitter_username: ""
 github_username:  pawelsznajder
+show_downloads: false
 
 # Build settings
 theme: jekyll-theme-minimal 
