@@ -1,0 +1,207 @@
+\hypertarget{class_e_p_i_c_1_1_generation_information}{}\doxysection{EPIC\+::Generation\+Information Class Reference}
+\label{class_e_p_i_c_1_1_generation_information}\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+
+
+Container to store run related information.  
+
+
+
+
+{\ttfamily \#include $<$Generation\+Information.\+h$>$}
+
+Inheritance diagram for EPIC\+::Generation\+Information\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_e_p_i_c_1_1_generation_information}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a63a3f146bbf6116d0ea4f97811ded8ac}{Generation\+Information}} ()
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a2f335a1d3e086570841fbf012f4d45ef}{Generation\+Information}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_ae4fbde078340faa38fd11f969b827fe5}{$\sim$\+Generation\+Information}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a2d0823146036bd648281ed4b914d7e83}\label{class_e_p_i_c_1_1_generation_information_a2d0823146036bd648281ed4b914d7e83}} 
+virtual std\+::string {\bfseries to\+String} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a9a583e9a4b8a29283c49f6c311a042eb}{get\+Generator\+Name}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a4b1d77316f76edfd9773818bf24b5b1d}{set\+Generator\+Name}} (const std\+::string \&generator\+Name)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_af9991160ed37203688f81025aa36810c}{get\+Generator\+Version}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_aa80619a4447dbb65bf3777f07d6c3716}{set\+Generator\+Version}} (const std\+::string \&generator\+Version)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a640833f7a1200083e5f49d33303eb79a}{get\+Description}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_abeb98f9e6a40766ba786f83bc46febc1}{set\+Description}} (const std\+::string \&description)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a0276e99070cc3babcfcd5d6492c53414}{get\+Service\+Name}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a745938089bde4bb157bffc1acbdff5db}{set\+Service\+Name}} (const std\+::string \&service\+Name)
+\item 
+int \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_aa32d08f77ae3587a3bb6349d1b247ba4}{get\+NEvents}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a03e61cf8bc622d42ce8ae938f18e544f}{set\+NEvents}} (int n\+Events)
+\item 
+const std\+::pair$<$ double, double $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_aa39d10d03f907212e548bf5832afbe67}{get\+Integrated\+Cross\+Section}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_acc58789e1118b22e94fd57926fbb71e7}{set\+Integrated\+Cross\+Section}} (const std\+::pair$<$ double, double $>$ \&integrated\+Cross\+Section)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_ad16e5983d95f9eb78a3fd63ed7343d40}{get\+Generation\+Date}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a49ac66576c0e374806a789415418b49d}{set\+Generation\+Date}} (const std\+::string \&generation\+Date)
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a4d61beb67a68169d4c01650e59fded9a}{get\+Generation\+Time}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a08b56ad69aa99d6f3e479eb1a04d6b80}{set\+Generation\+Time}} (double generation\+Time)
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_af44fdcf963799f8191448f68eb89a47f}{get\+Initialization\+Time}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a077ecd459e9051ddf8c9969f082b0a70}{set\+Initialization\+Time}} (double initialization\+Time)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Container to store run related information. 
+
+This class acts as a container to store information related to the run, like e.\+g. cross-\/section over probed phase-\/space or software version. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a63a3f146bbf6116d0ea4f97811ded8ac}\label{class_e_p_i_c_1_1_generation_information_a63a3f146bbf6116d0ea4f97811ded8ac}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!GenerationInformation@{GenerationInformation}}
+\index{GenerationInformation@{GenerationInformation}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{GenerationInformation()}{GenerationInformation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Generation\+Information\+::\+Generation\+Information (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a2f335a1d3e086570841fbf012f4d45ef}\label{class_e_p_i_c_1_1_generation_information_a2f335a1d3e086570841fbf012f4d45ef}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!GenerationInformation@{GenerationInformation}}
+\index{GenerationInformation@{GenerationInformation}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{GenerationInformation()}{GenerationInformation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Generation\+Information\+::\+Generation\+Information (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_ae4fbde078340faa38fd11f969b827fe5}\label{class_e_p_i_c_1_1_generation_information_ae4fbde078340faa38fd11f969b827fe5}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!````~GenerationInformation@{$\sim$GenerationInformation}}
+\index{````~GenerationInformation@{$\sim$GenerationInformation}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{$\sim$GenerationInformation()}{~GenerationInformation()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+Generation\+Information\+::$\sim$\+Generation\+Information (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a640833f7a1200083e5f49d33303eb79a}\label{class_e_p_i_c_1_1_generation_information_a640833f7a1200083e5f49d33303eb79a}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily const std\+::string \& EPIC\+::\+Generation\+Information\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get description. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_ad16e5983d95f9eb78a3fd63ed7343d40}\label{class_e_p_i_c_1_1_generation_information_ad16e5983d95f9eb78a3fd63ed7343d40}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!getGenerationDate@{getGenerationDate}}
+\index{getGenerationDate@{getGenerationDate}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{getGenerationDate()}{getGenerationDate()}}
+{\footnotesize\ttfamily const std\+::string \& EPIC\+::\+Generation\+Information\+::get\+Generation\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get generation date. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a4d61beb67a68169d4c01650e59fded9a}\label{class_e_p_i_c_1_1_generation_information_a4d61beb67a68169d4c01650e59fded9a}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!getGenerationTime@{getGenerationTime}}
+\index{getGenerationTime@{getGenerationTime}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{getGenerationTime()}{getGenerationTime()}}
+{\footnotesize\ttfamily double EPIC\+::\+Generation\+Information\+::get\+Generation\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get generation time (in seconds). \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a9a583e9a4b8a29283c49f6c311a042eb}\label{class_e_p_i_c_1_1_generation_information_a9a583e9a4b8a29283c49f6c311a042eb}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!getGeneratorName@{getGeneratorName}}
+\index{getGeneratorName@{getGeneratorName}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{getGeneratorName()}{getGeneratorName()}}
+{\footnotesize\ttfamily const std\+::string \& EPIC\+::\+Generation\+Information\+::get\+Generator\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get generator name. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_af9991160ed37203688f81025aa36810c}\label{class_e_p_i_c_1_1_generation_information_af9991160ed37203688f81025aa36810c}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!getGeneratorVersion@{getGeneratorVersion}}
+\index{getGeneratorVersion@{getGeneratorVersion}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{getGeneratorVersion()}{getGeneratorVersion()}}
+{\footnotesize\ttfamily const std\+::string \& EPIC\+::\+Generation\+Information\+::get\+Generator\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get generator version. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_af44fdcf963799f8191448f68eb89a47f}\label{class_e_p_i_c_1_1_generation_information_af44fdcf963799f8191448f68eb89a47f}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!getInitializationTime@{getInitializationTime}}
+\index{getInitializationTime@{getInitializationTime}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{getInitializationTime()}{getInitializationTime()}}
+{\footnotesize\ttfamily double EPIC\+::\+Generation\+Information\+::get\+Initialization\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get initialization time (in seconds). \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_aa39d10d03f907212e548bf5832afbe67}\label{class_e_p_i_c_1_1_generation_information_aa39d10d03f907212e548bf5832afbe67}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!getIntegratedCrossSection@{getIntegratedCrossSection}}
+\index{getIntegratedCrossSection@{getIntegratedCrossSection}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{getIntegratedCrossSection()}{getIntegratedCrossSection()}}
+{\footnotesize\ttfamily const std\+::pair$<$ double, double $>$ \& EPIC\+::\+Generation\+Information\+::get\+Integrated\+Cross\+Section (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get integrated cross-\/section. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_aa32d08f77ae3587a3bb6349d1b247ba4}\label{class_e_p_i_c_1_1_generation_information_aa32d08f77ae3587a3bb6349d1b247ba4}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!getNEvents@{getNEvents}}
+\index{getNEvents@{getNEvents}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{getNEvents()}{getNEvents()}}
+{\footnotesize\ttfamily int EPIC\+::\+Generation\+Information\+::get\+NEvents (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get number of generated events. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a0276e99070cc3babcfcd5d6492c53414}\label{class_e_p_i_c_1_1_generation_information_a0276e99070cc3babcfcd5d6492c53414}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!getServiceName@{getServiceName}}
+\index{getServiceName@{getServiceName}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{getServiceName()}{getServiceName()}}
+{\footnotesize\ttfamily const std\+::string \& EPIC\+::\+Generation\+Information\+::get\+Service\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get service name. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_abeb98f9e6a40766ba786f83bc46febc1}\label{class_e_p_i_c_1_1_generation_information_abeb98f9e6a40766ba786f83bc46febc1}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!setDescription@{setDescription}}
+\index{setDescription@{setDescription}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{setDescription()}{setDescription()}}
+{\footnotesize\ttfamily void EPIC\+::\+Generation\+Information\+::set\+Description (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{description }\end{DoxyParamCaption})}
+
+Set description. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a49ac66576c0e374806a789415418b49d}\label{class_e_p_i_c_1_1_generation_information_a49ac66576c0e374806a789415418b49d}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!setGenerationDate@{setGenerationDate}}
+\index{setGenerationDate@{setGenerationDate}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{setGenerationDate()}{setGenerationDate()}}
+{\footnotesize\ttfamily void EPIC\+::\+Generation\+Information\+::set\+Generation\+Date (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{generation\+Date }\end{DoxyParamCaption})}
+
+Set generation date. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a08b56ad69aa99d6f3e479eb1a04d6b80}\label{class_e_p_i_c_1_1_generation_information_a08b56ad69aa99d6f3e479eb1a04d6b80}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!setGenerationTime@{setGenerationTime}}
+\index{setGenerationTime@{setGenerationTime}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{setGenerationTime()}{setGenerationTime()}}
+{\footnotesize\ttfamily void EPIC\+::\+Generation\+Information\+::set\+Generation\+Time (\begin{DoxyParamCaption}\item[{double}]{generation\+Time }\end{DoxyParamCaption})}
+
+Set generation time (in seconds). \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a4b1d77316f76edfd9773818bf24b5b1d}\label{class_e_p_i_c_1_1_generation_information_a4b1d77316f76edfd9773818bf24b5b1d}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!setGeneratorName@{setGeneratorName}}
+\index{setGeneratorName@{setGeneratorName}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{setGeneratorName()}{setGeneratorName()}}
+{\footnotesize\ttfamily void EPIC\+::\+Generation\+Information\+::set\+Generator\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{generator\+Name }\end{DoxyParamCaption})}
+
+Set generator name. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_aa80619a4447dbb65bf3777f07d6c3716}\label{class_e_p_i_c_1_1_generation_information_aa80619a4447dbb65bf3777f07d6c3716}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!setGeneratorVersion@{setGeneratorVersion}}
+\index{setGeneratorVersion@{setGeneratorVersion}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{setGeneratorVersion()}{setGeneratorVersion()}}
+{\footnotesize\ttfamily void EPIC\+::\+Generation\+Information\+::set\+Generator\+Version (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{generator\+Version }\end{DoxyParamCaption})}
+
+Set generator version. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a077ecd459e9051ddf8c9969f082b0a70}\label{class_e_p_i_c_1_1_generation_information_a077ecd459e9051ddf8c9969f082b0a70}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!setInitializationTime@{setInitializationTime}}
+\index{setInitializationTime@{setInitializationTime}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{setInitializationTime()}{setInitializationTime()}}
+{\footnotesize\ttfamily void EPIC\+::\+Generation\+Information\+::set\+Initialization\+Time (\begin{DoxyParamCaption}\item[{double}]{initialization\+Time }\end{DoxyParamCaption})}
+
+Set initialization time (in seconds). \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_acc58789e1118b22e94fd57926fbb71e7}\label{class_e_p_i_c_1_1_generation_information_acc58789e1118b22e94fd57926fbb71e7}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!setIntegratedCrossSection@{setIntegratedCrossSection}}
+\index{setIntegratedCrossSection@{setIntegratedCrossSection}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{setIntegratedCrossSection()}{setIntegratedCrossSection()}}
+{\footnotesize\ttfamily void EPIC\+::\+Generation\+Information\+::set\+Integrated\+Cross\+Section (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ double, double $>$ \&}]{integrated\+Cross\+Section }\end{DoxyParamCaption})}
+
+Set integrated cross-\/section. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a03e61cf8bc622d42ce8ae938f18e544f}\label{class_e_p_i_c_1_1_generation_information_a03e61cf8bc622d42ce8ae938f18e544f}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!setNEvents@{setNEvents}}
+\index{setNEvents@{setNEvents}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{setNEvents()}{setNEvents()}}
+{\footnotesize\ttfamily void EPIC\+::\+Generation\+Information\+::set\+NEvents (\begin{DoxyParamCaption}\item[{int}]{n\+Events }\end{DoxyParamCaption})}
+
+Set number of generated events. \mbox{\Hypertarget{class_e_p_i_c_1_1_generation_information_a745938089bde4bb157bffc1acbdff5db}\label{class_e_p_i_c_1_1_generation_information_a745938089bde4bb157bffc1acbdff5db}} 
+\index{EPIC::GenerationInformation@{EPIC::GenerationInformation}!setServiceName@{setServiceName}}
+\index{setServiceName@{setServiceName}!EPIC::GenerationInformation@{EPIC::GenerationInformation}}
+\doxysubsubsection{\texorpdfstring{setServiceName()}{setServiceName()}}
+{\footnotesize\ttfamily void EPIC\+::\+Generation\+Information\+::set\+Service\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{service\+Name }\end{DoxyParamCaption})}
+
+Set service name. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/beans/containers/Generation\+Information.\+h\end{DoxyCompactItemize}

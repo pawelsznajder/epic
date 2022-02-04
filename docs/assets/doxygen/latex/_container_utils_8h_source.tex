@@ -1,0 +1,55 @@
+\hypertarget{_container_utils_8h_source}{}\doxysection{Container\+Utils.\+h}
+\label{_container_utils_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/containers/ContainerUtils.h@{/Users/pawel/projects/epic/epic/include/beans/containers/ContainerUtils.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Container.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Mar 24, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef BEANS\_CONTAINERS\_CONTAINERUTILS\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define BEANS\_CONTAINERS\_CONTAINERUTILS\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <ElementaryUtils/parameters/Parameters.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }ContainerUtils \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{23 \textcolor{keywordtype}{size\_t} findAndParseUInt(\textcolor{keyword}{const} std::string\& className,}
+\DoxyCodeLine{24         \textcolor{keyword}{const} ElemUtils::Parameters\& data, \textcolor{keyword}{const} std::string\& key,}
+\DoxyCodeLine{25         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{30 \textcolor{keywordtype}{int} findAndParseInt(\textcolor{keyword}{const} std::string\& className,}
+\DoxyCodeLine{31         \textcolor{keyword}{const} ElemUtils::Parameters\& data, \textcolor{keyword}{const} std::string\& key,}
+\DoxyCodeLine{32         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{37 \textcolor{keywordtype}{double} findAndParseDouble(\textcolor{keyword}{const} std::string\& className,}
+\DoxyCodeLine{38         \textcolor{keyword}{const} ElemUtils::Parameters\& data, \textcolor{keyword}{const} std::string\& key,}
+\DoxyCodeLine{39         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44 std::vector<double> findAndParseVectorDouble(\textcolor{keyword}{const} std::string\& className,}
+\DoxyCodeLine{45         \textcolor{keyword}{const} ElemUtils::Parameters\& data, \textcolor{keyword}{const} std::string\& key,}
+\DoxyCodeLine{46         \textcolor{keywordtype}{size\_t} nElements,}
+\DoxyCodeLine{47         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{52 \textcolor{keywordtype}{size\_t} stdStringToUInt(\textcolor{keyword}{const} std::string\& className, \textcolor{keyword}{const} std::string\& str,}
+\DoxyCodeLine{53         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{58 \textcolor{keywordtype}{int} stdStringToInt(\textcolor{keyword}{const} std::string\& className, \textcolor{keyword}{const} std::string\& str,}
+\DoxyCodeLine{59         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{64 \textcolor{keywordtype}{double} stdStringToDouble(\textcolor{keyword}{const} std::string\& className, \textcolor{keyword}{const} std::string\& str,}
+\DoxyCodeLine{65         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
+\DoxyCodeLine{66 \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_CONTAINERS\_CONTAINERUTILS\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

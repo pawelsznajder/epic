@@ -1,0 +1,169 @@
+\hypertarget{class_e_p_i_c_1_1_writer_module}{}\doxysection{EPIC\+::Writer\+Module Class Reference}
+\label{class_e_p_i_c_1_1_writer_module}\index{EPIC::WriterModule@{EPIC::WriterModule}}
+Inheritance diagram for EPIC\+::Writer\+Module\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_e_p_i_c_1_1_writer_module}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_aff692531f883bac57196123f2151fecb}{Writer\+Module}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a6af66c3c4a6d14b02f57ba288e927455}{Writer\+Module}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{Writer\+Module}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a5aaa5ad0c28adbf9e5d0e1b6b1946a76}{$\sim$\+Writer\+Module}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_a4e2a2e8d8c50d9174509ff6f14dd60f3}\label{class_e_p_i_c_1_1_writer_module_a4e2a2e8d8c50d9174509ff6f14dd60f3}} 
+virtual void {\bfseries configure} (const Elem\+Utils\+::\+Parameters \&parameters)
+\item 
+virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_afe1b283a43a6c6e533a18826ff7770f7}{run\+Test}} () const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_ad54c98a083e702c4f19e8e8f20dae3b4}{open}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_ab08eec41a1c75a9fad7df6c082243223}{save\+Generation\+Information}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&generation\+Information)=0
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_adea38f3f36abb4f693c254b5c987535f}{close}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a7663bea189a270126c5b8c9d7ab54959}{write}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event)=0
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a9179b564aaa81c53fbe47bb99dc6eb49}{write}} (const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} $>$ \&events)=0
+\item 
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_ae043746c5ba78ffa98cf46b0d87d0289}{get\+Path}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a70ea821a80ac472497e3d53a7e384db0}{set\+Path}} (const std\+::string \&path)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_a02a0438ccab7583a828d736baae733b9}\label{class_e_p_i_c_1_1_writer_module_a02a0438ccab7583a828d736baae733b9}} 
+static const std\+::string {\bfseries WRITER\+\_\+\+MODULE\+\_\+\+CLASS\+\_\+\+NAME}
+\begin{DoxyCompactList}\small\item\em Class name used in parsing XML. \end{DoxyCompactList}\item 
+static const std\+::string \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a81f27f0b5bc045f8a230a2e5c71a7132}{PARAMETER\+\_\+\+NAME\+\_\+\+PATH}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_a179b87413a1469d78d8789e54e197b11}\label{class_e_p_i_c_1_1_writer_module_a179b87413a1469d78d8789e54e197b11}} 
+virtual void {\bfseries init\+Module} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_a444e98015a5d3ac03f6433cd147a3325}\label{class_e_p_i_c_1_1_writer_module_a444e98015a5d3ac03f6433cd147a3325}} 
+virtual void {\bfseries is\+Module\+Well\+Configured} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_a957320fbfeb96792b681d61becc15c9f}\label{class_e_p_i_c_1_1_writer_module_a957320fbfeb96792b681d61becc15c9f}} 
+std\+::string {\bfseries m\+\_\+path}
+\begin{DoxyCompactList}\small\item\em Path to output file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_aff692531f883bac57196123f2151fecb}\label{class_e_p_i_c_1_1_writer_module_aff692531f883bac57196123f2151fecb}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!WriterModule@{WriterModule}}
+\index{WriterModule@{WriterModule}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{WriterModule()}{WriterModule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Writer\+Module\+::\+Writer\+Module (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_a6af66c3c4a6d14b02f57ba288e927455}\label{class_e_p_i_c_1_1_writer_module_a6af66c3c4a6d14b02f57ba288e927455}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!WriterModule@{WriterModule}}
+\index{WriterModule@{WriterModule}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{WriterModule()}{WriterModule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Writer\+Module\+::\+Writer\+Module (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{Writer\+Module}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_a5aaa5ad0c28adbf9e5d0e1b6b1946a76}\label{class_e_p_i_c_1_1_writer_module_a5aaa5ad0c28adbf9e5d0e1b6b1946a76}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!````~WriterModule@{$\sim$WriterModule}}
+\index{````~WriterModule@{$\sim$WriterModule}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{$\sim$WriterModule()}{~WriterModule()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+Writer\+Module\+::$\sim$\+Writer\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_adea38f3f36abb4f693c254b5c987535f}\label{class_e_p_i_c_1_1_writer_module_adea38f3f36abb4f693c254b5c987535f}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!close@{close}}
+\index{close@{close}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Module\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Close file. 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_a7b7bd75b590d4a7a1c7222d1010c0f32}{EPIC\+::\+Writer\+Hep\+MC3}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_ae043746c5ba78ffa98cf46b0d87d0289}\label{class_e_p_i_c_1_1_writer_module_ae043746c5ba78ffa98cf46b0d87d0289}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!getPath@{getPath}}
+\index{getPath@{getPath}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{getPath()}{getPath()}}
+{\footnotesize\ttfamily const std\+::string \& EPIC\+::\+Writer\+Module\+::get\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get path. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_ad54c98a083e702c4f19e8e8f20dae3b4}\label{class_e_p_i_c_1_1_writer_module_ad54c98a083e702c4f19e8e8f20dae3b4}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!open@{open}}
+\index{open@{open}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Module\+::open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Open file. 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_a91b4d7b5e3d22278c81d6de2b966d0c5}{EPIC\+::\+Writer\+Hep\+MC3}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_afe1b283a43a6c6e533a18826ff7770f7}\label{class_e_p_i_c_1_1_writer_module_afe1b283a43a6c6e533a18826ff7770f7}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!runTest@{runTest}}
+\index{runTest@{runTest}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{runTest()}{runTest()}}
+{\footnotesize\ttfamily virtual bool EPIC\+::\+Writer\+Module\+::run\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Definition of test. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a40142efadbdc81511a75586d8ae41e43}{EPIC\+::\+Epic\+Module\+Object}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_ab08eec41a1c75a9fad7df6c082243223}\label{class_e_p_i_c_1_1_writer_module_ab08eec41a1c75a9fad7df6c082243223}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!saveGenerationInformation@{saveGenerationInformation}}
+\index{saveGenerationInformation@{saveGenerationInformation}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{saveGenerationInformation()}{saveGenerationInformation()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Module\+::save\+Generation\+Information (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&}]{generation\+Information }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Save run information. 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_acd4347d2120ad9cae69a910ad178ae39}{EPIC\+::\+Writer\+Hep\+MC3}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_a70ea821a80ac472497e3d53a7e384db0}\label{class_e_p_i_c_1_1_writer_module_a70ea821a80ac472497e3d53a7e384db0}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!setPath@{setPath}}
+\index{setPath@{setPath}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{setPath()}{setPath()}}
+{\footnotesize\ttfamily void EPIC\+::\+Writer\+Module\+::set\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+Set path. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_a7663bea189a270126c5b8c9d7ab54959}\label{class_e_p_i_c_1_1_writer_module_a7663bea189a270126c5b8c9d7ab54959}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!write@{write}}
+\index{write@{write}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Module\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Write single event (file must be open). 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_a6a76d5197e1035b815c36300dd667b25}{EPIC\+::\+Writer\+Hep\+MC3}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_a9179b564aaa81c53fbe47bb99dc6eb49}\label{class_e_p_i_c_1_1_writer_module_a9179b564aaa81c53fbe47bb99dc6eb49}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!write@{write}}
+\index{write@{write}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Module\+::write (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} $>$ \&}]{events }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Write vector of events (file must be open). 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ab594cf26cbf7f62dcdaba3c486379fca}{EPIC\+::\+Writer\+Hep\+MC3}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_module_a81f27f0b5bc045f8a230a2e5c71a7132}\label{class_e_p_i_c_1_1_writer_module_a81f27f0b5bc045f8a230a2e5c71a7132}} 
+\index{EPIC::WriterModule@{EPIC::WriterModule}!PARAMETER\_NAME\_PATH@{PARAMETER\_NAME\_PATH}}
+\index{PARAMETER\_NAME\_PATH@{PARAMETER\_NAME\_PATH}!EPIC::WriterModule@{EPIC::WriterModule}}
+\doxysubsubsection{\texorpdfstring{PARAMETER\_NAME\_PATH}{PARAMETER\_NAME\_PATH}}
+{\footnotesize\ttfamily const std\+::string EPIC\+::\+Writer\+Module\+::\+PARAMETER\+\_\+\+NAME\+\_\+\+PATH\hspace{0.3cm}{\ttfamily [static]}}
+
+String used to set path through Writer\+Module\+::configure(). 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/modules/writer/Writer\+Module.\+h\end{DoxyCompactItemize}

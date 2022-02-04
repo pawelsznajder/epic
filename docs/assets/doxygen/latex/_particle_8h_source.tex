@@ -1,0 +1,81 @@
+\hypertarget{_particle_8h_source}{}\doxysection{Particle.\+h}
+\label{_particle_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/physics/Particle.h@{/Users/pawel/projects/epic/epic/include/beans/physics/Particle.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef BEANS\_PARTICLE\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define BEANS\_PARTICLE\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <TLorentzVector.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <TVector3.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}../types/AxisType.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../types/ParticleType.h"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_particle}{Particle}} : \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a70a736ac3378153206c76f96f5e36750}{Particle}}();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{38   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_ae1c7d19f03fc7a4447b06174974269c1}{Particle}}(\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} type);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_ac06e9b04b9a0c70c7dee05c497854545}{Particle}}(\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} type, \textcolor{keyword}{const} TLorentzVector \&lv);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{49   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a1d025e5397c8d1a20faa8669e4fac6f6}{Particle}}(\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} type, \textcolor{keyword}{const} TVector3 \&mom);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{55   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a3c352cbdf23eadf5c2c8d851c5eee3e1}{Particle}}(\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} type, \textcolor{keyword}{const} TVector3 \&dir, \textcolor{keywordtype}{double} E);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{60   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_aac1670ddafb99cbbc3288d7951b6e691}{Particle}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_particle}{Particle}} \&other);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{65   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_aeb04a081442224e6d5372fcd56c3b759}{\string~Particle}}();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{70   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_ae968134856a4e9e88079f0385058c2c4}{getEnergy}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{75   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a95fa0029a7bcc44d32a408d51b2833e0}{getMass}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{80   TVector3 \mbox{\hyperlink{class_e_p_i_c_1_1_particle_acecea25150824a77f3f689f14bf38237}{getMomentum}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{85   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a96dfab4221e8555b2a33fa0969395de8}{getPseudoRapidity}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{92   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_ab40c2c6b355f6e4bb25ba628fef12f9e}{rotate}}(\mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252}{AxisType::Type}} axis, \textcolor{keywordtype}{double} angle);}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{99   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a4001f65d4ad1277b60ac2cd218a87fe6}{rotate}}(\textcolor{keyword}{const} TVector3 \&dir, \textcolor{keywordtype}{double} angle);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{106   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a4df9612a37a09e2efa993ab3dd2c63e6}{rotate}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_particle}{Particle}} \&particle, \textcolor{keywordtype}{double} angle);}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{112   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a5eb81a4269c15092c58398baf44e153b}{getAngle}}(\mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252}{AxisType::Type}} axis) \textcolor{keyword}{const};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{118   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a1c4d7425c9f634da996f86c45d38286b}{getAngle}}(\textcolor{keyword}{const} TVector3 \&dir) \textcolor{keyword}{const};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{124   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a80a3f9defcba926f8597e2b5cb023b6b}{getAngle}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_particle}{Particle}} \&particle) \textcolor{keyword}{const};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{130   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_ad8708a59fd67816f2d89720fa302d244}{boost}}(\textcolor{keyword}{const} TVector3 \&v);}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{136   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a8ae920ba5d06c1b14109d021c78401a8}{boost}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_particle}{Particle}} \&particle);}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{141   std::string \mbox{\hyperlink{class_e_p_i_c_1_1_particle_ada6656928824cf73ada568aeb2d5c2ee}{toString}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{144   \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{145   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{150   \textcolor{keyword}{const} TLorentzVector \&\mbox{\hyperlink{class_e_p_i_c_1_1_particle_a0a7ca3c3dff3aa379ebcfb59c89c2dbd}{getFourMomentum}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{155   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a3dcfa3597fcf02d601a10b0329fda974}{setFourMomentum}}(\textcolor{keyword}{const} TLorentzVector \&lv);}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{160   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_a4533513af1f248b939fa02e6c33e3bd9}{getType}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{165   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_ae21771fafa49f6e5a0ee977b19470326}{setType}}(\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} type);}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167 \textcolor{keyword}{private}:}
+\DoxyCodeLine{168   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} m\_type; }
+\DoxyCodeLine{169   TLorentzVector m\_lv;       }
+\DoxyCodeLine{170 \};}
+\DoxyCodeLine{171 \}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_PARTICLE\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

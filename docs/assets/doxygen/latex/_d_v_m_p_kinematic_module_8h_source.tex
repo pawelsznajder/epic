@@ -1,0 +1,50 @@
+\hypertarget{_d_v_m_p_kinematic_module_8h_source}{}\doxysection{DVMPKinematic\+Module.\+h}
+\label{_d_v_m_p_kinematic_module_8h_source}\index{/Users/pawel/projects/epic/epic/include/modules/kinematic/DVMP/DVMPKinematicModule.h@{/Users/pawel/projects/epic/epic/include/modules/kinematic/DVMP/DVMPKinematicModule.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * DVMPKinematicModule.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 12, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_KINEMATIC\_DVMP\_DVMPKINEMATICMODULE\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_KINEMATIC\_DVMP\_DVMPKINEMATICMODULE\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../../../beans/containers/DVMPKinematic.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../KinematicModule.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_module}{DVMPKinematicModule}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{KinematicModule}}<DVMPKinematic> \{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_module_a8cac927b75359ca6a1b1c4ba2500dac2}{DVMP\_KINEMATIC\_MODULE\_CLASS\_NAME}}; }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{33     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_module_a5e958d9bb17bc03f2b047d32c1d5eb74}{DVMPKinematicModule}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_module_a911e91a5ae75c7c0a59bc81327f09a7b}{DVMPKinematicModule}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_module}{DVMPKinematicModule}} \&other);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_module_a0c2bbc1da1451427be06f81e95091cfa}{\string~DVMPKinematicModule}}();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_module_a88dc0266b90d340abb6e1c0500ead48d}{runTest}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_module_a2e57b6d0682bfcb91e74740510fe209c}{checkIfValid}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
+\DoxyCodeLine{48             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic}{DVMPKinematic}} \&kin);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_module_a959b7b639726a073ac1e3a4c58a95ce9}{evaluate}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
+\DoxyCodeLine{51             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic}{DVMPKinematic}} \&kin) = 0;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{54     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} initModule();}
+\DoxyCodeLine{55     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isModuleWellConfigured();}
+\DoxyCodeLine{56 \};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_KINEMATIC\_DVMP\_DVMPKINEMATICMODULE\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

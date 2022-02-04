@@ -1,0 +1,89 @@
+\hypertarget{class_e_p_i_c_1_1_d_v_m_p_generator_service}{}\doxysection{EPIC\+::DVMPGenerator\+Service Class Reference}
+\label{class_e_p_i_c_1_1_d_v_m_p_generator_service}\index{EPIC::DVMPGeneratorService@{EPIC::DVMPGeneratorService}}
+
+
+Service used to perform generation of DVMP MC events.  
+
+
+
+
+{\ttfamily \#include $<$DVMPGenerator\+Service.\+h$>$}
+
+Inheritance diagram for EPIC\+::DVMPGenerator\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.979021cm]{class_e_p_i_c_1_1_d_v_m_p_generator_service}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a4bbcc3328a7f111b30323c70ee7ea4b0}{$\sim$\+DVMPGenerator\+Service}} ()
+\item 
+virtual double \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a9ca0326bfbbf7f9a306f311c859cc8fa}{get\+Event\+Distribution}} (const std\+::vector$<$ double $>$ \&kin) const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a15e4bfb962084e49c687e67dcd08a5dc}{run}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_generator_service_a02fc81bdbd52d353e21eb28e2c6171e6}\label{class_e_p_i_c_1_1_d_v_m_p_generator_service_a02fc81bdbd52d353e21eb28e2c6171e6}} 
+static const std\+::string {\bfseries DVMP\+\_\+\+GENERATOR\+\_\+\+SERVICE\+\_\+\+MESON\+\_\+\+TYPE}
+\begin{DoxyCompactList}\small\item\em String used to set meson type via XML scenario. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_generator_service_a80f7511045993599ce97c08636976422}\label{class_e_p_i_c_1_1_d_v_m_p_generator_service_a80f7511045993599ce97c08636976422}} 
+static const std\+::string {\bfseries DVMP\+\_\+\+GENERATOR\+\_\+\+SERVICE\+\_\+\+MESON\+\_\+\+POLARIZATION}
+\begin{DoxyCompactList}\small\item\em String used to set polarization type via XML scenario. \end{DoxyCompactList}\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a7161b976b0091b787e16746f69d8298e}{class\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Service used to perform generation of DVMP MC events. 
+
+This class handles generation process of MC events for DVMP. It is intended to have a unique instance accessed trough DVMPGenerator\+Service\+::get\+Instance() method. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_generator_service_a4bbcc3328a7f111b30323c70ee7ea4b0}\label{class_e_p_i_c_1_1_d_v_m_p_generator_service_a4bbcc3328a7f111b30323c70ee7ea4b0}} 
+\index{EPIC::DVMPGeneratorService@{EPIC::DVMPGeneratorService}!````~DVMPGeneratorService@{$\sim$DVMPGeneratorService}}
+\index{````~DVMPGeneratorService@{$\sim$DVMPGeneratorService}!EPIC::DVMPGeneratorService@{EPIC::DVMPGeneratorService}}
+\doxysubsubsection{\texorpdfstring{$\sim$DVMPGeneratorService()}{~DVMPGeneratorService()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+DVMPGenerator\+Service\+::$\sim$\+DVMPGenerator\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_generator_service_a9ca0326bfbbf7f9a306f311c859cc8fa}\label{class_e_p_i_c_1_1_d_v_m_p_generator_service_a9ca0326bfbbf7f9a306f311c859cc8fa}} 
+\index{EPIC::DVMPGeneratorService@{EPIC::DVMPGeneratorService}!getEventDistribution@{getEventDistribution}}
+\index{getEventDistribution@{getEventDistribution}!EPIC::DVMPGeneratorService@{EPIC::DVMPGeneratorService}}
+\doxysubsubsection{\texorpdfstring{getEventDistribution()}{getEventDistribution()}}
+{\footnotesize\ttfamily virtual double EPIC\+::\+DVMPGenerator\+Service\+::get\+Event\+Distribution (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{kin }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function is used by \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} to probe event distribution during the initialization step. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_interface_a6cf902aaf3484dd22b6333648f5f7522}{EPIC\+::\+Event\+Generator\+Interface}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_generator_service_a15e4bfb962084e49c687e67dcd08a5dc}\label{class_e_p_i_c_1_1_d_v_m_p_generator_service_a15e4bfb962084e49c687e67dcd08a5dc}} 
+\index{EPIC::DVMPGeneratorService@{EPIC::DVMPGeneratorService}!run@{run}}
+\index{run@{run}!EPIC::DVMPGeneratorService@{EPIC::DVMPGeneratorService}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+DVMPGenerator\+Service\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Run/ 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a6cc715cabcc55e7e24eb8cd960b9ee17}{EPIC\+::\+Generator\+Service$<$ DVMPKinematic\+Ranges, PARTONS\+::\+DVMPProcess\+Module, DVMPKinematic\+Module, DVMPKinematic, DVMPRCModule $>$}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_generator_service_a7161b976b0091b787e16746f69d8298e}\label{class_e_p_i_c_1_1_d_v_m_p_generator_service_a7161b976b0091b787e16746f69d8298e}} 
+\index{EPIC::DVMPGeneratorService@{EPIC::DVMPGeneratorService}!classId@{classId}}
+\index{classId@{classId}!EPIC::DVMPGeneratorService@{EPIC::DVMPGeneratorService}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+DVMPGenerator\+Service\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+Unique ID to automatically register the class in the registry. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/services/DVMPGenerator\+Service.\+h\end{DoxyCompactItemize}

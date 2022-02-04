@@ -1,0 +1,109 @@
+\hypertarget{class_e_p_i_c_1_1_kinematic_module}{}\doxysection{EPIC\+::Kinematic\+Module\texorpdfstring{$<$}{<} Kinematic\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_e_p_i_c_1_1_kinematic_module}\index{EPIC::KinematicModule$<$ KinematicType $>$@{EPIC::KinematicModule$<$ KinematicType $>$}}
+
+
+Template for kinematic module.  
+
+
+
+
+{\ttfamily \#include $<$Kinematic\+Module.\+h$>$}
+
+Inheritance diagram for EPIC\+::Kinematic\+Module\texorpdfstring{$<$}{<} Kinematic\+Type \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_e_p_i_c_1_1_kinematic_module}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a6707233e46605f370442a69001d3a64b}{$\sim$\+Kinematic\+Module}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a2e235f419d40be0f1ddafe4e4253df83}{check\+If\+Valid}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const Kinematic\+Type \&kin)=0
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_ab93a6f69837beba044d5a84a9b06d3e2}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const Kinematic\+Type \&kin)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a0e71a3ecd0c7e1073a901b297a95884e}{Kinematic\+Module}} (const std\+::string \&class\+Name, PARTONS\+::\+Channel\+Type\+::\+Type channel\+Type)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a068e088a9285209ba3e52d69fa3ca93a}{Kinematic\+Module}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{Kinematic\+Module}} \&other)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Kinematic\+Type$>$\newline
+class EPIC\+::\+Kinematic\+Module$<$ Kinematic\+Type $>$}
+Template for kinematic module. 
+
+This is a template for kinematic modules. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_kinematic_module_a6707233e46605f370442a69001d3a64b}\label{class_e_p_i_c_1_1_kinematic_module_a6707233e46605f370442a69001d3a64b}} 
+\index{EPIC::KinematicModule$<$ KinematicType $>$@{EPIC::KinematicModule$<$ KinematicType $>$}!````~KinematicModule@{$\sim$KinematicModule}}
+\index{````~KinematicModule@{$\sim$KinematicModule}!EPIC::KinematicModule$<$ KinematicType $>$@{EPIC::KinematicModule$<$ KinematicType $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$KinematicModule()}{~KinematicModule()}}
+{\footnotesize\ttfamily template$<$typename Kinematic\+Type $>$ \\
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{EPIC\+::\+Kinematic\+Module}}$<$ Kinematic\+Type $>$\+::$\sim$\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{Kinematic\+Module}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Destructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_kinematic_module_a0e71a3ecd0c7e1073a901b297a95884e}\label{class_e_p_i_c_1_1_kinematic_module_a0e71a3ecd0c7e1073a901b297a95884e}} 
+\index{EPIC::KinematicModule$<$ KinematicType $>$@{EPIC::KinematicModule$<$ KinematicType $>$}!KinematicModule@{KinematicModule}}
+\index{KinematicModule@{KinematicModule}!EPIC::KinematicModule$<$ KinematicType $>$@{EPIC::KinematicModule$<$ KinematicType $>$}}
+\doxysubsubsection{\texorpdfstring{KinematicModule()}{KinematicModule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Kinematic\+Type $>$ \\
+\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{EPIC\+::\+Kinematic\+Module}}$<$ Kinematic\+Type $>$\+::\+Kinematic\+Module (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name,  }\item[{PARTONS\+::\+Channel\+Type\+::\+Type}]{channel\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Constructor. See Base\+Object\+::\+Base\+Object and Module\+Object\+::\+Module\+Object for more details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Name} & name of child class. \\
+\hline
+{\em channel\+Type} & Channel type. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_kinematic_module_a068e088a9285209ba3e52d69fa3ca93a}\label{class_e_p_i_c_1_1_kinematic_module_a068e088a9285209ba3e52d69fa3ca93a}} 
+\index{EPIC::KinematicModule$<$ KinematicType $>$@{EPIC::KinematicModule$<$ KinematicType $>$}!KinematicModule@{KinematicModule}}
+\index{KinematicModule@{KinematicModule}!EPIC::KinematicModule$<$ KinematicType $>$@{EPIC::KinematicModule$<$ KinematicType $>$}}
+\doxysubsubsection{\texorpdfstring{KinematicModule()}{KinematicModule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Kinematic\+Type $>$ \\
+\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{EPIC\+::\+Kinematic\+Module}}$<$ Kinematic\+Type $>$\+::\+Kinematic\+Module (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{Kinematic\+Module}}$<$ Kinematic\+Type $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em other} & Object to be copied. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_kinematic_module_a2e235f419d40be0f1ddafe4e4253df83}\label{class_e_p_i_c_1_1_kinematic_module_a2e235f419d40be0f1ddafe4e4253df83}} 
+\index{EPIC::KinematicModule$<$ KinematicType $>$@{EPIC::KinematicModule$<$ KinematicType $>$}!checkIfValid@{checkIfValid}}
+\index{checkIfValid@{checkIfValid}!EPIC::KinematicModule$<$ KinematicType $>$@{EPIC::KinematicModule$<$ KinematicType $>$}}
+\doxysubsubsection{\texorpdfstring{checkIfValid()}{checkIfValid()}}
+{\footnotesize\ttfamily template$<$typename Kinematic\+Type $>$ \\
+virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{EPIC\+::\+Kinematic\+Module}}$<$ Kinematic\+Type $>$\+::check\+If\+Valid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{conditions,  }\item[{const Kinematic\+Type \&}]{kin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Check if kinematics is valid. 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_a10fb8e8862e11eb957bf0ae652827ccf}{EPIC\+::\+TCSKinematic\+Default}}, \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a548ca1fe31b0d044e430052b7e89331d}{EPIC\+::\+TCSKinematic\+Module}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_default_a28aae78369a980e32a22a56eaaa58e17}{EPIC\+::\+DVCSKinematic\+Default}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_ae68d3050218de180fd94cb29e7ba664b}{EPIC\+::\+DVCSKinematic\+Module}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_default_a14dff33a3d25ec9984194ddcd50000b3}{EPIC\+::\+DVMPKinematic\+Default}}, and \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_module_a2e57b6d0682bfcb91e74740510fe209c}{EPIC\+::\+DVMPKinematic\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_kinematic_module_ab93a6f69837beba044d5a84a9b06d3e2}\label{class_e_p_i_c_1_1_kinematic_module_ab93a6f69837beba044d5a84a9b06d3e2}} 
+\index{EPIC::KinematicModule$<$ KinematicType $>$@{EPIC::KinematicModule$<$ KinematicType $>$}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!EPIC::KinematicModule$<$ KinematicType $>$@{EPIC::KinematicModule$<$ KinematicType $>$}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily template$<$typename Kinematic\+Type $>$ \\
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{EPIC\+::\+Kinematic\+Module}}$<$ Kinematic\+Type $>$\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{conditions,  }\item[{const Kinematic\+Type \&}]{kin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get experimental conditions (like beam types), kinematics and return a set of particles. 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_aa4c455f89f8d1e6f31a0a483bbe99e4a}{EPIC\+::\+TCSKinematic\+Default}}, \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a433da85bdacb76233a7e7cb31929129e}{EPIC\+::\+TCSKinematic\+Module}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_default_a749dae7f513988fb1213e47cfe9266e9}{EPIC\+::\+DVCSKinematic\+Default}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_ab0fc8e1f8619c50d105880f1fca77608}{EPIC\+::\+DVCSKinematic\+Module}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_default_a308621b3e22b29c13419a0a2e495af66}{EPIC\+::\+DVMPKinematic\+Default}}, and \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_module_a959b7b639726a073ac1e3a4c58a95ce9}{EPIC\+::\+DVMPKinematic\+Module}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/modules/kinematic/Kinematic\+Module.\+h\end{DoxyCompactItemize}

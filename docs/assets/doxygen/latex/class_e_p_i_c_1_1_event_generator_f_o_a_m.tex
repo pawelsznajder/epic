@@ -1,0 +1,150 @@
+\hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m}{}\doxysection{EPIC\+::Event\+Generator\+FOAM Class Reference}
+\label{class_e_p_i_c_1_1_event_generator_f_o_a_m}\index{EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}}
+
+
+\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} generator based on FOAM library.  
+
+
+
+
+{\ttfamily \#include $<$Event\+Generator\+FOAM.\+h$>$}
+
+Inheritance diagram for EPIC\+::Event\+Generator\+FOAM\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_e_p_i_c_1_1_event_generator_f_o_a_m}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a71461b41993be7ecb71dcb24dcd4daf3}{Event\+Generator\+FOAM}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a41e9fb752434e586444953715ef6c742}{Event\+Generator\+FOAM}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m}{Event\+Generator\+FOAM}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a17a9dafbeb1d19ea332438f01b9f1326}{$\sim$\+Event\+Generator\+FOAM}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_a85dec65992cfafc19f1c0da78f4cbfe6}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_a85dec65992cfafc19f1c0da78f4cbfe6}} 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m}{Event\+Generator\+FOAM}} $\ast$ {\bfseries clone} () const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_af654cfb932718fadc44de4c15f183b2e}{configure}} (const Elem\+Utils\+::\+Parameters \&parameters)
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a0347f1d79a3515f4c431d9bcc4f27eb3}{initialise}} (const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \&kinematic\+Ranges, const \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_interface}{Event\+Generator\+Interface}} \&service)
+\item 
+virtual std\+::pair$<$ std\+::vector$<$ double $>$, double $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_af724d2ba2d75ae83883a1095779fe399}{generate\+Event}} ()
+\item 
+virtual std\+::pair$<$ double, double $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a11fca8778ef7abf4ae57da84778cc5cd}{get\+Integral}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_a305943e8472a5670e8d8fbecc7507b84}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_a305943e8472a5670e8d8fbecc7507b84}} 
+virtual Double\+\_\+t {\bfseries Density} (Int\+\_\+t ndim, Double\+\_\+t $\ast$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_ae9d8f3226ecb4bd103ed3baf9ef03183}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_ae9d8f3226ecb4bd103ed3baf9ef03183}} 
+static const std\+::string {\bfseries PARAMETER\+\_\+\+NAME\+\_\+\+NCELLS}
+\begin{DoxyCompactList}\small\item\em Key to set Event\+Generator\+FOAM\+::m\+\_\+n\+Cells. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_aa16faba5fc9b3e7fc7d42a61baa8a6f1}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_aa16faba5fc9b3e7fc7d42a61baa8a6f1}} 
+static const std\+::string {\bfseries PARAMETER\+\_\+\+NAME\+\_\+\+NSAMPL}
+\begin{DoxyCompactList}\small\item\em Key to set Event\+Generator\+FOAM\+::m\+\_\+n\+Sampl. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_a5d31d2007a953753c402d4e23571aa5a}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_a5d31d2007a953753c402d4e23571aa5a}} 
+static const std\+::string {\bfseries PARAMETER\+\_\+\+NAME\+\_\+\+NBIN}
+\begin{DoxyCompactList}\small\item\em Key to set Event\+Generator\+FOAM\+::m\+\_\+n\+Bin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_a1f6790faf2d391eb9267f46f7ed7a56e}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_a1f6790faf2d391eb9267f46f7ed7a56e}} 
+static const std\+::string {\bfseries PARAMETER\+\_\+\+NAME\+\_\+\+OPTREJ}
+\begin{DoxyCompactList}\small\item\em Key to set Event\+Generator\+FOAM\+::m\+\_\+\+Opt\+Rej. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_afeaa5da5016b1cfd4f26a969d9d9cf97}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_afeaa5da5016b1cfd4f26a969d9d9cf97}} 
+static const std\+::string {\bfseries PARAMETER\+\_\+\+NAME\+\_\+\+OPTDRIVE}
+\begin{DoxyCompactList}\small\item\em Key to set Event\+Generator\+FOAM\+::m\+\_\+\+Opt\+Drive. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_adf3e70264a24305e9811ca4e0d3e8e05}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_adf3e70264a24305e9811ca4e0d3e8e05}} 
+static const std\+::string {\bfseries PARAMETER\+\_\+\+NAME\+\_\+\+EVPREBIN}
+\begin{DoxyCompactList}\small\item\em Key to set Event\+Generator\+FOAM\+::m\+\_\+\+Ev\+Per\+Bin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_a7d1133068517b6452ec444e2b4dedac8}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_a7d1133068517b6452ec444e2b4dedac8}} 
+static const std\+::string {\bfseries PARAMETER\+\_\+\+NAME\+\_\+\+CHAT}
+\begin{DoxyCompactList}\small\item\em Key to set Event\+Generator\+FOAM\+::m\+\_\+\+Chat. \end{DoxyCompactList}\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a1c5d0670ec5a8aab105aef3c6223fecc}{class\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} generator based on FOAM library. 
+
+This is event generator module based on FOAM library as implemented in ROOT. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_a71461b41993be7ecb71dcb24dcd4daf3}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_a71461b41993be7ecb71dcb24dcd4daf3}} 
+\index{EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}!EventGeneratorFOAM@{EventGeneratorFOAM}}
+\index{EventGeneratorFOAM@{EventGeneratorFOAM}!EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}}
+\doxysubsubsection{\texorpdfstring{EventGeneratorFOAM()}{EventGeneratorFOAM()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Event\+Generator\+FOAM\+::\+Event\+Generator\+FOAM (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_a41e9fb752434e586444953715ef6c742}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_a41e9fb752434e586444953715ef6c742}} 
+\index{EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}!EventGeneratorFOAM@{EventGeneratorFOAM}}
+\index{EventGeneratorFOAM@{EventGeneratorFOAM}!EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}}
+\doxysubsubsection{\texorpdfstring{EventGeneratorFOAM()}{EventGeneratorFOAM()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Event\+Generator\+FOAM\+::\+Event\+Generator\+FOAM (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m}{Event\+Generator\+FOAM}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_a17a9dafbeb1d19ea332438f01b9f1326}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_a17a9dafbeb1d19ea332438f01b9f1326}} 
+\index{EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}!````~EventGeneratorFOAM@{$\sim$EventGeneratorFOAM}}
+\index{````~EventGeneratorFOAM@{$\sim$EventGeneratorFOAM}!EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}}
+\doxysubsubsection{\texorpdfstring{$\sim$EventGeneratorFOAM()}{~EventGeneratorFOAM()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+Event\+Generator\+FOAM\+::$\sim$\+Event\+Generator\+FOAM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_af654cfb932718fadc44de4c15f183b2e}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_af654cfb932718fadc44de4c15f183b2e}} 
+\index{EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}!configure@{configure}}
+\index{configure@{configure}!EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}}
+\doxysubsubsection{\texorpdfstring{configure()}{configure()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Event\+Generator\+FOAM\+::configure (\begin{DoxyParamCaption}\item[{const Elem\+Utils\+::\+Parameters \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{EPIC\+::\+Event\+Generator\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_af724d2ba2d75ae83883a1095779fe399}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_af724d2ba2d75ae83883a1095779fe399}} 
+\index{EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}!generateEvent@{generateEvent}}
+\index{generateEvent@{generateEvent}!EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}}
+\doxysubsubsection{\texorpdfstring{generateEvent()}{generateEvent()}}
+{\footnotesize\ttfamily virtual std\+::pair$<$ std\+::vector$<$ double $>$, double $>$ EPIC\+::\+Event\+Generator\+FOAM\+::generate\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Generate event. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_add238db567cd2f8ac43c044d384e8613}{EPIC\+::\+Event\+Generator\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_a11fca8778ef7abf4ae57da84778cc5cd}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_a11fca8778ef7abf4ae57da84778cc5cd}} 
+\index{EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}!getIntegral@{getIntegral}}
+\index{getIntegral@{getIntegral}!EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}}
+\doxysubsubsection{\texorpdfstring{getIntegral()}{getIntegral()}}
+{\footnotesize\ttfamily virtual std\+::pair$<$ double, double $>$ EPIC\+::\+Event\+Generator\+FOAM\+::get\+Integral (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get integral over distribution and integrated error. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_a2489f2973b8fbcfb286df8a67bb0e11d}{EPIC\+::\+Event\+Generator\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_a0347f1d79a3515f4c431d9bcc4f27eb3}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_a0347f1d79a3515f4c431d9bcc4f27eb3}} 
+\index{EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}!initialise@{initialise}}
+\index{initialise@{initialise}!EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}}
+\doxysubsubsection{\texorpdfstring{initialise()}{initialise()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Event\+Generator\+FOAM\+::initialise (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \&}]{kinematic\+Ranges,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_interface}{Event\+Generator\+Interface}} \&}]{service }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Initialize. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_acc2bdf479cbfe912d56282aac7403b03}{EPIC\+::\+Event\+Generator\+Module}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_f_o_a_m_a1c5d0670ec5a8aab105aef3c6223fecc}\label{class_e_p_i_c_1_1_event_generator_f_o_a_m_a1c5d0670ec5a8aab105aef3c6223fecc}} 
+\index{EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}!classId@{classId}}
+\index{classId@{classId}!EPIC::EventGeneratorFOAM@{EPIC::EventGeneratorFOAM}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+Event\+Generator\+FOAM\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+Unique ID to automatically register the class in the registry. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/modules/event\+\_\+generator/Event\+Generator\+FOAM.\+h\end{DoxyCompactItemize}

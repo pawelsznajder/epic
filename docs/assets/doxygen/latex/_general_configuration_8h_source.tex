@@ -1,0 +1,59 @@
+\hypertarget{_general_configuration_8h_source}{}\doxysection{General\+Configuration.\+h}
+\label{_general_configuration_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/containers/GeneralConfiguration.h@{/Users/pawel/projects/epic/epic/include/beans/containers/GeneralConfiguration.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * GeneralConfiguration.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 9, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef BEANS\_GENERALCONFIGURATION\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define BEANS\_GENERALCONFIGURATION\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/BaseObject.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{16 \textcolor{keyword}{class }MonteCarloTask;}
+\DoxyCodeLine{17 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{GeneralConfiguration}} : \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31   \textcolor{keyword}{static} \textcolor{keyword}{const} std::string}
+\DoxyCodeLine{32       GENERAL\_CONFIGURATION\_NUMBER\_OF\_EVENTS; }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{public}:}
+\DoxyCodeLine{38   \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a848a270dab351e54cede8811e7cde27c}{GeneralConfiguration}}();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43   \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a3d7657414ea8eb22cf588aa3754b3dbf}{GeneralConfiguration}}(\textcolor{keywordtype}{size\_t} nEvents);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48   \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_aa8273ba76fdfcb6a4069f3da817366de}{GeneralConfiguration}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{GeneralConfiguration}} \&other);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{53   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a641039ff1dd0c5c0205ef81d0a64ff3f}{\string~GeneralConfiguration}}();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55   \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{60   \textcolor{keyword}{static} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{GeneralConfiguration}} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a7b9590f4a4389647f46bae2b488ef5d2}{fromTask}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{63   \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{64   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{69   \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a8585b9978ce7762b4d7028676fe9c22c}{getNEvents}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{74   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_aba71fac42c9acf1447f8d6e6d6570f1c}{setNEvents}}(\textcolor{keywordtype}{size\_t} nEvents);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keyword}{private}:}
+\DoxyCodeLine{77   \textcolor{keywordtype}{size\_t} m\_nEvents; }
+\DoxyCodeLine{78 \};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_GENERALCONFIGURATION\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,54 @@
+\hypertarget{_random_number_module_8h_source}{}\doxysection{Random\+Number\+Module.\+h}
+\label{_random_number_module_8h_source}\index{/Users/pawel/projects/epic/epic/include/modules/random\_generator/RandomNumberModule.h@{/Users/pawel/projects/epic/epic/include/modules/random\_generator/RandomNumberModule.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * RandomNumberModule.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 7, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_RANDOMGENERATOR\_RANDOMNUMBERMODULE\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_RANDOMGENERATOR\_RANDOMNUMBERMODULE\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../EpicModuleObject.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module}{RandomNumberModule}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}} \{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_a43f43ec9969aa216e5dc54a71687705a}{RANDOM\_NUMBER\_MODULE\_CLASS\_NAME}}; }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{33     \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_af428068bbbf7d7db4b1292b181a64fed}{RandomNumberModule}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_aada50a0f60308873982b5e479129f04f}{RandomNumberModule}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module}{RandomNumberModule}} \&other);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_a29b6a7405139884a5749b94215b42a39}{\string~RandomNumberModule}}();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_acc3c6fec7015ebe49f72b9da2d5f36ca}{runTest}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_a6efca0eed775a9f31a2e49faf67cc24e}{diceFlat}}() = 0;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{57     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_aca2ccb01e8f4db412a33df6578086dca}{diceFlat}}(\textcolor{keywordtype}{double} min, \textcolor{keywordtype}{double} max);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_aff0827289e9031bd2c935007e4a3ec66}{diceNormal}}() = 0;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_a4ae4c5a673f17fdcea26ed797e9a84a3}{diceNormal}}(\textcolor{keywordtype}{double} mean, \textcolor{keywordtype}{double} sigma);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{74     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} initModule();}
+\DoxyCodeLine{75     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isModuleWellConfigured();}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{82     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_ac88c973d49f0560f2d2a8fb37dfc006f}{diceNormalFromFlat}}();}
+\DoxyCodeLine{83 \};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_RANDOMGENERATOR\_RANDOMNUMBERMODULE\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,62 @@
+\hypertarget{_particle_type_8h_source}{}\doxysection{Particle\+Type.\+h}
+\label{_particle_type_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/types/ParticleType.h@{/Users/pawel/projects/epic/epic/include/beans/types/ParticleType.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BEANS\_PARTICLE\_TYPE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BEANS\_PARTICLE\_TYPE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/BaseObject.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type}{ParticleType}} : \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33   \textcolor{keyword}{enum} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{Type}} \{}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962a1f823c4fc69313051bc5ce008ff171d4}{UNDEFINED}} = 0, }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962a619a3c23523935fc7839e88aa17eb5fd}{ELECTRON}} = 11,   }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962a4ad51b0e22b9a1fffd28f6d4227e4392}{POSITRON}} = -\/11,  }
+\DoxyCodeLine{39     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962abf3507eb748979265c7b39dd925aa7fa}{MUON\_MINUS}} = 13, }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962a9b224b47c1d470e6416560ffb5aae64d}{MUON\_PLUS}} = -\/13, }
+\DoxyCodeLine{41     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962a07b390e3bffb490d38e4008c4dddc69a}{TAU\_MINUS}} = 15,  }
+\DoxyCodeLine{42     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962af35b511305d56ae422efc0cb70513530}{TAU\_PLUS}} = -\/15,  }
+\DoxyCodeLine{43     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962aeba59be5f8da697e211995976b648f90}{PHOTON}} = 22,     }
+\DoxyCodeLine{44     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962a46872f46fba62bdbad1584e7c4a340b0}{PI0}} = 111,       }
+\DoxyCodeLine{45     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962af9a99bd60e454477431f756215a3c990}{PROTON}} = 2212    }
+\DoxyCodeLine{46   \};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{51   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ae02a1e7f1fc73041c9d693f27b202b1f}{ParticleType}}();}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{57   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad0c2002e4b79eb03a5fc7724817ceeae}{ParticleType}}(\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{Type}} type);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{63   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_acf363aa53f1d0d0a69e725ea3ee00cf2}{ParticleType}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type}{ParticleType}} \&other);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68   \textcolor{keyword}{operator} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{Type}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70   std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{77   \textcolor{keyword}{static} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad379f1e6154cf7ffc129b5a8966c2de9}{fromString}}(\textcolor{keyword}{const} std::string \&str);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{82   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ae371261882c5088ba7a05691e75527de}{getMass}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{87   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_a81316676227ef4d5c9d492a3dbd2a5a6}{getCharge}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{90   \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{91   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{96   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_aa97558ff77a1426c14a6684d47bb12cb}{getType}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{101   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ab4815a1ddfa3144b128f4df735cfddf9}{setType}}(\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{Type}} type);}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keyword}{private}:}
+\DoxyCodeLine{107   \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} m\_type;}
+\DoxyCodeLine{108 \};}
+\DoxyCodeLine{109 \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_PARTICLE\_TYPE\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,120 @@
+\hypertarget{class_e_p_i_c_1_1_d_v_m_p_r_c_module}{}\doxysection{EPIC\+::DVMPRCModule Class Reference}
+\label{class_e_p_i_c_1_1_d_v_m_p_r_c_module}\index{EPIC::DVMPRCModule@{EPIC::DVMPRCModule}}
+
+
+Radiative corrections module for DVMP.  
+
+
+
+
+{\ttfamily \#include $<$DVMPRCModule.\+h$>$}
+
+Inheritance diagram for EPIC\+::DVMPRCModule\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_e_p_i_c_1_1_d_v_m_p_r_c_module}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a240897c81cd1b25c4a664adb7f03b08d}{DVMPRCModule}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_abb96c051abb254282cab02ecd834321e}{DVMPRCModule}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module}{DVMPRCModule}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a8eba18b0c84b9a9d98effc772b98e58c}{$\sim$\+DVMPRCModule}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a9463eafd96ffaa282c5cdfc559d59b09}{run\+Test}} () const
+\item 
+virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic}{DVMPKinematic}} $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_ac2912e3454cd37c3686da0bdf00ed433}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic}{DVMPKinematic}} \&obs\+Kin, const std\+::vector$<$ double $>$ \&par) const =0
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a36956d84066e564afc3c05f822a85828}{update\+Event}} (\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event, const std\+::vector$<$ double $>$ \&par) const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_r_c_module_abf76599fb60e8b7a80e43fce9ab04d84}\label{class_e_p_i_c_1_1_d_v_m_p_r_c_module_abf76599fb60e8b7a80e43fce9ab04d84}} 
+static const std\+::string {\bfseries DVMP\+\_\+\+RC\+\_\+\+MODULE\+\_\+\+CLASS\+\_\+\+NAME}
+\begin{DoxyCompactList}\small\item\em Class name used in parsing XML. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a0d9244416c999deb5f3197d6cf0c54bf}\label{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a0d9244416c999deb5f3197d6cf0c54bf}} 
+virtual void {\bfseries init\+Module} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_r_c_module_aa34ebf7ff7dcc19d1b0c9128102c4a85}\label{class_e_p_i_c_1_1_d_v_m_p_r_c_module_aa34ebf7ff7dcc19d1b0c9128102c4a85}} 
+virtual void {\bfseries is\+Module\+Well\+Configured} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Radiative corrections module for DVMP. 
+
+This class defines radiative corrections module for DVMP process. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a240897c81cd1b25c4a664adb7f03b08d}\label{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a240897c81cd1b25c4a664adb7f03b08d}} 
+\index{EPIC::DVMPRCModule@{EPIC::DVMPRCModule}!DVMPRCModule@{DVMPRCModule}}
+\index{DVMPRCModule@{DVMPRCModule}!EPIC::DVMPRCModule@{EPIC::DVMPRCModule}}
+\doxysubsubsection{\texorpdfstring{DVMPRCModule()}{DVMPRCModule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+DVMPRCModule\+::\+DVMPRCModule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_r_c_module_abb96c051abb254282cab02ecd834321e}\label{class_e_p_i_c_1_1_d_v_m_p_r_c_module_abb96c051abb254282cab02ecd834321e}} 
+\index{EPIC::DVMPRCModule@{EPIC::DVMPRCModule}!DVMPRCModule@{DVMPRCModule}}
+\index{DVMPRCModule@{DVMPRCModule}!EPIC::DVMPRCModule@{EPIC::DVMPRCModule}}
+\doxysubsubsection{\texorpdfstring{DVMPRCModule()}{DVMPRCModule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+DVMPRCModule\+::\+DVMPRCModule (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module}{DVMPRCModule}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a8eba18b0c84b9a9d98effc772b98e58c}\label{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a8eba18b0c84b9a9d98effc772b98e58c}} 
+\index{EPIC::DVMPRCModule@{EPIC::DVMPRCModule}!````~DVMPRCModule@{$\sim$DVMPRCModule}}
+\index{````~DVMPRCModule@{$\sim$DVMPRCModule}!EPIC::DVMPRCModule@{EPIC::DVMPRCModule}}
+\doxysubsubsection{\texorpdfstring{$\sim$DVMPRCModule()}{~DVMPRCModule()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+DVMPRCModule\+::$\sim$\+DVMPRCModule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_r_c_module_ac2912e3454cd37c3686da0bdf00ed433}\label{class_e_p_i_c_1_1_d_v_m_p_r_c_module_ac2912e3454cd37c3686da0bdf00ed433}} 
+\index{EPIC::DVMPRCModule@{EPIC::DVMPRCModule}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!EPIC::DVMPRCModule@{EPIC::DVMPRCModule}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic}{DVMPKinematic}} $>$ EPIC\+::\+DVMPRCModule\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic}{DVMPKinematic}} \&}]{obs\+Kin,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get radiative function, true experimental conditions and kinematics. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_a1af6111ac8c044031e011169f9a25db3}{EPIC\+::\+RCModule$<$ DVMPKinematic $>$}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_null_ab30e7da627f30723f88b93ad5deaa459}{EPIC\+::\+DVMPRCNull}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a9463eafd96ffaa282c5cdfc559d59b09}\label{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a9463eafd96ffaa282c5cdfc559d59b09}} 
+\index{EPIC::DVMPRCModule@{EPIC::DVMPRCModule}!runTest@{runTest}}
+\index{runTest@{runTest}!EPIC::DVMPRCModule@{EPIC::DVMPRCModule}}
+\doxysubsubsection{\texorpdfstring{runTest()}{runTest()}}
+{\footnotesize\ttfamily virtual bool EPIC\+::\+DVMPRCModule\+::run\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Definition of test. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a40142efadbdc81511a75586d8ae41e43}{EPIC\+::\+Epic\+Module\+Object}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a36956d84066e564afc3c05f822a85828}\label{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a36956d84066e564afc3c05f822a85828}} 
+\index{EPIC::DVMPRCModule@{EPIC::DVMPRCModule}!updateEvent@{updateEvent}}
+\index{updateEvent@{updateEvent}!EPIC::DVMPRCModule@{EPIC::DVMPRCModule}}
+\doxysubsubsection{\texorpdfstring{updateEvent()}{updateEvent()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+DVMPRCModule\+::update\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&}]{event,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Update event. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_aff465e81cd5888a62d048f64b7fe72bd}{EPIC\+::\+RCModule$<$ DVMPKinematic $>$}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_null_a6515cc0c8c33e2aea3c61e5abf1c3eee}{EPIC\+::\+DVMPRCNull}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/modules/radiative\+\_\+corrections/\+DVMP/DVMPRCModule.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,51 @@
+\hypertarget{_t_c_s_r_c_null_8h_source}{}\doxysection{TCSRCNull.\+h}
+\label{_t_c_s_r_c_null_8h_source}\index{/Users/pawel/projects/epic/epic/include/modules/radiative\_corrections/TCS/TCSRCNull.h@{/Users/pawel/projects/epic/epic/include/modules/radiative\_corrections/TCS/TCSRCNull.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * TCSRCNull.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Jun 13, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ) }}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_RADIATIVECORRECTIONS\_TCS\_TCSRCNULL\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_RADIATIVECORRECTIONS\_TCS\_TCSRCNULL\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}../../../beans/containers/DDVCSKinematic.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../../../beans/containers/ExperimentalConditions.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}TCSRCModule.h"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null}{TCSRCNull}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_module}{TCSRCModule}} \{}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_a93e40f470db1d241e18eed5bca002937}{classId}}; }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_a178347744d4e065d1ada70073b61e0c2}{TCSRCNull}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43     \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_aee20570afe572c62704d8589b64b2eb2}{TCSRCNull}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null}{TCSRCNull}} \&other);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_a526d82fbf75009c896251d5e06df0d0e}{\string~TCSRCNull}}();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null}{TCSRCNull}} *clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} std::tuple<double, ExperimentalConditions, DDVCSKinematic> \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_aef07eaf43d84ce669793a4542e0bf867}{evaluate}}(}
+\DoxyCodeLine{53             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}}\& experimentalConditions,}
+\DoxyCodeLine{54             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}}\& obsKin, \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_af6e2b9c6f7b21645a5e3cd81ed6507de}{updateEvent}}(\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}}\& event,}
+\DoxyCodeLine{57             \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const};}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_RADIATIVECORRECTIONS\_TCS\_TCSRCNULL\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

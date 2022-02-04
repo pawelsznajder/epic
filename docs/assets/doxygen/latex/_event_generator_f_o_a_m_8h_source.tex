@@ -1,0 +1,89 @@
+\hypertarget{_event_generator_f_o_a_m_8h_source}{}\doxysection{Event\+Generator\+FOAM.\+h}
+\label{_event_generator_f_o_a_m_8h_source}\index{/Users/pawel/projects/epic/epic/include/modules/event\_generator/EventGeneratorFOAM.h@{/Users/pawel/projects/epic/epic/include/modules/event\_generator/EventGeneratorFOAM.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * EventGeneratorFOAM.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 15, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ) }}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_EVENT\_GENERATOR\_EVENTGENERATORFOAM\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_EVENT\_GENERATOR\_EVENTGENERATORFOAM\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <ElementaryUtils/parameters/Parameters.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <Rtypes.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <TFoamIntegrand.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../../beans/containers/KinematicRange.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}EventGeneratorModule.h"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }TFile;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }TFoam;}
+\DoxyCodeLine{25 \textcolor{keyword}{class }TRandom;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{36 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m}{EventGeneratorFOAM}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{EventGeneratorModule}}, \textcolor{keyword}{public} TFoamIntegrand \{}
+\DoxyCodeLine{37 \textcolor{keyword}{public}:}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_ae9d8f3226ecb4bd103ed3baf9ef03183}{PARAMETER\_NAME\_NCELLS}}; }
+\DoxyCodeLine{39     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_aa16faba5fc9b3e7fc7d42a61baa8a6f1}{PARAMETER\_NAME\_NSAMPL}}; }
+\DoxyCodeLine{40     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a5d31d2007a953753c402d4e23571aa5a}{PARAMETER\_NAME\_NBIN}}; }
+\DoxyCodeLine{41     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a1f6790faf2d391eb9267f46f7ed7a56e}{PARAMETER\_NAME\_OPTREJ}}; }
+\DoxyCodeLine{42     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_afeaa5da5016b1cfd4f26a969d9d9cf97}{PARAMETER\_NAME\_OPTDRIVE}}; }
+\DoxyCodeLine{43     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_adf3e70264a24305e9811ca4e0d3e8e05}{PARAMETER\_NAME\_EVPREBIN}}; }
+\DoxyCodeLine{44     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a7d1133068517b6452ec444e2b4dedac8}{PARAMETER\_NAME\_CHAT}}; }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a1c5d0670ec5a8aab105aef3c6223fecc}{classId}}; }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{52     \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a71461b41993be7ecb71dcb24dcd4daf3}{EventGeneratorFOAM}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57     \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a41e9fb752434e586444953715ef6c742}{EventGeneratorFOAM}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m}{EventGeneratorFOAM}} \&other);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{62     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a17a9dafbeb1d19ea332438f01b9f1326}{\string~EventGeneratorFOAM}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m}{EventGeneratorFOAM}} *clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{65     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} configure(\textcolor{keyword}{const} ElemUtils::Parameters \&parameters);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a0347f1d79a3515f4c431d9bcc4f27eb3}{initialise}}(\textcolor{keyword}{const} std::vector<KinematicRange> \&kinematicRanges,}
+\DoxyCodeLine{68             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_interface}{EventGeneratorInterface}} \&service);}
+\DoxyCodeLine{69     \textcolor{keyword}{virtual} std::pair<std::vector<double>, \textcolor{keywordtype}{double}> \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_af724d2ba2d75ae83883a1095779fe399}{generateEvent}}();}
+\DoxyCodeLine{70     \textcolor{keyword}{virtual} std::pair<double, double> \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a11fca8778ef7abf4ae57da84778cc5cd}{getIntegral}}();}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keyword}{virtual} Double\_t Density(Int\_t ndim, Double\_t *);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{keyword}{private}:}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{79     \textcolor{keywordtype}{double} scaleValue(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& range, \textcolor{keywordtype}{double} value) \textcolor{keyword}{const};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{double} unscaleValue(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& range, \textcolor{keywordtype}{double} value) \textcolor{keyword}{const};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{89     \textcolor{keywordtype}{double} getVolume() \textcolor{keyword}{const};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     TFoam *m\_pFoam;     }
+\DoxyCodeLine{92     TRandom *m\_pRandom; }
+\DoxyCodeLine{93     TFile* m\_rootFile; }
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_interface}{EventGeneratorInterface}} *m\_pEventGeneratorInterface; }
+\DoxyCodeLine{99     std::vector<KinematicRange> m\_kinematicRanges; }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{keywordtype}{size\_t} m\_nCells; }
+\DoxyCodeLine{102     \textcolor{keywordtype}{size\_t} m\_nSampl; }
+\DoxyCodeLine{103     \textcolor{keywordtype}{size\_t} m\_nBin;   }
+\DoxyCodeLine{104     \textcolor{keywordtype}{size\_t} m\_OptRej; }
+\DoxyCodeLine{105     \textcolor{keywordtype}{size\_t} m\_OptDrive; }
+\DoxyCodeLine{106     \textcolor{keywordtype}{size\_t} m\_EvPerBin; }
+\DoxyCodeLine{107     \textcolor{keywordtype}{size\_t} m\_Chat;     }
+\DoxyCodeLine{108 \};}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_EVENT\_GENERATOR\_EVENTGENERATORFOAM\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

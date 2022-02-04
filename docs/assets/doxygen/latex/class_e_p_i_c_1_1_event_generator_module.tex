@@ -1,0 +1,151 @@
+\hypertarget{class_e_p_i_c_1_1_event_generator_module}{}\doxysection{EPIC\+::Event\+Generator\+Module Class Reference}
+\label{class_e_p_i_c_1_1_event_generator_module}\index{EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}}
+
+
+Definition of module for generation of events from a given distribution.  
+
+
+
+
+{\ttfamily \#include $<$Event\+Generator\+Module.\+h$>$}
+
+Inheritance diagram for EPIC\+::Event\+Generator\+Module\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_e_p_i_c_1_1_event_generator_module}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_af3031210f333163984873abb7826a661}{Event\+Generator\+Module}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_a70285c34a964e1c4463c6e6acac6c1ea}{Event\+Generator\+Module}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_a79fd84e81e5ce4941c3f20d12c6afb6d}{$\sim$\+Event\+Generator\+Module}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_a7bd1150513db6ac3c5fd872d7451a189}\label{class_e_p_i_c_1_1_event_generator_module_a7bd1150513db6ac3c5fd872d7451a189}} 
+virtual void {\bfseries configure} (const Elem\+Utils\+::\+Parameters \&parameters)
+\item 
+virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_aadb199045a737b783faaee09753b736a}{run\+Test}} () const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_acc2bdf479cbfe912d56282aac7403b03}{initialise}} (const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \&kinematic\+Ranges, const \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_interface}{Event\+Generator\+Interface}} \&service)=0
+\item 
+virtual std\+::pair$<$ std\+::vector$<$ double $>$, double $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_add238db567cd2f8ac43c044d384e8613}{generate\+Event}} ()=0
+\item 
+virtual std\+::pair$<$ double, double $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_a2489f2973b8fbcfb286df8a67bb0e11d}{get\+Integral}} ()=0
+\item 
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_a8cb03315de22e2ca8a6a9d231e3d3dce}{get\+Init\+State\+Path}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module_a65368feb7a46b83cae58a754e3c76c01}{set\+Init\+State\+Path}} (const std\+::string \&init\+State\+Path)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_a6a5739f5f9a465f9b99fd8d2eedb92eb}\label{class_e_p_i_c_1_1_event_generator_module_a6a5739f5f9a465f9b99fd8d2eedb92eb}} 
+static const std\+::string {\bfseries EVENT\+\_\+\+GENERATOR\+\_\+\+MODULE\+\_\+\+CLASS\+\_\+\+NAME}
+\begin{DoxyCompactList}\small\item\em Class name used in parsing XML. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_aa2e3750803762d7ba1946de0632abcb8}\label{class_e_p_i_c_1_1_event_generator_module_aa2e3750803762d7ba1946de0632abcb8}} 
+static const std\+::string {\bfseries EVENT\+\_\+\+GENERATOR\+\_\+\+MODULE\+\_\+\+INIT\+\_\+\+STATE\+\_\+\+PATH}
+\begin{DoxyCompactList}\small\item\em String used to set path to init state file type via XML scenario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_aa37b0e5dec369927ce7c9b1dd25e5920}\label{class_e_p_i_c_1_1_event_generator_module_aa37b0e5dec369927ce7c9b1dd25e5920}} 
+virtual void {\bfseries init\+Module} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_aa56d759cd2634a6001490619e8ea2890}\label{class_e_p_i_c_1_1_event_generator_module_aa56d759cd2634a6001490619e8ea2890}} 
+virtual void {\bfseries is\+Module\+Well\+Configured} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_a9f83b2dca98d0c0d666e7edad449f439}\label{class_e_p_i_c_1_1_event_generator_module_a9f83b2dca98d0c0d666e7edad449f439}} 
+std\+::string {\bfseries m\+\_\+init\+State\+Path}
+\begin{DoxyCompactList}\small\item\em Path to file to either load (if exist) or save (if not) initial state of generator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definition of module for generation of events from a given distribution. 
+
+This class provides a definition of modules used to generate events from given distributions. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_af3031210f333163984873abb7826a661}\label{class_e_p_i_c_1_1_event_generator_module_af3031210f333163984873abb7826a661}} 
+\index{EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}!EventGeneratorModule@{EventGeneratorModule}}
+\index{EventGeneratorModule@{EventGeneratorModule}!EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}}
+\doxysubsubsection{\texorpdfstring{EventGeneratorModule()}{EventGeneratorModule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Event\+Generator\+Module\+::\+Event\+Generator\+Module (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_a70285c34a964e1c4463c6e6acac6c1ea}\label{class_e_p_i_c_1_1_event_generator_module_a70285c34a964e1c4463c6e6acac6c1ea}} 
+\index{EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}!EventGeneratorModule@{EventGeneratorModule}}
+\index{EventGeneratorModule@{EventGeneratorModule}!EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}}
+\doxysubsubsection{\texorpdfstring{EventGeneratorModule()}{EventGeneratorModule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Event\+Generator\+Module\+::\+Event\+Generator\+Module (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_a79fd84e81e5ce4941c3f20d12c6afb6d}\label{class_e_p_i_c_1_1_event_generator_module_a79fd84e81e5ce4941c3f20d12c6afb6d}} 
+\index{EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}!````~EventGeneratorModule@{$\sim$EventGeneratorModule}}
+\index{````~EventGeneratorModule@{$\sim$EventGeneratorModule}!EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}}
+\doxysubsubsection{\texorpdfstring{$\sim$EventGeneratorModule()}{~EventGeneratorModule()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+Event\+Generator\+Module\+::$\sim$\+Event\+Generator\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_add238db567cd2f8ac43c044d384e8613}\label{class_e_p_i_c_1_1_event_generator_module_add238db567cd2f8ac43c044d384e8613}} 
+\index{EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}!generateEvent@{generateEvent}}
+\index{generateEvent@{generateEvent}!EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}}
+\doxysubsubsection{\texorpdfstring{generateEvent()}{generateEvent()}}
+{\footnotesize\ttfamily virtual std\+::pair$<$ std\+::vector$<$ double $>$, double $>$ EPIC\+::\+Event\+Generator\+Module\+::generate\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Generate event. 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_af724d2ba2d75ae83883a1095779fe399}{EPIC\+::\+Event\+Generator\+FOAM}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_a8cb03315de22e2ca8a6a9d231e3d3dce}\label{class_e_p_i_c_1_1_event_generator_module_a8cb03315de22e2ca8a6a9d231e3d3dce}} 
+\index{EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}!getInitStatePath@{getInitStatePath}}
+\index{getInitStatePath@{getInitStatePath}!EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}}
+\doxysubsubsection{\texorpdfstring{getInitStatePath()}{getInitStatePath()}}
+{\footnotesize\ttfamily const std\+::string \& EPIC\+::\+Event\+Generator\+Module\+::get\+Init\+State\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get path to state file. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_a2489f2973b8fbcfb286df8a67bb0e11d}\label{class_e_p_i_c_1_1_event_generator_module_a2489f2973b8fbcfb286df8a67bb0e11d}} 
+\index{EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}!getIntegral@{getIntegral}}
+\index{getIntegral@{getIntegral}!EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}}
+\doxysubsubsection{\texorpdfstring{getIntegral()}{getIntegral()}}
+{\footnotesize\ttfamily virtual std\+::pair$<$ double, double $>$ EPIC\+::\+Event\+Generator\+Module\+::get\+Integral (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get integral over distribution and integrated error. 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a11fca8778ef7abf4ae57da84778cc5cd}{EPIC\+::\+Event\+Generator\+FOAM}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_acc2bdf479cbfe912d56282aac7403b03}\label{class_e_p_i_c_1_1_event_generator_module_acc2bdf479cbfe912d56282aac7403b03}} 
+\index{EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}!initialise@{initialise}}
+\index{initialise@{initialise}!EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}}
+\doxysubsubsection{\texorpdfstring{initialise()}{initialise()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Event\+Generator\+Module\+::initialise (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \&}]{kinematic\+Ranges,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_interface}{Event\+Generator\+Interface}} \&}]{service }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Initialize. 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_f_o_a_m_a0347f1d79a3515f4c431d9bcc4f27eb3}{EPIC\+::\+Event\+Generator\+FOAM}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_aadb199045a737b783faaee09753b736a}\label{class_e_p_i_c_1_1_event_generator_module_aadb199045a737b783faaee09753b736a}} 
+\index{EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}!runTest@{runTest}}
+\index{runTest@{runTest}!EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}}
+\doxysubsubsection{\texorpdfstring{runTest()}{runTest()}}
+{\footnotesize\ttfamily virtual bool EPIC\+::\+Event\+Generator\+Module\+::run\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Definition of test. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a40142efadbdc81511a75586d8ae41e43}{EPIC\+::\+Epic\+Module\+Object}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_generator_module_a65368feb7a46b83cae58a754e3c76c01}\label{class_e_p_i_c_1_1_event_generator_module_a65368feb7a46b83cae58a754e3c76c01}} 
+\index{EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}!setInitStatePath@{setInitStatePath}}
+\index{setInitStatePath@{setInitStatePath}!EPIC::EventGeneratorModule@{EPIC::EventGeneratorModule}}
+\doxysubsubsection{\texorpdfstring{setInitStatePath()}{setInitStatePath()}}
+{\footnotesize\ttfamily void EPIC\+::\+Event\+Generator\+Module\+::set\+Init\+State\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{init\+State\+Path }\end{DoxyParamCaption})}
+
+Set path to state file. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/modules/event\+\_\+generator/Event\+Generator\+Module.\+h\end{DoxyCompactItemize}

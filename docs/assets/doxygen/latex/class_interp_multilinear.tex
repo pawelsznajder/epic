@@ -1,0 +1,41 @@
+\hypertarget{class_interp_multilinear}{}\doxysection{Interp\+Multilinear\texorpdfstring{$<$}{<} N, T, Copy\+Data, Continuous, Array\+Ref\+CountT, Grid\+Ref\+CountT \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_interp_multilinear}\index{InterpMultilinear$<$ N, T, CopyData, Continuous, ArrayRefCountT, GridRefCountT $>$@{InterpMultilinear$<$ N, T, CopyData, Continuous, ArrayRefCountT, GridRefCountT $>$}}
+Inheritance diagram for Interp\+Multilinear\texorpdfstring{$<$}{<} N, T, Copy\+Data, Continuous, Array\+Ref\+CountT, Grid\+Ref\+CountT \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_interp_multilinear}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_interp_multilinear_a761e04ff05035d465bc4ffe0bc386b48}\label{class_interp_multilinear_a761e04ff05035d465bc4ffe0bc386b48}} 
+typedef \mbox{\hyperlink{class_n_d_interpolator}{NDInterpolator}}$<$ N, T, Copy\+Data, Continuous, Array\+Ref\+CountT, Grid\+Ref\+CountT $>$ {\bfseries super}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_interp_multilinear_accf5e3e75c18a6437918ddaa0717d7d9}\label{class_interp_multilinear_accf5e3e75c18a6437918ddaa0717d7d9}} 
+{\footnotesize template$<$class Iter\+T1 , class Iter\+T2 , class Iter\+T3 $>$ }\\{\bfseries Interp\+Multilinear} (Iter\+T1 grids\+\_\+begin, Iter\+T2 grids\+\_\+len\+\_\+begin, Iter\+T3 f\+\_\+begin, Iter\+T3 f\+\_\+end)
+\item 
+\mbox{\Hypertarget{class_interp_multilinear_ac1ea333b0b27ff0f68da4db56ff858f0}\label{class_interp_multilinear_ac1ea333b0b27ff0f68da4db56ff858f0}} 
+{\footnotesize template$<$class Iter\+T1 , class Iter\+T2 , class Iter\+T3 , class Ref\+Count\+IterT $>$ }\\{\bfseries Interp\+Multilinear} (Iter\+T1 grids\+\_\+begin, Iter\+T2 grids\+\_\+len\+\_\+begin, Iter\+T3 f\+\_\+begin, Iter\+T3 f\+\_\+end, Array\+Ref\+CountT \&refF, Ref\+Count\+IterT ref\+\_\+begins)
+\item 
+\mbox{\Hypertarget{class_interp_multilinear_a1afa6a587ec3150129f267a26b1822ac}\label{class_interp_multilinear_a1afa6a587ec3150129f267a26b1822ac}} 
+{\footnotesize template$<$class IterT $>$ }\\T {\bfseries interp} (IterT x\+\_\+begin) const
+\item 
+\mbox{\Hypertarget{class_interp_multilinear_a4cd2f18a605bbf912bf5432e1328d0dc}\label{class_interp_multilinear_a4cd2f18a605bbf912bf5432e1328d0dc}} 
+{\footnotesize template$<$class Iter\+T1 , class Iter\+T2 $>$ }\\void {\bfseries interp\+\_\+vec} (int n, Iter\+T1 coord\+\_\+iter\+\_\+begin, Iter\+T1 coord\+\_\+iter\+\_\+end, Iter\+T2 i\+\_\+result) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_interp_multilinear_ad4c94090ddcb6b4e6d6c1c0a19afae6a}\label{class_interp_multilinear_ad4c94090ddcb6b4e6d6c1c0a19afae6a}} 
+{\footnotesize template$<$class Iter\+T1 , class Iter\+T2 $>$ }\\static T {\bfseries linterp\+\_\+nd\+\_\+unitcube} (Iter\+T1 f\+\_\+begin, Iter\+T1 f\+\_\+end, Iter\+T2 xi\+\_\+begin, Iter\+T2 xi\+\_\+end)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/algorithms/interpolation/linterp/linterp.\+h\end{DoxyCompactItemize}

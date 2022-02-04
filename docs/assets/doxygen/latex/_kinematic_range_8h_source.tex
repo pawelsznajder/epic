@@ -1,0 +1,72 @@
+\hypertarget{_kinematic_range_8h_source}{}\doxysection{Kinematic\+Range.\+h}
+\label{_kinematic_range_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/containers/KinematicRange.h@{/Users/pawel/projects/epic/epic/include/beans/containers/KinematicRange.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * KinematicRange.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 8, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef BEANS\_KINEMATICRANGE\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define BEANS\_KINEMATICRANGE\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/BaseObject.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{17 \textcolor{keyword}{class }MonteCarloTask;}
+\DoxyCodeLine{18 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}: \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a53299a2c53ae830c955d868f24243c7b}{KinematicRange}}();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a19dd0b5175cab30ad92a641ba5c2cc67}{KinematicRange}}(\textcolor{keywordtype}{double} min, \textcolor{keywordtype}{double} max);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{45     \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a2c0b4c98c0295fcd6d6d2e0df2ee0625}{KinematicRange}}(\textcolor{keyword}{const} std::pair<double, double> \&minMax);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50     \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a5198c58273e67c2ed20e1dbd8a018ca9}{KinematicRange}}(\textcolor{keyword}{const} std::vector<double> \&minMax);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{55     \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a5730d0061f825b4175d6076424b97db1}{KinematicRange}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&other);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{60     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a1d73786a0d80fbc099010b2c07802468}{\string~KinematicRange}}();}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a8c158b12ea7beffc2c59a787feb9e954}{inRange}}(\textcolor{keywordtype}{double} value) \textcolor{keyword}{const};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{70 \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{71 \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{76     \textcolor{keyword}{const} std::pair<double, double> \&\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a1ab027a50a45f53bc4255a0ed59be384}{getMinMax}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a230aacf5cfac326ee006c5319229115c}{getMin}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_ae6e2d12d1cdb532ec92769576b141518}{getMax}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a2fffc269423bcb1852cf60967faef29e}{setMinMax}}(\textcolor{keywordtype}{double} min, \textcolor{keywordtype}{double} max);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{96     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_ae237100c66ad22da4acb5567f1f065e1}{setMinMax}}(\textcolor{keyword}{const} std::pair<double, double> \&minMax);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a2d7b3803b875ba8bf441f65e50f02ccc}{setMinMax}}(\textcolor{keyword}{const} std::vector<double> \&minMax);}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keyword}{private}:}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{108     \textcolor{keywordtype}{void} checkIfValid() \textcolor{keyword}{const};}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     std::pair<double, double> m\_minMax; }
+\DoxyCodeLine{111 \};}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_KINEMATICRANGE\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,52 @@
+\hypertarget{_axis_type_8h_source}{}\doxysection{Axis\+Type.\+h}
+\label{_axis_type_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/types/AxisType.h@{/Users/pawel/projects/epic/epic/include/beans/types/AxisType.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BEANS\_AXIS\_TYPE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BEANS\_AXIS\_TYPE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/BaseObject.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_axis_type}{AxisType}} : \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32   \textcolor{keyword}{enum} \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252}{Type}} \{}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252ac5f401fba8ba35e4a47164574f968480}{UNDEFINED}} = 0, }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252af60da7fa0b384de9e7cc8ec8ff872c04}{X}} = 1, }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252a866746e89e551c60c1b9d4c9afcb4286}{Y}} = 2, }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252a3e5329a138b1450798fb47fe5f4bb812}{Z}} = 3  }
+\DoxyCodeLine{39   \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44   \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a5cb88541c9db7e4f0443eddd79b1df6b}{AxisType}}();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{49   \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a6d84c81bd2355f3102a2767bd3e84bf1}{AxisType}}(\mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252}{Type}} type);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{54   \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a46a560ae234b0294ab8dfd2fe32452b7}{AxisType}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type}{AxisType}} \&other);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{59   \textcolor{keyword}{operator} \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252}{Type}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61   \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{66   \textcolor{keyword}{static} \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252}{AxisType::Type}} \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a75c97c3db84fec98078417605c96a18e}{fromString}}(\textcolor{keyword}{const} std::string \&str);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{69   \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{70   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{75   \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252}{AxisType::Type}} \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a0ec1446b0f70b40aa66238ae62c3fa78}{getType}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{80   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a7dedc8e97d1464c97e8207ba6ce3ea1d}{setType}}(\mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252}{Type}} type);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{keyword}{private}:}
+\DoxyCodeLine{86   \mbox{\hyperlink{class_e_p_i_c_1_1_axis_type_a8cb637bf1b8d6243066b80d6f0609252}{AxisType::Type}} m\_type;}
+\DoxyCodeLine{87 \};}
+\DoxyCodeLine{88 \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_AXIS\_TYPE\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

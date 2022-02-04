@@ -1,0 +1,178 @@
+\hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3}{}\doxysection{EPIC\+::Writer\+Hep\+MC3 Class Reference}
+\label{class_e_p_i_c_1_1_writer_hep_m_c3}\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+
+
+\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} writer based on Hep\+MC3.  
+
+
+
+
+{\ttfamily \#include $<$Writer\+Hep\+MC3.\+h$>$}
+
+Inheritance diagram for EPIC\+::Writer\+Hep\+MC3\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_e_p_i_c_1_1_writer_hep_m_c3}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_af48212cf452204028d6f20ea5b236459}{Writer\+Hep\+MC3}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_acd94f6ed8c25636e4de2407cfc041a17}{Writer\+Hep\+MC3}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3}{Writer\+Hep\+MC3}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_a683d200cf08298f2084f2a966ba1d733}{$\sim$\+Writer\+Hep\+MC3}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ad63562a3e098cbb32556949b0c8c13e4}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ad63562a3e098cbb32556949b0c8c13e4}} 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3}{Writer\+Hep\+MC3}} $\ast$ {\bfseries clone} () const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_a01ac7756ded28fd1c2ed0d989ee6a5f6}{configure}} (const Elem\+Utils\+::\+Parameters \&parameters)
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_a91b4d7b5e3d22278c81d6de2b966d0c5}{open}} ()
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_acd4347d2120ad9cae69a910ad178ae39}{save\+Generation\+Information}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&generation\+Information)
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_a7b7bd75b590d4a7a1c7222d1010c0f32}{close}} ()
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_a6a76d5197e1035b815c36300dd667b25}{write}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event)
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ab594cf26cbf7f62dcdaba3c486379fca}{write}} (const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} $>$ \&events)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_type_a9d5bc75a197fe2b97c9e1c26a6512072}{Writer\+Hep\+MC3\+Type\+::\+Type}} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_a6611c24f6f41634f67fc1aa3389a3c0f}{get\+Writer\+Hep\+MC3\+Type}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_a21a2b3e03dcb32652be12ee1dc5d5b41}{set\+Writer\+Hep\+MC3\+Type}} (\mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_type_a9d5bc75a197fe2b97c9e1c26a6512072}{Writer\+Hep\+MC3\+Type\+::\+Type}} writer\+Hep\+Mc3\+Type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::string \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_a2763bf26378bd3a336e846e0be3b17c5}{PARAMETER\+\_\+\+NAME\+\_\+\+HEPMC3\+\_\+\+WRITER\+\_\+\+TYPE}}
+\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ac2afd8b3221990c5dfa9cd4649cd038e}{class\+Id}}
+\begin{DoxyCompactList}\small\item\em Writer\+Hep\+MC3\+::configure(). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} writer based on Hep\+MC3. 
+
+Module dedicated to writing events. It is based on Hep\+MC3 library. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_af48212cf452204028d6f20ea5b236459}\label{class_e_p_i_c_1_1_writer_hep_m_c3_af48212cf452204028d6f20ea5b236459}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!WriterHepMC3@{WriterHepMC3}}
+\index{WriterHepMC3@{WriterHepMC3}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{WriterHepMC3()}{WriterHepMC3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Writer\+Hep\+MC3\+::\+Writer\+Hep\+MC3 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_acd94f6ed8c25636e4de2407cfc041a17}\label{class_e_p_i_c_1_1_writer_hep_m_c3_acd94f6ed8c25636e4de2407cfc041a17}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!WriterHepMC3@{WriterHepMC3}}
+\index{WriterHepMC3@{WriterHepMC3}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{WriterHepMC3()}{WriterHepMC3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Writer\+Hep\+MC3\+::\+Writer\+Hep\+MC3 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3}{Writer\+Hep\+MC3}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_a683d200cf08298f2084f2a966ba1d733}\label{class_e_p_i_c_1_1_writer_hep_m_c3_a683d200cf08298f2084f2a966ba1d733}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!````~WriterHepMC3@{$\sim$WriterHepMC3}}
+\index{````~WriterHepMC3@{$\sim$WriterHepMC3}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{$\sim$WriterHepMC3()}{~WriterHepMC3()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+Writer\+Hep\+MC3\+::$\sim$\+Writer\+Hep\+MC3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_a7b7bd75b590d4a7a1c7222d1010c0f32}\label{class_e_p_i_c_1_1_writer_hep_m_c3_a7b7bd75b590d4a7a1c7222d1010c0f32}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!close@{close}}
+\index{close@{close}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Close file. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_adea38f3f36abb4f693c254b5c987535f}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_a01ac7756ded28fd1c2ed0d989ee6a5f6}\label{class_e_p_i_c_1_1_writer_hep_m_c3_a01ac7756ded28fd1c2ed0d989ee6a5f6}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!configure@{configure}}
+\index{configure@{configure}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{configure()}{configure()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+::configure (\begin{DoxyParamCaption}\item[{const Elem\+Utils\+::\+Parameters \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_a6611c24f6f41634f67fc1aa3389a3c0f}\label{class_e_p_i_c_1_1_writer_hep_m_c3_a6611c24f6f41634f67fc1aa3389a3c0f}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!getWriterHepMC3Type@{getWriterHepMC3Type}}
+\index{getWriterHepMC3Type@{getWriterHepMC3Type}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{getWriterHepMC3Type()}{getWriterHepMC3Type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_type_a9d5bc75a197fe2b97c9e1c26a6512072}{Writer\+Hep\+MC3\+Type\+::\+Type}} EPIC\+::\+Writer\+Hep\+MC3\+::get\+Writer\+Hep\+MC3\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get Hep\+MC3 writer type. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_a91b4d7b5e3d22278c81d6de2b966d0c5}\label{class_e_p_i_c_1_1_writer_hep_m_c3_a91b4d7b5e3d22278c81d6de2b966d0c5}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!open@{open}}
+\index{open@{open}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+::open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Open file. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_ad54c98a083e702c4f19e8e8f20dae3b4}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_acd4347d2120ad9cae69a910ad178ae39}\label{class_e_p_i_c_1_1_writer_hep_m_c3_acd4347d2120ad9cae69a910ad178ae39}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!saveGenerationInformation@{saveGenerationInformation}}
+\index{saveGenerationInformation@{saveGenerationInformation}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{saveGenerationInformation()}{saveGenerationInformation()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+::save\+Generation\+Information (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&}]{generation\+Information }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Save run information. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_ab08eec41a1c75a9fad7df6c082243223}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_a21a2b3e03dcb32652be12ee1dc5d5b41}\label{class_e_p_i_c_1_1_writer_hep_m_c3_a21a2b3e03dcb32652be12ee1dc5d5b41}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!setWriterHepMC3Type@{setWriterHepMC3Type}}
+\index{setWriterHepMC3Type@{setWriterHepMC3Type}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{setWriterHepMC3Type()}{setWriterHepMC3Type()}}
+{\footnotesize\ttfamily void EPIC\+::\+Writer\+Hep\+MC3\+::set\+Writer\+Hep\+MC3\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_type_a9d5bc75a197fe2b97c9e1c26a6512072}{Writer\+Hep\+MC3\+Type\+::\+Type}}}]{writer\+Hep\+Mc3\+Type }\end{DoxyParamCaption})}
+
+Set Hep\+MC3 writer type. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_a6a76d5197e1035b815c36300dd667b25}\label{class_e_p_i_c_1_1_writer_hep_m_c3_a6a76d5197e1035b815c36300dd667b25}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!write@{write}}
+\index{write@{write}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write single event (file must be open). 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a7663bea189a270126c5b8c9d7ab54959}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ab594cf26cbf7f62dcdaba3c486379fca}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ab594cf26cbf7f62dcdaba3c486379fca}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!write@{write}}
+\index{write@{write}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+::write (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} $>$ \&}]{events }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write vector of events (file must be open). 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a9179b564aaa81c53fbe47bb99dc6eb49}{EPIC\+::\+Writer\+Module}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ac2afd8b3221990c5dfa9cd4649cd038e}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ac2afd8b3221990c5dfa9cd4649cd038e}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!classId@{classId}}
+\index{classId@{classId}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+Writer\+Hep\+MC3\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Writer\+Hep\+MC3\+::configure(). 
+
+Unique ID to automatically register the class in the registry. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_a2763bf26378bd3a336e846e0be3b17c5}\label{class_e_p_i_c_1_1_writer_hep_m_c3_a2763bf26378bd3a336e846e0be3b17c5}} 
+\index{EPIC::WriterHepMC3@{EPIC::WriterHepMC3}!PARAMETER\_NAME\_HEPMC3\_WRITER\_TYPE@{PARAMETER\_NAME\_HEPMC3\_WRITER\_TYPE}}
+\index{PARAMETER\_NAME\_HEPMC3\_WRITER\_TYPE@{PARAMETER\_NAME\_HEPMC3\_WRITER\_TYPE}!EPIC::WriterHepMC3@{EPIC::WriterHepMC3}}
+\doxysubsubsection{\texorpdfstring{PARAMETER\_NAME\_HEPMC3\_WRITER\_TYPE}{PARAMETER\_NAME\_HEPMC3\_WRITER\_TYPE}}
+{\footnotesize\ttfamily const std\+::string EPIC\+::\+Writer\+Hep\+MC3\+::\+PARAMETER\+\_\+\+NAME\+\_\+\+HEPMC3\+\_\+\+WRITER\+\_\+\+TYPE\hspace{0.3cm}{\ttfamily [static]}}
+
+String used to set Hep\+MC3 writer type through 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/modules/writer/Writer\+Hep\+MC3.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,121 @@
+\hypertarget{class_e_p_i_c_1_1_random_number_g_s_l}{}\doxysection{EPIC\+::Random\+Number\+GSL Class Reference}
+\label{class_e_p_i_c_1_1_random_number_g_s_l}\index{EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}}
+
+
+Generation of random numbers based on GSL.  
+
+
+
+
+{\ttfamily \#include $<$Random\+Number\+GSL.\+h$>$}
+
+Inheritance diagram for EPIC\+::Random\+Number\+GSL\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_e_p_i_c_1_1_random_number_g_s_l}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_random_number_g_s_l_a09302643974bf31391bb7fe4f12dad8e}{Random\+Number\+GSL}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_random_number_g_s_l_a0343874a64a5f3bc0814d4deaf6c7bf6}{Random\+Number\+GSL}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_g_s_l}{Random\+Number\+GSL}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_g_s_l_a81a5a67fe9ad56ec31d5b2937ca3dcc9}{$\sim$\+Random\+Number\+GSL}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_random_number_g_s_l_a2d2c6c839b2e154a50dff42824d77383}\label{class_e_p_i_c_1_1_random_number_g_s_l_a2d2c6c839b2e154a50dff42824d77383}} 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_g_s_l}{Random\+Number\+GSL}} $\ast$ {\bfseries clone} () const
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_random_number_g_s_l_a0c4a3295e221acf767186cc724c8973f}\label{class_e_p_i_c_1_1_random_number_g_s_l_a0c4a3295e221acf767186cc724c8973f}} 
+virtual void {\bfseries configure} (const Elem\+Utils\+::\+Parameters \&parameters)
+\item 
+virtual double \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_g_s_l_a38ba34f65527bfb8223b3525709d19db}{dice\+Flat}} ()
+\item 
+virtual double \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_g_s_l_af1db351556ffe438f67a57670ea12fcb}{dice\+Normal}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_g_s_l_aeca72ffc53dfb8dedf424c00b3222e25}{get\+Algorithm\+Name}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::string \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_g_s_l_a48257670fa0bf1ba63ca277f5f235ef2}{PARAMETER\+\_\+\+NAME\+\_\+\+ALGORITHM\+\_\+\+NAME}}
+\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_g_s_l_a2fe28ae9f756d63d3712931e61482301}{class\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Generation of random numbers based on GSL. 
+
+Module dedicated to the generation of random numbers using algorithms available in GSL. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_random_number_g_s_l_a09302643974bf31391bb7fe4f12dad8e}\label{class_e_p_i_c_1_1_random_number_g_s_l_a09302643974bf31391bb7fe4f12dad8e}} 
+\index{EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}!RandomNumberGSL@{RandomNumberGSL}}
+\index{RandomNumberGSL@{RandomNumberGSL}!EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}}
+\doxysubsubsection{\texorpdfstring{RandomNumberGSL()}{RandomNumberGSL()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Random\+Number\+GSL\+::\+Random\+Number\+GSL (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_random_number_g_s_l_a0343874a64a5f3bc0814d4deaf6c7bf6}\label{class_e_p_i_c_1_1_random_number_g_s_l_a0343874a64a5f3bc0814d4deaf6c7bf6}} 
+\index{EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}!RandomNumberGSL@{RandomNumberGSL}}
+\index{RandomNumberGSL@{RandomNumberGSL}!EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}}
+\doxysubsubsection{\texorpdfstring{RandomNumberGSL()}{RandomNumberGSL()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Random\+Number\+GSL\+::\+Random\+Number\+GSL (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_g_s_l}{Random\+Number\+GSL}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_random_number_g_s_l_a81a5a67fe9ad56ec31d5b2937ca3dcc9}\label{class_e_p_i_c_1_1_random_number_g_s_l_a81a5a67fe9ad56ec31d5b2937ca3dcc9}} 
+\index{EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}!````~RandomNumberGSL@{$\sim$RandomNumberGSL}}
+\index{````~RandomNumberGSL@{$\sim$RandomNumberGSL}!EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}}
+\doxysubsubsection{\texorpdfstring{$\sim$RandomNumberGSL()}{~RandomNumberGSL()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+Random\+Number\+GSL\+::$\sim$\+Random\+Number\+GSL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_random_number_g_s_l_a38ba34f65527bfb8223b3525709d19db}\label{class_e_p_i_c_1_1_random_number_g_s_l_a38ba34f65527bfb8223b3525709d19db}} 
+\index{EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}!diceFlat@{diceFlat}}
+\index{diceFlat@{diceFlat}!EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}}
+\doxysubsubsection{\texorpdfstring{diceFlat()}{diceFlat()}}
+{\footnotesize\ttfamily virtual double EPIC\+::\+Random\+Number\+GSL\+::dice\+Flat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Dice double precision number from flat distribution in range \mbox{[}0, 1) 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_a6efca0eed775a9f31a2e49faf67cc24e}{EPIC\+::\+Random\+Number\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_random_number_g_s_l_af1db351556ffe438f67a57670ea12fcb}\label{class_e_p_i_c_1_1_random_number_g_s_l_af1db351556ffe438f67a57670ea12fcb}} 
+\index{EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}!diceNormal@{diceNormal}}
+\index{diceNormal@{diceNormal}!EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}}
+\doxysubsubsection{\texorpdfstring{diceNormal()}{diceNormal()}}
+{\footnotesize\ttfamily virtual double EPIC\+::\+Random\+Number\+GSL\+::dice\+Normal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Dice double precision number from normal distribution with mean = 0 and sigma = 1 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module_aff0827289e9031bd2c935007e4a3ec66}{EPIC\+::\+Random\+Number\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_random_number_g_s_l_aeca72ffc53dfb8dedf424c00b3222e25}\label{class_e_p_i_c_1_1_random_number_g_s_l_aeca72ffc53dfb8dedf424c00b3222e25}} 
+\index{EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}!getAlgorithmName@{getAlgorithmName}}
+\index{getAlgorithmName@{getAlgorithmName}!EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}}
+\doxysubsubsection{\texorpdfstring{getAlgorithmName()}{getAlgorithmName()}}
+{\footnotesize\ttfamily std\+::string EPIC\+::\+Random\+Number\+GSL\+::get\+Algorithm\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get name of currently used algorithm. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_random_number_g_s_l_a2fe28ae9f756d63d3712931e61482301}\label{class_e_p_i_c_1_1_random_number_g_s_l_a2fe28ae9f756d63d3712931e61482301}} 
+\index{EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}!classId@{classId}}
+\index{classId@{classId}!EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+Random\+Number\+GSL\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+Unique ID to automatically register the class in the registry. \mbox{\Hypertarget{class_e_p_i_c_1_1_random_number_g_s_l_a48257670fa0bf1ba63ca277f5f235ef2}\label{class_e_p_i_c_1_1_random_number_g_s_l_a48257670fa0bf1ba63ca277f5f235ef2}} 
+\index{EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}!PARAMETER\_NAME\_ALGORITHM\_NAME@{PARAMETER\_NAME\_ALGORITHM\_NAME}}
+\index{PARAMETER\_NAME\_ALGORITHM\_NAME@{PARAMETER\_NAME\_ALGORITHM\_NAME}!EPIC::RandomNumberGSL@{EPIC::RandomNumberGSL}}
+\doxysubsubsection{\texorpdfstring{PARAMETER\_NAME\_ALGORITHM\_NAME}{PARAMETER\_NAME\_ALGORITHM\_NAME}}
+{\footnotesize\ttfamily const std\+::string EPIC\+::\+Random\+Number\+GSL\+::\+PARAMETER\+\_\+\+NAME\+\_\+\+ALGORITHM\+\_\+\+NAME\hspace{0.3cm}{\ttfamily [static]}}
+
+String used to set algorithm through Random\+Number\+GSL\+::configure(). 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/modules/random\+\_\+generator/Random\+Number\+GSL.\+h\end{DoxyCompactItemize}

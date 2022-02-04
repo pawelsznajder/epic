@@ -1,0 +1,61 @@
+\hypertarget{_monte_carlo_scenario_8h_source}{}\doxysection{Monte\+Carlo\+Scenario.\+h}
+\label{_monte_carlo_scenario_8h_source}\index{/Users/pawel/projects/epic/epic/include/automation/MonteCarloScenario.h@{/Users/pawel/projects/epic/epic/include/automation/MonteCarloScenario.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * MonteCarloScenario.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 12, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ) }}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef AUTOMATION\_MONTECARLOSCENARIO\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define AUTOMATION\_MONTECARLOSCENARIO\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}MonteCarloTask.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario}{MonteCarloScenario}} : \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31   \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario_a099d3af5fb3ae2ee6c4dd7a65dc4b769}{MonteCarloScenario}}();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{37   \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario_ab2473b5b2bb018d7f795b130dde61f3f}{MonteCarloScenario}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario}{MonteCarloScenario}} \&other);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario_a0950f1ed072b315275b9dfed4dc31a0b}{\string~MonteCarloScenario}}();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{45   \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{46   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{51   \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario_a30837823049c6cbcdef0d8eca7422d74}{getDescription}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{56   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario_a44c4075923d6b13336ca7e61de013bcd}{setDescription}}(\textcolor{keyword}{const} std::string \&description);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{61   \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario_a544768c173c4ccaf91e0bc6c3bc5951a}{getDate}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{66   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario_aef03ebd82e9b3c2d92e84acfe7cc0c2b}{setDate}}(\textcolor{keyword}{const} std::string \&date);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71   \textcolor{keyword}{const} std::vector<MonteCarloTask> \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario_abcfd52e07605ae759621815afa435523}{getTasks}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{76   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario_acc819583b09003d64ad9415d66156089}{setTasks}}(\textcolor{keyword}{const} std::vector<MonteCarloTask> \&tasks);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{81   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_scenario_a9e0c217e71a3231be7ef8e2e9e8dfa23}{addTask}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{keyword}{private}:}
+\DoxyCodeLine{87   std::string m\_description;}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{92   std::string m\_date;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{97   std::vector<MonteCarloTask> m\_tasks;}
+\DoxyCodeLine{98 \};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* AUTOMATION\_MONTECARLOSCENARIO\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

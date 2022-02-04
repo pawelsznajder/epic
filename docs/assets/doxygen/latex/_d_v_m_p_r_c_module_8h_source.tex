@@ -1,0 +1,57 @@
+\hypertarget{_d_v_m_p_r_c_module_8h_source}{}\doxysection{DVMPRCModule.\+h}
+\label{_d_v_m_p_r_c_module_8h_source}\index{/Users/pawel/projects/epic/epic/include/modules/radiative\_corrections/DVMP/DVMPRCModule.h@{/Users/pawel/projects/epic/epic/include/modules/radiative\_corrections/DVMP/DVMPRCModule.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * DVMPRCModule.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 12, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_RADIATIVECORRECTIONS\_DVMP\_DVMPRCMODULE\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_RADIATIVECORRECTIONS\_DVMP\_DVMPRCMODULE\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}../../../beans/containers/DVMPKinematic.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../../../beans/containers/ExperimentalConditions.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../RCModule.h"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module}{DVMPRCModule}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{RCModule}}<DVMPKinematic> \{}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_abf76599fb60e8b7a80e43fce9ab04d84}{DVMP\_RC\_MODULE\_CLASS\_NAME}}; }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a240897c81cd1b25c4a664adb7f03b08d}{DVMPRCModule}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_abb96c051abb254282cab02ecd834321e}{DVMPRCModule}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module}{DVMPRCModule}} \&other);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{47     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a8eba18b0c84b9a9d98effc772b98e58c}{\string~DVMPRCModule}}();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a9463eafd96ffaa282c5cdfc559d59b09}{runTest}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{virtual} std::tuple<double, ExperimentalConditions, DVMPKinematic> \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_ac2912e3454cd37c3686da0bdf00ed433}{evaluate}}(}
+\DoxyCodeLine{52             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}}\& experimentalConditions,}
+\DoxyCodeLine{53             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic}{DVMPKinematic}}\& obsKin,}
+\DoxyCodeLine{54             \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a36956d84066e564afc3c05f822a85828}{updateEvent}}(\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}}\& event,}
+\DoxyCodeLine{57             \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} initModule();}
+\DoxyCodeLine{62     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isModuleWellConfigured();}
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_RADIATIVECORRECTIONS\_DVMP\_DVMPRCMODULE\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

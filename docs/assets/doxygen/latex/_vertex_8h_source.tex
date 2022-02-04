@@ -1,0 +1,66 @@
+\hypertarget{_vertex_8h_source}{}\doxysection{Vertex.\+h}
+\label{_vertex_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/physics/Vertex.h@{/Users/pawel/projects/epic/epic/include/beans/physics/Vertex.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Vertex.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 10, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef BEANS\_VERTEX\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define BEANS\_VERTEX\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <partons/BaseObject.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{17 \textcolor{keyword}{class }Particle;}
+\DoxyCodeLine{18 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_vertex}{Vertex}} : \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{36   \mbox{\hyperlink{class_e_p_i_c_1_1_vertex_a49307fae7e70d5d2b68b50333bbf60f8}{Vertex}}();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{41   \mbox{\hyperlink{class_e_p_i_c_1_1_vertex_a50f7c08e8d597b02f918ab235cd7f6df}{Vertex}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_vertex}{Vertex}} \&other);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{46   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_vertex_ae83dccc905fdf1b7e8d32adef772441d}{\string~Vertex}}();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48   \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{53   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_vertex_ac22e80d22a4e0d5d609714bd0f043306}{addParticleIn}}(\textcolor{keyword}{const} std::shared\_ptr<Particle> \&particle);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{58   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_vertex_a46a72bb63ccfe88a25f9415f8e45b22c}{addParticleOut}}(\textcolor{keyword}{const} std::shared\_ptr<Particle> \&particle);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{61   \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{62   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{67   \textcolor{keyword}{const} std::vector<std::shared\_ptr<Particle>> \&\mbox{\hyperlink{class_e_p_i_c_1_1_vertex_ae32826d72be3c8cf914fddbf618f996c}{getParticlesIn}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{72   \textcolor{keywordtype}{void}}
+\DoxyCodeLine{73   \mbox{\hyperlink{class_e_p_i_c_1_1_vertex_a025d095f2a1961c68f99547ec7b54a54}{setParticlesIn}}(\textcolor{keyword}{const} std::vector<std::shared\_ptr<Particle>> \&particlesIn);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{78   \textcolor{keyword}{const} std::vector<std::shared\_ptr<Particle>> \&\mbox{\hyperlink{class_e_p_i_c_1_1_vertex_aa388d42396e64aa0de2adceae602bde1}{getParticlesOut}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{83   \textcolor{keywordtype}{void}}
+\DoxyCodeLine{84   \mbox{\hyperlink{class_e_p_i_c_1_1_vertex_aea6cca83e5ecc235e19c70345d2879fe}{setParticlesOut}}(\textcolor{keyword}{const} std::vector<std::shared\_ptr<Particle>> \&particlesOut);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{private}:}
+\DoxyCodeLine{87   std::vector<std::shared\_ptr<Particle>>}
+\DoxyCodeLine{88       m\_particlesIn; }
+\DoxyCodeLine{89   std::vector<std::shared\_ptr<Particle>>}
+\DoxyCodeLine{90       m\_particlesOut; }
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_VERTEX\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

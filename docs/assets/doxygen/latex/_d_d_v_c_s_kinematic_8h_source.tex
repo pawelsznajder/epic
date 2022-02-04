@@ -1,0 +1,93 @@
+\hypertarget{_d_d_v_c_s_kinematic_8h_source}{}\doxysection{DDVCSKinematic.\+h}
+\label{_d_d_v_c_s_kinematic_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/containers/DDVCSKinematic.h@{/Users/pawel/projects/epic/epic/include/beans/containers/DDVCSKinematic.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BEANS\_CONTAINERS\_DDVCS\_KINEMATIC\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BEANS\_CONTAINERS\_DDVCS\_KINEMATIC\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/BaseObject.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }PARTONS \{}
+\DoxyCodeLine{15 \textcolor{keyword}{class }TCSObservableKinematic;}
+\DoxyCodeLine{16 \} \textcolor{comment}{/* namespace PARTONS */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}}: \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a0eaaea54b84883e49c6310e3c0a661df}{DDVCSKinematic}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{39     \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a18cd0d0d56a109791fa9018e0f95432e}{DDVCSKinematic}}(\textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} Q2, \textcolor{keywordtype}{double} t, \textcolor{keywordtype}{double} Q2Prim, \textcolor{keywordtype}{double} E,}
+\DoxyCodeLine{40             \textcolor{keywordtype}{double} phi, \textcolor{keywordtype}{double} phiS, \textcolor{keywordtype}{double} theta);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{45     \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac605944ad4cf64e05eb0b0ae1b000e51}{DDVCSKinematic}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&other);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ad104137eac2e87f486c0022d83755031}{\string~DDVCSKinematic}}();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57     PARTONS::TCSObservableKinematic \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a651524abe9ef43c86c8e88660ff08eca}{toPARTONSTCSObservableKinematic}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{60     \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{61     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a042842159d249f579eff286424251119}{getY}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a28493fefcfc460e657b0649609fbb8b2}{setY}}(\textcolor{keywordtype}{double} y);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a965a7e61f4b17e79b1dd330167a18c67}{getQ2}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_aaf437b0a09304bd5ddeb6b9a99351af2}{setQ2}}(\textcolor{keywordtype}{double} Q2);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ab17979e0af96bf2c34a016b59ec03700}{getT}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a0cd428e2fafdecc228b68e9a199a5201}{setT}}(\textcolor{keywordtype}{double} t);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{96     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ae0166e85b3a4f6a6f89c1082f21431ef}{getQ2Prim}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac39b737319557da82ec10c227d0eb55a}{setQ2Prim}}(\textcolor{keywordtype}{double} Q2Prim);}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{106     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a58d068b38f3b5069eca907a437a7ac1e}{getE}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{111     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_adfb30c6a2d422a66a1d3118f0a16b5f7}{setE}}(\textcolor{keywordtype}{double} E);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{116     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_abddd5a79c24b366600bbc998c7554963}{getPhi}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{121     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a50fdca41a0a7765523b5a5b7dd46eb24}{setPhi}}(\textcolor{keywordtype}{double} phi);}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{126     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a5a2e768f26d5f1359dcecca7af01a668}{getPhiS}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{131     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ada211fdde28eceaa23a7f9ba1e2473ac}{setPhiS}}(\textcolor{keywordtype}{double} phiS);}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{136     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a8f699a6ddbb86a3aa730c4a6c372e360}{getTheta}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{141     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a3ec6bf3b4e6e0424ce0021025d16fc66}{setTheta}}(\textcolor{keywordtype}{double} theta);}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{keyword}{private}:}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{148     \textcolor{keywordtype}{double} m\_y;}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{153     \textcolor{keywordtype}{double} m\_Q2;}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{158     \textcolor{keywordtype}{double} m\_t;}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{163     \textcolor{keywordtype}{double} m\_Q2Prim;}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{168     \textcolor{keywordtype}{double} m\_E;}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{173     \textcolor{keywordtype}{double} m\_phi;}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{178     \textcolor{keywordtype}{double} m\_phiS;}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{183     \textcolor{keywordtype}{double} m\_theta;}
+\DoxyCodeLine{184 \};}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 \}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_CONTAINERS\_DDVCS\_KINEMATIC\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

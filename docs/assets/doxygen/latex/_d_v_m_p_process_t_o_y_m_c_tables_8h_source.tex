@@ -1,0 +1,78 @@
+\hypertarget{_d_v_m_p_process_t_o_y_m_c_tables_8h_source}{}\doxysection{DVMPProcess\+TOYMCTables.\+h}
+\label{_d_v_m_p_process_t_o_y_m_c_tables_8h_source}\index{/Users/pawel/projects/epic/epic/include/physics/process/DVMP/DVMPProcessTOYMCTables.h@{/Users/pawel/projects/epic/epic/include/physics/process/DVMP/DVMPProcessTOYMCTables.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DVMP\_PROCESS\_TOYMC\_TABLES\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DVMP\_PROCESS\_TOYMC\_TABLES\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <ElementaryUtils/parameters/Parameters.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/modules/process/DVMP/DVMPProcessModule.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <partons/utils/type/PhysicalType.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../../../algorithms/interpolation/linterp/linterp.h"{}}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{namespace }PARTONS \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_process_t_o_y_m_c_tables}{DVMPProcessTOYMCTables}}: \textcolor{keyword}{public} DVMPProcessModule \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_process_t_o_y_m_c_tables_a46917ca70663b75cddc834cda480540e}{PARAMETER\_NAME\_GRID\_FILE}}; }
+\DoxyCodeLine{32     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_process_t_o_y_m_c_tables_a46ab31172185c0fd2e051859a3a985b0}{classId}}; }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_process_t_o_y_m_c_tables_acbfbb2b424987f0073f5acb847a199b9}{DVMPProcessTOYMCTables}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_process_t_o_y_m_c_tables_a99e112c7e41a34bed5fd8190ad881e9a}{\string~DVMPProcessTOYMCTables}}();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_process_t_o_y_m_c_tables}{DVMPProcessTOYMCTables}}* clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{45     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} configure(\textcolor{keyword}{const} ElemUtils::Parameters \&parameters);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_process_t_o_y_m_c_tables_a0cedc5f7015531a4f5b080c5f9836a78}{getGridPath}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_process_t_o_y_m_c_tables_a7e2ec767328a3b71736e706ecfe93c55}{setGridPath}}(\textcolor{keyword}{const} std::string\& gridFile);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{62     \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_process_t_o_y_m_c_tables_afebaad8a77fe66ac62726312575343cb}{DVMPProcessTOYMCTables}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_process_t_o_y_m_c_tables}{DVMPProcessTOYMCTables}}\& other);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} initModule();}
+\DoxyCodeLine{65     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isModuleWellConfigured();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keyword}{virtual} PhysicalType<double> CrossSection();}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{keyword}{private}:}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{74     std::vector<std::vector<double> > readGrid() \textcolor{keyword}{const};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{79     \textcolor{keywordtype}{void} loadGrid();}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{bool} checkRange(\textcolor{keywordtype}{double}\& value, \textcolor{keyword}{const} std::pair<double, double>\& range,}
+\DoxyCodeLine{85             \textcolor{keyword}{const} std::pair<bool, bool>\& freeze);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{bool} checkIfUnique(\textcolor{keyword}{const} std::vector<double>\& vec, \textcolor{keywordtype}{double} val) \textcolor{keyword}{const};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{95     \textcolor{keywordtype}{int} findIndex(\textcolor{keyword}{const} std::vector<double>\& vec, \textcolor{keywordtype}{double} val) \textcolor{keyword}{const};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{100     \textcolor{keywordtype}{double} getLeptonEnergyFixedTargetEquivalent(\textcolor{keywordtype}{double} E1, \textcolor{keywordtype}{double} E2) \textcolor{keyword}{const};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     std::string m\_gridPath; }
+\DoxyCodeLine{103     \textcolor{keywordtype}{bool} m\_tablesLoaded; }
+\DoxyCodeLine{104     std::vector<std::pair<double, double> > m\_ranges; }
+\DoxyCodeLine{105     std::shared\_ptr<NDInterpolator\_4\_ML> m\_interpolator; }
+\DoxyCodeLine{106     \textcolor{keywordtype}{double} m\_beamEnergy; }
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keywordtype}{double} m\_threshold; }
+\DoxyCodeLine{109     \textcolor{keywordtype}{double} m\_beamEnergyTolerance; }
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{keywordtype}{bool} m\_printOutsideGridWarnings; }
+\DoxyCodeLine{112 \};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \} \textcolor{comment}{/* namespace PARTONS */}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DVMP\_PROCESS\_TOYMC\_TABLES\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,147 @@
+\hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module}{}\doxysection{EPIC\+::TCSKinematic\+Module Class Reference}
+\label{class_e_p_i_c_1_1_t_c_s_kinematic_module}\index{EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}}
+
+
+Kinematic module for TCS.  
+
+
+
+
+{\ttfamily \#include $<$TCSKinematic\+Module.\+h$>$}
+
+Inheritance diagram for EPIC\+::TCSKinematic\+Module\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_e_p_i_c_1_1_t_c_s_kinematic_module}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_aad89d6101f2c54178235f983bd934277}{TCSKinematic\+Module}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a8214ca6a9b4fa6dbc4c1a5402df78d6f}{TCSKinematic\+Module}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module}{TCSKinematic\+Module}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a23b7a5998ef417d43af00e3d2917d053}{$\sim$\+TCSKinematic\+Module}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_aecc18fb6c642255173175ea46b2db11f}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_aecc18fb6c642255173175ea46b2db11f}} 
+virtual void {\bfseries configure} (const Elem\+Utils\+::\+Parameters \&parameters)
+\item 
+virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a827a4da1b182fa5033eee6fd856194ce}{run\+Test}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a548ca1fe31b0d044e430052b7e89331d}{check\+If\+Valid}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&kin)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a433da85bdacb76233a7e7cb31929129e}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&kin)=0
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{Particle\+Type\+::\+Type}} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a865219466a876ee9f30bc4e2f6279ee5}{get\+Decay\+Type}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a9e4687512c1d0dc8c19a5ac60b0b743b}{set\+Decay\+Type}} (\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{Particle\+Type\+::\+Type}} decay\+Type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a7007f11bbb7da9c08d52f6e172a3d52d}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a7007f11bbb7da9c08d52f6e172a3d52d}} 
+static const std\+::string {\bfseries TCS\+\_\+\+KINEMATIC\+\_\+\+MODULE\+\_\+\+CLASS\+\_\+\+NAME}
+\begin{DoxyCompactList}\small\item\em Class name used in parsing XML. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a8603f92f86e323d0dad57de09e8b113e}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a8603f92f86e323d0dad57de09e8b113e}} 
+static const std\+::string {\bfseries TCS\+\_\+\+KINEMATIC\+\_\+\+MODULE\+\_\+\+PARAMETER\+\_\+\+DECAY\+\_\+\+TYPE}
+\begin{DoxyCompactList}\small\item\em String used to set decay lepton type through XML. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_abe517d85f61a3e41663da2e7c24d3364}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_abe517d85f61a3e41663da2e7c24d3364}} 
+virtual void {\bfseries init\+Module} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a2483b187a4e8bc20a7bb84240504ba5f}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a2483b187a4e8bc20a7bb84240504ba5f}} 
+virtual void {\bfseries is\+Module\+Well\+Configured} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a58b5b8481cd979b6e68b5da3a434855a}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a58b5b8481cd979b6e68b5da3a434855a}} 
+\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{Particle\+Type\+::\+Type}} {\bfseries m\+\_\+decay\+Type}
+\begin{DoxyCompactList}\small\item\em Decay lepton type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Kinematic module for TCS. 
+
+This class defines kinematic module for TCS process. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_aad89d6101f2c54178235f983bd934277}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_aad89d6101f2c54178235f983bd934277}} 
+\index{EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}!TCSKinematicModule@{TCSKinematicModule}}
+\index{TCSKinematicModule@{TCSKinematicModule}!EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}}
+\doxysubsubsection{\texorpdfstring{TCSKinematicModule()}{TCSKinematicModule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+TCSKinematic\+Module\+::\+TCSKinematic\+Module (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a8214ca6a9b4fa6dbc4c1a5402df78d6f}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a8214ca6a9b4fa6dbc4c1a5402df78d6f}} 
+\index{EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}!TCSKinematicModule@{TCSKinematicModule}}
+\index{TCSKinematicModule@{TCSKinematicModule}!EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}}
+\doxysubsubsection{\texorpdfstring{TCSKinematicModule()}{TCSKinematicModule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+TCSKinematic\+Module\+::\+TCSKinematic\+Module (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module}{TCSKinematic\+Module}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a23b7a5998ef417d43af00e3d2917d053}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a23b7a5998ef417d43af00e3d2917d053}} 
+\index{EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}!````~TCSKinematicModule@{$\sim$TCSKinematicModule}}
+\index{````~TCSKinematicModule@{$\sim$TCSKinematicModule}!EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}}
+\doxysubsubsection{\texorpdfstring{$\sim$TCSKinematicModule()}{~TCSKinematicModule()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+TCSKinematic\+Module\+::$\sim$\+TCSKinematic\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a548ca1fe31b0d044e430052b7e89331d}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a548ca1fe31b0d044e430052b7e89331d}} 
+\index{EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}!checkIfValid@{checkIfValid}}
+\index{checkIfValid@{checkIfValid}!EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}}
+\doxysubsubsection{\texorpdfstring{checkIfValid()}{checkIfValid()}}
+{\footnotesize\ttfamily virtual bool EPIC\+::\+TCSKinematic\+Module\+::check\+If\+Valid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&}]{kin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Check if kinematics is valid. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a2e235f419d40be0f1ddafe4e4253df83}{EPIC\+::\+Kinematic\+Module$<$ DDVCSKinematic $>$}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_a10fb8e8862e11eb957bf0ae652827ccf}{EPIC\+::\+TCSKinematic\+Default}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a433da85bdacb76233a7e7cb31929129e}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a433da85bdacb76233a7e7cb31929129e}} 
+\index{EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} EPIC\+::\+TCSKinematic\+Module\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&}]{kin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get experimental conditions (like beam types), kinematics and return a set of particles. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_ab93a6f69837beba044d5a84a9b06d3e2}{EPIC\+::\+Kinematic\+Module$<$ DDVCSKinematic $>$}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_aa4c455f89f8d1e6f31a0a483bbe99e4a}{EPIC\+::\+TCSKinematic\+Default}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a865219466a876ee9f30bc4e2f6279ee5}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a865219466a876ee9f30bc4e2f6279ee5}} 
+\index{EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}!getDecayType@{getDecayType}}
+\index{getDecayType@{getDecayType}!EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}}
+\doxysubsubsection{\texorpdfstring{getDecayType()}{getDecayType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{Particle\+Type\+::\+Type}} EPIC\+::\+TCSKinematic\+Module\+::get\+Decay\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get decay lepton type. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a827a4da1b182fa5033eee6fd856194ce}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a827a4da1b182fa5033eee6fd856194ce}} 
+\index{EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}!runTest@{runTest}}
+\index{runTest@{runTest}!EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}}
+\doxysubsubsection{\texorpdfstring{runTest()}{runTest()}}
+{\footnotesize\ttfamily virtual bool EPIC\+::\+TCSKinematic\+Module\+::run\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Definition of test. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a40142efadbdc81511a75586d8ae41e43}{EPIC\+::\+Epic\+Module\+Object}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a9e4687512c1d0dc8c19a5ac60b0b743b}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a9e4687512c1d0dc8c19a5ac60b0b743b}} 
+\index{EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}!setDecayType@{setDecayType}}
+\index{setDecayType@{setDecayType}!EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}}
+\doxysubsubsection{\texorpdfstring{setDecayType()}{setDecayType()}}
+{\footnotesize\ttfamily void EPIC\+::\+TCSKinematic\+Module\+::set\+Decay\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{Particle\+Type\+::\+Type}}}]{decay\+Type }\end{DoxyParamCaption})}
+
+Set decay lepton type. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/modules/kinematic/\+TCS/TCSKinematic\+Module.\+h\end{DoxyCompactItemize}

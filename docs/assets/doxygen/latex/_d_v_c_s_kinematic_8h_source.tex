@@ -1,0 +1,81 @@
+\hypertarget{_d_v_c_s_kinematic_8h_source}{}\doxysection{DVCSKinematic.\+h}
+\label{_d_v_c_s_kinematic_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/containers/DVCSKinematic.h@{/Users/pawel/projects/epic/epic/include/beans/containers/DVCSKinematic.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BEANS\_CONTAINERS\_DVCS\_KINEMATIC\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BEANS\_CONTAINERS\_DVCS\_KINEMATIC\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/BaseObject.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }PARTONS \{}
+\DoxyCodeLine{15 \textcolor{keyword}{class }DVCSObservableKinematic;}
+\DoxyCodeLine{16 \} \textcolor{comment}{/* namespace PARTONS */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic}{DVCSKinematic}}: \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_a8e2304d6b729313ec625757bba3f89da}{DVCSKinematic}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{39     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_a8af9ebb660c17841398ebff93d22e30a}{DVCSKinematic}}(\textcolor{keywordtype}{double} xB, \textcolor{keywordtype}{double} t, \textcolor{keywordtype}{double} Q2, \textcolor{keywordtype}{double} E, \textcolor{keywordtype}{double} phi,}
+\DoxyCodeLine{40             \textcolor{keywordtype}{double} phiS);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{45     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_aa31e67f4ffe1319779b39f79e9f245a8}{DVCSKinematic}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic}{DVCSKinematic}} \&other);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_a91bde43d498eb953058a5fb1cc5da0a3}{\string~DVCSKinematic}}();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57     PARTONS::DVCSObservableKinematic \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_a39d3e0bf9ffba38c69083d8a023a631e}{toPARTONSDVCSObservableKinematic}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{60     \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{61     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_ad1f7354c0378269607073a354f666654}{getXB}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_ae2aa7c2bd38085dfb7441d02e003f0e4}{setXB}}(\textcolor{keywordtype}{double} xB);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_aa767135fb94b3da43302d1e60809e17a}{getT}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_ae61dfa9d57ae3e1e5983087a0de83ecd}{setT}}(\textcolor{keywordtype}{double} t);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_a01779d6c22acc93bf2971275764f116d}{getQ2}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_aa5196b3ece0555744aafbf7aa6ed9099}{setQ2}}(\textcolor{keywordtype}{double} Q2);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{96     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_a0c672ed1aa572f87c7e7ece5a5875d5c}{getE}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_a41cd1bd7d6ab3101d8dc9fa403ae9183}{setE}}(\textcolor{keywordtype}{double} E);}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{106     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_a6032ae180bcd22ad9752387d0345e58c}{getPhi}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{111     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_a48606bca29ef1f2c4a44595cb3110d85}{setPhi}}(\textcolor{keywordtype}{double} phi);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{116     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_a75df9554c3f7e9c345d55b5e93de2f74}{getPhiS}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{121     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_a987a4186577a3773b462c27681b258c7}{setPhiS}}(\textcolor{keywordtype}{double} phiS);}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{keyword}{private}:}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{128     \textcolor{keywordtype}{double} m\_xB;}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{133     \textcolor{keywordtype}{double} m\_t;}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{138     \textcolor{keywordtype}{double} m\_Q2;}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{143     \textcolor{keywordtype}{double} m\_E;}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{148     \textcolor{keywordtype}{double} m\_phi;}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{153     \textcolor{keywordtype}{double} m\_phiS;}
+\DoxyCodeLine{154 \};}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_CONTAINERS\_DVCS\_KINEMATIC\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

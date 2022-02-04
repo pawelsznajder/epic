@@ -1,0 +1,97 @@
+\hypertarget{class_n_d_interpolator}{}\doxysection{NDInterpolator\texorpdfstring{$<$}{<} N, T, Copy\+Data, Continuous, Array\+Ref\+CountT, Grid\+Ref\+CountT \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_n_d_interpolator}\index{NDInterpolator$<$ N, T, CopyData, Continuous, ArrayRefCountT, GridRefCountT $>$@{NDInterpolator$<$ N, T, CopyData, Continuous, ArrayRefCountT, GridRefCountT $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a810c1e9411bb3d089496904255b4c5ca}\label{class_n_d_interpolator_a810c1e9411bb3d089496904255b4c5ca}} 
+typedef T {\bfseries value\+\_\+type}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a08e5d01852fbc08634098e008b411506}\label{class_n_d_interpolator_a08e5d01852fbc08634098e008b411506}} 
+typedef Array\+Ref\+CountT {\bfseries array\+\_\+ref\+\_\+count\+\_\+type}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a0a9d25db8d7fa46d19cc51e14f06f254}\label{class_n_d_interpolator_a0a9d25db8d7fa46d19cc51e14f06f254}} 
+typedef Grid\+Ref\+CountT {\bfseries grid\+\_\+ref\+\_\+count\+\_\+type}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a8a732f640ea2766dadb2434d52ba0d4d}\label{class_n_d_interpolator_a8a732f640ea2766dadb2434d52ba0d4d}} 
+typedef boost\+::numeric\+::ublas\+::array\+\_\+adaptor$<$ T $>$ {\bfseries grid\+\_\+type}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a6e13ddd85ec610ed155268d0c1307f72}\label{class_n_d_interpolator_a6e13ddd85ec610ed155268d0c1307f72}} 
+typedef boost\+::const\+\_\+multi\+\_\+array\+\_\+ref$<$ T, N $>$ {\bfseries array\+\_\+type}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_aa66b35651120b9b8e1550649caaec83c}\label{class_n_d_interpolator_aa66b35651120b9b8e1550649caaec83c}} 
+typedef std\+::unique\+\_\+ptr$<$ array\+\_\+type $>$ {\bfseries array\+\_\+type\+\_\+ptr}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a948b483dedab9a16c0343209e0ccac48}\label{class_n_d_interpolator_a948b483dedab9a16c0343209e0ccac48}} 
+{\footnotesize template$<$class Iter\+T1 , class Iter\+T2 , class Iter\+T3 $>$ }\\{\bfseries NDInterpolator} (Iter\+T1 grids\+\_\+begin, Iter\+T2 grids\+\_\+len\+\_\+begin, Iter\+T3 f\+\_\+begin, Iter\+T3 f\+\_\+end)
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a7a261a4e668e91e8153ed42de8581512}\label{class_n_d_interpolator_a7a261a4e668e91e8153ed42de8581512}} 
+{\footnotesize template$<$class Iter\+T1 , class Iter\+T2 , class Iter\+T3 , class Ref\+Count\+IterT $>$ }\\{\bfseries NDInterpolator} (Iter\+T1 grids\+\_\+begin, Iter\+T2 grids\+\_\+len\+\_\+begin, Iter\+T3 f\+\_\+begin, Iter\+T3 f\+\_\+end, Array\+Ref\+CountT \&refF, Ref\+Count\+IterT grid\+\_\+refs\+\_\+begin)
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_ad1f7b2eb90b6b8cdf2d953719056ac06}\label{class_n_d_interpolator_ad1f7b2eb90b6b8cdf2d953719056ac06}} 
+{\footnotesize template$<$class Iter\+T1 , class Iter\+T2 , class Iter\+T3 $>$ }\\void {\bfseries init} (Iter\+T1 grids\+\_\+begin, Iter\+T2 grids\+\_\+len\+\_\+begin, Iter\+T3 f\+\_\+begin, Iter\+T3 f\+\_\+end)
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_aa587ba9baf1ef3099dbf3c56d0bc0ebf}\label{class_n_d_interpolator_aa587ba9baf1ef3099dbf3c56d0bc0ebf}} 
+{\footnotesize template$<$class Iter\+T1 , class Iter\+T2 , class Iter\+T3 , class Ref\+Count\+IterT $>$ }\\void {\bfseries init\+\_\+refcount} (Iter\+T1 grids\+\_\+begin, Iter\+T2 grids\+\_\+len\+\_\+begin, Iter\+T3 f\+\_\+begin, Iter\+T3 f\+\_\+end, Array\+Ref\+CountT \&refF, Ref\+Count\+IterT grid\+\_\+refs\+\_\+begin)
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_afdb01a33382990325e0f66ff586e3f30}\label{class_n_d_interpolator_afdb01a33382990325e0f66ff586e3f30}} 
+{\footnotesize template$<$class Iter\+T1 , class Iter\+T2 $>$ }\\void {\bfseries set\+\_\+grids} (Iter\+T1 grids\+\_\+begin, Iter\+T2 grids\+\_\+len\+\_\+begin, bool b\+Copy)
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a46ceb1bd205b659ca138ecd54944000d}\label{class_n_d_interpolator_a46ceb1bd205b659ca138ecd54944000d}} 
+{\footnotesize template$<$class Iter\+T1 , class Ref\+Count\+IterT $>$ }\\void {\bfseries set\+\_\+grids\+\_\+refcount} (Ref\+Count\+IterT refs\+\_\+begin, Ref\+Count\+IterT refs\+\_\+end)
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_aaaefb205c59c3b85ac6c6ef821f993a6}\label{class_n_d_interpolator_aaaefb205c59c3b85ac6c6ef821f993a6}} 
+{\footnotesize template$<$class IterT $>$ }\\void {\bfseries set\+\_\+f\+\_\+array} (IterT f\+\_\+begin, IterT f\+\_\+end, bool b\+Copy)
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_aa64a04a05c9048990eddac509ff3f598}\label{class_n_d_interpolator_aa64a04a05c9048990eddac509ff3f598}} 
+void {\bfseries set\+\_\+f\+\_\+refcount} (Array\+Ref\+CountT \&refF)
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a432433df5604200b5d8b38d67cd0a77f}\label{class_n_d_interpolator_a432433df5604200b5d8b38d67cd0a77f}} 
+int {\bfseries find\+\_\+cell} (int dim, T x) const
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a21b5d6046ac78e1648c2b706ba4db1dd}\label{class_n_d_interpolator_a21b5d6046ac78e1648c2b706ba4db1dd}} 
+T {\bfseries get\+\_\+f\+\_\+val} (array$<$ int, N $>$ const \&cell\+\_\+index, array$<$ int, N $>$ const \&v\+\_\+index) const
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a6345bcae7451e5c0d6db2a0b991cf118}\label{class_n_d_interpolator_a6345bcae7451e5c0d6db2a0b991cf118}} 
+T {\bfseries get\+\_\+f\+\_\+val} (array$<$ int, N $>$ const \&cell\+\_\+index, int v) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a2b6efdab77119b79222df6d2f9fe75bc}\label{class_n_d_interpolator_a2b6efdab77119b79222df6d2f9fe75bc}} 
+array\+\_\+type\+\_\+ptr {\bfseries m\+\_\+pF}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_aae7af7eee1fac1cf80e296d137f1bb95}\label{class_n_d_interpolator_aae7af7eee1fac1cf80e296d137f1bb95}} 
+Array\+Ref\+CountT {\bfseries m\+\_\+ref\+\_\+F}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a4dbd43a72a806ecf04383feba2f20aad}\label{class_n_d_interpolator_a4dbd43a72a806ecf04383feba2f20aad}} 
+vector$<$ T $>$ {\bfseries m\+\_\+\+F\+\_\+copy}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a9016db8a630d3aab005673ad9859f986}\label{class_n_d_interpolator_a9016db8a630d3aab005673ad9859f986}} 
+vector$<$ grid\+\_\+type $>$ {\bfseries m\+\_\+grid\+\_\+list}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a1c0449ca146ad7b5593a8440d9605289}\label{class_n_d_interpolator_a1c0449ca146ad7b5593a8440d9605289}} 
+vector$<$ Grid\+Ref\+CountT $>$ {\bfseries m\+\_\+grid\+\_\+ref\+\_\+list}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a33e639ff531d7d8b216d2d2404112305}\label{class_n_d_interpolator_a33e639ff531d7d8b216d2d2404112305}} 
+vector$<$ vector$<$ T $>$ $>$ {\bfseries m\+\_\+grid\+\_\+copy\+\_\+list}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_a98ce62b14046e2bd9df1afcc3ab87dc7}\label{class_n_d_interpolator_a98ce62b14046e2bd9df1afcc3ab87dc7}} 
+static const int {\bfseries m\+\_\+N} = N
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_ad2c8269f98d6f6b407ca1d1be3e68c4f}\label{class_n_d_interpolator_ad2c8269f98d6f6b407ca1d1be3e68c4f}} 
+static const bool {\bfseries m\+\_\+b\+Copy\+Data} = Copy\+Data
+\item 
+\mbox{\Hypertarget{class_n_d_interpolator_acf16a2245710ebd331ecb42cc3c8b947}\label{class_n_d_interpolator_acf16a2245710ebd331ecb42cc3c8b947}} 
+static const bool {\bfseries m\+\_\+b\+Continuous} = Continuous
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/algorithms/interpolation/linterp/linterp.\+h\end{DoxyCompactItemize}

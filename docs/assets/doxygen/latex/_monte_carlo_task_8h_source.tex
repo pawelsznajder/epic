@@ -1,0 +1,102 @@
+\hypertarget{_monte_carlo_task_8h_source}{}\doxysection{Monte\+Carlo\+Task.\+h}
+\label{_monte_carlo_task_8h_source}\index{/Users/pawel/projects/epic/epic/include/automation/MonteCarloTask.h@{/Users/pawel/projects/epic/epic/include/automation/MonteCarloTask.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * MonteCarloTask.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 12, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef AUTOMATION\_MONTECARLOTASK\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define AUTOMATION\_MONTECARLOTASK\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/beans/automation/BaseObjectData.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}}: \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a8adb9107e120f60ea43352a4805d3b21}{MonteCarloTask}}();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a619874dfb50a2bba8f06d015ec12b108}{MonteCarloTask}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&other);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{39     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_af80c8b1a5b461d24bc3646b941569921}{\string~MonteCarloTask}}();}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{42     \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{43     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_ae2f48848d32e5a2dc95f62a2f528a953}{getServiceName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_ab345c38b418348999c99beaa477d8902}{setServiceName}}(\textcolor{keyword}{const} std::string \&serviceName);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{58     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a9222e5bc613b374e30b9ae4f1e1d968e}{getMethodName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a4797030973e1e4091ba4f9865d4f7313}{setMethodName}}(\textcolor{keyword}{const} std::string \&methodName);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68     \textcolor{keyword}{const} PARTONS::BaseObjectData \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a73413b5227064aa6ec79d3e47ae7a165}{getGeneralConfiguration}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{73     \textcolor{keywordtype}{void}}
+\DoxyCodeLine{74     \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_aec200e79000ce638bce8b4a0a3a9da33}{setGeneralConfiguration}}(}
+\DoxyCodeLine{75             \textcolor{keyword}{const} PARTONS::BaseObjectData \&generalConfiguration);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{80     \textcolor{keyword}{const} PARTONS::BaseObjectData \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a2f73df28773a1438e278db89de83b6dc}{getKinematicRange}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{85     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a2e9cd50a30c22b77dcb69e26d440c591}{setKinematicRange}}(\textcolor{keyword}{const} PARTONS::BaseObjectData \&kinematicRange);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{90     \textcolor{keyword}{const} PARTONS::BaseObjectData \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_aa7e00618696a36f884a7776fa61b4ae3}{getExperimentalConditions}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a81446a6f9223ddf2173ef79111348b02}{setExperimentalConditions}}(}
+\DoxyCodeLine{96             \textcolor{keyword}{const} PARTONS::BaseObjectData \&experimentalConditions);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{101     \textcolor{keyword}{const} PARTONS::BaseObjectData \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a197ed0168d4606e540e5d5e45d1d5402}{getComputationConfiguration}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{106     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a20ade26327e7a8e3830fd3d850cd5dcb}{setGeneratorConfiguration}}(}
+\DoxyCodeLine{107             \textcolor{keyword}{const} PARTONS::BaseObjectData \&generatorConfiguration);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{112     \textcolor{keyword}{const} PARTONS::BaseObjectData \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a869f6234f9ca25eef859ef5d3d0ef35c}{getGeneratorConfiguration}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{117     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_aafc0c1c5029d7c94bd6953c7a6566cb7}{setComputationConfiguration}}(}
+\DoxyCodeLine{118             \textcolor{keyword}{const} PARTONS::BaseObjectData \&computationConfiguration);}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{123     \textcolor{keyword}{const} PARTONS::BaseObjectData \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_ae374daf670d66ba17f089eeb6c79c555}{getKinematicConfiguration}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{128     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_aef9282e433ad469f4dcef31b8a5b5b2a}{setKinematicConfiguration}}(}
+\DoxyCodeLine{129             \textcolor{keyword}{const} PARTONS::BaseObjectData \&kinematicConfiguration);}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{134     \textcolor{keyword}{const} PARTONS::BaseObjectData \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a09957f4e4edca8e32bf6d21c9cc0afd3}{getRCConfiguration}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{139     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a2d720cdc98acc682a44d409b2ff4a106}{setRCConfiguration}}(\textcolor{keyword}{const} PARTONS::BaseObjectData \&rcConfiguration);}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{144     \textcolor{keyword}{const} PARTONS::BaseObjectData \&\mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_a1dc6bc9d50ef963a588de219200b62a2}{getWriterConfiguration}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{149     \textcolor{keywordtype}{void}}
+\DoxyCodeLine{150     \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task_aac80ef0e894df283634b333d8dc8413d}{setWriterConfiguration}}(\textcolor{keyword}{const} PARTONS::BaseObjectData \&writerConfiguration);}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152 \textcolor{keyword}{private}:}
+\DoxyCodeLine{153     std::string m\_serviceName; }
+\DoxyCodeLine{155     std::string m\_methodName;  }
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     PARTONS::BaseObjectData m\_generalConfiguration; }
+\DoxyCodeLine{160     PARTONS::BaseObjectData m\_kinematicRange; }
+\DoxyCodeLine{162     PARTONS::BaseObjectData m\_experimentalConditions; }
+\DoxyCodeLine{166     PARTONS::BaseObjectData m\_computationConfiguration; }
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171     PARTONS::BaseObjectData m\_generatorConfiguration; }
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176     PARTONS::BaseObjectData m\_kinematicConfiguration; }
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     PARTONS::BaseObjectData m\_rcConfiguration; }
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186     PARTONS::BaseObjectData m\_writerConfiguration; }
+\DoxyCodeLine{189 \};}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* AUTOMATION\_MONTECARLOTASK\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

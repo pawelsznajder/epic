@@ -1,0 +1,145 @@
+\hypertarget{class_e_p_i_c_1_1_r_c_module}{}\doxysection{EPIC\+::RCModule\texorpdfstring{$<$}{<} Obs\+Kin\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_e_p_i_c_1_1_r_c_module}\index{EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}}
+
+
+Template for radiative correction module.  
+
+
+
+
+{\ttfamily \#include $<$RCModule.\+h$>$}
+
+Inheritance diagram for EPIC\+::RCModule\texorpdfstring{$<$}{<} Obs\+Kin\+Type \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_e_p_i_c_1_1_r_c_module}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_aeb6252565295dc379770e257d2506f46}{$\sim$\+RCModule}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_aefaf7091a1c084225587c6e9b9a654cb}{get\+NVariables}} () const
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_ad08aa2615ec83ff22f8af41b1106bbaa}{get\+Variable\+Ranges}} () const
+\item 
+virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, Obs\+Kin\+Type $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_a1af6111ac8c044031e011169f9a25db3}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions, const Obs\+Kin\+Type \&obs\+Kin, const std\+::vector$<$ double $>$ \&par) const =0
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_aff465e81cd5888a62d048f64b7fe72bd}{update\+Event}} (\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event, const std\+::vector$<$ double $>$ \&par) const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_a25a8d98a49bcff2333698cea6a1452c8}{RCModule}} (const std\+::string \&class\+Name, PARTONS\+::\+Channel\+Type\+::\+Type channel\+Type)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_add89235eb3a7b9662c638f7a0f025f2a}{RCModule}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{RCModule}} \&other)
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_ade404aac61088a2eb1afcb2c33728b5f}{check\+Parameters}} (const std\+::vector$<$ double $>$ \&par) const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_ab936a87b0760eb38dbbf5a3e0d3b45af}{set\+Variable\+Ranges}} (const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \&variable\+Ranges)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Obs\+Kin\+Type$>$\newline
+class EPIC\+::\+RCModule$<$ Obs\+Kin\+Type $>$}
+Template for radiative correction module. 
+
+This is a template for radiative correction modules. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_r_c_module_aeb6252565295dc379770e257d2506f46}\label{class_e_p_i_c_1_1_r_c_module_aeb6252565295dc379770e257d2506f46}} 
+\index{EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}!````~RCModule@{$\sim$RCModule}}
+\index{````~RCModule@{$\sim$RCModule}!EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$RCModule()}{~RCModule()}}
+{\footnotesize\ttfamily template$<$typename Obs\+Kin\+Type $>$ \\
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{EPIC\+::\+RCModule}}$<$ Obs\+Kin\+Type $>$\+::$\sim$\mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{RCModule}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Destructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_r_c_module_a25a8d98a49bcff2333698cea6a1452c8}\label{class_e_p_i_c_1_1_r_c_module_a25a8d98a49bcff2333698cea6a1452c8}} 
+\index{EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}!RCModule@{RCModule}}
+\index{RCModule@{RCModule}!EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}}
+\doxysubsubsection{\texorpdfstring{RCModule()}{RCModule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Obs\+Kin\+Type $>$ \\
+\mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{EPIC\+::\+RCModule}}$<$ Obs\+Kin\+Type $>$\+::\+RCModule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name,  }\item[{PARTONS\+::\+Channel\+Type\+::\+Type}]{channel\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Constructor. See Base\+Object\+::\+Base\+Object and Module\+Object\+::\+Module\+Object for more details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Name} & name of child class. \\
+\hline
+{\em channel\+Type} & Channel type. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_r_c_module_add89235eb3a7b9662c638f7a0f025f2a}\label{class_e_p_i_c_1_1_r_c_module_add89235eb3a7b9662c638f7a0f025f2a}} 
+\index{EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}!RCModule@{RCModule}}
+\index{RCModule@{RCModule}!EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}}
+\doxysubsubsection{\texorpdfstring{RCModule()}{RCModule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Obs\+Kin\+Type $>$ \\
+\mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{EPIC\+::\+RCModule}}$<$ Obs\+Kin\+Type $>$\+::\+RCModule (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{RCModule}}$<$ Obs\+Kin\+Type $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em other} & Object to be copied. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_r_c_module_ade404aac61088a2eb1afcb2c33728b5f}\label{class_e_p_i_c_1_1_r_c_module_ade404aac61088a2eb1afcb2c33728b5f}} 
+\index{EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}!checkParameters@{checkParameters}}
+\index{checkParameters@{checkParameters}!EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}}
+\doxysubsubsection{\texorpdfstring{checkParameters()}{checkParameters()}}
+{\footnotesize\ttfamily template$<$typename Obs\+Kin\+Type $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{EPIC\+::\+RCModule}}$<$ Obs\+Kin\+Type $>$\+::check\+Parameters (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Check parameters. \mbox{\Hypertarget{class_e_p_i_c_1_1_r_c_module_a1af6111ac8c044031e011169f9a25db3}\label{class_e_p_i_c_1_1_r_c_module_a1af6111ac8c044031e011169f9a25db3}} 
+\index{EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily template$<$typename Obs\+Kin\+Type $>$ \\
+virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, Obs\+Kin\+Type $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{EPIC\+::\+RCModule}}$<$ Obs\+Kin\+Type $>$\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions,  }\item[{const Obs\+Kin\+Type \&}]{obs\+Kin,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get radiative function, true experimental conditions and kinematics. 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_aef07eaf43d84ce669793a4542e0bf867}{EPIC\+::\+TCSRCNull}}, \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_module_a3ac4335d87d9be9bd31e2a5fc927d292}{EPIC\+::\+TCSRCModule}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a336ce6c3774d2879451c85f8b7c92a1f}{EPIC\+::\+DVCSRCCollinear}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_null_aa743514e172eb3484294c11f7109bb81}{EPIC\+::\+DVCSRCNull}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_module_aa698fece203c1498b2a6cd3bbaa31136}{EPIC\+::\+DVCSRCModule}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_null_ab30e7da627f30723f88b93ad5deaa459}{EPIC\+::\+DVMPRCNull}}, and \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_ac2912e3454cd37c3686da0bdf00ed433}{EPIC\+::\+DVMPRCModule}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_r_c_module_aefaf7091a1c084225587c6e9b9a654cb}\label{class_e_p_i_c_1_1_r_c_module_aefaf7091a1c084225587c6e9b9a654cb}} 
+\index{EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}!getNVariables@{getNVariables}}
+\index{getNVariables@{getNVariables}!EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}}
+\doxysubsubsection{\texorpdfstring{getNVariables()}{getNVariables()}}
+{\footnotesize\ttfamily template$<$typename Obs\+Kin\+Type $>$ \\
+size\+\_\+t \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{EPIC\+::\+RCModule}}$<$ Obs\+Kin\+Type $>$\+::get\+NVariables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get number of variables. \mbox{\Hypertarget{class_e_p_i_c_1_1_r_c_module_ad08aa2615ec83ff22f8af41b1106bbaa}\label{class_e_p_i_c_1_1_r_c_module_ad08aa2615ec83ff22f8af41b1106bbaa}} 
+\index{EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}!getVariableRanges@{getVariableRanges}}
+\index{getVariableRanges@{getVariableRanges}!EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}}
+\doxysubsubsection{\texorpdfstring{getVariableRanges()}{getVariableRanges()}}
+{\footnotesize\ttfamily template$<$typename Obs\+Kin\+Type $>$ \\
+const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{EPIC\+::\+RCModule}}$<$ Obs\+Kin\+Type $>$\+::get\+Variable\+Ranges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get ranges of variables. \mbox{\Hypertarget{class_e_p_i_c_1_1_r_c_module_ab936a87b0760eb38dbbf5a3e0d3b45af}\label{class_e_p_i_c_1_1_r_c_module_ab936a87b0760eb38dbbf5a3e0d3b45af}} 
+\index{EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}!setVariableRanges@{setVariableRanges}}
+\index{setVariableRanges@{setVariableRanges}!EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}}
+\doxysubsubsection{\texorpdfstring{setVariableRanges()}{setVariableRanges()}}
+{\footnotesize\ttfamily template$<$typename Obs\+Kin\+Type $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{EPIC\+::\+RCModule}}$<$ Obs\+Kin\+Type $>$\+::set\+Variable\+Ranges (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \&}]{variable\+Ranges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Get ranges of variables. Number of variables is deduced from the input. \mbox{\Hypertarget{class_e_p_i_c_1_1_r_c_module_aff465e81cd5888a62d048f64b7fe72bd}\label{class_e_p_i_c_1_1_r_c_module_aff465e81cd5888a62d048f64b7fe72bd}} 
+\index{EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}!updateEvent@{updateEvent}}
+\index{updateEvent@{updateEvent}!EPIC::RCModule$<$ ObsKinType $>$@{EPIC::RCModule$<$ ObsKinType $>$}}
+\doxysubsubsection{\texorpdfstring{updateEvent()}{updateEvent()}}
+{\footnotesize\ttfamily template$<$typename Obs\+Kin\+Type $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{EPIC\+::\+RCModule}}$<$ Obs\+Kin\+Type $>$\+::update\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&}]{event,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Update event. 
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a00e73f1e7ed1a248cf732eb4549f8703}{EPIC\+::\+DVCSRCCollinear}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_null_a89b09baf186f16ef42378ee4091e54c4}{EPIC\+::\+DVCSRCNull}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_null_a6515cc0c8c33e2aea3c61e5abf1c3eee}{EPIC\+::\+DVMPRCNull}}, \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_af6e2b9c6f7b21645a5e3cd81ed6507de}{EPIC\+::\+TCSRCNull}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_module_a58761c6c1c1bdd051756097fa7138df4}{EPIC\+::\+DVCSRCModule}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_r_c_module_a36956d84066e564afc3c05f822a85828}{EPIC\+::\+DVMPRCModule}}, and \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_module_aae9bd0f5f832fb62839aa91279c9cf5e}{EPIC\+::\+TCSRCModule}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/modules/radiative\+\_\+corrections/RCModule.\+h\end{DoxyCompactItemize}

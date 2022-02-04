@@ -1,0 +1,69 @@
+\hypertarget{_d_v_m_p_generator_service_8h_source}{}\doxysection{DVMPGenerator\+Service.\+h}
+\label{_d_v_m_p_generator_service_8h_source}\index{/Users/pawel/projects/epic/epic/include/services/DVMPGeneratorService.h@{/Users/pawel/projects/epic/epic/include/services/DVMPGeneratorService.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * DVMPGeneratorService.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 8, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef SERVICES\_DVMPGENERATORSERVICE\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define SERVICES\_DVMPGENERATORSERVICE\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/beans/MesonPolarization.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <partons/modules/process/DVMP/DVMPProcessModule.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../beans/containers/DVMPKinematic.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../beans/containers/DVMPKinematicRanges.h"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../beans/types/ParticleType.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../modules/kinematic/DVMP/DVMPKinematicModule.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}../modules/radiative\_corrections/DVMP/DVMPRCModule.h"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}GeneratorService.h"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service}{DVMPGeneratorService}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{GeneratorService}}<DVMPKinematicRanges,}
+\DoxyCodeLine{35         PARTONS::DVMPProcessModule, DVMPKinematicModule,}
+\DoxyCodeLine{36         DVMPKinematic, DVMPRCModule> \{}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{public}:}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a02fc81bdbd52d353e21eb28e2c6171e6}{DVMP\_GENERATOR\_SERVICE\_MESON\_TYPE}}; }
+\DoxyCodeLine{41     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a80f7511045993599ce97c08636976422}{DVMP\_GENERATOR\_SERVICE\_MESON\_POLARIZATION}}; }
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a7161b976b0091b787e16746f69d8298e}{classId}}; }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{49     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a4bbcc3328a7f111b30323c70ee7ea4b0}{\string~DVMPGeneratorService}}();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a9ca0326bfbbf7f9a306f311c859cc8fa}{getEventDistribution}}(\textcolor{keyword}{const} std::vector<double> \&kin) \textcolor{keyword}{const};}
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a15e4bfb962084e49c687e67dcd08a5dc}{run}}();}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{keyword}{private}:}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{59     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service}{DVMPGeneratorService}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{64     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service}{DVMPGeneratorService}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service}{DVMPGeneratorService}} \&other);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service}{DVMPGeneratorService}} *clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getAdditionalGeneralConfigurationFromTask(}
+\DoxyCodeLine{69             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getProcessModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{72     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getKinematicModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{73     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getRCModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{74     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isServiceWellConfigured() \textcolor{keyword}{const};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} m\_mesonType; }
+\DoxyCodeLine{77     PARTONS::MesonPolarization::Type m\_mesonPolarization; }
+\DoxyCodeLine{78 \};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SERVICES\_DVMPGENERATORSERVICE\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

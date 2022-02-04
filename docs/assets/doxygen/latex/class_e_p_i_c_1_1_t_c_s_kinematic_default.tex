@@ -1,0 +1,102 @@
+\hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_default}{}\doxysection{EPIC\+::TCSKinematic\+Default Class Reference}
+\label{class_e_p_i_c_1_1_t_c_s_kinematic_default}\index{EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}}
+
+
+Kinematic module to determine four-\/momenta from TCS kinematics.  
+
+
+
+
+{\ttfamily \#include $<$TCSKinematic\+Default.\+h$>$}
+
+Inheritance diagram for EPIC\+::TCSKinematic\+Default\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_e_p_i_c_1_1_t_c_s_kinematic_default}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_a656a66eef4d328d58321f7acbd33a6c7}{TCSKinematic\+Default}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_accb00b0fd61117813fdcc107e3dbffdd}{TCSKinematic\+Default}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default}{TCSKinematic\+Default}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_a592d1a874327c5b171315baab3bf9517}{$\sim$\+TCSKinematic\+Default}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_default_af964157f6316684190b25013bf9c8604}\label{class_e_p_i_c_1_1_t_c_s_kinematic_default_af964157f6316684190b25013bf9c8604}} 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default}{TCSKinematic\+Default}} $\ast$ {\bfseries clone} () const
+\item 
+virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_a10fb8e8862e11eb957bf0ae652827ccf}{check\+If\+Valid}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&kin)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_aa4c455f89f8d1e6f31a0a483bbe99e4a}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&kin)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_a107a3d5a8396623d57bb99550df86a77}{class\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Kinematic module to determine four-\/momenta from TCS kinematics. 
+
+This class defines kinematic module for TCS process. That is, four-\/momenta of particles and the signature of event are defined here from kinematics and kinematic conditions. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_default_a656a66eef4d328d58321f7acbd33a6c7}\label{class_e_p_i_c_1_1_t_c_s_kinematic_default_a656a66eef4d328d58321f7acbd33a6c7}} 
+\index{EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}!TCSKinematicDefault@{TCSKinematicDefault}}
+\index{TCSKinematicDefault@{TCSKinematicDefault}!EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}}
+\doxysubsubsection{\texorpdfstring{TCSKinematicDefault()}{TCSKinematicDefault()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+TCSKinematic\+Default\+::\+TCSKinematic\+Default (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_default_accb00b0fd61117813fdcc107e3dbffdd}\label{class_e_p_i_c_1_1_t_c_s_kinematic_default_accb00b0fd61117813fdcc107e3dbffdd}} 
+\index{EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}!TCSKinematicDefault@{TCSKinematicDefault}}
+\index{TCSKinematicDefault@{TCSKinematicDefault}!EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}}
+\doxysubsubsection{\texorpdfstring{TCSKinematicDefault()}{TCSKinematicDefault()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+TCSKinematic\+Default\+::\+TCSKinematic\+Default (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default}{TCSKinematic\+Default}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_default_a592d1a874327c5b171315baab3bf9517}\label{class_e_p_i_c_1_1_t_c_s_kinematic_default_a592d1a874327c5b171315baab3bf9517}} 
+\index{EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}!````~TCSKinematicDefault@{$\sim$TCSKinematicDefault}}
+\index{````~TCSKinematicDefault@{$\sim$TCSKinematicDefault}!EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}}
+\doxysubsubsection{\texorpdfstring{$\sim$TCSKinematicDefault()}{~TCSKinematicDefault()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+TCSKinematic\+Default\+::$\sim$\+TCSKinematic\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_default_a10fb8e8862e11eb957bf0ae652827ccf}\label{class_e_p_i_c_1_1_t_c_s_kinematic_default_a10fb8e8862e11eb957bf0ae652827ccf}} 
+\index{EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}!checkIfValid@{checkIfValid}}
+\index{checkIfValid@{checkIfValid}!EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}}
+\doxysubsubsection{\texorpdfstring{checkIfValid()}{checkIfValid()}}
+{\footnotesize\ttfamily virtual bool EPIC\+::\+TCSKinematic\+Default\+::check\+If\+Valid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&}]{kin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Check if kinematics is valid. 
+
+Reimplemented from \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a548ca1fe31b0d044e430052b7e89331d}{EPIC\+::\+TCSKinematic\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_default_aa4c455f89f8d1e6f31a0a483bbe99e4a}\label{class_e_p_i_c_1_1_t_c_s_kinematic_default_aa4c455f89f8d1e6f31a0a483bbe99e4a}} 
+\index{EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} EPIC\+::\+TCSKinematic\+Default\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&}]{kin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get experimental conditions (like beam types), kinematics and return a set of particles. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a433da85bdacb76233a7e7cb31929129e}{EPIC\+::\+TCSKinematic\+Module}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_default_a107a3d5a8396623d57bb99550df86a77}\label{class_e_p_i_c_1_1_t_c_s_kinematic_default_a107a3d5a8396623d57bb99550df86a77}} 
+\index{EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}!classId@{classId}}
+\index{classId@{classId}!EPIC::TCSKinematicDefault@{EPIC::TCSKinematicDefault}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+TCSKinematic\+Default\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+Unique ID to automatically register the class in the registry. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/modules/kinematic/\+TCS/TCSKinematic\+Default.\+h\end{DoxyCompactItemize}

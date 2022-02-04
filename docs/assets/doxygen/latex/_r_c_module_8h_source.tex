@@ -1,0 +1,95 @@
+\hypertarget{_r_c_module_8h_source}{}\doxysection{RCModule.\+h}
+\label{_r_c_module_8h_source}\index{/Users/pawel/projects/epic/epic/include/modules/radiative\_corrections/RCModule.h@{/Users/pawel/projects/epic/epic/include/modules/radiative\_corrections/RCModule.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * RCModule.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 12, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_RADIATIVECORRECTIONS\_RCMODULE\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_RADIATIVECORRECTIONS\_RCMODULE\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <ElementaryUtils/logger/CustomException.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <ElementaryUtils/string\_utils/Formatter.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <partons/beans/channel/ChannelType.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../../beans/containers/ExperimentalConditions.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}../../beans/containers/KinematicRange.h"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}../EpicModuleObject.h"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{24 \textcolor{keyword}{class }Event;}
+\DoxyCodeLine{25 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{28 \textcolor{keyword}{class }ExperimentalConditions;}
+\DoxyCodeLine{29 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{40 \textcolor{keyword}{template}<\textcolor{keyword}{typename} ObsKinType>}
+\DoxyCodeLine{41 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{RCModule}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}} \{}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{public}:}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_aeb6252565295dc379770e257d2506f46}{\string~RCModule}}() \{}
+\DoxyCodeLine{49     \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_aefaf7091a1c084225587c6e9b9a654cb}{getNVariables}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{59     \textcolor{keyword}{const} std::vector<KinematicRange>\& \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_ad08aa2615ec83ff22f8af41b1106bbaa}{getVariableRanges}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} m\_variableRanges;}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} std::tuple<double, ExperimentalConditions, ObsKinType> \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_a1af6111ac8c044031e011169f9a25db3}{evaluate}}(}
+\DoxyCodeLine{67             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}}\& experimentalConditions,}
+\DoxyCodeLine{68             \textcolor{keyword}{const} ObsKinType\& obsKin, \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{73     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_aff465e81cd5888a62d048f64b7fe72bd}{updateEvent}}(\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}}\& event, \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{84     \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_a25a8d98a49bcff2333698cea6a1452c8}{RCModule}}(\textcolor{keyword}{const} std::string \&className,}
+\DoxyCodeLine{85             PARTONS::ChannelType::Type channelType) :}
+\DoxyCodeLine{86             \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}}(className, channelType), m\_nVariables(0) \{}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{93     \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_add89235eb3a7b9662c638f7a0f025f2a}{RCModule}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module}{RCModule}} \&other) :}
+\DoxyCodeLine{94             \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}}(other), m\_nVariables(other.m\_nVariables), m\_variableRanges(}
+\DoxyCodeLine{95                     other.m\_variableRanges) \{}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{103     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_ade404aac61088a2eb1afcb2c33728b5f}{checkParameters}}(\textcolor{keyword}{const} std::vector<double>\& par)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105         \textcolor{keywordflow}{if} (par.size() != m\_nVariables) \{}
+\DoxyCodeLine{106             \textcolor{keywordflow}{throw} ElemUtils::CustomException(getClassName(), \_\_func\_\_,}
+\DoxyCodeLine{107                     ElemUtils::Formatter() << \textcolor{stringliteral}{"{}Wrong number of variables, is: "{}}}
+\DoxyCodeLine{108                             << par.size() << \textcolor{stringliteral}{"{}, expected: "{}} << m\_nVariables);}
+\DoxyCodeLine{109         \}}
+\DoxyCodeLine{110     \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_ab936a87b0760eb38dbbf5a3e0d3b45af}{setVariableRanges}}(\textcolor{keyword}{const} std::vector<KinematicRange>\& variableRanges) \{}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118         m\_nVariables = variableRanges.size();}
+\DoxyCodeLine{119         m\_variableRanges = variableRanges;}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{keyword}{private}:}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \textcolor{keywordtype}{size\_t} m\_nVariables; }
+\DoxyCodeLine{125     std::vector<KinematicRange> m\_variableRanges; }
+\DoxyCodeLine{126 \};}
+\DoxyCodeLine{127 \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_RADIATIVECORRECTIONS\_RCMODULE\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

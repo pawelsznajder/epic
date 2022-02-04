@@ -1,0 +1,143 @@
+\hypertarget{class_e_p_i_c_1_1_event}{}\doxysection{EPIC\+::Event Class Reference}
+\label{class_e_p_i_c_1_1_event}\index{EPIC::Event@{EPIC::Event}}
+
+
+Single event.  
+
+
+
+
+{\ttfamily \#include $<$Event.\+h$>$}
+
+Inheritance diagram for EPIC\+::Event\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_e_p_i_c_1_1_event}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_event_a80cb6ac61c3193590d1967f85f3a6b26}{Event}} ()
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_event_a7bd87c39697fc7e91838ce6700df21e3}{Event}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event_a34287aa054de843f06fb269bd3a3c54a}{$\sim$\+Event}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_a03f34571bef8a221d34b0871913a615d}\label{class_e_p_i_c_1_1_event_a03f34571bef8a221d34b0871913a615d}} 
+std\+::string {\bfseries to\+String} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_event_aa8908b6edf9568c86a08ce67a280b307}{alter\+Particle\+Code}} (size\+\_\+t i, \mbox{\hyperlink{class_e_p_i_c_1_1_particle_code_type_aa1adb42eb01d1c2428cee012d53ceb61}{Particle\+Code\+Type\+::\+Type}} code)
+\item 
+const std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle_code_type_aa1adb42eb01d1c2428cee012d53ceb61}{Particle\+Code\+Type\+::\+Type}}, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle}{Particle}} $>$ $>$ $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_event_a1daefebdda155b117d9b85f32a02e0c4}{get\+Particles}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_event_a6641318535e3ff37d9bc99e2768ac135}{set\+Particles}} (const std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle_code_type_aa1adb42eb01d1c2428cee012d53ceb61}{Particle\+Code\+Type\+::\+Type}}, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle}{Particle}} $>$ $>$ $>$ \&particles)
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_event_ae86bbe717229a00dfa817c3e10a3e579}{add\+Particle}} (const std\+::pair$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle_code_type_aa1adb42eb01d1c2428cee012d53ceb61}{Particle\+Code\+Type\+::\+Type}}, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle}{Particle}} $>$ $>$ \&particle)
+\item 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_vertex}{Vertex}} $>$ $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_event_a05f14da3911ec4c38c39c1b7cdc1bc25}{get\+Vertices}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_event_a087fec36490268d29a1b7e587f8d8617}{set\+Vertices}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_vertex}{Vertex}} $>$ $>$ \&vertices)
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_event_a1d37e39c1044d69fad8dc681a74d5e68}{add\+Vertex}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_vertex}{Vertex}} $>$ vertex)
+\item 
+const std\+::map$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_attribute_type_a67a9a1d210e0e6bf5b8f66f92fbc2e82}{Event\+Attribute\+Type\+::\+Type}}, double $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_event_a92580d7a1a14e5f59e0dc8fa41ec7886}{get\+Attributes}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_event_a3395d4fa2e297618c2bd38272f3edc07}{set\+Attributes}} (const std\+::map$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_attribute_type_a67a9a1d210e0e6bf5b8f66f92fbc2e82}{Event\+Attribute\+Type\+::\+Type}}, double $>$ \&attributes)
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_event_af329d5ef5211a068e88043b37e53724c}{add\+Attribute}} (\mbox{\hyperlink{class_e_p_i_c_1_1_event_attribute_type_a67a9a1d210e0e6bf5b8f66f92fbc2e82}{Event\+Attribute\+Type\+::\+Type}} type, double value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Single event. 
+
+This class defines a single event containing events and vertices, and eventually a weight. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_a80cb6ac61c3193590d1967f85f3a6b26}\label{class_e_p_i_c_1_1_event_a80cb6ac61c3193590d1967f85f3a6b26}} 
+\index{EPIC::Event@{EPIC::Event}!Event@{Event}}
+\index{Event@{Event}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{Event()}{Event()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Event\+::\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_a7bd87c39697fc7e91838ce6700df21e3}\label{class_e_p_i_c_1_1_event_a7bd87c39697fc7e91838ce6700df21e3}} 
+\index{EPIC::Event@{EPIC::Event}!Event@{Event}}
+\index{Event@{Event}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{Event()}{Event()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Event\+::\+Event (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_a34287aa054de843f06fb269bd3a3c54a}\label{class_e_p_i_c_1_1_event_a34287aa054de843f06fb269bd3a3c54a}} 
+\index{EPIC::Event@{EPIC::Event}!````~Event@{$\sim$Event}}
+\index{````~Event@{$\sim$Event}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{$\sim$Event()}{~Event()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+Event\+::$\sim$\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_event_af329d5ef5211a068e88043b37e53724c}\label{class_e_p_i_c_1_1_event_af329d5ef5211a068e88043b37e53724c}} 
+\index{EPIC::Event@{EPIC::Event}!addAttribute@{addAttribute}}
+\index{addAttribute@{addAttribute}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{addAttribute()}{addAttribute()}}
+{\footnotesize\ttfamily void EPIC\+::\+Event\+::add\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_p_i_c_1_1_event_attribute_type_a67a9a1d210e0e6bf5b8f66f92fbc2e82}{Event\+Attribute\+Type\+::\+Type}}}]{type,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+Add attribute. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_ae86bbe717229a00dfa817c3e10a3e579}\label{class_e_p_i_c_1_1_event_ae86bbe717229a00dfa817c3e10a3e579}} 
+\index{EPIC::Event@{EPIC::Event}!addParticle@{addParticle}}
+\index{addParticle@{addParticle}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{addParticle()}{addParticle()}}
+{\footnotesize\ttfamily void EPIC\+::\+Event\+::add\+Particle (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle_code_type_aa1adb42eb01d1c2428cee012d53ceb61}{Particle\+Code\+Type\+::\+Type}}, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle}{Particle}} $>$ $>$ \&}]{particle }\end{DoxyParamCaption})}
+
+Add particle. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_a1d37e39c1044d69fad8dc681a74d5e68}\label{class_e_p_i_c_1_1_event_a1d37e39c1044d69fad8dc681a74d5e68}} 
+\index{EPIC::Event@{EPIC::Event}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}}
+{\footnotesize\ttfamily void EPIC\+::\+Event\+::add\+Vertex (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_vertex}{Vertex}} $>$}]{vertex }\end{DoxyParamCaption})}
+
+Add vertex. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_aa8908b6edf9568c86a08ce67a280b307}\label{class_e_p_i_c_1_1_event_aa8908b6edf9568c86a08ce67a280b307}} 
+\index{EPIC::Event@{EPIC::Event}!alterParticleCode@{alterParticleCode}}
+\index{alterParticleCode@{alterParticleCode}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{alterParticleCode()}{alterParticleCode()}}
+{\footnotesize\ttfamily void EPIC\+::\+Event\+::alter\+Particle\+Code (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i,  }\item[{\mbox{\hyperlink{class_e_p_i_c_1_1_particle_code_type_aa1adb42eb01d1c2428cee012d53ceb61}{Particle\+Code\+Type\+::\+Type}}}]{code }\end{DoxyParamCaption})}
+
+Alter code of particle specified by iterator. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_a92580d7a1a14e5f59e0dc8fa41ec7886}\label{class_e_p_i_c_1_1_event_a92580d7a1a14e5f59e0dc8fa41ec7886}} 
+\index{EPIC::Event@{EPIC::Event}!getAttributes@{getAttributes}}
+\index{getAttributes@{getAttributes}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{getAttributes()}{getAttributes()}}
+{\footnotesize\ttfamily const std\+::map$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_attribute_type_a67a9a1d210e0e6bf5b8f66f92fbc2e82}{Event\+Attribute\+Type\+::\+Type}}, double $>$ \& EPIC\+::\+Event\+::get\+Attributes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get attributes. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_a1daefebdda155b117d9b85f32a02e0c4}\label{class_e_p_i_c_1_1_event_a1daefebdda155b117d9b85f32a02e0c4}} 
+\index{EPIC::Event@{EPIC::Event}!getParticles@{getParticles}}
+\index{getParticles@{getParticles}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{getParticles()}{getParticles()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle_code_type_aa1adb42eb01d1c2428cee012d53ceb61}{Particle\+Code\+Type\+::\+Type}}, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle}{Particle}} $>$ $>$ $>$ \& EPIC\+::\+Event\+::get\+Particles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get particles. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_a05f14da3911ec4c38c39c1b7cdc1bc25}\label{class_e_p_i_c_1_1_event_a05f14da3911ec4c38c39c1b7cdc1bc25}} 
+\index{EPIC::Event@{EPIC::Event}!getVertices@{getVertices}}
+\index{getVertices@{getVertices}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{getVertices()}{getVertices()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_vertex}{Vertex}} $>$ $>$ \& EPIC\+::\+Event\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get vertices. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_a3395d4fa2e297618c2bd38272f3edc07}\label{class_e_p_i_c_1_1_event_a3395d4fa2e297618c2bd38272f3edc07}} 
+\index{EPIC::Event@{EPIC::Event}!setAttributes@{setAttributes}}
+\index{setAttributes@{setAttributes}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{setAttributes()}{setAttributes()}}
+{\footnotesize\ttfamily void EPIC\+::\+Event\+::set\+Attributes (\begin{DoxyParamCaption}\item[{const std\+::map$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_attribute_type_a67a9a1d210e0e6bf5b8f66f92fbc2e82}{Event\+Attribute\+Type\+::\+Type}}, double $>$ \&}]{attributes }\end{DoxyParamCaption})}
+
+Set attributes. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_a6641318535e3ff37d9bc99e2768ac135}\label{class_e_p_i_c_1_1_event_a6641318535e3ff37d9bc99e2768ac135}} 
+\index{EPIC::Event@{EPIC::Event}!setParticles@{setParticles}}
+\index{setParticles@{setParticles}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{setParticles()}{setParticles()}}
+{\footnotesize\ttfamily void EPIC\+::\+Event\+::set\+Particles (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle_code_type_aa1adb42eb01d1c2428cee012d53ceb61}{Particle\+Code\+Type\+::\+Type}}, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_particle}{Particle}} $>$ $>$ $>$ \&}]{particles }\end{DoxyParamCaption})}
+
+Set particles. \mbox{\Hypertarget{class_e_p_i_c_1_1_event_a087fec36490268d29a1b7e587f8d8617}\label{class_e_p_i_c_1_1_event_a087fec36490268d29a1b7e587f8d8617}} 
+\index{EPIC::Event@{EPIC::Event}!setVertices@{setVertices}}
+\index{setVertices@{setVertices}!EPIC::Event@{EPIC::Event}}
+\doxysubsubsection{\texorpdfstring{setVertices()}{setVertices()}}
+{\footnotesize\ttfamily void EPIC\+::\+Event\+::set\+Vertices (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_vertex}{Vertex}} $>$ $>$ \&}]{vertices }\end{DoxyParamCaption})}
+
+Set vertices. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/beans/physics/Event.\+h\end{DoxyCompactItemize}

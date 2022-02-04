@@ -1,0 +1,71 @@
+\hypertarget{class_e_p_i_c_1_1_testing_service}{}\doxysection{EPIC\+::Testing\+Service Class Reference}
+\label{class_e_p_i_c_1_1_testing_service}\index{EPIC::TestingService@{EPIC::TestingService}}
+
+
+Service used for automatic test of modules.  
+
+
+
+
+{\ttfamily \#include $<$Testing\+Service.\+h$>$}
+
+Inheritance diagram for EPIC\+::Testing\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_e_p_i_c_1_1_testing_service}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_testing_service_a33f2ee62b9303c07a841df72ea20623c}{$\sim$\+Testing\+Service}} ()
+\item 
+bool \mbox{\hyperlink{class_e_p_i_c_1_1_testing_service_a61083d9cf25d74c6167a993b3f3f30a5}{run\+Test}} (bool stop\+If\+Failed=true) const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_testing_service_a4ceaf22415a587b342de4d557bb0c7f7}{register\+Module\+Object}} (const std\+::string \&module\+Name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_e_p_i_c_1_1_testing_service}{Testing\+Service}} $\ast$ \mbox{\hyperlink{class_e_p_i_c_1_1_testing_service_a60fb87b23a180660e2c6879fa7571c99}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service used for automatic test of modules. 
+
+This class is used to automatically test module. It is intended to have a unique instance accessed trough \mbox{\hyperlink{class_e_p_i_c_1_1_testing_service_a60fb87b23a180660e2c6879fa7571c99}{Testing\+Service\+::get\+Instance()}} method. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_testing_service_a33f2ee62b9303c07a841df72ea20623c}\label{class_e_p_i_c_1_1_testing_service_a33f2ee62b9303c07a841df72ea20623c}} 
+\index{EPIC::TestingService@{EPIC::TestingService}!````~TestingService@{$\sim$TestingService}}
+\index{````~TestingService@{$\sim$TestingService}!EPIC::TestingService@{EPIC::TestingService}}
+\doxysubsubsection{\texorpdfstring{$\sim$TestingService()}{~TestingService()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+Testing\+Service\+::$\sim$\+Testing\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_testing_service_a60fb87b23a180660e2c6879fa7571c99}\label{class_e_p_i_c_1_1_testing_service_a60fb87b23a180660e2c6879fa7571c99}} 
+\index{EPIC::TestingService@{EPIC::TestingService}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!EPIC::TestingService@{EPIC::TestingService}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_e_p_i_c_1_1_testing_service}{Testing\+Service}} $\ast$ EPIC\+::\+Testing\+Service\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Share a unique pointer of this class \mbox{\Hypertarget{class_e_p_i_c_1_1_testing_service_a4ceaf22415a587b342de4d557bb0c7f7}\label{class_e_p_i_c_1_1_testing_service_a4ceaf22415a587b342de4d557bb0c7f7}} 
+\index{EPIC::TestingService@{EPIC::TestingService}!registerModuleObject@{registerModuleObject}}
+\index{registerModuleObject@{registerModuleObject}!EPIC::TestingService@{EPIC::TestingService}}
+\doxysubsubsection{\texorpdfstring{registerModuleObject()}{registerModuleObject()}}
+{\footnotesize\ttfamily void EPIC\+::\+Testing\+Service\+::register\+Module\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{module\+Name }\end{DoxyParamCaption})}
+
+Register test module. \mbox{\Hypertarget{class_e_p_i_c_1_1_testing_service_a61083d9cf25d74c6167a993b3f3f30a5}\label{class_e_p_i_c_1_1_testing_service_a61083d9cf25d74c6167a993b3f3f30a5}} 
+\index{EPIC::TestingService@{EPIC::TestingService}!runTest@{runTest}}
+\index{runTest@{runTest}!EPIC::TestingService@{EPIC::TestingService}}
+\doxysubsubsection{\texorpdfstring{runTest()}{runTest()}}
+{\footnotesize\ttfamily bool EPIC\+::\+Testing\+Service\+::run\+Test (\begin{DoxyParamCaption}\item[{bool}]{stop\+If\+Failed = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+Perform test. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/epic/include/services/Testing\+Service.\+h\end{DoxyCompactItemize}

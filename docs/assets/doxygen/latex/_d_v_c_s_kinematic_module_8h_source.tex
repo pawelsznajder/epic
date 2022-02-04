@@ -1,0 +1,50 @@
+\hypertarget{_d_v_c_s_kinematic_module_8h_source}{}\doxysection{DVCSKinematic\+Module.\+h}
+\label{_d_v_c_s_kinematic_module_8h_source}\index{/Users/pawel/projects/epic/epic/include/modules/kinematic/DVCS/DVCSKinematicModule.h@{/Users/pawel/projects/epic/epic/include/modules/kinematic/DVCS/DVCSKinematicModule.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * DVCSKinematicModule.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 12, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_KINEMATIC\_DVCS\_DVCSKINEMATICMODULE\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_KINEMATIC\_DVCS\_DVCSKINEMATICMODULE\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../../../beans/containers/DVCSKinematic.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../KinematicModule.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module}{DVCSKinematicModule}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{KinematicModule}}<DVCSKinematic> \{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_aecc07cdec03205cf00624aae079fd700}{DVCS\_KINEMATIC\_MODULE\_CLASS\_NAME}}; }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{33     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_a4d009f823061dcc5a71d809e25105b89}{DVCSKinematicModule}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_a77b6d9bfaf48aa623fe2aef363c0d8b9}{DVCSKinematicModule}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module}{DVCSKinematicModule}} \&other);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_ac991694926acadd412c92ce31f9c1048}{\string~DVCSKinematicModule}}();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_a0307170d66fb8e44ec6d9f02a858eb3c}{runTest}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_ae68d3050218de180fd94cb29e7ba664b}{checkIfValid}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
+\DoxyCodeLine{48             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic}{DVCSKinematic}} \&kin);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_ab0fc8e1f8619c50d105880f1fca77608}{evaluate}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
+\DoxyCodeLine{51             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic}{DVCSKinematic}} \&kin) = 0;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{54     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} initModule();}
+\DoxyCodeLine{55     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isModuleWellConfigured();}
+\DoxyCodeLine{56 \};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_KINEMATIC\_DVCS\_DVCSKINEMATICMODULE\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

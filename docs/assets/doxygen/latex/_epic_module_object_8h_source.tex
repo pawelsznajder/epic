@@ -1,0 +1,44 @@
+\hypertarget{_epic_module_object_8h_source}{}\doxysection{Epic\+Module\+Object.\+h}
+\label{_epic_module_object_8h_source}\index{/Users/pawel/projects/epic/epic/include/modules/EpicModuleObject.h@{/Users/pawel/projects/epic/epic/include/modules/EpicModuleObject.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * EpicModuleObject.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 7, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_EPICMODULEOBJECT\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_EPICMODULEOBJECT\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/ModuleObject.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <partons/beans/channel/ChannelType.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}}: \textcolor{keyword}{public} PARTONS::ModuleObject \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a75509cf71e64d01376e5f62aec504763}{\string~EpicModuleObject}}();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{37     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a40142efadbdc81511a75586d8ae41e43}{runTest}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_ae3ea33c734ce412b61fc74dceeef2277}{getSeed}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{49     \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a6914f1121c883f9bc72bd1ed9b52fad5}{EpicModuleObject}}(\textcolor{keyword}{const} std::string \&className,}
+\DoxyCodeLine{50             PARTONS::ChannelType::Type channelType);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{55     \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a07a7ebd3cf9fa79bc59e3af4847d64bb}{EpicModuleObject}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}} \&other);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a5b692c5c49a7109b51cad71dd3a86b41}{m\_seed}}; }
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_EPICMODULEOBJECT\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
