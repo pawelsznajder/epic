@@ -4,24 +4,25 @@
 <!-- For your convenience and for bookkeeping provide creation date and unique description -->
 <scenario date="2017-07-18" description="Select specific GPD types">
 
-   <!-- First task: evaluate GPD model for a single kinematics --> 
-   <!-- Indicate service and its methods to be used and indicate if the result should be stored in the database --> 
-   <task service="DVCSGeneratorService" method="generate">
+   <!-- Indicate service and its methods to be used --> 
+   <task service="TCSGeneratorService" method="generate">
 
       <!-- General configuration -->
+      <!-- Subprocess can be "ALL", "BH" or "TCS" -->
       <general_configuration>
          <param name="number_of_events" value="10" />
-         <param name="subprocess_type" value="DVCS" />
+         <param name="subprocess_type" value="TCS" />
       </general_configuration>
 
       <!-- Kinematic limits -->
       <kinematic_range>
-         <param name="range_xB" value="0.|1." />
          <param name="range_t" value="-1.|0." />
-         <param name="range_Q2" value="1.|10." />
-	 	 <param name="range_phi" value="0.|2*pi" />
-         <param name="range_phiS" value="0.|2*pi" />
+         <param name="range_Q2Prim" value="1.|10." />
+         <param name="range_phi" value="0.|2*pi" />
+	      <param name="range_phiS" value="0.|2*pi" />
+         <param name="range_theta" value="0.|2*pi" />
          <param name="range_y" value="0.01|0.95" />
+         <param name="range_Q2" value="0.|0.01" />
       </kinematic_range>
 
       <!-- Experimental conditions -->
@@ -37,14 +38,18 @@
       <!-- Computation scenario -->
       <computation_configuration>
 
-         <module type="DVCSProcessModule" name="DVCSProcessGV08">
+         <module type="TCSProcessModule" name="TCSProcessBDP01">
 
-         	<module type="DVCSScalesModule" name="DVCSScalesQ2Multiplier">
+         	<module type="TCSScalesModule" name="TCSScalesQ2PrimMultiplier">
          		<param name="lambda" value="1." />
          	</module>
 
-         	<module type="DVCSXiConverterModule" name="DVCSXiConverterXBToXi">
+         	<module type="TCSXiConverterModule" name="TCSXiConverterTauToXi">
          	</module>
+
+         	<module type="TCSConvolCoeffFunctionModule" name="TCSCFFFromDVCS">
+
+         		<param name="qcd_order_type" value="LO" />
 
          	<module type="DVCSConvolCoeffFunctionModule" name="DVCSCFFConstant">
 
@@ -54,27 +59,30 @@
          		<param name="cff_value_H_Im" value="2." />
 
          	</module>
+         	</module>
          </module>
       </computation_configuration>
 
       <!-- Generator module configuration -->
       <generator_configuration>
          <module type="EventGeneratorModule" name="EventGeneratorFOAM">
-         	<param name="nCells" value="50" />
-         	<param name="nSamples" value="50" />
-         	<param name="nBins" value="50" />
+         	<param name="nCells" value="500" />
+         	<param name="nSamples" value="500" />
+         	<param name="nBins" value="100" />
+		      <!-- <param name="state_file_path" value="test.root" /> -->
          </module>
       </generator_configuration>
 
       <!-- Kinematic module configuration -->
       <kinematic_configuration>
-         <module type="DVCSKinematicModule" name="DVCSKinematicDefault">
+         <module type="TCSKinematicModule" name="TCSKinematicDefault">
+         	<param name="decay_type" value="e-" />
          </module>
       </kinematic_configuration>
 
       <!-- Radiative correction module configuration -->
       <rc_configuration>
-         <module type="DVCSRCModule" name="DVCSRCNull">
+         <module type="TCSRCModule" name="TCSRCNull">
          </module>
       </rc_configuration>
 
