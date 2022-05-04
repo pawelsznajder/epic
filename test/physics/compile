@@ -1,4 +1,0 @@
-#!/bin/bash
-
-g++ `root-config --cflags` -c reader.cpp
-g++ reader.o -lHepMC3 `root-config --libs` -o reader.exe
