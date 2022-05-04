@@ -1,4 +1,4 @@
-# EpIC - multi-channel Monte Carlo event generator with radiative corrections 
+# EpIC: multi-channel Monte Carlo event generator with radiative corrections 
 
 EpIC is a modern and versatile Monte Carlo generator used in studying exclusive processes. These processes are sensitive to generalised parton distributions (GPDs), which describe the 3D partonic structure of hadrons in the language of quantum chromodynamics (QCD). EpIC has been developed to support the current and future experimental programmes, like [electron-ion collider (EIC)](https://www.bnl.gov/eic) to be constructed in Brookhaven National Laboratory.
 
