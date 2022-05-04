@@ -309,14 +309,28 @@ Event DVCSKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     exclusive_LAB.boost(boost_LAB_to_TAR);
     pS_LAB.boost(boost_LAB_to_TAR);
 
-    // 11. Angle in LAB
+    // 11. Introduce phiS angle
+    
+    double qT = gammaStar_LAB.getMomentum().X();
+    double qL = gammaStar_LAB.getMomentum().Z();
+    double eL = e_LAB.getMomentum().Z();
+    double epT = eS_LAB.getMomentum().X();
 
-    e_LAB.rotate(AxisType::Z, phiS);
-    eS_LAB.rotate(AxisType::Z, phiS);
-    p_LAB.rotate(AxisType::Z, phiS);
-    pS_LAB.rotate(AxisType::Z, phiS);
-    gammaStar_LAB.rotate(AxisType::Z, phiS);
-    exclusive_LAB.rotate(AxisType::Z, phiS);
+    double cosTheta = -(qL * sin(phiS))
+            / sqrt(pow(qL, 2) + pow(qT, 2) - pow(qT, 2) * pow(sin(phiS), 2));
+    double sinTheta = (sqrt(pow(eL, 2) * pow(epT, 2)) * cos(phiS)
+            * sqrt(
+                    (pow(qL, 2) * (pow(qL, 2) + pow(qT, 2)))
+                            / (pow(qL, 2) + pow(qT, 2)
+                                    - pow(qT, 2) * pow(sin(phiS), 2))))
+            / (eL * epT * qL);
+
+    double theta = atan2(sinTheta, cosTheta);
+
+    eS_LAB.rotate(AxisType::Z, theta);
+    gammaStar_LAB.rotate(AxisType::Z, theta);
+    exclusive_LAB.rotate(AxisType::Z, theta);
+    pS_LAB.rotate(AxisType::Z, theta);
 
     // 12. Store
 
