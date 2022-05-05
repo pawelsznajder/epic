@@ -70,7 +70,9 @@
         <p><small>
           Hosted on GitHub Pages<br>
           Theme based on <a href="https://github.com/orderedlist/minimal">minimal</a><br>
-          May 5th, 2022</small></p>
+          {{ "now" | date: "%Y-%m-%d %H:%M" }}
+          <!-- May 5th, 2022 -->
+          </small></p>
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
