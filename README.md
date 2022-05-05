@@ -11,4 +11,4 @@ Exclusive processes currently available in EpIC are:
 
 We refer to [PARTONS documentation of modules](http://partons.cea.fr/partons/doc/html/files.html) for information on theory developments (like GPD models) available for the evaluation of Born cross-sections.
 
-See [this page](https://pawelsznajder.github.io/epic) for  user's guide. More technical information, which is important for a better understanding of the architecture of EpIC, *e.g.* for the purpose of further developments, can be found in [this article]() (*comming soon*). The article also provides the official reference points to be used in publications.
+See [this page](https://pawelsznajder.github.io/epic) for  user's guide. More technical information, which is important for a better understanding of the architecture of EpIC, *e.g.* for the purpose of further developments, can be found in [this article](https://inspirehep.net/literature/2077191). The article also provides the official reference points to be used in publications.
