@@ -229,11 +229,11 @@ void EventGeneratorFOAM::initialise(
 	// distribution
 	m_pFoam->SetRho(this);
 
+	// random number generator (set)
+	m_pFoam->SetPseRan(m_pRandom);
+
 	// initialize
 	if (scenario == 0 || scenario == 1) {
-
-		// random number generator (set)
-		m_pFoam->SetPseRan(m_pRandom);
 
 		// number of dimensions
 		m_pFoam->SetkDim(kinematicRanges.size());
