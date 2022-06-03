@@ -1,0 +1,1 @@
+Table of CFFs for pi0 created with DVMPCFFGK06 and GPDGK19COMPASS modules.
