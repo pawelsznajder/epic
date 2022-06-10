@@ -121,14 +121,46 @@ public:
 				m_pEventGeneratorModule->getIntegral());
 		generationInformation.setGenerationDate(getCurrentDate());
 
-		generationInformation.setInitializationTime(1.E-6*std::chrono::duration_cast<std::chrono::microseconds>(m_debugTimeInitialization.second- m_debugTimeInitialization.first).count());
-		generationInformation.setGenerationTime(1.E-6*std::chrono::duration_cast<std::chrono::microseconds>(m_debugTimeGeneration.second- m_debugTimeGeneration.first).count());
+		generationInformation.setInitializationTime(
+				1.E-6
+						* std::chrono::duration_cast<std::chrono::microseconds>(
+								m_debugTimeInitialization.second
+										- m_debugTimeInitialization.first).count());
+		generationInformation.setGenerationTime(
+				1.E-6
+						* std::chrono::duration_cast<std::chrono::microseconds>(
+								m_debugTimeGeneration.second
+										- m_debugTimeGeneration.first).count());
+
+		addAdditionalGenerationConfiguration(generationInformation);
 
 		m_pWriterModule->saveGenerationInformation(generationInformation);
 
 		info(__func__,
 				ElemUtils::Formatter() << "Generation information:\n"
 						<< generationInformation.toString() << '\n');
+	}
+
+	/**
+	 * Add additional information to GenerationInformation printout.
+	 */
+	virtual void addAdditionalGenerationConfiguration(
+			GenerationInformation& generationInformation) {
+
+		std::stringstream ss;
+
+		ss << m_experimentalConditions.getLeptonHelicity();
+		generationInformation.addAdditionalInfo(
+				std::make_pair("lepton_polarisation", ss.str()));
+
+		ss.str("");
+		ss.clear();
+		ss << m_experimentalConditions.getHadronPolarisation().getX() << '|'
+				<< m_experimentalConditions.getHadronPolarisation().getY()
+				<< '|'
+				<< m_experimentalConditions.getHadronPolarisation().getZ();
+		generationInformation.addAdditionalInfo(
+				std::make_pair("hadron_polarisation", ss.str()));
 	}
 
 	//********************************************************
@@ -458,8 +490,10 @@ protected:
 	std::string m_scenarioDate; ///< Scenario date.
 	std::string m_scenarioDescription; ///< Scenario description.
 
-	std::pair<std::chrono::steady_clock::time_point, std::chrono::steady_clock::time_point> m_debugTimeInitialization; ///< Timer spent for initialization.
-	std::pair<std::chrono::steady_clock::time_point, std::chrono::steady_clock::time_point> m_debugTimeGeneration; ///< Timer spent for generation.
+	std::pair<std::chrono::steady_clock::time_point,
+			std::chrono::steady_clock::time_point> m_debugTimeInitialization; ///< Timer spent for initialization.
+	std::pair<std::chrono::steady_clock::time_point,
+			std::chrono::steady_clock::time_point> m_debugTimeGeneration; ///< Timer spent for generation.
 };
 
 } /* namespace EPIC */
