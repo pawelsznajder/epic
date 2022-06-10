@@ -70,6 +70,7 @@ private:
     virtual void getKinematicModuleFromTask(const MonteCarloTask &task);
     virtual void getRCModuleFromTask(const MonteCarloTask &task);
     virtual void isServiceWellConfigured() const;
+    virtual void addAdditionalGenerationConfiguration(GenerationInformation& generationInformation);
 
     PARTONS::VCSSubProcessType::Type m_subProcessType; ///< subprocess types.
 };

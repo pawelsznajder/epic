@@ -8,6 +8,8 @@
 #include "../../../include/beans/containers/GenerationInformation.h"
 
 #include <ElementaryUtils/string_utils/Formatter.h>
+#include <iterator>
+#include <vector>
 
 namespace EPIC {
 
@@ -28,6 +30,8 @@ GenerationInformation::GenerationInformation(const GenerationInformation &other)
 	m_serviceName = other.m_serviceName;
 	m_integratedCrossSection = other.m_integratedCrossSection;
 	m_generationDate = other.m_generationDate;
+
+	m_additionalInfo = other.m_additionalInfo;
 }
 
 GenerationInformation::~GenerationInformation() {
@@ -52,7 +56,15 @@ std::string GenerationInformation::toString() const {
 
 	formatter << "Initialization time [s]: " << m_initializationTime << '\n';
 	formatter << "Generation time (total) [s]: " << m_generationTime << '\n';
-	formatter << "Generation time (per event) [s]: " << m_generationTime/double(m_nEvents);
+	formatter << "Generation time (per event) [s]: "
+			<< m_generationTime / double(m_nEvents) << '\n';
+
+	formatter << '\n';
+	formatter << "Additional information:";
+	for (std::vector<std::pair<std::string, std::string> >::const_iterator it =
+			m_additionalInfo.begin(); it != m_additionalInfo.end(); it++) {
+		formatter << '\n' << it->first << ": " << it->second;
+	}
 
 	return formatter.str();
 }
@@ -132,5 +144,20 @@ void GenerationInformation::setInitializationTime(double initializationTime) {
 	m_initializationTime = initializationTime;
 }
 
+const std::vector<std::pair<std::string, std::string> >& GenerationInformation::getAdditionalInfo() const {
+	return m_additionalInfo;
 }
+
+void GenerationInformation::setAdditionalInfo(
+		const std::vector<std::pair<std::string, std::string> >& additionalInfo) {
+	m_additionalInfo = additionalInfo;
+}
+
+void GenerationInformation::addAdditionalInfo(
+		const std::pair<std::string, std::string>& additionalInfo) {
+	m_additionalInfo.push_back(additionalInfo);
+}
+
+}
+
 /* namespace EPIC */

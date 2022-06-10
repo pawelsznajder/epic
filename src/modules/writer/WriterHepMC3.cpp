@@ -170,6 +170,15 @@ void WriterHepMC3::saveGenerationInformation(
 					generationInformation.getGenerationDate());
 	runInfo->add_attribute("generation_date", attributeGenerationDate);
 
+	for (std::vector<std::pair<std::string, std::string> >::const_iterator it =
+			generationInformation.getAdditionalInfo().begin();
+			it != generationInformation.getAdditionalInfo().end(); it++) {
+
+		std::shared_ptr<HepMC3::StringAttribute> attributeAdditional =
+				std::make_shared<HepMC3::StringAttribute>(it->second);
+		runInfo->add_attribute(it->first, attributeAdditional);
+	}
+
 	m_writerHepMC3->set_run_info(runInfo);
 
 	switch (m_writerHepMC3Type) {

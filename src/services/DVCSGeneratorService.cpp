@@ -316,4 +316,16 @@ void DVCSGeneratorService::getRCModuleFromTask(const MonteCarloTask &task) {
                     << m_pRCModule->getClassName());
 }
 
+void DVCSGeneratorService::addAdditionalGenerationConfiguration(
+		GenerationInformation& generationInformation) {
+
+	GeneratorService<DVCSKinematicRanges, PARTONS::DVCSProcessModule,
+			DVCSKinematicModule, DVCSKinematic, DVCSRCModule>::addAdditionalGenerationConfiguration(
+			generationInformation);
+
+	generationInformation.addAdditionalInfo(
+			std::make_pair("suprocesses_type",
+					PARTONS::VCSSubProcessType(m_subProcessType).toString()));
+}
+
 } /* namespace EPIC */

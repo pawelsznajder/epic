@@ -332,4 +332,16 @@ void TCSGeneratorService::getRCModuleFromTask(const MonteCarloTask &task) {
                     << m_pRCModule->getClassName());
 }
 
+void TCSGeneratorService::addAdditionalGenerationConfiguration(
+		GenerationInformation& generationInformation) {
+
+	GeneratorService<DDVCSKinematicRanges, PARTONS::TCSProcessModule,
+	            TCSKinematicModule, DDVCSKinematic, TCSRCModule>::addAdditionalGenerationConfiguration(
+			generationInformation);
+
+	generationInformation.addAdditionalInfo(
+			std::make_pair("suprocesses_type",
+					PARTONS::VCSSubProcessType(m_subProcessType).toString()));
+}
+
 } /* namespace EPIC */

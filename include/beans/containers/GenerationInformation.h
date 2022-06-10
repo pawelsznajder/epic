@@ -11,6 +11,7 @@
 #include <partons/BaseObject.h>
 #include <string>
 #include <utility>
+#include <vector>
 
 namespace EPIC {
 
@@ -137,6 +138,23 @@ public:
 	 */
 	void setInitializationTime(double initializationTime);
 
+	/**
+	 * Get additional information.
+	 */
+	const std::vector<std::pair<std::string, std::string> >& getAdditionalInfo() const;
+
+	/**
+	 * Set additional information.
+	 */
+	void setAdditionalInfo(
+			const std::vector<std::pair<std::string, std::string> >& additionalInfo);
+
+	/**
+	 * Add additional information.
+	 */
+	void addAdditionalInfo(
+			const std::pair<std::string, std::string>& additionalInfo);
+
 private:
 
 	std::string m_generatorName; ///< Generator name.
@@ -150,6 +168,8 @@ private:
 
 	double m_initializationTime; ///< Time spent for initialization (in seconds).
 	double m_generationTime; ///< Time spent for generation (in seconds).
+
+	std::vector<std::pair<std::string, std::string> > m_additionalInfo; ///< Additional information;
 };
 
 } /* namespace EPIC */
