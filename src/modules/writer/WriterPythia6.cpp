@@ -35,9 +35,6 @@ const unsigned int WriterPythia6::classId =
 WriterPythia6::WriterPythia6(const std::string &className) :
 		WriterModule(className) {
 
-	m_ofstream = std::ofstream();
-	m_trailSign = std::stringstream();
-
 	m_trailSign << std::scientific;
 
 	m_writerPythia6NoSeparator = new WriterPythia6NoSeparator();
@@ -45,9 +42,6 @@ WriterPythia6::WriterPythia6(const std::string &className) :
 
 WriterPythia6::WriterPythia6(const WriterPythia6 &other) :
 		WriterModule(other) {
-
-	m_ofstream = std::ofstream();
-	m_trailSign = std::stringstream();
 
 	m_trailSign << std::scientific;
 
