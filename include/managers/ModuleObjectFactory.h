@@ -15,6 +15,7 @@ namespace EPIC {
 class DVCSKinematicModule;
 class DVMPKinematicModule;
 class TCSKinematicModule;
+class GAM2KinematicModule;
 class EventGeneratorModule;
 class DVCSRCModule;
 class DVMPRCModule;
@@ -89,6 +90,18 @@ public:
      */
     std::shared_ptr<TCSKinematicModule>
     newTCSKinematicModule(const std::string &className);
+
+    /**
+     * New GAM2KinematicModule by id.
+     */
+    std::shared_ptr<GAM2KinematicModule>
+    newGAM2KinematicModule(unsigned int classId);
+
+    /**
+     * New GAM2KinematicModule by class name.
+     */
+    std::shared_ptr<GAM2KinematicModule>
+    newGAM2KinematicModule(const std::string &className);
 
     /**
      * New DVCSRCModule by id.

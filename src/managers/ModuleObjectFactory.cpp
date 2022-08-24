@@ -14,6 +14,7 @@
 #include "../../include/modules/kinematic/DVCS/DVCSKinematicModule.h"
 #include "../../include/modules/kinematic/DVMP/DVMPKinematicModule.h"
 #include "../../include/modules/kinematic/TCS/TCSKinematicModule.h"
+#include "../../include/modules/kinematic/GAM2/GAM2KinematicModule.h"
 #include "../../include/modules/radiative_corrections/DVCS/DVCSRCModule.h"
 #include "../../include/modules/radiative_corrections/DVMP/DVMPRCModule.h"
 #include "../../include/modules/radiative_corrections/TCS/TCSRCModule.h"
@@ -73,6 +74,18 @@ std::shared_ptr<TCSKinematicModule> ModuleObjectFactory::newTCSKinematicModule(
 std::shared_ptr<TCSKinematicModule> ModuleObjectFactory::newTCSKinematicModule(
         const std::string &className) {
     return std::static_pointer_cast<TCSKinematicModule>(
+            newTestModuleObject(className));
+}
+
+std::shared_ptr<GAM2KinematicModule> ModuleObjectFactory::newGAM2KinematicModule(
+        unsigned int classId) {
+    return std::static_pointer_cast<GAM2KinematicModule>(
+            newTestModuleObject(classId));
+}
+
+std::shared_ptr<GAM2KinematicModule> ModuleObjectFactory::newGAM2KinematicModule(
+        const std::string &className) {
+    return std::static_pointer_cast<GAM2KinematicModule>(
             newTestModuleObject(className));
 }
 
