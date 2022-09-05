@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<!-- Scenario starts here -->
+<!-- For your convenience and for bookkeeping provide creation date and unique description -->
+<scenario date="2022-09-05" description="GAM2 example">
+
+   <!-- Indicate service and its methods to be used --> 
+   <task service="GAM2GeneratorService" method="generate">
+
+      <!-- General configuration -->
+      <general_configuration>
+         <param name="number_of_events" value="10" />
+      </general_configuration>
+
+      <!-- Kinematic limits -->
+      <kinematic_range>
+         <param name="range_t" value="-1.|0." />
+         <param name="range_uPrim" value="-5.|0." />
+         <param name="range_Mgg2" value="1.|2." />
+         <param name="range_phi" value="0.|2*pi" />
+         <param name="range_y" value="0.01|0.95" />
+         <param name="range_Q2" value="0.|0.01" />
+      </kinematic_range>
+
+      <!-- Experimental conditions -->
+      <experimental_conditions>
+         <param name="lepton_energy" value="20." />
+         <param name="lepton_type" value="e-" />
+         <param name="lepton_helicity" value="1" />
+         <param name="hadron_energy" value="1.0" />
+         <param name="hadron_type" value="p" />
+         <param name="hadron_polarisation" value="0.|0.|0." />
+      </experimental_conditions>
+
+      <!-- Computation scenario -->
+      <computation_configuration>
+
+         <module type="GAM2ProcessModule" name="GAM2ProcessGPSSW21">
+
+         	<module type="GAM2ScalesModule" name="GAM2ScalesMgg2Multiplier">
+         		<param name="lambda" value="1." />
+         	</module>
+
+         	<module type="GAM2XiConverterModule" name="GAM2XiConverterExact">
+         	</module>
+
+         	<module type="GAM2ConvolCoeffFunctionModule" name="GAM2CFFStandard">
+
+         		<param name="qcd_order_type" value="LO" />
+
+         		<module type="GPDModule" name="GPDGK16">
+         		</module>
+         	</module>
+         </module>
+      </computation_configuration>
+
+      <!-- Generator module configuration -->
+      <generator_configuration>
+         <module type="EventGeneratorModule" name="EventGeneratorFOAM">
+         	<param name="nCells" value="10" />
+         	<param name="nSamples" value="10" />
+         	<param name="nBins" value="10" />
+		<!-- <param name="state_file_path" value="test.root" /> -->
+         </module>
+      </generator_configuration>
+
+      <!-- Kinematic module configuration -->
+      <kinematic_configuration>
+         <module type="GAM2KinematicModule" name="GAM2KinematicDefault">
+         	<param name="decay_type" value="e-" />
+         </module>
+      </kinematic_configuration>
+
+      <!-- Radiative correction module configuration -->
+      <rc_configuration>
+         <module type="GAM2RCModule" name="GAM2RCNull">
+         </module>
+      </rc_configuration>
+
+      <!-- Writer module configuration-->
+      <writer_configuration>
+         <module type="WriterModule" name="WriterHepMC3">
+         	<param name="output_file_path" value="test.txt" />
+         	<param name="HepMC3_writer_type" value="ascii" />
+         </module>
+      </writer_configuration>
+
+   </task>
+
+</scenario>

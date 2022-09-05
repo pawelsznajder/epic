@@ -98,12 +98,14 @@ double GAM2GeneratorService::getEventDistribution(
 
     //evaluate
     double result = getFlux(std::get<2>(rcTrue)) * std::get<0>(rcTrue)
-            * m_pProcessModule->compute(/*std::get<1>(rcTrue).getLeptonHelicity()*/PARTONS::PolarizationType::UNDEFINED, PARTONS::PolarizationType::UNDEFINED, PARTONS::PolarizationType::UNDEFINED,
+            * m_pProcessModule->compute(/*std::get<1>(rcTrue).getLeptonHelicity()*/PARTONS::PolarizationType::LIN_TRANS_X_PLUS, PARTONS::PolarizationType::LIN_TRANS_X_PLUS, PARTONS::PolarizationType::LIN_TRANS_X_PLUS,
                     std::get<1>(rcTrue).getHadronPolarisation(),
                     std::get<2>(rcTrue).toPARTONSGAM2ObservableKinematic(),
                     m_pProcessModule->getListOfAvailableGPDTypeForComputation()
                     ).getValue().makeSameUnitAs(
                     PARTONS::PhysicalUnit::NB).getValue();
+
+    std::cout << result << std::endl;
 
     if (std::isnan(result)) {
 

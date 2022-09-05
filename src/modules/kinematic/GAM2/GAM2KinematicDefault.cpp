@@ -54,113 +54,238 @@ bool GAM2KinematicDefault::checkIfValid(
     if (!GAM2KinematicModule::checkIfValid(conditions, kin))
         return false;
 
-    double Egamma = conditions.getLeptonEnergy();
-    //Mgg2 = Sqrt(Mgg^2)
-    double Mgg2 =TMath::Sqrt(kin.getMgg2());
-    double uP = kin.getUPrim();
-    double Mp = 0.938272088;
-    double angle = kin.getPhi();
-    double s = 2*Egamma*Egamma +Mp*Mp + 2*Egamma*TMath::Sqrt(Egamma*Egamma+Mp*Mp);
-    double t = kin.getT();
-    double E2 = (s+Mp*Mp)/(2*TMath::Sqrt(s));
-    double p = TMath::Sqrt((TMath::Power(Mp,4)-2*Mp*Mp*s+s*s)/(4*s));
-    double pPrim = TMath::Sqrt((TMath::Power(Mgg2,4)+(Mp*Mp-s)*(Mp*Mp-s)-2*Mgg2*Mgg2*(Mp*Mp+s))/(4*s));
-    double cosTheta = (TMath::Power(Mp,4)-2*Mp*Mp*s-Mgg2*Mgg2*(Mp*Mp+s)+s*(s+2*t))/TMath::Sqrt((Mp*Mp-s)*(Mp*Mp-s))/TMath::Sqrt(TMath::Power(Mgg2,4)+(Mp*Mp-s)*(Mp*Mp-s)-2*Mgg2*Mgg2*(Mp*Mp+s));
-    double sinTheta = TMath::Sqrt(1-cosTheta*cosTheta);
 
-    double p1CM = Egamma;
-    double E3CM = (s+Mgg2*Mgg2-Mp*Mp)/(2*TMath::Sqrt(s));
-    double p3CM = TMath::Sqrt(E3CM*E3CM - Mgg2*Mgg2);
+    //variables
+       double Ee = conditions.getLeptonEnergy();
+       double Ep = conditions.getHadronEnergy();
+       ParticleType::Type beamType = conditions.getLeptonType();
+          ParticleType::Type targetType = conditions.getHadronType();
 
-    double t0 = pow((Mgg2*Mgg2)/(2*TMath::Sqrt(s)),2) - pow(p1CM-p3CM,2);
-    double t1 = pow((Mgg2*Mgg2)/(2*TMath::Sqrt(s)),2) - pow(p1CM+p3CM,2);
+       double y = kin.getY();
+       double Q2 = kin.getQ2();
 
-    TLorentzVector lvGamma(p,0,0,Egamma);
-    TLorentzVector lvP(-p,0,0,E2);
-    TLorentzVector lvGamma3(pPrim*cosTheta,pPrim*sinTheta,0,E3CM);
-    TVector3 boost_lvP = lvP.BoostVector();
-    lvGamma.Boost(-boost_lvP);
-    lvGamma3.Boost(-boost_lvP);
-    double lv3X = lvGamma3[0];
-    double lv3Y = lvGamma3[1];
-    double lv3E = lvGamma3[3];
-    double lv1X = lvGamma[0];
-    double lv1E = lvGamma[3];
+       double Mp = ParticleType(targetType).getMass();
 
+    // 1. Define particles for e and p in lab frame
 
+       Particle e_LAB(beamType, TVector3(0., 0., -1.), Ee);
+       Particle p_LAB(targetType, TVector3(0., 0., 1.), Ep);
 
-    if (t < t1 || t > t0)
+       // 2. Boost to target rest frame
+
+       TVector3 boost_LAB_to_TAR = p_LAB.getFourMomentum().BoostVector();
+
+       Particle e_TAR = e_LAB;
+       Particle p_TAR = p_LAB;
+
+       e_TAR.boost(-boost_LAB_to_TAR);
+       p_TAR.boost(-boost_LAB_to_TAR);
+
+       // 3. Scattered electron
+
+       if (Q2
+               < pow(y * ParticleType(ParticleType::ELECTRON).getMass(), 2)
+                       / (1. - y)) {
         return false;
+       }
+
+       //energy of scattered electron
+       double E_e_TAR = e_TAR.getEnergy();
+       double E_eS_TAR = E_e_TAR * (1. - y);
+
+       //scattering angle
+       double cosTheta_eS_TAR = 1. - Q2 / (2 * E_e_TAR * E_eS_TAR);
+
+       Particle eS_TAR(beamType, e_TAR.getMomentum().Unit(), E_eS_TAR);
+       eS_TAR.rotate(AxisType::Y, acos(cosTheta_eS_TAR));
+
+       // 3. Initial photon
+
+       Particle gamma_TAR(ParticleType::PHOTON,
+               e_TAR.getFourMomentum() - eS_TAR.getFourMomentum());
 
 
-    if (Mgg2*Mgg2 > s + Mp*Mp)
-        return false;
+       // 4. Rotate such as gamma* goes along x direction
+       double cosTheta_gamma_TAR = gamma_TAR.getMomentum().X()/gamma_TAR.getMomentum().Mag();
 
-    if (s > pow((Mgg2-Mp),2) && s < pow((Mgg2+Mp),2))
-        return false;
+       Particle gamma_X = gamma_TAR;
+       Particle p_X = p_TAR;
 
-    if(pow(lv1E,2)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2))*
+       gamma_X.rotate(AxisType::Y, -1*acos(cosTheta_gamma_TAR));
+       p_X.rotate(AxisType::Y, -1*acos(cosTheta_gamma_TAR));
+
+       // 5. Boost to gamma* - p CMS
+       TVector3 boost_X_to_CMS = (gamma_X.getFourMomentum() + p_X.getFourMomentum()).BoostVector();
+
+       Particle gamma_CMS =  gamma_X;
+       Particle p_CMS =  p_X;
+
+       gamma_CMS.boost(-boost_X_to_CMS);
+       p_CMS.boost(-boost_X_to_CMS);
+
+
+
+
+       //6. Four momenta of particles
+
+       double s = (gamma_CMS.getFourMomentum() + p_CMS.getFourMomentum()).Mag2();
+        double t = kin.getT();
+        double uPrim = kin.getUPrim();
+        double Mgg2 = kin.getMgg2();
+        double q2 = gamma_CMS.getFourMomentum().Mag2();
+
+        double E1 = ((q2 + s - pow(Mp,2))*pow(s,-0.5))/2.;
+          double E2 = ((-q2 + s + pow(Mp,2))*pow(s,-0.5))/2.;
+          double E3 = ((Mgg2 + s - pow(Mp,2))*pow(s,-0.5))/2.;
+          double E4 =((-Mgg2 + s + pow(Mp,2))*pow(s,-0.5))/2.;
+
+          if(-2*q2*s - 2*q2*pow(Mp,2) - 2*s*pow(Mp,2) + pow(Mp,4) + pow(q2,2) + pow(s,2) < 0.) return false;
+          if(-2*Mgg2*s + pow(Mgg2,2) - 2*Mgg2*pow(Mp,2) - 2*s*pow(Mp,2) + pow(Mp,4) + pow(s,2) < 0.) return false;
+
+          if(pow(Mgg2,2) - 2*Mgg2*(s + pow(Mp,2)) + pow(-s + pow(Mp,2),2) < 0.) return false;
+          if(-2*(q2 + s)*pow(Mp,2) + pow(Mp,4) + pow(q2 - s,2) < 0.) return false;
+
+
+          double p = pow(pow(s,-1)*(-2*q2*s - 2*q2*pow(Mp,2) - 2*s*pow(Mp,2) + pow(Mp,4) + pow(q2,2) + pow(s,2)),0.5)/2.;
+          double pPrim = pow(pow(s,-1)*(-2*Mgg2*s + pow(Mgg2,2) - 2*Mgg2*pow(Mp,2) - 2*s*pow(Mp,2) + pow(Mp,4) + pow(s,2)),0.5)/2.;
+          double cosTheta = (s*(-q2 + s + 2*t) - (q2 + 2*s)*pow(Mp,2) - Mgg2*(-q2 + s + pow(Mp,2)) + pow(Mp,4))*pow(-2*(q2 + s)*pow(Mp,2) + pow(Mp,4) + pow(q2 - s,2),-0.5)*
+                  pow(pow(Mgg2,2) - 2*Mgg2*(s + pow(Mp,2)) + pow(-s + pow(Mp,2),2),-0.5);
+          double sinTheta = TMath::Sqrt(1-cosTheta*cosTheta);
+
+          if(fabs(cosTheta) > 1.) return false;
+
+       double lv3X = pPrim*cosTheta;
+       double lv3Y = pPrim*sinTheta;
+       double lv3E = E3;
+       double lv1X = p;
+       double lv1E = E1;
+       double uP = uPrim;
+       double angle = kin.getPhi();
+
+
+
+ if(
+         pow(lv1E,2)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2))*
             (4*uP*pow(lv1X,2)*pow(lv3X,2) + 2*pow(lv1X,4)*pow(lv3X,2) - 2*pow(lv1X,2)*pow(lv3E,2)*pow(lv3X,2) - 4*lv1X*uP*pow(lv3X,3) - 4*pow(lv1X,3)*pow(lv3X,3) +
-              2*pow(lv1X,2)*pow(lv3X,4) - 4*lv1X*lv3X*uP*pow(lv3Y,2) + 4*uP*pow(lv1X,2)*pow(lv3Y,2) - 4*lv3X*pow(lv1X,3)*pow(lv3Y,2) + 2*pow(lv1X,4)*pow(lv3Y,2) -
-              pow(lv1X,2)*pow(lv3E,2)*pow(lv3Y,2) + 3*pow(lv1X,2)*pow(lv3X,2)*pow(lv3Y,2) - 4*lv3E*pow(lv1E,3)*(pow(lv3X,2) + pow(lv3Y,2)) +
-              2*pow(lv1E,4)*(pow(lv3X,2) + pow(lv3Y,2)) + 4*lv1E*lv3E*(uP + pow(lv1X,2))*(pow(lv3X,2) + pow(lv3Y,2)) +
-              cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) -
-              2*pow(lv1E,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-2*lv1X*lv3X + 2*uP + 2*pow(lv1X,2) - pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) + pow(lv1X,2)*pow(lv3Y,4) +
-              2*pow(lv3X,2)*pow(uP,2) + 2*pow(lv3Y,2)*pow(uP,2))*pow(1/cos(angle),2)< 0)
-        return false;
+                    2*pow(lv1X,2)*pow(lv3X,4) - 4*lv1X*lv3X*uP*pow(lv3Y,2) + 4*uP*pow(lv1X,2)*pow(lv3Y,2) - 4*lv3X*pow(lv1X,3)*pow(lv3Y,2) + 2*pow(lv1X,4)*pow(lv3Y,2) -
+                        pow(lv1X,2)*pow(lv3E,2)*pow(lv3Y,2) + 3*pow(lv1X,2)*pow(lv3X,2)*pow(lv3Y,2) - 4*lv3E*pow(lv1E,3)*(pow(lv3X,2) + pow(lv3Y,2)) +
+                        2*pow(lv1E,4)*(pow(lv3X,2) + pow(lv3Y,2)) + 4*lv1E*lv3E*(uP + pow(lv1X,2))*(pow(lv3X,2) + pow(lv3Y,2)) +
+                        cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) -
+                             2*pow(lv1E,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-2*lv1X*lv3X + 2*uP + 2*pow(lv1X,2) - pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) + pow(lv1X,2)*pow(lv3Y,4) +
+                             2*pow(lv3X,2)*pow(uP,2) + 2*pow(lv3Y,2)*pow(uP,2))*pow(1/cos(angle),2)
+         < 0.)
+     return false;
 
-    /*\
-     *
-     *
-     * Tutaj musimy zaimplementowac kod sluzacy sprawdzeniu czy dane warunki wejsciowe (kinematyka) ma sens fizyczny.
-     * Mozemy to zrobic albo w trakcie pisania funkcji evaluate() albo pozniej
-     */
-
-    return true;
+ return true;
 }
 
 Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
         const GAM2Kinematic &kin) {
 
-    std::cout << "dane wejsciowe:" << std::endl;
+    //variables
+       double Ee = conditions.getLeptonEnergy();
+       double Ep = conditions.getHadronEnergy();
+       ParticleType::Type beamType = conditions.getLeptonType();
+          ParticleType::Type targetType = conditions.getHadronType();
 
-    std::cout << conditions.toString() << std::endl;
-    std::cout << kin.toString() << std::endl;
+       double y = kin.getY();
+       double Q2 = kin.getQ2();
 
-    //z obiektu ExperimentalConditions bedziemy na razie potrzebowali tylko energie wiazki (prosze zignoro-wac "lepton" w nazwie funkcji)
-    double Egamma = conditions.getLeptonEnergy();
+       double Mp = ParticleType(targetType).getMass();
 
-    //proton stoi w miejscu, czyli jego energia to masa spoczynkowa (pracujemy w GeV-ach) *obecnie proton porusza sie wzdluz osi x*
-    double Mp = 0.938272088;
+    // 1. Define particles for e and p in lab frame
+
+       Particle e_LAB(beamType, TVector3(0., 0., -1.), Ee);
+       Particle p_LAB(targetType, TVector3(0., 0., 1.), Ep);
+
+       // 2. Boost to target rest frame
+
+       TVector3 boost_LAB_to_TAR = p_LAB.getFourMomentum().BoostVector();
+
+       Particle e_TAR = e_LAB;
+       Particle p_TAR = p_LAB;
+
+       e_TAR.boost(-boost_LAB_to_TAR);
+       p_TAR.boost(-boost_LAB_to_TAR);
+
+       // 3. Scattered electron
+
+       if (Q2
+               < pow(y * ParticleType(ParticleType::ELECTRON).getMass(), 2)
+                       / (1. - y)) {
+           throw ElemUtils::CustomException(getClassName(), __func__,
+                   ElemUtils::Formatter() << "Kinematics not valid, kinematics: "
+                           << kin.toString() << " experimental conditions"
+                           << conditions.toString());
+       }
+
+       //energy of scattered electron
+       double E_e_TAR = e_TAR.getEnergy();
+       double E_eS_TAR = E_e_TAR * (1. - y);
+
+       //scattering angle
+       double cosTheta_eS_TAR = 1. - Q2 / (2 * E_e_TAR * E_eS_TAR);
+
+       Particle eS_TAR(beamType, e_TAR.getMomentum().Unit(), E_eS_TAR);
+       eS_TAR.rotate(AxisType::Y, acos(cosTheta_eS_TAR));
+
+       // 3. Initial photon
+
+       Particle gamma_TAR(ParticleType::PHOTON,
+               e_TAR.getFourMomentum() - eS_TAR.getFourMomentum());
 
 
-    double s = 2*Egamma*Egamma +Mp*Mp + 2*Egamma*TMath::Sqrt(Egamma*Egamma+Mp*Mp);
+       // 4. Rotate such as gamma* goes along x direction
+       double cosTheta_gamma_TAR = gamma_TAR.getMomentum().X()/gamma_TAR.getMomentum().Mag();
+
+       Particle gamma_X = gamma_TAR;
+       Particle p_X = p_TAR;
+
+       gamma_X.rotate(AxisType::Y, -1*acos(cosTheta_gamma_TAR));
+       p_X.rotate(AxisType::Y, -1*acos(cosTheta_gamma_TAR));
+
+       // 5. Boost to gamma* - p CMS
+       TVector3 boost_X_to_CMS = (gamma_X.getFourMomentum() + p_X.getFourMomentum()).BoostVector();
+
+       Particle gamma_CMS =  gamma_X;
+       Particle p_CMS =  p_X;
+
+       gamma_CMS.boost(-boost_X_to_CMS);
+       p_CMS.boost(-boost_X_to_CMS);
+
+
+
+
+       //6. Four momenta of particles
+
+    double s = (gamma_CMS.getFourMomentum() + p_CMS.getFourMomentum()).Mag2();
     double t = kin.getT();
     double uPrim = kin.getUPrim();
-    //Mgg2 = Sqrt(Mgg^2)
-    double Mgg2 = TMath::Sqrt(kin.getMgg2());
-    double E1 = Egamma;
-    double E2 = (s+Mp*Mp)/(2*TMath::Sqrt(s));
-    double E3 = (s+Mgg2*Mgg2-Mp*Mp)/(2*TMath::Sqrt(s));
-    double E4 = (s-Mgg2*Mgg2+Mp*Mp)/(2*TMath::Sqrt(s));
-    double p = TMath::Sqrt((TMath::Power(Mp,4)-2*Mp*Mp*s+s*s)/(4*s));
-    double pPrim = TMath::Sqrt((TMath::Power(Mgg2,4)+(Mp*Mp-s)*(Mp*Mp-s)-2*Mgg2*Mgg2*(Mp*Mp+s))/(4*s));
-    double cosTheta = (TMath::Power(Mp,4)-2*Mp*Mp*s-Mgg2*Mgg2*(Mp*Mp+s)+s*(s+2*t))/TMath::Sqrt((Mp*Mp-s)*(Mp*Mp-s))/TMath::Sqrt(TMath::Power(Mgg2,4)+(Mp*Mp-s)*(Mp*Mp-s)-2*Mgg2*Mgg2*(Mp*Mp+s));
+    double Mgg2 = kin.getMgg2();
+    double q2 = gamma_CMS.getFourMomentum().Mag2();
+
+    double E1 = ((q2 + s - pow(Mp,2))*pow(s,-0.5))/2.;
+    double E2 = ((-q2 + s + pow(Mp,2))*pow(s,-0.5))/2.;
+    double E3 = ((Mgg2 + s - pow(Mp,2))*pow(s,-0.5))/2.;
+    double E4 =((-Mgg2 + s + pow(Mp,2))*pow(s,-0.5))/2.;
+
+
+
+    double p = pow(pow(s,-1)*(-2*q2*s - 2*q2*pow(Mp,2) - 2*s*pow(Mp,2) + pow(Mp,4) + pow(q2,2) + pow(s,2)),0.5)/2.;
+    double pPrim = pow(pow(s,-1)*(-2*Mgg2*s + pow(Mgg2,2) - 2*Mgg2*pow(Mp,2) - 2*s*pow(Mp,2) + pow(Mp,4) + pow(s,2)),0.5)/2.;
+    double cosTheta = (s*(-q2 + s + 2*t) - (q2 + 2*s)*pow(Mp,2) - Mgg2*(-q2 + s + pow(Mp,2)) + pow(Mp,4))*pow(-2*(q2 + s)*pow(Mp,2) + pow(Mp,4) + pow(q2 - s,2),-0.5)*
+            pow(pow(Mgg2,2) - 2*Mgg2*(s + pow(Mp,2)) + pow(-s + pow(Mp,2),2),-0.5);
     double sinTheta = TMath::Sqrt(1-cosTheta*cosTheta);
-    //naszym celem jest zapelnienie tych 4-wektorow
+
+
     TLorentzVector lvGamma(p,0,0,E1);
     TLorentzVector lvP(-p,0,0,E2);
 
-    TVector3 boost_lvP = lvP.BoostVector();
 
-
-    lvP.Boost(-boost_lvP);
-    lvGamma.Boost(-boost_lvP);
 
     TLorentzVector lvGamma3(pPrim*cosTheta,pPrim*sinTheta,0,E3);
     TLorentzVector lvPPrim(-pPrim*cosTheta,-pPrim*sinTheta,0,E4);
-    lvGamma3.Boost(-boost_lvP);
-    lvPPrim.Boost(-boost_lvP);
+
 
     double lv3X = lvGamma3[0];
     double lv3Y = lvGamma3[1];
@@ -170,8 +295,10 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
     double uP = uPrim;
     double angle = kin.getPhi();
 
+
+
     //results 1
-    double lv3AX = pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
+    double lv3AX=pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
             cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
             pow(lv1X,2)*(-(pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))) + pow(lv3E,2)*(2*pow(lv3X,2) + pow(lv3Y,2))) + 2*pow(lv1E,2)*pow(pow(lv3X,2) + pow(lv3Y,2),2),-1)*
           (lv1X*uP*pow(lv3E,2)*pow(lv3X,2) + pow(lv1X,3)*pow(lv3E,2)*pow(lv3X,2) + lv1X*uP*pow(lv3E,2)*pow(lv3Y,2) + pow(lv1X,3)*pow(lv3E,2)*pow(lv3Y,2) -
@@ -189,7 +316,10 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
             lv3X*(-(lv1X*lv3E*lv3X) + lv1E*(pow(lv3X,2) + pow(lv3Y,2)))*(lv3E*pow(lv1E,2) - lv3E*(uP + pow(lv1X,2)) + lv1E*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)))*
              pow(tan(angle),2));
 
-    double lv3AY = -(pow(lv1E,-1)*pow(lv3Y,-1)*pow(cos(angle),2)*pow(4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) +
+
+
+
+    double lv3AY =-(pow(lv1E,-1)*pow(lv3Y,-1)*pow(cos(angle),2)*pow(4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) +
             cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
             pow(lv1X,2)*(pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) - pow(lv3E,2)*(2*pow(lv3X,2) + pow(lv3Y,2))) - 2*pow(lv1E,2)*pow(pow(lv3X,2) + pow(lv3Y,2),2),-1)*
           (lv1E*lv1X*lv3X*uP*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) + lv3E*pow(lv1E,4)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) -
@@ -215,7 +345,7 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
             lv1E*pow(lv3Y,2)*(-(lv1X*lv3E*lv3X) + lv1E*(pow(lv3X,2) + pow(lv3Y,2)))*
              (lv3E*pow(lv1E,2) - lv3E*(uP + pow(lv1X,2)) + lv1E*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)))*pow(tan(angle),2)));
 
-    double lv3BX = pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
+    double lv3BX=pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
             cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
             pow(lv1X,2)*(-(pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))) + pow(lv3E,2)*(2*pow(lv3X,2) + pow(lv3Y,2))) + 2*pow(lv1E,2)*pow(pow(lv3X,2) + pow(lv3Y,2),2),-1)*
           (-(lv1X*uP*pow(lv3E,2)*pow(lv3X,2)) - pow(lv1X,3)*pow(lv3E,2)*pow(lv3X,2) + 2*pow(lv1X,2)*pow(lv3E,2)*pow(lv3X,3) - lv1X*uP*pow(lv3E,2)*pow(lv3Y,2) +
@@ -266,44 +396,91 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
 
     double lv3BZ = -1 * lv3AZ;
 
-    TLorentzVector lvGamma1(lv3AX,lv3AY,lv3AZ,TMath::Sqrt(lv3AX*lv3AX+lv3AY*lv3AY));
-    TLorentzVector lvGamma2(lv3BX,lv3BY,lv3BZ,TMath::Sqrt(lv3BX*lv3BX+lv3BY*lv3BY));
+    TLorentzVector lvGamma1(lv3AX,lv3AY,lv3AZ,TMath::Sqrt(lv3AX*lv3AX+lv3AY*lv3AY+lv3AZ*lv3AZ));
+    TLorentzVector lvGamma2(lv3BX,lv3BY,lv3BZ,TMath::Sqrt(lv3BX*lv3BX+lv3BY*lv3BY+lv3BZ*lv3BZ));
 
+    Particle pPrim_CMS(ParticleType::PROTON, lvPPrim);
+    Particle gamma1_CMS(ParticleType::PHOTON, lvGamma1);
+    Particle gamma2_CMS(ParticleType::PHOTON, lvGamma2);
+
+
+
+    //boost to X and rotate back
+    Particle pPrim_X = pPrim_CMS;
+    Particle gamma1_X = gamma1_CMS;
+    Particle gamma2_X = gamma2_CMS;
+
+    pPrim_X.boost(boost_X_to_CMS);
+    gamma1_X.boost(boost_X_to_CMS);
+    gamma2_X.boost(boost_X_to_CMS);
+
+    pPrim_X.rotate(AxisType::Y, acos(cosTheta_gamma_TAR));
+    gamma1_X.rotate(AxisType::Y, acos(cosTheta_gamma_TAR));
+    gamma2_X.rotate(AxisType::Y, acos(cosTheta_gamma_TAR));
 
     //return
+    Particle eS_LAB = eS_TAR;
+    Particle gamma_LAB = gamma_TAR;
 
-    //tworzenie obiektow Particl, Vertex i kontenera Event
+    eS_LAB.boost(boost_LAB_to_TAR);
+    gamma_LAB.boost(boost_LAB_to_TAR);
+
+    Particle pPrim_LAB = pPrim_X;
+      Particle gamma1_LAB = gamma1_X;
+      Particle gamma2_LAB = gamma2_X;
+
+
+      pPrim_LAB.boost(boost_LAB_to_TAR);
+      gamma1_LAB.boost(boost_LAB_to_TAR);
+      gamma2_LAB.boost(boost_LAB_to_TAR);
+
+
+//      std::cout << "M: "  << Mgg2 << ' ' << (gamma1_LAB.getFourMomentum()+gamma2_LAB.getFourMomentum()).Mag2() << std::endl;
+//      std::cout << "u': "  << uP << ' ' << (gamma_LAB.getFourMomentum()-gamma1_LAB.getFourMomentum()).Mag2() << std::endl;
+//      std::cout << "t: "  << t << ' ' << (pPrim_LAB.getFourMomentum()-p_LAB.getFourMomentum()).Mag2() << std::endl;
+//      std::cout << "Q2: " << Q2 << ' ' <<  -(e_LAB.getFourMomentum()-eS_LAB.getFourMomentum()).Mag2() << std::endl;
+//      std::cout << "y: " << y << ' ' <<  (e_LAB.getEnergy()-eS_LAB.getEnergy())/e_LAB.getEnergy() << std::endl;
+
+//      std::cout << "balance: "<< std::endl;
+//      (e_LAB.getFourMomentum() + p_LAB.getFourMomentum() - eS_LAB.getFourMomentum() - pPrim_LAB.getFourMomentum() - gamma1_LAB.getFourMomentum() - gamma2_LAB.getFourMomentum()).Print();
+
+      //tworzenie obiektow Particl, Vertex i kontenera Event
     Event event;
 
     std::vector < std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> >
-            > particles(5);
+            > particles(7);
 
     particles.at(0) = std::make_pair(ParticleCodeType::BEAM,
-            std::make_shared < Particle
-                    > (Particle(ParticleType::PHOTON, lvGamma)));
-    particles.at(1) = std::make_pair(ParticleCodeType::BEAM,
-            std::make_shared < Particle
-                    > (Particle(ParticleType::PROTON, lvP)));
-    particles.at(2) = std::make_pair(ParticleCodeType::UNDECAYED,
-            std::make_shared < Particle
-                    > (Particle(ParticleType::PHOTON, lvGamma1)));
-    particles.at(3) = std::make_pair(ParticleCodeType::UNDECAYED,
-            std::make_shared < Particle
-                    > (Particle(ParticleType::PHOTON, lvGamma2)));
-    particles.at(4) = std::make_pair(ParticleCodeType::UNDECAYED,
-            std::make_shared < Particle
-                    > (Particle(ParticleType::PROTON, lvPPrim)));
+             std::make_shared<Particle>(e_LAB));
+     particles.at(1) = std::make_pair(ParticleCodeType::BEAM,
+             std::make_shared<Particle>(p_LAB));
+     particles.at(2) = std::make_pair(ParticleCodeType::UNDECAYED,
+             std::make_shared<Particle>(eS_LAB));
+     particles.at(3) = std::make_pair(ParticleCodeType::VIRTUAL,
+             std::make_shared<Particle>(gamma_LAB));
+     particles.at(4) = std::make_pair(ParticleCodeType::UNDECAYED,
+             std::make_shared<Particle>(pPrim_LAB));
+     particles.at(5) = std::make_pair(ParticleCodeType::UNDECAYED,
+                  std::make_shared<Particle>(gamma1_LAB));
+     particles.at(6) = std::make_pair(ParticleCodeType::UNDECAYED,
+                  std::make_shared<Particle>(gamma2_LAB));
 
     event.setParticles(particles);
 
-    std::vector < std::shared_ptr<Vertex> > vertices(1);
+    std::vector < std::shared_ptr<Vertex> > vertices(2);
+
 
     vertices.at(0) = std::make_shared<Vertex>();
     vertices.at(0)->addParticleIn(particles.at(0).second);
-    vertices.at(0)->addParticleIn(particles.at(1).second);
     vertices.at(0)->addParticleOut(particles.at(2).second);
     vertices.at(0)->addParticleOut(particles.at(3).second);
-    vertices.at(0)->addParticleOut(particles.at(4).second);
+
+    vertices.at(1) = std::make_shared<Vertex>();
+    vertices.at(1)->addParticleIn(particles.at(3).second);
+    vertices.at(1)->addParticleIn(particles.at(1).second);
+    vertices.at(1)->addParticleOut(particles.at(4).second);
+    vertices.at(1)->addParticleOut(particles.at(5).second);
+    vertices.at(1)->addParticleOut(particles.at(6).second);
 
     event.setVertices(vertices);
 
