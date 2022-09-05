@@ -12,6 +12,7 @@ namespace EPIC {
 class DVCSGeneratorService;
 class TCSGeneratorService;
 class DVMPGeneratorService;
+class GAM2GeneratorService;
 } /* namespace EPIC */
 
 namespace EPIC {
@@ -46,6 +47,11 @@ public:
      * Get DVMPGeneratorService.
      */
     DVMPGeneratorService *getDVMPGeneratorService() const;
+
+    /**
+     * Get GAM2GeneratorService.
+     */
+    GAM2GeneratorService *getGAM2GeneratorService() const;
 
 private:
     friend class Epic; ///< Only Epic can make an instance of this class.

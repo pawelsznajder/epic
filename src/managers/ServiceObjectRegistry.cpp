@@ -13,7 +13,7 @@
 #include "../../include/services/DVCSGeneratorService.h"
 #include "../../include/services/TCSGeneratorService.h"
 #include "../../include/services/DVMPGeneratorService.h"
-
+#include "../../include/services/GAM2GeneratorService.h"
 
 namespace EPIC {
 
@@ -24,18 +24,23 @@ ServiceObjectRegistry::~ServiceObjectRegistry() {
 }
 
 DVCSGeneratorService *ServiceObjectRegistry::getDVCSGeneratorService() const {
-	return static_cast<DVCSGeneratorService *>(PARTONS::Partons::getInstance()->getBaseObjectFactory()->newBaseObject(
-			DVCSGeneratorService::classId));
+    return static_cast<DVCSGeneratorService *>(PARTONS::Partons::getInstance()->getBaseObjectFactory()->newBaseObject(
+            DVCSGeneratorService::classId));
 }
 
 TCSGeneratorService *ServiceObjectRegistry::getTCSGeneratorService() const {
-	return static_cast<TCSGeneratorService *>(PARTONS::Partons::getInstance()->getBaseObjectFactory()->newBaseObject(
-			TCSGeneratorService::classId));
+    return static_cast<TCSGeneratorService *>(PARTONS::Partons::getInstance()->getBaseObjectFactory()->newBaseObject(
+            TCSGeneratorService::classId));
 }
 
 DVMPGeneratorService *ServiceObjectRegistry::getDVMPGeneratorService() const {
     return static_cast<DVMPGeneratorService *>(PARTONS::Partons::getInstance()->getBaseObjectFactory()->newBaseObject(
             DVMPGeneratorService::classId));
+}
+
+GAM2GeneratorService *ServiceObjectRegistry::getGAM2GeneratorService() const {
+    return static_cast<GAM2GeneratorService *>(PARTONS::Partons::getInstance()->getBaseObjectFactory()->newBaseObject(
+            GAM2GeneratorService::classId));
 }
 
 } /* namespace EPIC */
