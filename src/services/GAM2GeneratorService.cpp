@@ -1,11 +1,11 @@
 /*
- * DVMPGeneratorService.cpp
+ * GAM2GeneratorService.cpp
  *
  *  Created on: Feb 8, 2021
  *      Author: Pawel Sznajder (NCBJ)
  */
 
-#include "../../include/services/DVMPGeneratorService.h"
+#include "../../include/services/GAM2GeneratorService.h"
 
 #include <ElementaryUtils/logger/CustomException.h>
 #include <ElementaryUtils/parameters/GenericType.h>
@@ -15,7 +15,9 @@
 #include <NumA/linear_algebra/vector/Vector3D.h>
 #include <partons/beans/automation/BaseObjectData.h>
 #include <partons/beans/observable/ObservableResult.h>
+#include <partons/beans/PolarizationType.h>
 #include <partons/BaseObjectRegistry.h>
+#include <partons/FundamentalPhysicalConstants.h>
 #include <partons/ModuleObjectFactory.h>
 #include <partons/Partons.h>
 #include <partons/utils/type/PhysicalType.h>
@@ -31,6 +33,7 @@
 #include "../../include/automation/MonteCarloTask.h"
 #include "../../include/beans/containers/KinematicRange.h"
 #include "../../include/beans/types/EventAttributeType.h"
+#include "../../include/beans/types/ParticleType.h"
 #include "../../include/Epic.h"
 #include "../../include/managers/ModuleObjectFactory.h"
 #include "../../include/modules/event_generator/EventGeneratorModule.h"
@@ -39,45 +42,36 @@
 
 namespace EPIC {
 
-const std::string DVMPGeneratorService::DVMP_GENERATOR_SERVICE_MESON_TYPE =
-        "meson";
-const std::string DVMPGeneratorService::DVMP_GENERATOR_SERVICE_MESON_POLARIZATION =
-        "meson_polarisation";
 
-const unsigned int DVMPGeneratorService::classId =
+
+const unsigned int GAM2GeneratorService::classId =
         PARTONS::Partons::getInstance()->getBaseObjectRegistry()->registerBaseObject(
-                new DVMPGeneratorService("DVMPGeneratorService"));
+                new GAM2GeneratorService("GAM2GeneratorService"));
 
-DVMPGeneratorService::DVMPGeneratorService(const std::string &className) :
-        GeneratorService<DVMPKinematicRanges, PARTONS::DVMPProcessModule,
-                DVMPKinematicModule, DVMPKinematic, DVMPRCModule>(className) {
-
-    m_mesonType = ParticleType::UNDEFINED;
-    m_mesonPolarization = PARTONS::PolarizationType::UNDEFINED;
+GAM2GeneratorService::GAM2GeneratorService(const std::string &className) :
+        GeneratorService<GAM2KinematicRanges, PARTONS::GAM2ProcessModule,
+                GAM2KinematicModule, GAM2Kinematic, GAM2RCModule>(className) {
 }
 
-DVMPGeneratorService::DVMPGeneratorService(const DVMPGeneratorService &other) :
-        GeneratorService<DVMPKinematicRanges, PARTONS::DVMPProcessModule,
-                DVMPKinematicModule, DVMPKinematic, DVMPRCModule>(other) {
-
-    m_mesonType = other.m_mesonType;
-    m_mesonPolarization = other.m_mesonPolarization;
+GAM2GeneratorService::GAM2GeneratorService(const GAM2GeneratorService &other) :
+        GeneratorService<GAM2KinematicRanges, PARTONS::GAM2ProcessModule,
+                GAM2KinematicModule, GAM2Kinematic, GAM2RCModule>(other) {
 }
 
-DVMPGeneratorService *DVMPGeneratorService::clone() const {
-    return new DVMPGeneratorService(*this);
+GAM2GeneratorService *GAM2GeneratorService::clone() const {
+    return new GAM2GeneratorService(*this);
 }
 
-DVMPGeneratorService::~DVMPGeneratorService() {
+GAM2GeneratorService::~GAM2GeneratorService() {
 }
 
-double DVMPGeneratorService::getEventDistribution(
+double GAM2GeneratorService::getEventDistribution(
         const std::vector<double> &kin) const {
 
     //observed kinematics
-    DVMPKinematic partonsKinObs(kin.at(0), kin.at(1), kin.at(2),
+    GAM2Kinematic partonsKinObs(kin.at(4), kin.at(5), kin.at(0), kin.at(1), kin.at(2),
             m_experimentalConditions.getLeptonEnergyFixedTargetEquivalent(),
-            kin.at(3), kin.at(4), m_mesonType, m_mesonPolarization);
+             kin.at(3));
 
     //check range
     if (!m_kinematicRanges.inRange(m_experimentalConditions, partonsKinObs))
@@ -85,10 +79,10 @@ double DVMPGeneratorService::getEventDistribution(
 
     //rc
     std::vector<double> rcVariables;
-    rcVariables.insert(std::end(rcVariables), std::begin(kin) + 5,
+    rcVariables.insert(std::end(rcVariables), std::begin(kin) + 6,
             std::end(kin));
 
-    std::tuple<double, ExperimentalConditions, DVMPKinematic> rcTrue =
+    std::tuple<double, ExperimentalConditions, GAM2Kinematic> rcTrue =
             m_pRCModule->evaluate(m_experimentalConditions, partonsKinObs,
                     rcVariables);
 
@@ -103,16 +97,13 @@ double DVMPGeneratorService::getEventDistribution(
     }
 
     //evaluate
-    double result =
-            std::get<0>(rcTrue)
-                    * m_pProcessModule->compute(
-                            std::get<1>(rcTrue).getLeptonHelicity(),
-                            ParticleType(std::get<1>(rcTrue).getLeptonType()).getCharge(),
-                            std::get<1>(rcTrue).getHadronPolarisation(),
-                            m_mesonPolarization,
-                            std::get<2>(rcTrue).toPARTONSDVMPObservableKinematic(),
-                            m_pProcessModule->getListOfAvailableGPDTypeForComputation()).getValue().makeSameUnitAs(
-                            PARTONS::PhysicalUnit::NB).getValue();
+    double result = getFlux(std::get<2>(rcTrue)) * std::get<0>(rcTrue)
+            * m_pProcessModule->compute(/*std::get<1>(rcTrue).getLeptonHelicity()*/PARTONS::PolarizationType::UNDEFINED, PARTONS::PolarizationType::UNDEFINED, PARTONS::PolarizationType::UNDEFINED,
+                    std::get<1>(rcTrue).getHadronPolarisation(),
+                    std::get<2>(rcTrue).toPARTONSGAM2ObservableKinematic(),
+                    m_pProcessModule->getListOfAvailableGPDTypeForComputation()
+                    ).getValue().makeSameUnitAs(
+                    PARTONS::PhysicalUnit::NB).getValue();
 
     if (std::isnan(result)) {
 
@@ -124,31 +115,25 @@ double DVMPGeneratorService::getEventDistribution(
     return result;
 }
 
-void DVMPGeneratorService::isServiceWellConfigured() const {
-
-    GeneratorService<DVMPKinematicRanges, PARTONS::DVMPProcessModule,
-            DVMPKinematicModule, DVMPKinematic, DVMPRCModule>::isServiceWellConfigured();
-
-    if (m_mesonType == ParticleType::UNDEFINED) {
-        throw ElemUtils::CustomException(getClassName(), __func__,
-                ElemUtils::Formatter() << "Meson type is: "
-                        << ParticleType(m_mesonType).toString());
-    }
+void GAM2GeneratorService::isServiceWellConfigured() const {
+    GeneratorService<GAM2KinematicRanges, PARTONS::GAM2ProcessModule,
+            GAM2KinematicModule, GAM2Kinematic, GAM2RCModule>::isServiceWellConfigured();
 }
 
-void DVMPGeneratorService::run() {
+void GAM2GeneratorService::run() {
 
     //check if well configured
     isServiceWellConfigured();
 
     //kinematic ranges
-    std::vector<KinematicRange> ranges(5);
+    std::vector<KinematicRange> ranges(6);
 
-    ranges.at(0) = m_kinematicRanges.getRangeXb();
-    ranges.at(1) = m_kinematicRanges.getRangeT();
-    ranges.at(2) = m_kinematicRanges.getRangeQ2();
+    ranges.at(0) = m_kinematicRanges.getRangeT();
+    ranges.at(1) = m_kinematicRanges.getRangeUPrim();
+    ranges.at(2) = m_kinematicRanges.getRangeMgg2();
     ranges.at(3) = m_kinematicRanges.getRangePhi();
-    ranges.at(4) = m_kinematicRanges.getRangePhiS();
+    ranges.at(4) = m_kinematicRanges.getRangeY();
+    ranges.at(5) = m_kinematicRanges.getRangeQ2();
 
     ranges.insert(std::end(ranges),
             std::begin(m_pRCModule->getVariableRanges()),
@@ -172,18 +157,17 @@ void DVMPGeneratorService::run() {
                 m_pEventGeneratorModule->generateEvent();
 
         //create kinematics object
-        DVMPKinematic partonsKinObs(eventVec.first.at(0), eventVec.first.at(1),
-                eventVec.first.at(2),
+        GAM2Kinematic partonsKinObs(eventVec.first.at(4), eventVec.first.at(5),
+                eventVec.first.at(0), eventVec.first.at(1), eventVec.first.at(2),
                 m_experimentalConditions.getLeptonEnergyFixedTargetEquivalent(),
-                eventVec.first.at(3), eventVec.first.at(4), m_mesonType,
-                m_mesonPolarization);
+                eventVec.first.at(3));
 
         //rc
         std::vector<double> rcVariables;
         rcVariables.insert(std::end(rcVariables),
-                std::begin(eventVec.first) + 5, std::end(eventVec.first));
+                std::begin(eventVec.first) + 6, std::end(eventVec.first));
 
-        std::tuple<double, ExperimentalConditions, DVMPKinematic> rcTrue =
+        std::tuple<double, ExperimentalConditions, GAM2Kinematic> rcTrue =
                 m_pRCModule->evaluate(m_experimentalConditions, partonsKinObs,
                         rcVariables);
 
@@ -211,51 +195,36 @@ void DVMPGeneratorService::run() {
     m_pWriterModule->close();
 }
 
-void DVMPGeneratorService::getAdditionalGeneralConfigurationFromTask(
-        const MonteCarloTask &task) {
+double GAM2GeneratorService::getFlux(const GAM2Kinematic& kin) const {
 
-    //formatter
-    ElemUtils::Formatter formatter;
+    double Q2 = kin.getQ2();
+    double y = kin.getY();
 
-    formatter << "Additional general configuration:\n";
-    formatter << '\n';
+    double Q2Min =
+            pow(
+                    y
+                            * ParticleType(
+                                    m_experimentalConditions.getLeptonType()).getMass(),
+                    2) / (1. - y);
 
-    // meson type
-    if (task.getGeneralConfiguration().getParameters().isAvailable(
-            DVMP_GENERATOR_SERVICE_MESON_TYPE)) {
-        m_mesonType =
-                ParticleType::fromString(
-                        task.getGeneralConfiguration().getParameters().getLastAvailable().getString());
-    }
-
-    formatter << "Meson type: " << ParticleType(m_mesonType).toString() << '\n';
-
-    // meson polarization
-    if (task.getGeneralConfiguration().getParameters().isAvailable(
-            DVMP_GENERATOR_SERVICE_MESON_POLARIZATION)) {
-        m_mesonPolarization =
-                PARTONS::PolarizationType::fromString(
-                        task.getGeneralConfiguration().getParameters().getLastAvailable().getString());
-    }
-
-    formatter << "Meson polarisation: "
-            << PARTONS::PolarizationType(m_mesonPolarization).toString()
-            << '\n';
-
-    info(__func__, formatter.str());
+    return PARTONS::Constant::FINE_STRUCTURE_CONSTANT / (2 * M_PI * Q2)
+            * ((1. + pow(1. - y, 2)) / y - 2 * (1. - y) * Q2Min / (y * Q2));
 }
 
-void DVMPGeneratorService::getProcessModuleFromTask(
+void GAM2GeneratorService::getAdditionalGeneralConfigurationFromTask(
         const MonteCarloTask &task) {
+}
+
+void GAM2GeneratorService::getProcessModuleFromTask(const MonteCarloTask &task) {
 
     // check if available
     if (ElemUtils::StringUtils::equals(
             task.getComputationConfiguration().getModuleType(),
-            PARTONS::DVMPProcessModule::DVMP_PROCESS_MODULE_CLASS_NAME)) {
+            PARTONS::GAM2ProcessModule::GAM2_PROCESS_MODULE_CLASS_NAME)) {
 
         // configure
         m_pProcessModule =
-                PARTONS::Partons::getInstance()->getModuleObjectFactory()->newDVMPProcessModule(
+                PARTONS::Partons::getInstance()->getModuleObjectFactory()->newGAM2ProcessModule(
                         task.getComputationConfiguration().getModuleClassName());
 
         m_pProcessModule->configure(
@@ -266,7 +235,7 @@ void DVMPGeneratorService::getProcessModuleFromTask(
     } else {
         throw ElemUtils::CustomException(getClassName(), __func__,
                 ElemUtils::Formatter() << "You have not provided any "
-                        << PARTONS::DVMPProcessModule::DVMP_PROCESS_MODULE_CLASS_NAME);
+                        << PARTONS::GAM2ProcessModule::GAM2_PROCESS_MODULE_CLASS_NAME);
     }
 
     info(__func__,
@@ -274,17 +243,17 @@ void DVMPGeneratorService::getProcessModuleFromTask(
                     << m_pProcessModule->getClassName());
 }
 
-void DVMPGeneratorService::getKinematicModuleFromTask(
+void GAM2GeneratorService::getKinematicModuleFromTask(
         const MonteCarloTask &task) {
 
     // check if available
     if (ElemUtils::StringUtils::equals(
             task.getKinematicConfiguration().getModuleType(),
-            DVMPKinematicModule::DVMP_KINEMATIC_MODULE_CLASS_NAME)) {
+            GAM2KinematicModule::GAM2_KINEMATIC_MODULE_CLASS_NAME)) {
 
         // configure
         m_pKinematicModule =
-                Epic::getInstance()->getModuleObjectFactory()->newDVMPKinematicModule(
+                Epic::getInstance()->getModuleObjectFactory()->newGAM2KinematicModule(
                         task.getKinematicConfiguration().getModuleClassName());
 
         m_pKinematicModule->configure(
@@ -295,7 +264,7 @@ void DVMPGeneratorService::getKinematicModuleFromTask(
     } else {
         throw ElemUtils::CustomException(getClassName(), __func__,
                 ElemUtils::Formatter() << "You have not provided any "
-                        << DVMPKinematicModule::DVMP_KINEMATIC_MODULE_CLASS_NAME);
+                        << GAM2KinematicModule::GAM2_KINEMATIC_MODULE_CLASS_NAME);
     }
 
     info(__func__,
@@ -303,16 +272,16 @@ void DVMPGeneratorService::getKinematicModuleFromTask(
                     << m_pKinematicModule->getClassName());
 }
 
-void DVMPGeneratorService::getRCModuleFromTask(const MonteCarloTask &task) {
+void GAM2GeneratorService::getRCModuleFromTask(const MonteCarloTask &task) {
 
     // check if available
     if (ElemUtils::StringUtils::equals(
             task.getRCConfiguration().getModuleType(),
-            DVMPRCModule::DVMP_RC_MODULE_CLASS_NAME)) {
+            GAM2RCModule::GAM2_RC_MODULE_CLASS_NAME)) {
 
         // configure
         m_pRCModule =
-                Epic::getInstance()->getModuleObjectFactory()->newDVMPRCModule(
+                Epic::getInstance()->getModuleObjectFactory()->newGAM2RCModule(
                         task.getRCConfiguration().getModuleClassName());
 
         m_pRCModule->configure(task.getRCConfiguration().getParameters());
@@ -322,12 +291,19 @@ void DVMPGeneratorService::getRCModuleFromTask(const MonteCarloTask &task) {
     } else {
         throw ElemUtils::CustomException(getClassName(), __func__,
                 ElemUtils::Formatter() << "You have not provided any "
-                        << DVMPRCModule::DVMP_RC_MODULE_CLASS_NAME);
+                        << GAM2RCModule::GAM2_RC_MODULE_CLASS_NAME);
     }
 
     info(__func__,
             ElemUtils::Formatter() << "Radiative correction module: "
                     << m_pRCModule->getClassName());
+}
+
+void GAM2GeneratorService::addAdditionalGenerationConfiguration(
+		GenerationInformation& generationInformation) {
+	GeneratorService<GAM2KinematicRanges, PARTONS::GAM2ProcessModule,
+	            GAM2KinematicModule, GAM2Kinematic, GAM2RCModule>::addAdditionalGenerationConfiguration(
+			generationInformation);
 }
 
 } /* namespace EPIC */

@@ -19,6 +19,8 @@
 
 namespace EPIC {
 
+const std::string GAM2KinematicRanges::GAM2_KINEMATIC_RANGE_Y = "range_y";
+const std::string GAM2KinematicRanges::GAM2_KINEMATIC_RANGE_Q2 = "range_Q2";
 const std::string GAM2KinematicRanges::GAM2_KINEMATIC_RANGE_T = "range_t";
 const std::string GAM2KinematicRanges::GAM2_KINEMATIC_RANGE_UPRIM =
         "range_uPrim";
@@ -29,11 +31,14 @@ GAM2KinematicRanges::GAM2KinematicRanges() :
         PARTONS::BaseObject("GAM2KinematicRanges") {
 }
 
-GAM2KinematicRanges::GAM2KinematicRanges(const KinematicRange &rangeT,
+GAM2KinematicRanges::GAM2KinematicRanges(const KinematicRange &rangeY,
+        const KinematicRange &rangeQ2, const KinematicRange &rangeT,
         const KinematicRange &rangeUPrim, const KinematicRange &rangeMgg2,
         const KinematicRange &rangePhi) :
         PARTONS::BaseObject("GAM2KinematicRanges") {
 
+    m_rangeY = rangeY;
+    m_rangeQ2 = rangeQ2;
     m_rangeT = rangeT;
     m_rangeUPrim = rangeUPrim;
     m_rangeMgg2 = rangeMgg2;
@@ -43,6 +48,8 @@ GAM2KinematicRanges::GAM2KinematicRanges(const KinematicRange &rangeT,
 GAM2KinematicRanges::GAM2KinematicRanges(const GAM2KinematicRanges &other) :
         PARTONS::BaseObject(other) {
 
+    m_rangeY = other.m_rangeY;
+    m_rangeQ2 = other.m_rangeQ2;
     m_rangeT = other.m_rangeT;
     m_rangeUPrim = other.m_rangeUPrim;
     m_rangeMgg2 = other.m_rangeMgg2;
@@ -57,6 +64,8 @@ std::string GAM2KinematicRanges::toString() const {
     ElemUtils::Formatter formatter;
 
     formatter << '\n';
+    formatter << "GAM2 kinematic range y: " << m_rangeY.toString() << '\n';
+    formatter << "GAM2 kinematic range Q2: " << m_rangeQ2.toString() << '\n';
     formatter << "GAM2 kinematic range t: " << m_rangeT.toString() << '\n';
     formatter << "GAM2 kinematic range u': " << m_rangeUPrim.toString() << '\n';
     formatter << "GAM2 kinematic range Mgg2: " << m_rangeMgg2.toString()
@@ -70,6 +79,10 @@ bool GAM2KinematicRanges::inRange(
         const ExperimentalConditions& experimentalConditions,
         const GAM2Kinematic& obsKin) const {
 
+    if (!m_rangeY.inRange(obsKin.getY()))
+        return false;
+    if (!m_rangeQ2.inRange(obsKin.getQ2()))
+        return false;
     if (!m_rangeT.inRange(obsKin.getT()))
         return false;
     if (!m_rangeUPrim.inRange(obsKin.getUPrim()))
@@ -80,6 +93,22 @@ bool GAM2KinematicRanges::inRange(
         return false;
 
     return true;
+}
+
+const KinematicRange& GAM2KinematicRanges::getRangeY() const {
+    return m_rangeY;
+}
+
+void GAM2KinematicRanges::setRangeY(const KinematicRange& rangeY) {
+    m_rangeY = rangeY;
+}
+
+const KinematicRange& GAM2KinematicRanges::getRangeQ2() const {
+    return m_rangeQ2;
+}
+
+void GAM2KinematicRanges::setRangeQ2(const KinematicRange& rangeQ2) {
+    m_rangeQ2 = rangeQ2;
 }
 
 const KinematicRange& GAM2KinematicRanges::getRangeT() const {
@@ -120,6 +149,18 @@ GAM2KinematicRanges GAM2KinematicRanges::fromTask(const MonteCarloTask &task) {
 
     const ElemUtils::Parameters &data =
             task.getKinematicRange().getParameters();
+
+    result.setRangeY(
+            KinematicRange(
+                    ContainerUtils::findAndParseVectorDouble(
+                            "GAM2KinematicRanges", data,
+                            GAM2KinematicRanges::GAM2_KINEMATIC_RANGE_Y, 2)));
+
+    result.setRangeQ2(
+            KinematicRange(
+                    ContainerUtils::findAndParseVectorDouble(
+                            "GAM2KinematicRanges", data,
+                            GAM2KinematicRanges::GAM2_KINEMATIC_RANGE_Q2, 2)));
 
     result.setRangeT(
             KinematicRange(

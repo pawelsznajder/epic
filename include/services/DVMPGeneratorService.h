@@ -8,7 +8,7 @@
 #ifndef SERVICES_DVMPGENERATORSERVICE_H_
 #define SERVICES_DVMPGENERATORSERVICE_H_
 
-#include <partons/beans/MesonPolarization.h>
+#include <partons/beans/PolarizationType.h>
 #include <partons/modules/process/DVMP/DVMPProcessModule.h>
 #include <string>
 #include <vector>
@@ -74,7 +74,7 @@ private:
     virtual void isServiceWellConfigured() const;
 
     ParticleType::Type m_mesonType; ///< Meson type.
-    PARTONS::MesonPolarization::Type m_mesonPolarization; ///< Polarization type.
+    PARTONS::PolarizationType::Type m_mesonPolarization; ///< Polarization type.
 };
 
 } /* namespace EPIC */

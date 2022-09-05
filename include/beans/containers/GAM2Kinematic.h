@@ -11,9 +11,9 @@
 #include <partons/BaseObject.h>
 #include <string>
 
-//namespace PARTONS {
-//class GAM2ObservableKinematic;
-//} /* namespace PARTONS */
+namespace PARTONS {
+class GAM2ObservableKinematic;
+} /* namespace PARTONS */
 
 namespace EPIC {
 
@@ -36,7 +36,8 @@ public:
     /**
      * Assignment constructor.
      */
-    GAM2Kinematic(double t, double uPrim, double Mgg2, double E, double phi);
+    GAM2Kinematic(double y, double Q2, double t, double uPrim, double Mgg2,
+            double E, double phi);
 
     /**
      * Copy constructor.
@@ -53,6 +54,26 @@ public:
     //********************************************************
     //*** SETTERS AND GETTERS ********************************
     //********************************************************
+
+    /**
+     * Get inelasticity.
+     */
+    double getY() const;
+
+    /**
+     * Set inelasticity.
+     */
+    void setY(double y);
+
+    /**
+     * Get initial virtual-photon virtuality (in \f$GeV^{2}\f$).
+     */
+    double getQ2() const;
+
+    /**
+     * Set initial virtual-photon virtuality (in \f$GeV^{2}\f$).
+     */
+    void setQ2(double Q2);
 
     /**
      * Get four-momentum transfer squared of hadron target (in \f$GeV^{2}\f$).
@@ -104,12 +125,22 @@ public:
      */
     void setPhi(double phi);
 
-//    /**
-//     * Convert to PARTONS::GAM2ObservableKinematic.
-//     */
-//    PARTONS::GAM2ObservableKinematic toPARTONSGAM2ObservableKinematic() const;
+    /**
+     * Convert to PARTONS::GAM2ObservableKinematic.
+     */
+    PARTONS::GAM2ObservableKinematic toPARTONSGAM2ObservableKinematic() const;
 
 private:
+
+    /**
+     * Inelasticity.
+     */
+    double m_y;
+
+    /**
+     * Initial virtual-photon virtuality (in \f$GeV^{2}\f$).
+     */
+    double m_Q2;
 
     /**
      * Four-momentum transfer squared of hadron target (in \f$GeV^{2}\f$).

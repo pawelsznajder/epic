@@ -20,7 +20,7 @@ const std::string GAM2KinematicModule::GAM2_KINEMATIC_MODULE_CLASS_NAME =
 
 GAM2KinematicModule::GAM2KinematicModule(const std::string &className) :
         KinematicModule<GAM2Kinematic>(className,
-                PARTONS::ChannelType::UNDEFINED) { //TODO
+                PARTONS::ChannelType::GAM2) {
 }
 
 GAM2KinematicModule::GAM2KinematicModule(const GAM2KinematicModule &other) :

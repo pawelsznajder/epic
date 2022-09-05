@@ -9,7 +9,7 @@
 
 #include <ElementaryUtils/string_utils/Formatter.h>
 #include <partons/beans/channel/ChannelType.h>
-#include <partons/beans/MesonPolarization.h>
+#include <partons/beans/PolarizationType.h>
 #include <cmath>
 
 #include "../../../../include/beans/containers/ExperimentalConditions.h"
@@ -50,8 +50,8 @@ bool DVMPKinematicModule::checkIfValid(const ExperimentalConditions &conditions,
     double phi = kin.getPhi();
     double phiS = kin.getPhiS();
     ParticleType::Type mesonType = kin.getMesonType();
-    PARTONS::MesonPolarization::Type mesonPolarization =
-            kin.getMesonPolarization();
+    PARTONS::PolarizationType::Type mesonPolarization =
+            kin.getPolarizationType();
 
     if (std::isnan(Ee) || std::isnan(Ep) || std::isnan(xB) || std::isnan(t)
             || std::isnan(Q2) || std::isnan(phi) || std::isnan(phiS)) {

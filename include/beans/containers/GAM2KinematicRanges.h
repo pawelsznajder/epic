@@ -30,9 +30,11 @@ class GAM2KinematicRanges: public PARTONS::BaseObject {
 
 public:
 
-    static const std::string GAM2_KINEMATIC_RANGE_T; ///< Key to set xB kinematic range.
-    static const std::string GAM2_KINEMATIC_RANGE_UPRIM; ///< Key to set t kinematic range.
-    static const std::string GAM2_KINEMATIC_RANGE_MGG2; ///< Key to set Q2 kinematic range.
+    static const std::string GAM2_KINEMATIC_RANGE_Y; ///< Key to set y kinematic range.
+    static const std::string GAM2_KINEMATIC_RANGE_Q2; ///< Key to set Q2 kinematic range.
+    static const std::string GAM2_KINEMATIC_RANGE_T; ///< Key to set t kinematic range.
+    static const std::string GAM2_KINEMATIC_RANGE_UPRIM; ///< Key to set u' kinematic range.
+    static const std::string GAM2_KINEMATIC_RANGE_MGG2; ///< Key to set Mgg2 kinematic range.
     static const std::string GAM2_KINEMATIC_RANGE_PHI; ///< Key to set phi kinematic range.
 
     /**
@@ -43,7 +45,8 @@ public:
     /**
      * Assignment constructor.
      */
-    GAM2KinematicRanges(const KinematicRange &rangeT,
+    GAM2KinematicRanges(const KinematicRange &rangeY,
+            const KinematicRange &rangeQ2, const KinematicRange &rangeT,
             const KinematicRange &rangeUPrim, const KinematicRange &rangeMgg2,
             const KinematicRange &rangePhi);
 
@@ -70,6 +73,26 @@ public:
     //********************************************************
     //*** SETTERS AND GETTERS ********************************
     //********************************************************
+
+    /**
+     * Get kinematic range y.
+     */
+    const KinematicRange& getRangeY() const;
+
+    /**
+     * Set kinematic range y.
+     */
+    void setRangeY(const KinematicRange& rangeY);
+
+    /**
+     * Get kinematic range Q2.
+     */
+    const KinematicRange& getRangeQ2() const;
+
+    /**
+     * Set kinematic range Q2.
+     */
+    void setRangeQ2(const KinematicRange& rangeQ2);
 
     /**
      * Get kinematic range t.
@@ -113,6 +136,8 @@ public:
 
 private:
 
+    KinematicRange m_rangeY;   ///< Kinematic range y.
+    KinematicRange m_rangeQ2;   ///< Kinematic range Q2.
     KinematicRange m_rangeT;   ///< Kinematic range t.
     KinematicRange m_rangeUPrim;  ///< Kinematic range u'.
     KinematicRange m_rangeMgg2; ///< Kinematic range Mgg2.
