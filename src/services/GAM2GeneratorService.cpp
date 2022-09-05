@@ -105,8 +105,6 @@ double GAM2GeneratorService::getEventDistribution(
                     ).getValue().makeSameUnitAs(
                     PARTONS::PhysicalUnit::NB).getValue();
 
-    std::cout << result << std::endl;
-
     if (std::isnan(result)) {
 
         warn(__func__,

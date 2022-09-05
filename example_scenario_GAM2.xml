@@ -9,7 +9,7 @@
 
       <!-- General configuration -->
       <general_configuration>
-         <param name="number_of_events" value="10" />
+         <param name="number_of_events" value="1000" />
       </general_configuration>
 
       <!-- Kinematic limits -->
@@ -18,16 +18,16 @@
          <param name="range_uPrim" value="-5.|0." />
          <param name="range_Mgg2" value="1.|2." />
          <param name="range_phi" value="0.|2*pi" />
-         <param name="range_y" value="0.01|0.95" />
+         <param name="range_y" value="0.|1." />
          <param name="range_Q2" value="0.|0.01" />
       </kinematic_range>
 
       <!-- Experimental conditions -->
       <experimental_conditions>
-         <param name="lepton_energy" value="20." />
+         <param name="lepton_energy" value="11." />
          <param name="lepton_type" value="e-" />
          <param name="lepton_helicity" value="1" />
-         <param name="hadron_energy" value="1.0" />
+         <param name="hadron_energy" value="0.939" />
          <param name="hadron_type" value="p" />
          <param name="hadron_polarisation" value="0.|0.|0." />
       </experimental_conditions>
