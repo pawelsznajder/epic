@@ -42,7 +42,7 @@ std::string GAM2Kinematic::toString() const {
 }
 
 PARTONS::GAM2ObservableKinematic GAM2Kinematic::toPARTONSGAM2ObservableKinematic() const {
-    return PARTONS::GAM2ObservableKinematic(m_t, m_uPrim, m_Mgg2, m_y * m_E, m_phi, 0.);
+    return PARTONS::GAM2ObservableKinematic(m_t, m_uPrim, m_Mgg2, m_y * m_E, m_phi);
 }
 
 double GAM2Kinematic::getY() const {

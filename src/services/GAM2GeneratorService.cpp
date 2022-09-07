@@ -42,8 +42,6 @@
 
 namespace EPIC {
 
-
-
 const unsigned int GAM2GeneratorService::classId =
         PARTONS::Partons::getInstance()->getBaseObjectRegistry()->registerBaseObject(
                 new GAM2GeneratorService("GAM2GeneratorService"));
@@ -69,9 +67,10 @@ double GAM2GeneratorService::getEventDistribution(
         const std::vector<double> &kin) const {
 
     //observed kinematics
-    GAM2Kinematic partonsKinObs(kin.at(4), kin.at(5), kin.at(0), kin.at(1), kin.at(2),
+    GAM2Kinematic partonsKinObs(kin.at(4), kin.at(5), kin.at(0), kin.at(1),
+            kin.at(2),
             m_experimentalConditions.getLeptonEnergyFixedTargetEquivalent(),
-             kin.at(3));
+            kin.at(3));
 
     //check range
     if (!m_kinematicRanges.inRange(m_experimentalConditions, partonsKinObs))
@@ -87,23 +86,69 @@ double GAM2GeneratorService::getEventDistribution(
                     rcVariables);
 
     //check if zero
-    if (std::get<0>(rcTrue) == 0.)
+    if (std::get < 0 > (rcTrue) == 0.)
         return 0.;
 
     //check if valid
-    if (!m_pKinematicModule->checkIfValid(std::get<1>(rcTrue),
-            std::get<2>(rcTrue))) {
+    if (!m_pKinematicModule->checkIfValid(std::get < 1 > (rcTrue),
+            std::get < 2 > (rcTrue))) {
         return 0.;
     }
 
+    //polarisations
+    PARTONS::PolarizationType::Type pol0;
+
+    if (std::get < 1 > (rcTrue).getLeptonHelicity() == 0.) {
+        throw ElemUtils::CustomException(getClassName(), __func__,
+                "Polarisation of beam electron undefined");
+    }
+
+    if (std::get < 1 > (rcTrue).getLeptonHelicity() > 0.) {
+        pol0 = PARTONS::PolarizationType::LIN_TRANS_X_PLUS;
+    } else {
+        pol0 = PARTONS::PolarizationType::LIN_TRANS_Y_MINUS;
+    }
+
     //evaluate
-    double result = getFlux(std::get<2>(rcTrue)) * std::get<0>(rcTrue)
-            * m_pProcessModule->compute(/*std::get<1>(rcTrue).getLeptonHelicity()*/PARTONS::PolarizationType::LIN_TRANS_X_PLUS, PARTONS::PolarizationType::LIN_TRANS_X_PLUS, PARTONS::PolarizationType::LIN_TRANS_X_PLUS,
-                    std::get<1>(rcTrue).getHadronPolarisation(),
-                    std::get<2>(rcTrue).toPARTONSGAM2ObservableKinematic(),
-                    m_pProcessModule->getListOfAvailableGPDTypeForComputation()
-                    ).getValue().makeSameUnitAs(
+    double result = 0.;
+
+    result +=
+            m_pProcessModule->compute(pol0,
+                    PARTONS::PolarizationType::LIN_TRANS_X_PLUS,
+                    PARTONS::PolarizationType::LIN_TRANS_X_PLUS,
+                    std::get < 1 > (rcTrue).getHadronPolarisation(),
+                    std::get < 2 > (rcTrue).toPARTONSGAM2ObservableKinematic(),
+                    m_pProcessModule->getListOfAvailableGPDTypeForComputation()).getValue().makeSameUnitAs(
                     PARTONS::PhysicalUnit::NB).getValue();
+
+    result +=
+            m_pProcessModule->compute(pol0,
+                    PARTONS::PolarizationType::LIN_TRANS_X_PLUS,
+                    PARTONS::PolarizationType::LIN_TRANS_Y_MINUS,
+                    std::get < 1 > (rcTrue).getHadronPolarisation(),
+                    std::get < 2 > (rcTrue).toPARTONSGAM2ObservableKinematic(),
+                    m_pProcessModule->getListOfAvailableGPDTypeForComputation()).getValue().makeSameUnitAs(
+                    PARTONS::PhysicalUnit::NB).getValue();
+
+    result +=
+            m_pProcessModule->compute(pol0,
+                    PARTONS::PolarizationType::LIN_TRANS_Y_MINUS,
+                    PARTONS::PolarizationType::LIN_TRANS_X_PLUS,
+                    std::get < 1 > (rcTrue).getHadronPolarisation(),
+                    std::get < 2 > (rcTrue).toPARTONSGAM2ObservableKinematic(),
+                    m_pProcessModule->getListOfAvailableGPDTypeForComputation()).getValue().makeSameUnitAs(
+                    PARTONS::PhysicalUnit::NB).getValue();
+
+    result +=
+            m_pProcessModule->compute(pol0,
+                    PARTONS::PolarizationType::LIN_TRANS_Y_MINUS,
+                    PARTONS::PolarizationType::LIN_TRANS_Y_MINUS,
+                    std::get < 1 > (rcTrue).getHadronPolarisation(),
+                    std::get < 2 > (rcTrue).toPARTONSGAM2ObservableKinematic(),
+                    m_pProcessModule->getListOfAvailableGPDTypeForComputation()).getValue().makeSameUnitAs(
+                    PARTONS::PhysicalUnit::NB).getValue();
+
+    result *= getFlux(std::get < 2 > (rcTrue)) * std::get < 0 > (rcTrue);
 
     if (std::isnan(result)) {
 
@@ -158,7 +203,8 @@ void GAM2GeneratorService::run() {
 
         //create kinematics object
         GAM2Kinematic partonsKinObs(eventVec.first.at(4), eventVec.first.at(5),
-                eventVec.first.at(0), eventVec.first.at(1), eventVec.first.at(2),
+                eventVec.first.at(0), eventVec.first.at(1),
+                eventVec.first.at(2),
                 m_experimentalConditions.getLeptonEnergyFixedTargetEquivalent(),
                 eventVec.first.at(3));
 
@@ -172,8 +218,8 @@ void GAM2GeneratorService::run() {
                         rcVariables);
 
         //create event
-        Event event = m_pKinematicModule->evaluate(std::get<1>(rcTrue),
-                std::get<2>(rcTrue));
+        Event event = m_pKinematicModule->evaluate(std::get < 1 > (rcTrue),
+                std::get < 2 > (rcTrue));
 
         //rc
         m_pRCModule->updateEvent(event, rcVariables);
@@ -215,7 +261,8 @@ void GAM2GeneratorService::getAdditionalGeneralConfigurationFromTask(
         const MonteCarloTask &task) {
 }
 
-void GAM2GeneratorService::getProcessModuleFromTask(const MonteCarloTask &task) {
+void GAM2GeneratorService::getProcessModuleFromTask(
+        const MonteCarloTask &task) {
 
     // check if available
     if (ElemUtils::StringUtils::equals(
@@ -300,10 +347,10 @@ void GAM2GeneratorService::getRCModuleFromTask(const MonteCarloTask &task) {
 }
 
 void GAM2GeneratorService::addAdditionalGenerationConfiguration(
-		GenerationInformation& generationInformation) {
-	GeneratorService<GAM2KinematicRanges, PARTONS::GAM2ProcessModule,
-	            GAM2KinematicModule, GAM2Kinematic, GAM2RCModule>::addAdditionalGenerationConfiguration(
-			generationInformation);
+        GenerationInformation& generationInformation) {
+    GeneratorService<GAM2KinematicRanges, PARTONS::GAM2ProcessModule,
+            GAM2KinematicModule, GAM2Kinematic, GAM2RCModule>::addAdditionalGenerationConfiguration(
+            generationInformation);
 }
 
 } /* namespace EPIC */
