@@ -9,8 +9,13 @@
 #define MODULES_KINEMATIC_GAM2_GAM2KINEMATICDEFAULT_H_
 
 #include <string>
+#include <memory>
 
 #include "GAM2KinematicModule.h"
+
+namespace EPIC {
+class RandomNumberModule;
+} /* namespace EPIC */
 
 namespace EPIC {
 
@@ -51,6 +56,10 @@ public:
 
     virtual Event evaluate(const ExperimentalConditions &conditions,
             const GAM2Kinematic &kin);
+
+private:
+
+    std::shared_ptr<RandomNumberModule> m_randomNumberModule; ///< Random number module.
 };
 
 } /* namespace EPIC */

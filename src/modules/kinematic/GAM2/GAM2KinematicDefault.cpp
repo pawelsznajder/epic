@@ -25,6 +25,9 @@
 #include "../../../../include/beans/types/AxisType.h"
 #include "../../../../include/beans/types/ParticleCodeType.h"
 #include "../../../../include/beans/types/ParticleType.h"
+#include "../../../../include/Epic.h"
+#include "../../../../include/managers/ModuleObjectFactory.h"
+#include "../../../../include/modules/random_generator/RandomNumberGSL.h"
 
 namespace EPIC {
 
@@ -34,10 +37,20 @@ const unsigned int GAM2KinematicDefault::classId =
 
 GAM2KinematicDefault::GAM2KinematicDefault(const std::string &className) :
         GAM2KinematicModule(className) {
+    m_randomNumberModule = nullptr;
 }
 
 GAM2KinematicDefault::GAM2KinematicDefault(const GAM2KinematicDefault &other) :
         GAM2KinematicModule(other) {
+
+    if (other.m_randomNumberModule == nullptr) {
+          m_randomNumberModule = nullptr;
+      } else {
+          m_randomNumberModule = std::make_shared<RandomNumberGSL>(
+                  RandomNumberGSL(
+                          *(std::static_pointer_cast<RandomNumberGSL>(
+                                  other.m_randomNumberModule))));
+      }
 }
 
 GAM2KinematicDefault::~GAM2KinematicDefault() {
@@ -182,6 +195,13 @@ bool GAM2KinematicDefault::checkIfValid(
 Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
         const GAM2Kinematic &kin) {
 
+    //random
+    if (m_randomNumberModule == nullptr) {
+        m_randomNumberModule =
+                Epic::getInstance()->getModuleObjectFactory()->newRandomNumberModule(
+                        RandomNumberGSL::classId);
+    }
+
     //variables
        double Ee = conditions.getLeptonEnergy();
        double Ep = conditions.getHadronEnergy();
@@ -295,10 +315,13 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
     double uP = uPrim;
     double angle = kin.getPhi();
 
+    double lv3AX, lv3AY, lv3BX, lv3BY;
 
+    double solution = m_randomNumberModule->diceFlat();
 
     //results 1
-    double lv3AX=pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
+    if(solution < 0.5){
+     lv3AX= pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
             cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
             pow(lv1X,2)*(-(pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))) + pow(lv3E,2)*(2*pow(lv3X,2) + pow(lv3Y,2))) + 2*pow(lv1E,2)*pow(pow(lv3X,2) + pow(lv3Y,2),2),-1)*
           (lv1X*uP*pow(lv3E,2)*pow(lv3X,2) + pow(lv1X,3)*pow(lv3E,2)*pow(lv3X,2) + lv1X*uP*pow(lv3E,2)*pow(lv3Y,2) + pow(lv1X,3)*pow(lv3E,2)*pow(lv3Y,2) -
@@ -319,7 +342,7 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
 
 
 
-    double lv3AY =-(pow(lv1E,-1)*pow(lv3Y,-1)*pow(cos(angle),2)*pow(4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) +
+     lv3AY =-(pow(lv1E,-1)*pow(lv3Y,-1)*pow(cos(angle),2)*pow(4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) +
             cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
             pow(lv1X,2)*(pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) - pow(lv3E,2)*(2*pow(lv3X,2) + pow(lv3Y,2))) - 2*pow(lv1E,2)*pow(pow(lv3X,2) + pow(lv3Y,2),2),-1)*
           (lv1E*lv1X*lv3X*uP*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) + lv3E*pow(lv1E,4)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) -
@@ -345,7 +368,7 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
             lv1E*pow(lv3Y,2)*(-(lv1X*lv3E*lv3X) + lv1E*(pow(lv3X,2) + pow(lv3Y,2)))*
              (lv3E*pow(lv1E,2) - lv3E*(uP + pow(lv1X,2)) + lv1E*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)))*pow(tan(angle),2)));
 
-    double lv3BX=pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
+     lv3BX=pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
             cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
             pow(lv1X,2)*(-(pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))) + pow(lv3E,2)*(2*pow(lv3X,2) + pow(lv3Y,2))) + 2*pow(lv1E,2)*pow(pow(lv3X,2) + pow(lv3Y,2),2),-1)*
           (-(lv1X*uP*pow(lv3E,2)*pow(lv3X,2)) - pow(lv1X,3)*pow(lv3E,2)*pow(lv3X,2) + 2*pow(lv1X,2)*pow(lv3E,2)*pow(lv3X,3) - lv1X*uP*pow(lv3E,2)*pow(lv3Y,2) +
@@ -365,7 +388,7 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
             lv3X*(-(lv1X*lv3E*lv3X) + lv1E*(pow(lv3X,2) + pow(lv3Y,2)))*
              (-(lv3E*pow(lv1E,2)) + lv3E*(-2*lv1X*lv3X + uP + pow(lv1X,2)) + lv1E*(pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)))*pow(tan(angle),2));
 
-    double lv3BY = -0.5*(pow(lv1E,-1)*pow(lv3Y,-1)*pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
+     lv3BY = -0.5*(pow(lv1E,-1)*pow(lv3Y,-1)*pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
             cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
             pow(lv1X,2)*(-(pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))) + pow(lv3E,2)*(2*pow(lv3X,2) + pow(lv3Y,2))) + 2*pow(lv1E,2)*pow(pow(lv3X,2) + pow(lv3Y,2),2),-1)*
           (2*lv3E*pow(lv1E,4)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) -
@@ -391,6 +414,109 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
                     pow(lv1X,2)*pow(lv3Y,4) + 2*pow(lv3X,2)*pow(uP,2) + 2*pow(lv3Y,2)*pow(uP,2))*pow(1/cos(angle),2),0.5)) +
             2*lv1E*pow(lv3Y,2)*(-(lv1X*lv3E*lv3X) + lv1E*(pow(lv3X,2) + pow(lv3Y,2)))*
              (lv3E*pow(lv1E,2) - lv3E*(-2*lv1X*lv3X + uP + pow(lv1X,2)) - lv1E*(pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)))*pow(tan(angle),2)));
+    }else{
+
+
+        lv3AX =pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
+                cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
+                pow(lv1X,2)*(-(pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))) + pow(lv3E,2)*(2*pow(lv3X,2) + pow(lv3Y,2))) + 2*pow(lv1E,2)*pow(pow(lv3X,2) + pow(lv3Y,2),2),-1)*
+              (lv1X*uP*pow(lv3E,2)*pow(lv3X,2) + pow(lv1X,3)*pow(lv3E,2)*pow(lv3X,2) + lv1X*uP*pow(lv3E,2)*pow(lv3Y,2) + pow(lv1X,3)*pow(lv3E,2)*pow(lv3Y,2) -
+                lv1X*uP*pow(lv3X,2)*pow(lv3Y,2) - pow(lv1X,3)*pow(lv3X,2)*pow(lv3Y,2) + lv3E*lv3X*pow(lv1E,3)*(pow(lv3X,2) + pow(lv3Y,2)) -
+                lv1E*lv3E*(pow(lv3X,2) + pow(lv3Y,2))*(lv3X*uP + lv3X*pow(lv1X,2) + lv1X*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2))) +
+                pow(lv1E,2)*(pow(lv3X,2) + pow(lv3Y,2))*(lv1X*(-pow(lv3E,2) + pow(lv3Y,2)) + lv3X*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2))) - lv1X*uP*pow(lv3Y,4) -
+                pow(lv1X,3)*pow(lv3Y,4) + pow(2,-0.5)*pow(pow(lv1E,2)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2))*
+                   (4*uP*pow(lv1X,2)*pow(lv3X,2) + 2*pow(lv1X,4)*pow(lv3X,2) - 2*pow(lv1X,2)*pow(lv3E,2)*pow(lv3X,2) - 4*lv1X*uP*pow(lv3X,3) - 4*pow(lv1X,3)*pow(lv3X,3) +
+                     2*pow(lv1X,2)*pow(lv3X,4) - 4*lv1X*lv3X*uP*pow(lv3Y,2) + 4*uP*pow(lv1X,2)*pow(lv3Y,2) - 4*lv3X*pow(lv1X,3)*pow(lv3Y,2) + 2*pow(lv1X,4)*pow(lv3Y,2) -
+                     pow(lv1X,2)*pow(lv3E,2)*pow(lv3Y,2) + 3*pow(lv1X,2)*pow(lv3X,2)*pow(lv3Y,2) - 4*lv3E*pow(lv1E,3)*(pow(lv3X,2) + pow(lv3Y,2)) +
+                     2*pow(lv1E,4)*(pow(lv3X,2) + pow(lv3Y,2)) + 4*lv1E*lv3E*(uP + pow(lv1X,2))*(pow(lv3X,2) + pow(lv3Y,2)) +
+                     cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) -
+                     2*pow(lv1E,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-2*lv1X*lv3X + 2*uP + 2*pow(lv1X,2) - pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) + pow(lv1X,2)*pow(lv3Y,4) +
+                     2*pow(lv3X,2)*pow(uP,2) + 2*pow(lv3Y,2)*pow(uP,2))*pow(1/cos(angle),2),0.5) +
+                lv3X*(-(lv1X*lv3E*lv3X) + lv1E*(pow(lv3X,2) + pow(lv3Y,2)))*(lv3E*pow(lv1E,2) - lv3E*(uP + pow(lv1X,2)) + lv1E*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)))*
+                 pow(tan(angle),2));
+
+
+
+                lv3AY=-(pow(lv1E,-1)*pow(lv3Y,-1)*pow(cos(angle),2)*pow(4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) +
+                        cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
+                        pow(lv1X,2)*(pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) - pow(lv3E,2)*(2*pow(lv3X,2) + pow(lv3Y,2))) - 2*pow(lv1E,2)*pow(pow(lv3X,2) + pow(lv3Y,2),2),-1)*
+                      (lv1E*lv1X*lv3X*uP*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) + lv3E*pow(lv1E,4)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) -
+                        lv3E*pow(lv1E,2)*(uP + pow(lv1X,2))*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) + lv1E*lv3X*pow(lv1X,3)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) -
+                        lv1E*pow(lv1X,2)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
+                        pow(lv1E,3)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-(lv1X*lv3X) - pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
+                        lv1X*lv3E*pow(2,-0.5)*pow(pow(lv1E,2)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2))*
+                           (4*uP*pow(lv1X,2)*pow(lv3X,2) + 2*pow(lv1X,4)*pow(lv3X,2) - 2*pow(lv1X,2)*pow(lv3E,2)*pow(lv3X,2) - 4*lv1X*uP*pow(lv3X,3) -
+                             4*pow(lv1X,3)*pow(lv3X,3) + 2*pow(lv1X,2)*pow(lv3X,4) - 4*lv1X*lv3X*uP*pow(lv3Y,2) + 4*uP*pow(lv1X,2)*pow(lv3Y,2) - 4*lv3X*pow(lv1X,3)*pow(lv3Y,2) +
+                             2*pow(lv1X,4)*pow(lv3Y,2) - pow(lv1X,2)*pow(lv3E,2)*pow(lv3Y,2) + 3*pow(lv1X,2)*pow(lv3X,2)*pow(lv3Y,2) -
+                             4*lv3E*pow(lv1E,3)*(pow(lv3X,2) + pow(lv3Y,2)) + 2*pow(lv1E,4)*(pow(lv3X,2) + pow(lv3Y,2)) +
+                             4*lv1E*lv3E*(uP + pow(lv1X,2))*(pow(lv3X,2) + pow(lv3Y,2)) + cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) -
+                             2*pow(lv1E,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-2*lv1X*lv3X + 2*uP + 2*pow(lv1X,2) - pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
+                             pow(lv1X,2)*pow(lv3Y,4) + 2*pow(lv3X,2)*pow(uP,2) + 2*pow(lv3Y,2)*pow(uP,2))*pow(1/cos(angle),2),0.5) -
+                        lv1E*lv3X*pow(2,-0.5)*pow(pow(lv1E,2)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2))*
+                           (4*uP*pow(lv1X,2)*pow(lv3X,2) + 2*pow(lv1X,4)*pow(lv3X,2) - 2*pow(lv1X,2)*pow(lv3E,2)*pow(lv3X,2) - 4*lv1X*uP*pow(lv3X,3) -
+                             4*pow(lv1X,3)*pow(lv3X,3) + 2*pow(lv1X,2)*pow(lv3X,4) - 4*lv1X*lv3X*uP*pow(lv3Y,2) + 4*uP*pow(lv1X,2)*pow(lv3Y,2) - 4*lv3X*pow(lv1X,3)*pow(lv3Y,2) +
+                             2*pow(lv1X,4)*pow(lv3Y,2) - pow(lv1X,2)*pow(lv3E,2)*pow(lv3Y,2) + 3*pow(lv1X,2)*pow(lv3X,2)*pow(lv3Y,2) -
+                             4*lv3E*pow(lv1E,3)*(pow(lv3X,2) + pow(lv3Y,2)) + 2*pow(lv1E,4)*(pow(lv3X,2) + pow(lv3Y,2)) +
+                             4*lv1E*lv3E*(uP + pow(lv1X,2))*(pow(lv3X,2) + pow(lv3Y,2)) + cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) -
+                             2*pow(lv1E,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-2*lv1X*lv3X + 2*uP + 2*pow(lv1X,2) - pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
+                             pow(lv1X,2)*pow(lv3Y,4) + 2*pow(lv3X,2)*pow(uP,2) + 2*pow(lv3Y,2)*pow(uP,2))*pow(1/cos(angle),2),0.5) +
+                        lv1E*pow(lv3Y,2)*(-(lv1X*lv3E*lv3X) + lv1E*(pow(lv3X,2) + pow(lv3Y,2)))*
+                         (lv3E*pow(lv1E,2) - lv3E*(uP + pow(lv1X,2)) + lv1E*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)))*pow(tan(angle),2)));
+
+
+
+                        lv3BX=pow(cos(angle),2)*pow(-4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) -
+                                cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
+                                pow(lv1X,2)*(-(pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))) + pow(lv3E,2)*(2*pow(lv3X,2) + pow(lv3Y,2))) + 2*pow(lv1E,2)*pow(pow(lv3X,2) + pow(lv3Y,2),2),-1)*
+                              (-(lv1X*uP*pow(lv3E,2)*pow(lv3X,2)) - pow(lv1X,3)*pow(lv3E,2)*pow(lv3X,2) + 2*pow(lv1X,2)*pow(lv3E,2)*pow(lv3X,3) - lv1X*uP*pow(lv3E,2)*pow(lv3Y,2) +
+                                2*lv3X*pow(lv1X,2)*pow(lv3E,2)*pow(lv3Y,2) - pow(lv1X,3)*pow(lv3E,2)*pow(lv3Y,2) + lv1X*uP*pow(lv3X,2)*pow(lv3Y,2) + pow(lv1X,3)*pow(lv3X,2)*pow(lv3Y,2) -
+                                2*pow(lv1X,2)*pow(lv3X,3)*pow(lv3Y,2) - lv3E*lv3X*pow(lv1E,3)*(pow(lv3X,2) + pow(lv3Y,2)) +
+                                lv1E*lv3E*(pow(lv3X,2) + pow(lv3Y,2))*(lv3X*uP + lv3X*pow(lv1X,2) + lv1X*(-pow(lv3E,2) - 3*pow(lv3X,2) + pow(lv3Y,2))) +
+                                pow(lv1E,2)*(pow(lv3X,2) + pow(lv3Y,2))*(lv1X*(pow(lv3E,2) - pow(lv3Y,2)) + lv3X*(pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2))) + lv1X*uP*pow(lv3Y,4) -
+                                2*lv3X*pow(lv1X,2)*pow(lv3Y,4) + pow(lv1X,3)*pow(lv3Y,4) -
+                                pow(2,-0.5)*pow(pow(lv1E,2)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2))*
+                                   (4*uP*pow(lv1X,2)*pow(lv3X,2) + 2*pow(lv1X,4)*pow(lv3X,2) - 2*pow(lv1X,2)*pow(lv3E,2)*pow(lv3X,2) - 4*lv1X*uP*pow(lv3X,3) - 4*pow(lv1X,3)*pow(lv3X,3) +
+                                     2*pow(lv1X,2)*pow(lv3X,4) - 4*lv1X*lv3X*uP*pow(lv3Y,2) + 4*uP*pow(lv1X,2)*pow(lv3Y,2) - 4*lv3X*pow(lv1X,3)*pow(lv3Y,2) + 2*pow(lv1X,4)*pow(lv3Y,2) -
+                                     pow(lv1X,2)*pow(lv3E,2)*pow(lv3Y,2) + 3*pow(lv1X,2)*pow(lv3X,2)*pow(lv3Y,2) - 4*lv3E*pow(lv1E,3)*(pow(lv3X,2) + pow(lv3Y,2)) +
+                                     2*pow(lv1E,4)*(pow(lv3X,2) + pow(lv3Y,2)) + 4*lv1E*lv3E*(uP + pow(lv1X,2))*(pow(lv3X,2) + pow(lv3Y,2)) +
+                                     cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) -
+                                     2*pow(lv1E,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-2*lv1X*lv3X + 2*uP + 2*pow(lv1X,2) - pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) + pow(lv1X,2)*pow(lv3Y,4) +
+                                     2*pow(lv3X,2)*pow(uP,2) + 2*pow(lv3Y,2)*pow(uP,2))*pow(1/cos(angle),2),0.5) +
+                                lv3X*(-(lv1X*lv3E*lv3X) + lv1E*(pow(lv3X,2) + pow(lv3Y,2)))*
+                                 (-(lv3E*pow(lv1E,2)) + lv3E*(-2*lv1X*lv3X + uP + pow(lv1X,2)) + lv1E*(pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)))*pow(tan(angle),2));
+
+
+
+                                lv3BY=-(pow(lv1E,-1)*pow(lv3Y,-1)*pow(cos(angle),2)*pow(4*lv1E*lv1X*lv3E*lv3X*(pow(lv3X,2) + pow(lv3Y,2)) +
+                                        cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
+                                        pow(lv1X,2)*(pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) - pow(lv3E,2)*(2*pow(lv3X,2) + pow(lv3Y,2))) - 2*pow(lv1E,2)*pow(pow(lv3X,2) + pow(lv3Y,2),2),-1)*
+                                      (-(lv1E*lv1X*lv3X*uP*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))) - lv3E*pow(lv1E,4)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) +
+                                        lv3E*pow(lv1E,2)*(-4*lv1X*lv3X + uP + pow(lv1X,2))*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) -
+                                        lv1E*lv3X*pow(lv1X,3)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) +
+                                        lv1E*pow(lv1X,2)*(pow(lv3E,2) + pow(lv3X,2) - pow(lv3Y,2))*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2)) +
+                                        pow(lv1E,3)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))*(lv1X*lv3X + pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) -
+                                        lv1X*lv3E*pow(2,-0.5)*pow(pow(lv1E,2)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2))*
+                                           (4*uP*pow(lv1X,2)*pow(lv3X,2) + 2*pow(lv1X,4)*pow(lv3X,2) - 2*pow(lv1X,2)*pow(lv3E,2)*pow(lv3X,2) - 4*lv1X*uP*pow(lv3X,3) -
+                                             4*pow(lv1X,3)*pow(lv3X,3) + 2*pow(lv1X,2)*pow(lv3X,4) - 4*lv1X*lv3X*uP*pow(lv3Y,2) + 4*uP*pow(lv1X,2)*pow(lv3Y,2) - 4*lv3X*pow(lv1X,3)*pow(lv3Y,2) +
+                                             2*pow(lv1X,4)*pow(lv3Y,2) - pow(lv1X,2)*pow(lv3E,2)*pow(lv3Y,2) + 3*pow(lv1X,2)*pow(lv3X,2)*pow(lv3Y,2) -
+                                             4*lv3E*pow(lv1E,3)*(pow(lv3X,2) + pow(lv3Y,2)) + 2*pow(lv1E,4)*(pow(lv3X,2) + pow(lv3Y,2)) +
+                                             4*lv1E*lv3E*(uP + pow(lv1X,2))*(pow(lv3X,2) + pow(lv3Y,2)) + cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) -
+                                             2*pow(lv1E,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-2*lv1X*lv3X + 2*uP + 2*pow(lv1X,2) - pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
+                                             pow(lv1X,2)*pow(lv3Y,4) + 2*pow(lv3X,2)*pow(uP,2) + 2*pow(lv3Y,2)*pow(uP,2))*pow(1/cos(angle),2),0.5) +
+                                        lv1E*lv3X*pow(2,-0.5)*pow(pow(lv1E,2)*pow(lv3Y,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2))*
+                                           (4*uP*pow(lv1X,2)*pow(lv3X,2) + 2*pow(lv1X,4)*pow(lv3X,2) - 2*pow(lv1X,2)*pow(lv3E,2)*pow(lv3X,2) - 4*lv1X*uP*pow(lv3X,3) -
+                                             4*pow(lv1X,3)*pow(lv3X,3) + 2*pow(lv1X,2)*pow(lv3X,4) - 4*lv1X*lv3X*uP*pow(lv3Y,2) + 4*uP*pow(lv1X,2)*pow(lv3Y,2) - 4*lv3X*pow(lv1X,3)*pow(lv3Y,2) +
+                                             2*pow(lv1X,4)*pow(lv3Y,2) - pow(lv1X,2)*pow(lv3E,2)*pow(lv3Y,2) + 3*pow(lv1X,2)*pow(lv3X,2)*pow(lv3Y,2) -
+                                             4*lv3E*pow(lv1E,3)*(pow(lv3X,2) + pow(lv3Y,2)) + 2*pow(lv1E,4)*(pow(lv3X,2) + pow(lv3Y,2)) +
+                                             4*lv1E*lv3E*(uP + pow(lv1X,2))*(pow(lv3X,2) + pow(lv3Y,2)) + cos(2*angle)*pow(lv1X,2)*pow(lv3Y,2)*(-pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) -
+                                             2*pow(lv1E,2)*(pow(lv3X,2) + pow(lv3Y,2))*(-2*lv1X*lv3X + 2*uP + 2*pow(lv1X,2) - pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)) +
+                                             pow(lv1X,2)*pow(lv3Y,4) + 2*pow(lv3X,2)*pow(uP,2) + 2*pow(lv3Y,2)*pow(uP,2))*pow(1/cos(angle),2),0.5) -
+                                        lv1E*pow(lv3Y,2)*(-(lv1X*lv3E*lv3X) + lv1E*(pow(lv3X,2) + pow(lv3Y,2)))*
+                                         (lv3E*pow(lv1E,2) - lv3E*(-2*lv1X*lv3X + uP + pow(lv1X,2)) - lv1E*(pow(lv3E,2) + pow(lv3X,2) + pow(lv3Y,2)))*pow(tan(angle),2)));
+
+    }
+
+
 
     double lv3AZ = (-(lv3AY*lv3X) + lv3AX*lv3Y)*pow(pow(lv3X,2) + pow(lv3Y,2),-0.5)*tan(angle);
 
@@ -434,13 +560,13 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
       gamma1_LAB.boost(boost_LAB_to_TAR);
       gamma2_LAB.boost(boost_LAB_to_TAR);
 
-
+//      std::cout << solution << std::endl;
 //      std::cout << "M: "  << Mgg2 << ' ' << (gamma1_LAB.getFourMomentum()+gamma2_LAB.getFourMomentum()).Mag2() << std::endl;
 //      std::cout << "u': "  << uP << ' ' << (gamma_LAB.getFourMomentum()-gamma1_LAB.getFourMomentum()).Mag2() << std::endl;
 //      std::cout << "t: "  << t << ' ' << (pPrim_LAB.getFourMomentum()-p_LAB.getFourMomentum()).Mag2() << std::endl;
 //      std::cout << "Q2: " << Q2 << ' ' <<  -(e_LAB.getFourMomentum()-eS_LAB.getFourMomentum()).Mag2() << std::endl;
 //      std::cout << "y: " << y << ' ' <<  (e_LAB.getEnergy()-eS_LAB.getEnergy())/e_LAB.getEnergy() << std::endl;
-
+//
 //      std::cout << "balance: "<< std::endl;
 //      (e_LAB.getFourMomentum() + p_LAB.getFourMomentum() - eS_LAB.getFourMomentum() - pPrim_LAB.getFourMomentum() - gamma1_LAB.getFourMomentum() - gamma2_LAB.getFourMomentum()).Print();
 
