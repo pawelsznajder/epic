@@ -21,7 +21,7 @@
 #include <HepMC3/Writer.h>
 #include <HepMC3/WriterAscii.h>
 #include <HepMC3/WriterHEPEVT.h>
-#include <HepMC3/WriterRoot.h>
+//#include <HepMC3/WriterRoot.h>
 #include <partons/BaseObjectRegistry.h>
 #include <stddef.h>
 #include <TLorentzVector.h>
@@ -104,11 +104,11 @@ void WriterHepMC3::open() {
 		break;
 	}
 
-	case WriterHepMC3Type::ROOT: {
-
-		m_writerHepMC3 = std::make_shared<HepMC3::WriterRoot>(m_path);
-		break;
-	}
+//	case WriterHepMC3Type::ROOT: {
+//
+//		m_writerHepMC3 = std::make_shared<HepMC3::WriterRoot>(m_path);
+//		break;
+//	}
 
 	case WriterHepMC3Type::HEPEVT: {
 
@@ -189,11 +189,11 @@ void WriterHepMC3::saveGenerationInformation(
 		break;
 	}
 
-	case WriterHepMC3Type::ROOT: {
-
-		std::static_pointer_cast<HepMC3::WriterRoot>(m_writerHepMC3)->write_run_info();
-		break;
-	}
+//	case WriterHepMC3Type::ROOT: {
+//
+//		std::static_pointer_cast<HepMC3::WriterRoot>(m_writerHepMC3)->write_run_info();
+//		break;
+//	}
 
 	case WriterHepMC3Type::HEPEVT: {
 
