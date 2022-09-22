@@ -924,11 +924,11 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
             std::make_shared < Particle > (e_LAB));
     particles.at(1) = std::make_pair(ParticleCodeType::BEAM,
             std::make_shared < Particle > (p_LAB));
-    particles.at(2) = std::make_pair(ParticleCodeType::UNDECAYED,
+    particles.at(2) = std::make_pair(ParticleCodeType::SCATTERED,
             std::make_shared < Particle > (eS_LAB));
     particles.at(3) = std::make_pair(ParticleCodeType::VIRTUAL,
             std::make_shared < Particle > (gamma_LAB));
-    particles.at(4) = std::make_pair(ParticleCodeType::UNDECAYED,
+    particles.at(4) = std::make_pair(ParticleCodeType::SCATTERED,
             std::make_shared < Particle > (pPrim_LAB));
     particles.at(5) = std::make_pair(ParticleCodeType::UNDECAYED,
             std::make_shared < Particle > (gamma1_LAB));
