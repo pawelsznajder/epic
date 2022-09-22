@@ -34,6 +34,9 @@ std::string ParticleCodeType::toString() const {
   case BEAM:
     return "beam";
     break;
+  case SCATTERED:
+    return "scattered";
+    break;
   case VIRTUAL:
     return "virtual";
     break;

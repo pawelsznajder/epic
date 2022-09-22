@@ -9,12 +9,12 @@ namespace EPIC {
 DVMPKinematic::DVMPKinematic() :
         BaseObject("DVMPKinematic"), m_xB(0.), m_t(0.), m_Q2(0.), m_E(0.), m_phi(
                 0.), m_phiS(0.), m_mesonType(ParticleType::UNDEFINED), m_mesonPolarization(
-                PARTONS::MesonPolarization::UNDEFINED) {
+                PARTONS::PolarizationType::UNDEFINED) {
 }
 
 DVMPKinematic::DVMPKinematic(double xB, double t, double Q2, double E,
         double phi, double phiS, ParticleType::Type mesonType,
-        PARTONS::MesonPolarization::Type mesonPolarization) :
+        PARTONS::PolarizationType::Type mesonPolarization) :
         BaseObject("DVMPKinematic"), m_xB(xB), m_t(t), m_Q2(Q2), m_E(E), m_phi(
                 phi), m_phiS(phiS), m_mesonType(mesonType), m_mesonPolarization(
                 mesonPolarization) {
@@ -42,7 +42,7 @@ std::string DVMPKinematic::toString() const {
     formatter << "phiS: " << m_phiS << ' ';
     formatter << "meson type: " << ParticleType(m_mesonType).toString() << ' ';
     formatter << "meson polarization: "
-            << PARTONS::MesonPolarization(m_mesonPolarization).toString();
+            << PARTONS::PolarizationType(m_mesonPolarization).toString();
 
     return formatter.str();
 }
@@ -86,7 +86,7 @@ ParticleType::Type DVMPKinematic::getMesonType() const {
     return m_mesonType;
 }
 
-PARTONS::MesonPolarization::Type DVMPKinematic::getMesonPolarization() const {
+PARTONS::PolarizationType::Type DVMPKinematic::getPolarizationType() const {
     return m_mesonPolarization;
 }
 
@@ -118,8 +118,8 @@ void DVMPKinematic::setMesonType(ParticleType::Type mesonType) {
     m_mesonType = mesonType;
 }
 
-void DVMPKinematic::setMesonPolarization(
-        PARTONS::MesonPolarization::Type mesonPolarization) {
+void DVMPKinematic::setPolarizationType(
+        PARTONS::PolarizationType::Type mesonPolarization) {
     m_mesonPolarization = mesonPolarization;
 }
 

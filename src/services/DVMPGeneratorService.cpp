@@ -53,7 +53,7 @@ DVMPGeneratorService::DVMPGeneratorService(const std::string &className) :
                 DVMPKinematicModule, DVMPKinematic, DVMPRCModule>(className) {
 
     m_mesonType = ParticleType::UNDEFINED;
-    m_mesonPolarization = PARTONS::MesonPolarization::UNDEFINED;
+    m_mesonPolarization = PARTONS::PolarizationType::UNDEFINED;
 }
 
 DVMPGeneratorService::DVMPGeneratorService(const DVMPGeneratorService &other) :
@@ -234,12 +234,12 @@ void DVMPGeneratorService::getAdditionalGeneralConfigurationFromTask(
     if (task.getGeneralConfiguration().getParameters().isAvailable(
             DVMP_GENERATOR_SERVICE_MESON_POLARIZATION)) {
         m_mesonPolarization =
-                PARTONS::MesonPolarization::fromString(
+                PARTONS::PolarizationType::fromString(
                         task.getGeneralConfiguration().getParameters().getLastAvailable().getString());
     }
 
     formatter << "Meson polarisation: "
-            << PARTONS::MesonPolarization(m_mesonPolarization).toString()
+            << PARTONS::PolarizationType(m_mesonPolarization).toString()
             << '\n';
 
     info(__func__, formatter.str());

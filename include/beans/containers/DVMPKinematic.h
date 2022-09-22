@@ -8,7 +8,7 @@
  * @version 1.0
  */
 
-#include <partons/beans/MesonPolarization.h>
+#include <partons/beans/PolarizationType.h>
 #include <string>
 
 #include "../types/ParticleType.h"
@@ -40,7 +40,7 @@ public:
      */
     DVMPKinematic(double xB, double t, double Q2, double E, double phi,
             double phiS, ParticleType::Type mesonType,
-            PARTONS::MesonPolarization::Type mesonPolarization);
+            PARTONS::PolarizationType::Type mesonPolarization);
 
     /**
      * Copy constructor.
@@ -136,13 +136,13 @@ public:
     /**
      * Get meson polarization.
      */
-    PARTONS::MesonPolarization::Type getMesonPolarization() const;
+    PARTONS::PolarizationType::Type getPolarizationType() const;
 
     /**
      * Set meson polarization.
      */
-    void setMesonPolarization(
-            PARTONS::MesonPolarization::Type mesonPolarization);
+    void setPolarizationType(
+            PARTONS::PolarizationType::Type mesonPolarization);
 
 private:
 
@@ -184,7 +184,7 @@ private:
     /**
      * Meson polarization.
      */
-    PARTONS::MesonPolarization::Type m_mesonPolarization;
+    PARTONS::PolarizationType::Type m_mesonPolarization;
 };
 
 }

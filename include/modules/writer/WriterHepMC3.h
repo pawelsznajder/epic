@@ -80,6 +80,12 @@ public:
 	void setWriterHepMC3Type(WriterHepMC3Type::Type writerHepMc3Type);
 
 private:
+
+	/**
+	 * Get particle code.
+	 */
+	int getParticleCode(ParticleCodeType::Type type) const;
+
 	WriterHepMC3Type::Type m_writerHepMC3Type;      ///< HepMC3 writer type.
 	std::shared_ptr<HepMC3::Writer> m_writerHepMC3; ///< Writer.
 };

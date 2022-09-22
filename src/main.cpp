@@ -19,9 +19,10 @@
 #include "../include/managers/ServiceObjectRegistry.h"
 #include "../include/services/AutomationService.h"
 #include "../include/services/DVCSGeneratorService.h"
-#include "../include/services/DVMPGeneratorService.h"
-#include "../include/services/GeneratorService.h"
 #include "../include/services/TCSGeneratorService.h"
+#include "../include/services/DVMPGeneratorService.h"
+#include "../include/services/GAM2GeneratorService.h"
+#include "../include/services/GeneratorService.h"
 
 void printHelp(const std::string& path) {
 
@@ -66,7 +67,7 @@ int main(int argc, char **argv) {
         // Parse parameters
         static struct option longOptions[] = { { "help", no_argument, 0, 'h' },
                 { "scenario", required_argument, 0, 0 }, { "seed",
-                required_argument, 0, 0 } };
+                        required_argument, 0, 0 } };
 
         for (;;) {
 
@@ -252,6 +253,18 @@ int main(int argc, char **argv) {
 
                 EPIC::DVMPGeneratorService *generatorService =
                         pEpic->getServiceObjectRegistry()->getDVMPGeneratorService();
+
+                generatorService->setScenarioDescription(
+                        scenario->getDescription());
+                generatorService->setScenarioDate(scenario->getDate());
+
+                generatorService->computeTask(*it);
+            }
+
+            if (it->getServiceName() == "GAM2GeneratorService") {
+
+                EPIC::GAM2GeneratorService *generatorService =
+                        pEpic->getServiceObjectRegistry()->getGAM2GeneratorService();
 
                 generatorService->setScenarioDescription(
                         scenario->getDescription());

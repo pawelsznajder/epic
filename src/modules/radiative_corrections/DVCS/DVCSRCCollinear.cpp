@@ -210,7 +210,7 @@ void DVCSRCCollinear::updateEvent(Event& event,
 			continue;
 		}
 
-		if (it->first == ParticleCodeType::UNDECAYED
+		if (it->first == ParticleCodeType::SCATTERED
 				&& (it->second->getType() == ParticleType::ELECTRON)) {
 			idEs = int(it - event.getParticles().begin());
 			continue;

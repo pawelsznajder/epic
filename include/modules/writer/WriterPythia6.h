@@ -69,6 +69,11 @@ public:
 
 private:
 
+    /**
+     * Get particle code.
+     */
+    inline int getParticleCode(ParticleCodeType::Type type) const;
+
 	inline std::string trailSign(double v);
 
 	std::ofstream m_ofstream; ///< Output stream used to save events.

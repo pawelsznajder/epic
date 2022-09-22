@@ -347,6 +347,36 @@ void WriterHepMC3::write(const std::vector<Event> &events) {
 	}
 }
 
+int WriterHepMC3::getParticleCode(ParticleCodeType::Type type) const {
+
+    switch (type) {
+
+    case ParticleCodeType::UNDECAYED:
+        return 1;
+        break;
+    case ParticleCodeType::DECAYED:
+        return 2;
+        break;
+    case ParticleCodeType::DOCUMENTATION:
+        return 3;
+        break;
+    case ParticleCodeType::BEAM:
+        return 4;
+        break;
+    case ParticleCodeType::SCATTERED:
+        return 1;
+        break;
+    case ParticleCodeType::VIRTUAL:
+        return 13;
+        break;
+
+    default:
+        throw ElemUtils::CustomException(getClassName(), __func__,
+                ElemUtils::Formatter() << "Conversion undefined for type: "
+                        << ParticleCodeType(type).toString());
+    }
+}
+
 WriterHepMC3Type::Type WriterHepMC3::getWriterHepMC3Type() const {
 	return m_writerHepMC3Type;
 }
