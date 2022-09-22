@@ -8,6 +8,7 @@ Exclusive processes currently available in EpIC are:
 * deeply virtual Compton scattering (DVCS)
 * time-like Compton scattering (TCS)
 * deeply virtual meson production (DVMP), only &#960;<sup>0</sup> case
+* diphoton photoproduction
 
 We refer to [PARTONS documentation of modules](http://partons.cea.fr/partons/doc/html/files.html) for information on theory developments (like GPD models) available for the evaluation of Born cross-sections.
 
