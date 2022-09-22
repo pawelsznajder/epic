@@ -8,6 +8,7 @@
 #include "../../../include/modules/writer/WriterPythia6.h"
 
 #include <ElementaryUtils/logger/CustomException.h>
+#include <ElementaryUtils/string_utils/Formatter.h>
 #include <partons/BaseObjectRegistry.h>
 #include <stddef.h>
 #include <TLorentzVector.h>
@@ -29,369 +30,426 @@
 namespace EPIC {
 
 const unsigned int WriterPythia6::classId =
-		PARTONS::BaseObjectRegistry::getInstance()->registerBaseObject(
-				new WriterPythia6("WriterPythia6"));
+        PARTONS::BaseObjectRegistry::getInstance()->registerBaseObject(
+                new WriterPythia6("WriterPythia6"));
 
 WriterPythia6::WriterPythia6(const std::string &className) :
-		WriterModule(className) {
+        WriterModule(className) {
 
-	m_trailSign << std::scientific;
+    m_trailSign << std::scientific;
 
-	m_writerPythia6NoSeparator = new WriterPythia6NoSeparator();
+    m_writerPythia6NoSeparator = new WriterPythia6NoSeparator();
 }
 
 WriterPythia6::WriterPythia6(const WriterPythia6 &other) :
-		WriterModule(other) {
+        WriterModule(other) {
 
-	m_trailSign << std::scientific;
+    m_trailSign << std::scientific;
 
-	m_writerPythia6NoSeparator = new WriterPythia6NoSeparator();
+    m_writerPythia6NoSeparator = new WriterPythia6NoSeparator();
 }
 
 WriterPythia6::~WriterPythia6() {
 
-	if (m_writerPythia6NoSeparator) {
+    if (m_writerPythia6NoSeparator) {
 
-		delete m_writerPythia6NoSeparator;
-		m_writerPythia6NoSeparator = nullptr;
-	}
+        delete m_writerPythia6NoSeparator;
+        m_writerPythia6NoSeparator = nullptr;
+    }
 }
 
 WriterPythia6 *WriterPythia6::clone() const {
-	return new WriterPythia6(*this);
+    return new WriterPythia6(*this);
 }
 
 void WriterPythia6::configure(const ElemUtils::Parameters &parameters) {
 
-	// run for mother
-	WriterModule::configure(parameters);
+    // run for mother
+    WriterModule::configure(parameters);
 }
 
 void WriterPythia6::open() {
 
-	// check path
-	if (m_path.empty()) {
-		throw ElemUtils::CustomException(getClassName(), __func__,
-				"Path not set");
-	}
+    // check path
+    if (m_path.empty()) {
+        throw ElemUtils::CustomException(getClassName(), __func__,
+                "Path not set");
+    }
 
-	// close if was open
-	if (m_ofstream.is_open()) {
-		close();
-	}
+    // close if was open
+    if (m_ofstream.is_open()) {
+        close();
+    }
 
-	//open
-	m_ofstream.open(m_path);
+    //open
+    m_ofstream.open(m_path);
 
-	m_ofstream.imbue(std::locale(std::locale(), m_writerPythia6NoSeparator));
+    m_ofstream.imbue(std::locale(std::locale(), m_writerPythia6NoSeparator));
 
-	//headers
-	m_ofstream << "PYTHIA EVENT FILE" << std::endl;
-	m_ofstream << "============================================" << std::endl;
-	m_ofstream
-			<< "I, ievent, genevent, subprocess, nucleon,                 targetparton, xtargparton, beamparton, xbeamparton,               thetabeamprtn, truey, trueQ2, truex, trueW2, trueNu, leptonphi,   s_hat, t_hat, u_hat, pt2_hat, Q2_hat, F2, F1, R, sigma_rad,       SigRadCor, EBrems, photonflux, t-diff, nrTracks"
-			<< std::endl;
-	m_ofstream << "============================================" << std::endl;
-	m_ofstream
-			<< "I  K(I,1)  K(I,2)  K(I,3)  K(I,4)  K(I,5)  P(I,1)  P(I,2)  P(I,3)  P(I,4)  P(I,5)  V(I,1)  V(I,2)  V(I,3)"
-			<< std::endl;
-	m_ofstream << "============================================" << std::endl;
+    //headers
+    m_ofstream << "PYTHIA EVENT FILE" << std::endl;
+    m_ofstream << "============================================" << std::endl;
+    m_ofstream
+            << "I, ievent, genevent, subprocess, nucleon,                 targetparton, xtargparton, beamparton, xbeamparton,               thetabeamprtn, truey, trueQ2, truex, trueW2, trueNu, leptonphi,   s_hat, t_hat, u_hat, pt2_hat, Q2_hat, F2, F1, R, sigma_rad,       SigRadCor, EBrems, photonflux, t-diff, nrTracks"
+            << std::endl;
+    m_ofstream << "============================================" << std::endl;
+    m_ofstream
+            << "I  K(I,1)  K(I,2)  K(I,3)  K(I,4)  K(I,5)  P(I,1)  P(I,2)  P(I,3)  P(I,4)  P(I,5)  V(I,1)  V(I,2)  V(I,3)"
+            << std::endl;
+    m_ofstream << "============================================" << std::endl;
 }
 
 void WriterPythia6::saveGenerationInformation(
-		const GenerationInformation& generationInformation) {
+        const GenerationInformation& generationInformation) {
 
-	//open file
-	std::ofstream ofstreamGeneralInfo;
+    //open file
+    std::ofstream ofstreamGeneralInfo;
 
-	//open
-	ofstreamGeneralInfo.open(m_path + ".log");
+    //open
+    ofstreamGeneralInfo.open(m_path + ".log");
 
-	ofstreamGeneralInfo.imbue(
-			std::locale(std::locale(), m_writerPythia6NoSeparator));
+    ofstreamGeneralInfo.imbue(
+            std::locale(std::locale(), m_writerPythia6NoSeparator));
 
-	if (!ofstreamGeneralInfo.is_open()) {
+    if (!ofstreamGeneralInfo.is_open()) {
 
-		warn(__func__, "Pythia6 writer for general information is not open");
-		return;
-	}
+        warn(__func__, "Pythia6 writer for general information is not open");
+        return;
+    }
 
-	//save info
-	ofstreamGeneralInfo << "generator_name: "
-			<< generationInformation.getGeneratorName() << std::endl;
-	ofstreamGeneralInfo << "generator_version: "
-			<< generationInformation.getGeneratorVersion() << std::endl;
-	ofstreamGeneralInfo << "scenario_description: "
-			<< generationInformation.getDescription() << std::endl;
+    //save info
+    ofstreamGeneralInfo << "generator_name: "
+            << generationInformation.getGeneratorName() << std::endl;
+    ofstreamGeneralInfo << "generator_version: "
+            << generationInformation.getGeneratorVersion() << std::endl;
+    ofstreamGeneralInfo << "scenario_description: "
+            << generationInformation.getDescription() << std::endl;
 
-	ofstreamGeneralInfo << "service_name: "
-			<< generationInformation.getServiceName() << std::endl;
-	ofstreamGeneralInfo << "generated_events_number: "
-			<< generationInformation.getNEvents() << std::endl;
-	ofstreamGeneralInfo << "integrated_cross_section_value: "
-			<< generationInformation.getIntegratedCrossSection().first
-			<< std::endl;
-	ofstreamGeneralInfo << "integrated_cross_section_uncertainty: "
-			<< generationInformation.getIntegratedCrossSection().second
-			<< std::endl;
-	ofstreamGeneralInfo << "generation_date: "
-			<< generationInformation.getGenerationDate() << std::endl;
+    ofstreamGeneralInfo << "service_name: "
+            << generationInformation.getServiceName() << std::endl;
+    ofstreamGeneralInfo << "generated_events_number: "
+            << generationInformation.getNEvents() << std::endl;
+    ofstreamGeneralInfo << "integrated_cross_section_value: "
+            << generationInformation.getIntegratedCrossSection().first
+            << std::endl;
+    ofstreamGeneralInfo << "integrated_cross_section_uncertainty: "
+            << generationInformation.getIntegratedCrossSection().second
+            << std::endl;
+    ofstreamGeneralInfo << "generation_date: "
+            << generationInformation.getGenerationDate() << std::endl;
 
-	for (std::vector<std::pair<std::string, std::string> >::const_iterator it =
-			generationInformation.getAdditionalInfo().begin();
-			it != generationInformation.getAdditionalInfo().end(); it++) {
-		ofstreamGeneralInfo << it->first << ": " << it->second << '\n';
-	}
+    for (std::vector<std::pair<std::string, std::string> >::const_iterator it =
+            generationInformation.getAdditionalInfo().begin();
+            it != generationInformation.getAdditionalInfo().end(); it++) {
+        ofstreamGeneralInfo << it->first << ": " << it->second << '\n';
+    }
 
-	//close
-	ofstreamGeneralInfo.close();
+    //close
+    ofstreamGeneralInfo.close();
 }
 
 void WriterPythia6::close() {
 
-	if (!m_ofstream.is_open()) {
+    if (!m_ofstream.is_open()) {
 
-		warn(__func__, "Pythia6 writer is not open");
-		return;
-	}
+        warn(__func__, "Pythia6 writer is not open");
+        return;
+    }
 
-	m_ofstream.close();
+    m_ofstream.close();
 }
 
 void WriterPythia6::write(const Event &event) {
 
-	// check if open
-	if (!m_ofstream.is_open()) {
+    // check if open
+    if (!m_ofstream.is_open()) {
 
-		warn(__func__, "Pythia6 writer is not open");
-		return;
-	}
+        warn(__func__, "Pythia6 writer is not open");
+        return;
+    }
 
-	// references
-	const std::vector<
-			std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > > &eventParticles =
-			event.getParticles();
-	const std::vector<std::shared_ptr<Vertex> > &eventVertices =
-			event.getVertices();
-	const std::map<EventAttributeType::Type, double> &eventAttributes =
-			event.getAttributes();
+    // references
+    const std::vector<
+            std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > >& eventParticles =
+            event.getParticles();
+    const std::vector<std::shared_ptr<Vertex> >& eventVertices =
+            event.getVertices();
+    const std::map<EventAttributeType::Type, double>& eventAttributes =
+            event.getAttributes();
 
-	//first lines
-	m_ofstream << "0         " << std::fixed
-			<< size_t(eventAttributes.find(EventAttributeType::ID)->second)
-			<< "         0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0"
-			<< std::endl;
-	m_ofstream << "============================================" << std::endl;
+    // sort particles such as on top we have beam, scattered lepton and virtual photon
+    std::vector < std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> >
+            > eventParticlesSorted = eventParticles;
 
-	//string stream to double info about scattered lepton
-	std::stringstream ss;
+    for (std::vector<
+            std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > >::iterator itP =
+            eventParticlesSorted.begin(); itP != eventParticlesSorted.end();
+            itP++) {
 
-	// particles
-	for (std::vector<
-			std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > >::const_iterator itP =
-			eventParticles.begin(); itP != eventParticles.end(); itP++) {
+        //beam lepton goes first
+        if (itP->first == ParticleCodeType::BEAM
+                && (itP->second->getType() == ParticleType::ELECTRON
+                        || itP->second->getType() == ParticleType::POSITRON
+                        || itP->second->getType() == ParticleType::MUON_MINUS
+                        || itP->second->getType() == ParticleType::MUON_PLUS
+                        || itP->second->getType() == ParticleType::TAU_MINUS
+                        || itP->second->getType() == ParticleType::TAU_PLUS)) {
+            if (itP != eventParticlesSorted.begin() + 0) {
+                std::iter_swap(itP, eventParticlesSorted.begin() + 0);
+            }
+        }
 
-		size_t position = size_t(itP - eventParticles.begin()) + 1;
-		size_t code = (itP->first == ParticleCodeType::UNDECAYED) ? (1) : (21);
-		int pid = int(itP->second->getType());
+        //then, hadron beam
+        if (itP->first == ParticleCodeType::BEAM
+                && !(itP->second->getType() == ParticleType::ELECTRON
+                        || itP->second->getType() == ParticleType::POSITRON
+                        || itP->second->getType() == ParticleType::MUON_MINUS
+                        || itP->second->getType() == ParticleType::MUON_PLUS
+                        || itP->second->getType() == ParticleType::TAU_MINUS
+                        || itP->second->getType() == ParticleType::TAU_PLUS)) {
+            if (itP != eventParticlesSorted.begin() + 1) {
+                std::iter_swap(itP, eventParticlesSorted.begin() + 1);
+            }
+        }
 
-		//get pointers to parents and daughters and check if scattered electron
-		std::vector<std::shared_ptr<Particle> > parents;
-		std::vector<std::shared_ptr<Particle> > daughters;
+        //scattered electron
+        if (itP->first == ParticleCodeType::SCATTERED
+                && (itP->second->getType() == ParticleType::ELECTRON
+                        || itP->second->getType() == ParticleType::POSITRON
+                        || itP->second->getType() == ParticleType::MUON_MINUS
+                        || itP->second->getType() == ParticleType::MUON_PLUS
+                        || itP->second->getType() == ParticleType::TAU_MINUS
+                        || itP->second->getType() == ParticleType::TAU_PLUS)) {
+            if (itP != eventParticlesSorted.begin() + 2) {
+                std::iter_swap(itP, eventParticlesSorted.begin() + 2);
+            }
+        }
 
-		for (std::vector<std::shared_ptr<Vertex> >::const_iterator itV =
-				eventVertices.begin(); itV != eventVertices.end(); itV++) {
+        //finally, virtual photon
+        if (itP->first == ParticleCodeType::VIRTUAL) {
+            if (itP != eventParticlesSorted.begin() + 3) {
+                std::iter_swap(itP, eventParticlesSorted.begin() + 3);
+            }
+        }
 
-			for (std::vector<std::shared_ptr<Particle> >::const_iterator itPP =
-					(*itV)->getParticlesIn().begin();
-					itPP != (*itV)->getParticlesIn().end(); itPP++) {
-				if ((*itPP) == (itP->second)) {
-					for (std::vector<std::shared_ptr<Particle> >::const_iterator itPPP =
-							(*itV)->getParticlesOut().begin();
-							itPPP != (*itV)->getParticlesOut().end(); itPPP++) {
-						daughters.push_back(*itPPP);
-					}
-				}
-			}
+    }
 
-			for (std::vector<std::shared_ptr<Particle> >::const_iterator itPP =
-					(*itV)->getParticlesOut().begin();
-					itPP != (*itV)->getParticlesOut().end(); itPP++) {
-				if ((*itPP) == (itP->second)) {
-					for (std::vector<std::shared_ptr<Particle> >::const_iterator itPPP =
-							(*itV)->getParticlesIn().begin();
-							itPPP != (*itV)->getParticlesIn().end(); itPPP++) {
+    //first lines
+    m_ofstream << "0         " << std::fixed
+            << size_t(eventAttributes.find(EventAttributeType::ID)->second)
+            << "         0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0"
+            << std::endl;
+    m_ofstream << "============================================" << std::endl;
 
-						parents.push_back(*itPPP);
-					}
-				}
-			}
-		}
+    //string stream to double info about scattered lepton
+    std::stringstream ss;
 
-		//translate into positions
-		std::vector<size_t> parentsInt(parents.size(), -1);
-		std::vector<size_t> daughtersInt(daughters.size(), -1);
+    // particles
+    for (std::vector<
+            std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > >::const_iterator itP =
+            eventParticlesSorted.begin(); itP != eventParticlesSorted.end();
+            itP++) {
 
-		for (std::vector<std::shared_ptr<Particle> >::const_iterator itPP =
-				parents.begin(); itPP != parents.end(); itPP++) {
+        size_t position = size_t(itP - eventParticlesSorted.begin()) + 1;
+        size_t code = getParticleCode(itP->first);
+        int pid = int(itP->second->getType());
 
-			int i = -1;
+        //get pointers to parents and daughters and check if scattered electron
+        std::vector < std::shared_ptr<Particle> > parents;
+        std::vector < std::shared_ptr<Particle> > daughters;
 
-			for (std::vector<
-					std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > >::const_iterator itPPP =
-					eventParticles.begin(); itPPP != eventParticles.end();
-					itPPP++) {
-				if ((*itPP) == (itPPP->second)) {
+        for (std::vector<std::shared_ptr<Vertex> >::const_iterator itV =
+                eventVertices.begin(); itV != eventVertices.end(); itV++) {
 
-					i = int(itPPP - eventParticles.begin());
-					break;
-				}
-			}
+            for (std::vector<std::shared_ptr<Particle> >::const_iterator itPP =
+                    (*itV)->getParticlesIn().begin();
+                    itPP != (*itV)->getParticlesIn().end(); itPP++) {
+                if ((*itPP) == (itP->second)) {
+                    for (std::vector<std::shared_ptr<Particle> >::const_iterator itPPP =
+                            (*itV)->getParticlesOut().begin();
+                            itPPP != (*itV)->getParticlesOut().end(); itPPP++) {
+                        daughters.push_back(*itPPP);
+                    }
+                }
+            }
 
-			parentsInt.at(size_t(itPP - parents.begin())) = i;
-		}
+            for (std::vector<std::shared_ptr<Particle> >::const_iterator itPP =
+                    (*itV)->getParticlesOut().begin();
+                    itPP != (*itV)->getParticlesOut().end(); itPP++) {
+                if ((*itPP) == (itP->second)) {
+                    for (std::vector<std::shared_ptr<Particle> >::const_iterator itPPP =
+                            (*itV)->getParticlesIn().begin();
+                            itPPP != (*itV)->getParticlesIn().end(); itPPP++) {
 
-		for (std::vector<std::shared_ptr<Particle> >::const_iterator itPP =
-				daughters.begin(); itPP != daughters.end(); itPP++) {
+                        parents.push_back(*itPPP);
+                    }
+                }
+            }
+        }
 
-			int i = -1;
+        //translate into positions
+        std::vector < size_t > parentsInt(parents.size(), -1);
+        std::vector < size_t > daughtersInt(daughters.size(), -1);
 
-			for (std::vector<
-					std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > >::const_iterator itPPP =
-					eventParticles.begin(); itPPP != eventParticles.end();
-					itPPP++) {
-				if ((*itPP) == (itPPP->second)) {
+        for (std::vector<std::shared_ptr<Particle> >::const_iterator itPP =
+                parents.begin(); itPP != parents.end(); itPP++) {
 
-					i = int(itPPP - eventParticles.begin());
-					break;
-				}
-			}
+            int i = -1;
 
-			daughtersInt.at(size_t(itPP - daughters.begin())) = i;
-		}
+            for (std::vector<
+                    std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > >::const_iterator itPPP =
+                    eventParticlesSorted.begin();
+                    itPPP != eventParticlesSorted.end(); itPPP++) {
+                if ((*itPP) == (itPPP->second)) {
 
-		//sort
-		std::sort(parentsInt.begin(), parentsInt.end());
-		std::sort(daughtersInt.begin(), daughtersInt.end());
+                    i = int(itPPP - eventParticlesSorted.begin());
+                    break;
+                }
+            }
 
-		//data
-		size_t positionFirstParent = 0;
+            parentsInt.at(size_t(itPP - parents.begin())) = i;
+        }
 
-		if (parentsInt.size() != 0)
-			positionFirstParent = parentsInt.at(0) + 1;
+        for (std::vector<std::shared_ptr<Particle> >::const_iterator itPP =
+                daughters.begin(); itPP != daughters.end(); itPP++) {
 
-		size_t positionFirstDaughter = 0;
+            int i = -1;
 
-		if (daughtersInt.size() != 0)
-			positionFirstDaughter = daughtersInt.at(0) + 1;
+            for (std::vector<
+                    std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > >::const_iterator itPPP =
+                    eventParticlesSorted.begin();
+                    itPPP != eventParticlesSorted.end(); itPPP++) {
+                if ((*itPP) == (itPPP->second)) {
 
-		size_t positionLastDaughter = 0;
+                    i = int(itPPP - eventParticlesSorted.begin());
+                    break;
+                }
+            }
 
-		if (daughtersInt.size() > 1)
-			positionLastDaughter = daughtersInt.at(daughtersInt.size() - 1) + 1;
+            daughtersInt.at(size_t(itPP - daughters.begin())) = i;
+        }
 
-		double pX = itP->second->getFourMomentum().Px();
-		double pY = itP->second->getFourMomentum().Py();
-		double pZ = itP->second->getFourMomentum().Pz();
-		double E = itP->second->getFourMomentum().E();
-		double M = itP->second->getMass();
+        //sort
+        std::sort(parentsInt.begin(), parentsInt.end());
+        std::sort(daughtersInt.begin(), daughtersInt.end());
 
-		//check if scattered lepton
-		bool isScatteredLepton = false;
+        //data
+        size_t positionFirstParent = 0;
 
-		if (itP->first == ParticleCodeType::UNDECAYED
-				&& (itP->second->getType() == ParticleType::ELECTRON
-						|| itP->second->getType() == ParticleType::POSITRON
-						|| itP->second->getType() == ParticleType::MUON_MINUS
-						|| itP->second->getType() == ParticleType::MUON_PLUS
-						|| itP->second->getType() == ParticleType::TAU_MINUS
-						|| itP->second->getType() == ParticleType::TAU_PLUS)) {
+        if (parentsInt.size() != 0)
+            positionFirstParent = parentsInt.at(0) + 1;
 
-			for (std::vector<std::shared_ptr<Particle> >::const_iterator itPP =
-					parents.begin(); itPP != parents.end(); itPP++) {
+        size_t positionFirstDaughter = 0;
 
-				for (std::vector<
-						std::pair<ParticleCodeType::Type,
-								std::shared_ptr<Particle> > >::const_iterator itPPP =
-						eventParticles.begin(); itPPP != eventParticles.end();
-						itPPP++) {
-					if ((*itPP) == (itPPP->second)) {
+        if (daughtersInt.size() != 0)
+            positionFirstDaughter = daughtersInt.at(0) + 1;
 
-						if (itPPP->first == ParticleCodeType::BEAM
-								&& (itPPP->second->getType()
-										== ParticleType::ELECTRON
-										|| itPPP->second->getType()
-												== ParticleType::POSITRON
-										|| itPPP->second->getType()
-												== ParticleType::MUON_MINUS
-										|| itPPP->second->getType()
-												== ParticleType::MUON_PLUS
-										|| itPPP->second->getType()
-												== ParticleType::TAU_MINUS
-										|| itPPP->second->getType()
-												== ParticleType::TAU_PLUS)) {
-							isScatteredLepton = true;
-						}
+        size_t positionLastDaughter = 0;
 
-						break;
-					}
-				}
-			}
+        if (daughtersInt.size() > 1)
+            positionLastDaughter = daughtersInt.at(daughtersInt.size() - 1) + 1;
 
-		}
+        double pX = itP->second->getFourMomentum().Px();
+        double pY = itP->second->getFourMomentum().Py();
+        double pZ = itP->second->getFourMomentum().Pz();
+        double E = itP->second->getFourMomentum().E();
+        double M = itP->second->getMass();
 
-		//print scattered lepton twice
-		if (isScatteredLepton) {
+        //check if scattered lepton
+        bool isScatteredLepton = false;
 
-			ss << std::fixed << eventParticles.size() + 1 << "\t" << code
-					<< "\t" << pid << "\t" << position << "\t"
-					<< positionFirstDaughter << "\t" << positionLastDaughter
-					<< "\t" << trailSign(pX) << "\t" << trailSign(pY) << "\t"
-					<< trailSign(pZ) << "\t" << trailSign(E) << "\t"
-					<< trailSign(M) << "\t" << "0. 0. 0." << std::endl;
+        if (itP->first == ParticleCodeType::SCATTERED
+                && (itP->second->getType() == ParticleType::ELECTRON
+                        || itP->second->getType() == ParticleType::POSITRON
+                        || itP->second->getType() == ParticleType::MUON_MINUS
+                        || itP->second->getType() == ParticleType::MUON_PLUS
+                        || itP->second->getType() == ParticleType::TAU_MINUS
+                        || itP->second->getType() == ParticleType::TAU_PLUS)) {
+            isScatteredLepton = true;
+        }
 
-			code = 21;
-		}
+        //print scattered lepton twice
+        if (isScatteredLepton) {
 
-		//print
-		m_ofstream << std::fixed << position << "\t" << code << "\t" << pid
-				<< "\t" << positionFirstParent << "\t" << positionFirstDaughter
-				<< "\t" << positionLastDaughter << "\t" << trailSign(pX) << "\t"
-				<< trailSign(pY) << "\t" << trailSign(pZ) << "\t"
-				<< trailSign(E) << "\t" << trailSign(M) << "\t" << "0. 0. 0."
-				<< std::endl;
-	}
+            ss << std::fixed << eventParticlesSorted.size() + 1 << "\t" << code
+                    << "\t" << pid << "\t" << position << "\t"
+                    << positionFirstDaughter << "\t" << positionLastDaughter
+                    << "\t" << trailSign(pX) << "\t" << trailSign(pY) << "\t"
+                    << trailSign(pZ) << "\t" << trailSign(E) << "\t"
+                    << trailSign(M) << "\t" << "0. 0. 0." << std::endl;
 
-	//scattered lepton
-	m_ofstream << ss.str() << std::endl;
+            code = 21;
+        }
 
-	//print
-	m_ofstream << "=============== Event finished ===============" << std::endl;
+        //print
+        m_ofstream << std::fixed << position << "\t" << code << "\t" << pid
+                << "\t" << positionFirstParent << "\t" << positionFirstDaughter
+                << "\t" << positionLastDaughter << "\t" << trailSign(pX) << "\t"
+                << trailSign(pY) << "\t" << trailSign(pZ) << "\t"
+                << trailSign(E) << "\t" << trailSign(M) << "\t" << "0. 0. 0."
+                << std::endl;
+    }
+
+    //scattered lepton
+    m_ofstream << ss.str() << std::endl;
+
+    //print
+    m_ofstream << "=============== Event finished ===============" << std::endl;
 }
 
 void WriterPythia6::write(const std::vector<Event> &events) {
 
-	for (std::vector<Event>::const_iterator it = events.begin();
-			it != events.end(); it++) {
-		write(*it);
-	}
+    for (std::vector<Event>::const_iterator it = events.begin();
+            it != events.end(); it++) {
+        write(*it);
+    }
+}
+
+int WriterPythia6::getParticleCode(ParticleCodeType::Type type) const {
+
+    switch (type) {
+
+    case ParticleCodeType::UNDECAYED:
+        return 1;
+        break;
+    case ParticleCodeType::DECAYED:
+        return 21;
+        break;
+    case ParticleCodeType::DOCUMENTATION:
+        return 21;
+        break;
+    case ParticleCodeType::BEAM:
+        return 21;
+        break;
+    case ParticleCodeType::SCATTERED:
+        return 1;
+        break;
+    case ParticleCodeType::VIRTUAL:
+        return 21;
+        break;
+
+    default:
+        throw ElemUtils::CustomException(getClassName(), __func__,
+                ElemUtils::Formatter() << "Conversion undefined for type: "
+                        << ParticleCodeType(type).toString());
+    }
 }
 
 std::string WriterPythia6::trailSign(double v) {
 
-	//clear
-	m_trailSign.str("");
-	m_trailSign.clear();
+    //clear
+    m_trailSign.str("");
+    m_trailSign.clear();
 
-	//check
-	if (v < 0.) {
-		m_trailSign << v;
-	} else {
-		m_trailSign << ' ' << v;
-	}
+    //check
+    if (v < 0.) {
+        m_trailSign << v;
+    } else {
+        m_trailSign << ' ' << v;
+    }
 
-	//return
-	return m_trailSign.str();
+    //return
+    return m_trailSign.str();
 }
 
 } /* namespace EPIC */

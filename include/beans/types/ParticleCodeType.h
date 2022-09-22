@@ -35,10 +35,11 @@ public:
     UNDEFINED = 0, 	//!< Undefined type.
 
     UNDECAYED = 1,   	//!< Undecayed.
-    DECAYED = 2,  	//!< Decayed.
+    DECAYED = 2,  	    //!< Decayed.
     DOCUMENTATION = 3, 	//!< Documentation.
-    BEAM = 4, 		//!< Beam.
-    VIRTUAL = 13	//!< Virtual.
+    BEAM = 4, 		    //!< Beam.
+    SCATTERED = 5,      //!< Scattered beam.
+    VIRTUAL = 6	        //!< Virtual.
   };
 
   /**

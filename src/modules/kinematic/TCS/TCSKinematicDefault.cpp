@@ -388,13 +388,13 @@ Event TCSKinematicDefault::evaluate(const ExperimentalConditions &conditions,
             std::make_shared<Particle>(e_LAB));
     particles.at(1) = std::make_pair(ParticleCodeType::BEAM,
             std::make_shared<Particle>(p_LAB));
-    particles.at(2) = std::make_pair(ParticleCodeType::UNDECAYED,
+    particles.at(2) = std::make_pair(ParticleCodeType::SCATTERED,
             std::make_shared<Particle>(eS_LAB));
     particles.at(3) = std::make_pair(ParticleCodeType::VIRTUAL,
             std::make_shared<Particle>(gamma_LAB));
-    particles.at(4) = std::make_pair(ParticleCodeType::UNDECAYED,
+    particles.at(4) = std::make_pair(ParticleCodeType::SCATTERED,
             std::make_shared<Particle>(pS_LAB));
-    particles.at(5) = std::make_pair(ParticleCodeType::VIRTUAL,
+    particles.at(5) = std::make_pair(ParticleCodeType::DOCUMENTATION,
             std::make_shared<Particle>(exclusive_LAB));
     particles.at(6) = std::make_pair(ParticleCodeType::UNDECAYED,
             std::make_shared<Particle>(lepton1_LAB));
