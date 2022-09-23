@@ -204,14 +204,24 @@ void DVCSRCCollinear::updateEvent(Event& event,
 			it++) {
 
 		if (it->first == ParticleCodeType::BEAM
-				&& (it->second->getType() == ParticleType::ELECTRON)) {
+				&&  (it->second->getType() == ParticleType::ELECTRON
+                        || it->second->getType() == ParticleType::POSITRON
+                        || it->second->getType() == ParticleType::MUON_MINUS
+                        || it->second->getType() == ParticleType::MUON_PLUS
+                        || it->second->getType() == ParticleType::TAU_MINUS
+                        || it->second->getType() == ParticleType::TAU_PLUS)) {
 
 			idE = int(it - event.getParticles().begin());
 			continue;
 		}
 
 		if (it->first == ParticleCodeType::SCATTERED
-				&& (it->second->getType() == ParticleType::ELECTRON)) {
+				&&  (it->second->getType() == ParticleType::ELECTRON
+                        || it->second->getType() == ParticleType::POSITRON
+                        || it->second->getType() == ParticleType::MUON_MINUS
+                        || it->second->getType() == ParticleType::MUON_PLUS
+                        || it->second->getType() == ParticleType::TAU_MINUS
+                        || it->second->getType() == ParticleType::TAU_PLUS)) {
 			idEs = int(it - event.getParticles().begin());
 			continue;
 		}
@@ -232,7 +242,7 @@ void DVCSRCCollinear::updateEvent(Event& event,
 	if (z1 <= 1. - m_epsilon) {
 
 		//change status
-		event.alterParticleCode(idE, ParticleCodeType::UNDECAYED);
+		event.alterParticleCode(idE, ParticleCodeType::DOCUMENTATION);
 
 		//create new particles
 		std::shared_ptr<Particle> par1 = std::make_shared<Particle>(
@@ -257,6 +267,9 @@ void DVCSRCCollinear::updateEvent(Event& event,
 
 	//FSR
 	if (z3 <= 1. - m_epsilon) {
+
+        //change status
+        event.alterParticleCode(idEs, ParticleCodeType::DOCUMENTATION);
 
 		//create new particles
 		std::shared_ptr<Particle> par1 = std::make_shared<Particle>(
