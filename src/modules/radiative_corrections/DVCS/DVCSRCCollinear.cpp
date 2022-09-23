@@ -286,7 +286,7 @@ void DVCSRCCollinear::updateEvent(Event& event,
 		vertex->addParticleOut(par2);
 
 		//add
-		event.addParticle(std::make_pair(ParticleCodeType::UNDECAYED, par1));
+		event.addParticle(std::make_pair(ParticleCodeType::SCATTERED, par1));
 		event.addParticle(std::make_pair(ParticleCodeType::UNDECAYED, par2));
 
 		event.addVertex(vertex);
