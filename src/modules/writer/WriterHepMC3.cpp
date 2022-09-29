@@ -282,7 +282,7 @@ void WriterHepMC3::write(const Event &event) {
 								it->second->getFourMomentum().Pz(),
 								it->second->getFourMomentum().E()),
 						(int) (it->second->getType()),
-						(int) (it->first)));
+						getParticleCode(it->first)));
 	}
 
 	// vertices
