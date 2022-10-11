@@ -1,4 +1,3 @@
-
 These tables correspond to CFFs of KM20 model from arXiv:2007.00029.
 
 luamp*.dat files contain values of total CFF = Qu^2*CFF_u + Qd^2*CFF_d + ...,
