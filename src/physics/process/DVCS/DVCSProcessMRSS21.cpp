@@ -25,6 +25,9 @@ const unsigned int DVCSProcessMRSS21::classId =
 DVCSProcessMRSS21::DVCSProcessMRSS21(const std::string &className) :
         DVCSProcessModule(className), m_printOutsideGridWarnings(true) {
 
+    //mark that this module does not need CFF one
+    setIsCCFModuleDependent(false);
+
     //paths
     m_gridFile = "data/DVCSCrossSectionMRSS/tables_MRSS.root";
 
@@ -375,7 +378,7 @@ PhysicalType<double> DVCSProcessMRSS21::CrossSectionVCS() {
 
     //evaluate
     for (size_t i = 0; i < nXsGrids; i++) {
-        m_interpolators.at(i)->interp(args.begin());
+        xsValues.at(i) = m_interpolators.at(i)->interp(args.begin());
     }
 
     //evaluate y
@@ -387,7 +390,15 @@ PhysicalType<double> DVCSProcessMRSS21::CrossSectionVCS() {
             - sqrt(2.) / 2. * (2. - y) * sqrt(1. - y) * xsValues.at(2)
                     * cos(m_phi) + (1. - y) * xsValues.at(3) * cos(2 * m_phi);
 
-    return PhysicalType<double>(0., PhysicalUnit::GEVm2);
+    //change to GeV units
+    value /= Constant::CONV_GEVm2_TO_NBARN;
+
+    //include artificial phiS dep.
+    value /= 2 * M_PI;
+
+  //  std::cout << value << std::endl;
+
+    return PhysicalType<double>(value, PhysicalUnit::GEVm2);
 }
 
 PhysicalType<double> DVCSProcessMRSS21::CrossSectionInterf() {
