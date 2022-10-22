@@ -106,7 +106,7 @@ std::tuple<double, ExperimentalConditions, DVCSKinematic> DVCSRCCollinear::evalu
 							* x);
 
 	//check ranges
-	if ((z1 < (1. - y) / (1. - x * y)) || (z3 < 1. - y * (1. - x))) {
+	if ((z1 < (1. - y) / (1. - x * y)) || (z3 < (x * y + (1. - y) / z1))) {
 		return std::make_tuple(0., experimentalConditions, obsKin);
 	}
 
