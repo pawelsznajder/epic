@@ -1,4 +1,4 @@
-# e + p -> J/Psi + e + p (coherent)
+# e + p -> gamma + e + p (coherent, no DVCS)
 # Reference: Mäntysaari, Roy, Salazar, Schenke, arXiv:2011.02464
 # See Sec. IIA for kinematics. This table contains the cross section shown in (36)
 # Kinematical limits: xp <  0.01  0<y<1
