@@ -387,7 +387,7 @@ PhysicalType<double> DVCSProcessMRSS21::CrossSectionVCS() {
     //get value
     double value = (1. - y) * xsValues.at(0)
             + (1. + pow(1. - y, 2)) / 4. * xsValues.at(1)
-            - sqrt(2.) / 2. * (2. - y) * sqrt(1. - y) * xsValues.at(2)
+            + sqrt(2.) / 2. * (2. - y) * sqrt(1. - y) * xsValues.at(2)
                     * cos(m_phi) + (1. - y) * xsValues.at(3) * cos(2 * m_phi);
 
     //change to GeV units
