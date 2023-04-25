@@ -227,12 +227,7 @@ std::vector<std::vector<double> > DVCSProcessMRSS21::readGrid(
     std::vector<std::vector<double> > result;
 
     //variables
-    Float_t xB, t, Q2, xs;
-
-    //name
-    std::stringstream ss;
-
-    ss << "xs" << xsIndex;
+    Float_t xB, t, Q2, xs[4];
 
     //get
     TNtuple* tree = (TNtuple*) rootFile.Get("xsections");
@@ -240,7 +235,10 @@ std::vector<std::vector<double> > DVCSProcessMRSS21::readGrid(
     tree->SetBranchAddress("xB", &xB);
     tree->SetBranchAddress("t", &t);
     tree->SetBranchAddress("Q2", &Q2);
-    tree->SetBranchAddress(ss.str().c_str(), &xs);
+    tree->SetBranchAddress("xs0", &xs[0]);
+    tree->SetBranchAddress("xs1", &xs[1]);
+    tree->SetBranchAddress("xs2", &xs[2]);
+    tree->SetBranchAddress("xs3", &xs[3]);
 
     //loop
     for (Int_t i = 0; i < (Int_t) tree->GetEntries(); i++) {
@@ -252,7 +250,34 @@ std::vector<std::vector<double> > DVCSProcessMRSS21::readGrid(
         resultThis.at(0) = xB;
         resultThis.at(1) = t;
         resultThis.at(2) = Q2;
-        resultThis.at(3) = xs;
+
+	if(xs[0] < 0. || xs[1] < 0.){
+        	throw ElemUtils::CustomException(getClassName(), __func__,
+        		ElemUtils::Formatter() << "Negative value of xs0 or xs1, " << xs[0] << ", " << xs[1]);
+	}
+
+	switch(xsIndex){
+
+		case 0: {
+        		resultThis.at(3) = log10(xs[0]);
+			break;
+		}
+
+		case 1: {
+        		resultThis.at(3) = log10(xs[1]);
+			break;
+		}
+
+		case 2: {
+        		resultThis.at(3) = xs[2]/(xs[0]+xs[1]);
+			break;
+		}
+
+		case 3: {
+        		resultThis.at(3) = xs[3]/(xs[0]+xs[1]);
+			break;
+		}
+	}
 
         result.push_back(resultThis);
     }
@@ -380,6 +405,12 @@ PhysicalType<double> DVCSProcessMRSS21::CrossSectionVCS() {
     for (size_t i = 0; i < nXsGrids; i++) {
         xsValues.at(i) = m_interpolators.at(i)->interp(args.begin());
     }
+
+    //rescrumble 
+    xsValues.at(0) = pow(10., xsValues.at(0));
+    xsValues.at(1) = pow(10., xsValues.at(1));
+    xsValues.at(2) = xsValues.at(2) * (xsValues.at(0) + xsValues.at(1));
+    xsValues.at(3) = xsValues.at(3) * (xsValues.at(0) + xsValues.at(1));
 
     //evaluate y
     double y = m_Q2 / (2 * Constant::PROTON_MASS * m_xB * m_E);
