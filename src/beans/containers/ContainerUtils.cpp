@@ -113,6 +113,24 @@ std::vector<double> findAndParseVectorDouble(const std::string& className,
     return valueDouble;
 }
 
+std::string findAndParseString(const std::string& className,
+        const ElemUtils::Parameters& data, const std::string& key){
+
+    std::string value;
+
+    if (data.isAvailable(key)) {
+
+        value = data.getLastAvailable().getString();
+        ElemUtils::StringUtils::trimAll(value);
+
+    } else {
+        throw ElemUtils::CustomException(className, __func__,
+                ElemUtils::Formatter() << "Key " << key << " is missing");
+    }
+
+    return value;
+}
+
 size_t stdStringToUInt(const std::string& className, const std::string& str,
         bool peg) {
 

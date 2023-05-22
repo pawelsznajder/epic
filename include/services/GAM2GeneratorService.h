@@ -64,11 +64,15 @@ private:
     virtual void getAdditionalGeneralConfigurationFromTask(
             const MonteCarloTask &task);
 
+    virtual void getKinematicRangesFromTask(const MonteCarloTask &task);
     virtual void getProcessModuleFromTask(const MonteCarloTask &task);
     virtual void getKinematicModuleFromTask(const MonteCarloTask &task);
     virtual void getRCModuleFromTask(const MonteCarloTask &task);
     virtual void isServiceWellConfigured() const;
     virtual void addAdditionalGenerationConfiguration(GenerationInformation& generationInformation);
+
+    virtual void bookHistograms();
+    void fillHistograms(const std::vector<double>& variables);
 
     /**
      * Get flux of photons.

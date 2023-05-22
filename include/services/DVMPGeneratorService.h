@@ -68,10 +68,14 @@ private:
     virtual void getAdditionalGeneralConfigurationFromTask(
             const MonteCarloTask &task);
 
+    virtual void getKinematicRangesFromTask(const MonteCarloTask &task);
     virtual void getProcessModuleFromTask(const MonteCarloTask &task);
     virtual void getKinematicModuleFromTask(const MonteCarloTask &task);
     virtual void getRCModuleFromTask(const MonteCarloTask &task);
     virtual void isServiceWellConfigured() const;
+
+    virtual void bookHistograms();
+    void fillHistograms(const std::vector<double>& variables);
 
     ParticleType::Type m_mesonType; ///< Meson type.
     PARTONS::PolarizationType::Type m_mesonPolarization; ///< Polarization type.

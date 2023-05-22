@@ -19,56 +19,42 @@
 
 namespace EPIC {
 
-const std::string DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_XB = "range_xB";
-const std::string DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_T = "range_t";
+const std::string DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_Y = "range_y";
 const std::string DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_Q2 = "range_Q2";
+const std::string DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_T = "range_t";
 const std::string DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_PHI = "range_phi";
 const std::string DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_PHIS = "range_phiS";
-const std::string DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_Y = "range_y";
+
+const std::string DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_XB = "range_xB";
 
 DVMPKinematicRanges::DVMPKinematicRanges() :
         PARTONS::BaseObject("DVMPKinematicRanges") {
 }
 
-DVMPKinematicRanges::DVMPKinematicRanges(const KinematicRange &rangeXb,
-        const KinematicRange &rangeT, const KinematicRange &rangeQ2,
+DVMPKinematicRanges::DVMPKinematicRanges(const KinematicRange &rangeY,
+        const KinematicRange &rangeQ2, const KinematicRange &rangeT,
         const KinematicRange &rangePhi, const KinematicRange &rangePhiS) :
         PARTONS::BaseObject("DVMPKinematicRanges") {
 
-    m_rangeXb = rangeXb;
-    m_rangeT = rangeT;
-    m_rangeQ2 = rangeQ2;
-    m_rangePhi = rangePhi;
-    m_rangePhiS = rangePhiS;
-
-    m_rangeY = KinematicRange(0., 1.);
-}
-
-DVMPKinematicRanges::DVMPKinematicRanges(const KinematicRange &rangeXb,
-        const KinematicRange &rangeT, const KinematicRange &rangeQ2,
-        const KinematicRange &rangePhi, const KinematicRange &rangePhiS,
-        const KinematicRange &rangeY) :
-        PARTONS::BaseObject("DVMPKinematicRanges") {
-
-    m_rangeXb = rangeXb;
-    m_rangeT = rangeT;
-    m_rangeQ2 = rangeQ2;
-    m_rangePhi = rangePhi;
-    m_rangePhiS = rangePhiS;
-
     m_rangeY = rangeY;
+    m_rangeQ2 = rangeQ2;
+    m_rangeT = rangeT;
+    m_rangePhi = rangePhi;
+    m_rangePhiS = rangePhiS;
+
+    m_rangeXB = KinematicRange(0., 1.);
 }
 
 DVMPKinematicRanges::DVMPKinematicRanges(const DVMPKinematicRanges &other) :
         PARTONS::BaseObject(other) {
 
-    m_rangeXb = other.m_rangeXb;
-    m_rangeT = other.m_rangeT;
+    m_rangeY = other.m_rangeY;
     m_rangeQ2 = other.m_rangeQ2;
+    m_rangeT = other.m_rangeT;
     m_rangePhi = other.m_rangePhi;
     m_rangePhiS = other.m_rangePhiS;
 
-    m_rangeY = other.m_rangeY;
+    m_rangeXB = other.m_rangeXB;
 }
 
 DVMPKinematicRanges::~DVMPKinematicRanges() {
@@ -79,13 +65,13 @@ std::string DVMPKinematicRanges::toString() const {
     ElemUtils::Formatter formatter;
 
     formatter << '\n';
-    formatter << "DVMP kinematic range xB: " << m_rangeXb.toString() << '\n';
-    formatter << "DVMP kinematic range t: " << m_rangeT.toString() << '\n';
+    formatter << "DVMP kinematic range y: " << m_rangeY.toString() << '\n';
     formatter << "DVMP kinematic range Q2: " << m_rangeQ2.toString() << '\n';
+    formatter << "DVMP kinematic range t: " << m_rangeT.toString() << '\n';
     formatter << "DVMP kinematic range phi: " << m_rangePhi.toString() << '\n';
-    formatter << "DVMP kinematic range phiS: " << m_rangePhiS.toString()
+    formatter << "DVMP kinematic range phiS: " << m_rangePhiS.toString() << '\n'
             << '\n';
-    formatter << "DVMP kinematic range y: " << m_rangeY.toString();
+    formatter << "DVMP kinematic range xB: " << m_rangeXB.toString();
 
     return formatter.str();
 }
@@ -94,53 +80,55 @@ bool DVMPKinematicRanges::inRange(
         const ExperimentalConditions& experimentalConditions,
         const DVMPKinematic& obsKin) const {
 
-    if (!m_rangeXb.inRange(obsKin.getXB()))
-        return false;
-    if (!m_rangeT.inRange(obsKin.getT()))
+    if (!m_rangeY.inRange(obsKin.getY()))
         return false;
     if (!m_rangeQ2.inRange(obsKin.getQ2()))
+        return false;
+    if (!m_rangeT.inRange(obsKin.getT()))
         return false;
     if (!m_rangePhi.inRange(obsKin.getPhi()))
         return false;
     if (!m_rangePhiS.inRange(obsKin.getPhiS()))
         return false;
 
-    if (!m_rangeY.inRange(
+    double xB =
             obsKin.getQ2()
                     / (2
                             * ParticleType(
                                     experimentalConditions.getHadronType()).getMass()
-                            * experimentalConditions.getLeptonEnergyFixedTargetEquivalent()
-                            * obsKin.getXB())))
+                            * obsKin.getE() * obsKin.getY());
+
+    if (!m_rangeXB.inRange(xB))
         return false;
 
     return true;
 }
 
-DVMPKinematicRanges DVMPKinematicRanges::fromTask(const MonteCarloTask &task) {
+DVMPKinematicRanges DVMPKinematicRanges::getDVMPKinematicRangesfromTask(
+        const MonteCarloTask &task) {
 
     DVMPKinematicRanges result;
 
     const ElemUtils::Parameters &data =
             task.getKinematicRange().getParameters();
 
-    result.setRangeXb(
+    result.setRangeY(
             KinematicRange(
                     ContainerUtils::findAndParseVectorDouble(
                             "DVMPKinematicRanges", data,
-                            DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_XB, 2)));
-
-    result.setRangeT(
-            KinematicRange(
-                    ContainerUtils::findAndParseVectorDouble(
-                            "DVMPKinematicRanges", data,
-                            DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_T, 2)));
+                            DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_Y, 2)));
 
     result.setRangeQ2(
             KinematicRange(
                     ContainerUtils::findAndParseVectorDouble(
                             "DVMPKinematicRanges", data,
                             DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_Q2, 2)));
+
+    result.setRangeT(
+            KinematicRange(
+                    ContainerUtils::findAndParseVectorDouble(
+                            "DVMPKinematicRanges", data,
+                            DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_T, 2)));
 
     result.setRangePhi(
             KinematicRange(
@@ -156,13 +144,13 @@ DVMPKinematicRanges DVMPKinematicRanges::fromTask(const MonteCarloTask &task) {
                             DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_PHIS, 2,
                             true)));
 
-    if (data.isAvailable(DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_Y)) {
+    if (data.isAvailable(DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_XB)) {
 
-        result.setRangeY(
+        result.setRangeXB(
                 KinematicRange(
                         ContainerUtils::findAndParseVectorDouble(
                                 "DVMPKinematicRanges", data,
-                                DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_Y,
+                                DVMPKinematicRanges::DVMP_KINEMATIC_RANGE_XB,
                                 2)));
     } else {
         result.setRangeY(KinematicRange(0., 1.));
@@ -171,20 +159,12 @@ DVMPKinematicRanges DVMPKinematicRanges::fromTask(const MonteCarloTask &task) {
     return result;
 }
 
-const KinematicRange &DVMPKinematicRanges::getRangeXb() const {
-    return m_rangeXb;
+const KinematicRange &DVMPKinematicRanges::getRangeY() const {
+    return m_rangeY;
 }
 
-void DVMPKinematicRanges::setRangeXb(const KinematicRange &rangeXb) {
-    m_rangeXb = rangeXb;
-}
-
-const KinematicRange &DVMPKinematicRanges::getRangeT() const {
-    return m_rangeT;
-}
-
-void DVMPKinematicRanges::setRangeT(const KinematicRange &rangeT) {
-    m_rangeT = rangeT;
+void DVMPKinematicRanges::setRangeY(const KinematicRange &rangeY) {
+    m_rangeY = rangeY;
 }
 
 const KinematicRange &DVMPKinematicRanges::getRangeQ2() const {
@@ -193,6 +173,14 @@ const KinematicRange &DVMPKinematicRanges::getRangeQ2() const {
 
 void DVMPKinematicRanges::setRangeQ2(const KinematicRange &rangeQ2) {
     m_rangeQ2 = rangeQ2;
+}
+
+const KinematicRange &DVMPKinematicRanges::getRangeT() const {
+    return m_rangeT;
+}
+
+void DVMPKinematicRanges::setRangeT(const KinematicRange &rangeT) {
+    m_rangeT = rangeT;
 }
 
 const KinematicRange &DVMPKinematicRanges::getRangePhi() const {
@@ -211,12 +199,12 @@ void DVMPKinematicRanges::setRangePhiS(const KinematicRange &rangePhiS) {
     m_rangePhiS = rangePhiS;
 }
 
-const KinematicRange &DVMPKinematicRanges::getRangeY() const {
-    return m_rangeY;
+const KinematicRange &DVMPKinematicRanges::getRangeXB() const {
+    return m_rangeXB;
 }
 
-void DVMPKinematicRanges::setRangeY(const KinematicRange &rangeY) {
-    m_rangeY = rangeY;
+void DVMPKinematicRanges::setRangeXB(const KinematicRange &rangeXB) {
+    m_rangeXB = rangeXB;
 }
 
 } /* namespace EPIC */

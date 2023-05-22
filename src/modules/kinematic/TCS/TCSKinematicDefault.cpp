@@ -150,9 +150,9 @@ Event TCSKinematicDefault::evaluate(const ExperimentalConditions &conditions,
 
     double t = kin.getT();
     double Q2Prim = kin.getQ2Prim();
-    double phi = kin.getPhi();
     double phiS = kin.getPhiS();
-    double theta = kin.getTheta();
+    double phiL = kin.getPhiL();
+    double thetaL = kin.getThetaL();
 
     // 0. Masses
 
@@ -340,11 +340,11 @@ Event TCSKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     TVector3 rotate_theta =
             p_EXC.getMomentum().Cross(pS_EXC.getMomentum()).Unit();
 
-    lepton1_EXC.rotate(rotate_theta, theta);
-    lepton2_EXC.rotate(rotate_theta, theta);
+    lepton1_EXC.rotate(rotate_theta, thetaL);
+    lepton2_EXC.rotate(rotate_theta, thetaL);
 
-    lepton1_EXC.rotate(pS_EXC.getMomentum().Unit(), phi);
-    lepton2_EXC.rotate(pS_EXC.getMomentum().Unit(), phi);
+    lepton1_EXC.rotate(pS_EXC.getMomentum().Unit(), phiL);
+    lepton2_EXC.rotate(pS_EXC.getMomentum().Unit(), phiL);
 
     //back to target rest frame
     Particle lepton1_TAR = lepton1_EXC;

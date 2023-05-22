@@ -22,6 +22,7 @@
 #include "../include/services/TCSGeneratorService.h"
 #include "../include/services/DVMPGeneratorService.h"
 #include "../include/services/GAM2GeneratorService.h"
+#include "../include/services/DDVCSGeneratorService.h"
 #include "../include/services/GeneratorService.h"
 
 void printHelp(const std::string& path) {
@@ -42,7 +43,7 @@ void printHelp(const std::string& path) {
 
     std::cout << std::endl;
 
-    std::cout << "For more information see http://XXX and Nature XXX."
+    std::cout << "For more information see https://pawelsznajder.github.io/epic and  Eur. Phys. J. C 82 (2022) 9, 819."
             << std::endl;
 }
 
@@ -126,94 +127,6 @@ int main(int argc, char **argv) {
 
         pEpic->getRandomSeedManager()->setSeedCount(seed.second);
 
-        /*
-         EPIC::TestModuleObjectFactory *pTestModuleObjectFactory =
-         pEpic->getModuleObjectFactory();
-
-         std::shared_ptr<EPIC::RandomNumberModule> x =
-         pTestModuleObjectFactory->newRandomNumberModule(
-         EPIC::RandomNumberGSL::classId);
-         std::shared_ptr<EPIC::RandomNumberModule> y =
-         pTestModuleObjectFactory->newRandomNumberModule(
-         EPIC::RandomNumberGSL::classId);
-
-         std::cout << "rnd: " << x->diceFlat() << std::endl;
-
-         y->configure(ElemUtils::Parameter(
-         EPIC::RandomNumberGSL::PARAMETER_NAME_ALGORITHM_NAME, "ranlux389"));
-
-         std::cout << "rnd: " << y->diceFlat() << std::endl;
-
-         EPIC::TestingService::getInstance()->runTest();
-
-         // test scenario
-         PARTONS::AutomationService *pAutomationService =
-         PARTONS::Partons::getInstance()
-         ->getServiceObjectRegistry()
-         ->getAutomationService();
-
-         PARTONS::Scenario *pScenario =
-         pAutomationService->parseXMLFile("test.xml");
-
-         EPIC::DVCSGeneratorService::getInstance()->getWriterModuleFromTask(
-         pScenario->getTask(0));
-         EPIC::DVCSGeneratorService::getInstance()->getKinematicModuleFromTask(
-         pScenario->getTask(0));
-
-         // writer
-         std::shared_ptr<EPIC::WriterModule> w =
-         pTestModuleObjectFactory->newWriterModule(EPIC::WriterHepMC3::classId);
-
-         w->configure(ElemUtils::Parameter(EPIC::WriterModule::PARAMETER_NAME_PATH,
-         "test.txt"));
-         w->configure(ElemUtils::Parameter(
-         EPIC::WriterHepMC3::PARAMETER_NAME_HEPMC3_WRITER_TYPE, "ascii"));
-
-         EPIC::Event e;
-
-         std::shared_ptr<EPIC::Particle> par1 = std::make_shared<EPIC::Particle>(
-         EPIC::ParticleType::ELECTRON, TVector3(1, 2, 3));
-         std::shared_ptr<EPIC::Particle> par2 = std::make_shared<EPIC::Particle>(
-         EPIC::ParticleType::POSITRON, TVector3(4, 5, 6));
-         std::shared_ptr<EPIC::Particle> par3 = std::make_shared<EPIC::Particle>(
-         EPIC::ParticleType::PI0, TVector3(7, 8, 9));
-
-         std::vector<std::shared_ptr<EPIC::Particle>> parAll;
-
-         parAll.push_back(par1);
-         parAll.push_back(par2);
-         parAll.push_back(par3);
-
-         EPIC::Vertex v1;
-
-         v1.addParticleIn(par1);
-         v1.addParticleIn(par2);
-         v1.addParticleOut(par3);
-
-         std::vector<EPIC::Vertex> vAll;
-
-         vAll.push_back(v1);
-
-         e.setParticles(parAll);
-         e.setVertices(vAll);
-         e.setBeamParticles(par1, par2);
-
-         e.addAttribute(EPIC::EventAttributeType::ID, 888888);
-         e.addAttribute(EPIC::EventAttributeType::CROSS_SECTION, 0.1);
-
-         w->open();
-         w->write(e);
-         w->close();
-
-         std::cout << e.toString() << std::endl;
-         */
-
-        //    EPIC::DVCSGeneratorService::getInstance()->getKinematicRangesFromTask(
-        //        pScenario->getTask(0));
-        //    EPIC::DVCSGeneratorService::getInstance()
-        //        ->getExperimentalConditionsFromTask(pScenario->getTask(0));
-        //    EPIC::DVCSGeneratorService::getInstance()->getProcessModuleFromTask(
-        //           pScenario->getTask(0));
         // GENERATOR ===================================================================
         // parser
         std::shared_ptr<EPIC::MonteCarloScenario> scenario =
@@ -271,6 +184,18 @@ int main(int argc, char **argv) {
                 generatorService->setScenarioDate(scenario->getDate());
 
                 generatorService->computeTask(*it);
+            }
+
+            if (it->getServiceName() == "DDVCSGeneratorService") {
+
+                  EPIC::DDVCSGeneratorService *generatorService =
+                          pEpic->getServiceObjectRegistry()->getDDVCSGeneratorService();
+
+                  generatorService->setScenarioDescription(
+                          scenario->getDescription());
+                  generatorService->setScenarioDate(scenario->getDate());
+
+                  generatorService->computeTask(*it);
             }
         }
 

@@ -1,5 +1,5 @@
 /*
- * TCSKinematicRanges.cpp
+ * DDVCSKinematicRanges.cpp
  *
  *  Created on: Feb 9, 2021
  *      Author: Pawel Sznajder (NCBJ)
@@ -13,6 +13,7 @@
 #include "../../../include/automation/MonteCarloTask.h"
 #include "../../../include/beans/containers/ContainerUtils.h"
 #include "../../../include/beans/containers/DDVCSKinematic.h"
+#include "../../../include/beans/containers/ExperimentalConditions.h"
 
 namespace EPIC {
 
@@ -24,18 +25,23 @@ const std::string DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_Q2Prim =
 const std::string DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_PHI = "range_phi";
 const std::string DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_PHIS =
         "range_phiS";
-const std::string DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_THETA =
-        "range_theta";
+const std::string DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_PHIL =
+        "range_phiL";
+const std::string DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_THETAL =
+        "range_thetaL";
+
+const std::string DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_XB = "range_xB";
 
 DDVCSKinematicRanges::DDVCSKinematicRanges() :
-        PARTONS::BaseObject("TCSKinematicRanges") {
+        PARTONS::BaseObject("DDVCSKinematicRanges") {
 }
 
 DDVCSKinematicRanges::DDVCSKinematicRanges(const KinematicRange &rangeY,
         const KinematicRange &rangeQ2, const KinematicRange &rangeT,
         const KinematicRange &rangeQ2Prim, const KinematicRange &rangePhi,
-        const KinematicRange &rangePhiS, const KinematicRange &rangeTheta) :
-        PARTONS::BaseObject("TCSKinematicRanges") {
+        const KinematicRange &rangePhiS, const KinematicRange &rangePhiL,
+        const KinematicRange &rangeThetaL) :
+        PARTONS::BaseObject("DDVCSKinematicRanges") {
 
     m_rangeY = rangeY;
     m_rangeQ2 = rangeQ2;
@@ -43,7 +49,10 @@ DDVCSKinematicRanges::DDVCSKinematicRanges(const KinematicRange &rangeY,
     m_rangeQ2Prim = rangeQ2Prim;
     m_rangePhi = rangePhi;
     m_rangePhiS = rangePhiS;
-    m_rangeTheta = rangeTheta;
+    m_rangePhiL = rangePhiL;
+    m_rangeThetaL = rangeThetaL;
+
+    m_rangeXB = KinematicRange(0., 1.);
 }
 
 DDVCSKinematicRanges::DDVCSKinematicRanges(const DDVCSKinematicRanges &other) :
@@ -55,7 +64,10 @@ DDVCSKinematicRanges::DDVCSKinematicRanges(const DDVCSKinematicRanges &other) :
     m_rangeQ2Prim = other.m_rangeQ2Prim;
     m_rangePhi = other.m_rangePhi;
     m_rangePhiS = other.m_rangePhiS;
-    m_rangeTheta = other.m_rangeTheta;
+    m_rangePhiL = other.m_rangePhiL;
+    m_rangeThetaL = other.m_rangeThetaL;
+
+    m_rangeXB = other.m_rangeXB;
 }
 
 DDVCSKinematicRanges::~DDVCSKinematicRanges() {
@@ -66,14 +78,20 @@ std::string DDVCSKinematicRanges::toString() const {
     ElemUtils::Formatter formatter;
 
     formatter << '\n';
-    formatter << "TCS kinematic range y: " << m_rangeY.toString() << '\n';
-    formatter << "TCS kinematic range Q2: " << m_rangeQ2.toString() << '\n';
-    formatter << "TCS kinematic range t: " << m_rangeT.toString() << '\n';
-    formatter << "TCS kinematic range Q'2: " << m_rangeQ2Prim.toString()
+    formatter << "DDVCS kinematic range y: " << m_rangeY.toString() << '\n';
+    formatter << "DDVCS kinematic range Q2: " << m_rangeQ2.toString() << '\n';
+    formatter << "DDVCS kinematic range t: " << m_rangeT.toString() << '\n';
+    formatter << "DDVCS kinematic range Q'2: " << m_rangeQ2Prim.toString()
             << '\n';
-    formatter << "TCS kinematic range phi: " << m_rangePhi.toString() << '\n';
-    formatter << "TCS kinematic range phiS: " << m_rangePhiS.toString() << '\n';
-    formatter << "TCS kinematic range theta: " << m_rangeTheta.toString();
+    formatter << "DDVCS kinematic range phi: " << m_rangePhi.toString() << '\n';
+    formatter << "DDVCS kinematic range phiS: " << m_rangePhiS.toString()
+            << '\n';
+    formatter << "DDVCS kinematic range phiL: " << m_rangePhiL.toString()
+            << '\n';
+    formatter << "DDVCS kinematic range thetaL: " << m_rangeThetaL.toString()
+            << '\n' << '\n';
+
+    formatter << "DDVCS kinematic range xB: " << m_rangeXB.toString();
 
     return formatter.str();
 }
@@ -94,13 +112,25 @@ bool DDVCSKinematicRanges::inRange(
         return false;
     if (!m_rangePhiS.inRange(obsKin.getPhiS()))
         return false;
-    if (!m_rangeTheta.inRange(obsKin.getTheta()))
+    if (!m_rangePhiL.inRange(obsKin.getPhiL()))
+        return false;
+    if (!m_rangeThetaL.inRange(obsKin.getThetaL()))
+        return false;
+
+    double xB =
+            obsKin.getQ2()
+                    / (2
+                            * ParticleType(
+                                    experimentalConditions.getHadronType()).getMass()
+                            * obsKin.getE() * obsKin.getY());
+
+    if (!m_rangeXB.inRange(xB))
         return false;
 
     return true;
 }
 
-DDVCSKinematicRanges DDVCSKinematicRanges::fromTask(
+DDVCSKinematicRanges DDVCSKinematicRanges::getDDVCSKinematicRangesfromTask(
         const MonteCarloTask &task) {
 
     DDVCSKinematicRanges result;
@@ -111,49 +141,68 @@ DDVCSKinematicRanges DDVCSKinematicRanges::fromTask(
     result.setRangeY(
             KinematicRange(
                     ContainerUtils::findAndParseVectorDouble(
-                            "TCSKinematicRanges", data,
+                            "DDVCSKinematicRanges", data,
                             DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_Y, 2)));
 
     result.setRangeQ2(
             KinematicRange(
                     ContainerUtils::findAndParseVectorDouble(
-                            "TCSKinematicRanges", data,
+                            "DDVCSKinematicRanges", data,
                             DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_Q2,
                             2)));
 
     result.setRangeT(
             KinematicRange(
                     ContainerUtils::findAndParseVectorDouble(
-                            "TCSKinematicRanges", data,
+                            "DDVCSKinematicRanges", data,
                             DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_T, 2)));
 
     result.setRangeQ2Prim(
             KinematicRange(
                     ContainerUtils::findAndParseVectorDouble(
-                            "TCSKinematicRanges", data,
+                            "DDVCSKinematicRanges", data,
                             DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_Q2Prim,
                             2)));
 
     result.setRangePhi(
             KinematicRange(
                     ContainerUtils::findAndParseVectorDouble(
-                            "TCSKinematicRanges", data,
+                            "DDVCSKinematicRanges", data,
                             DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_PHI, 2,
                             true)));
 
     result.setRangePhiS(
             KinematicRange(
                     ContainerUtils::findAndParseVectorDouble(
-                            "TCSKinematicRanges", data,
+                            "DDVCSKinematicRanges", data,
                             DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_PHIS, 2,
                             true)));
 
-    result.setRangeTheta(
+    result.setRangePhiL(
             KinematicRange(
                     ContainerUtils::findAndParseVectorDouble(
-                            "TCSKinematicRanges", data,
-                            DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_THETA,
+                            "DDVCSKinematicRanges", data,
+                            DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_PHIL, 2,
+                            true)));
+
+    result.setRangeThetaL(
+            KinematicRange(
+                    ContainerUtils::findAndParseVectorDouble(
+                            "DDVCSKinematicRanges", data,
+                            DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_THETAL,
                             2, true)));
+
+    if (data.isAvailable(DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_XB)) {
+
+        result.setRangeXB(
+                KinematicRange(
+                        ContainerUtils::findAndParseVectorDouble(
+                                "DDVCSKinematicRanges", data,
+                                DDVCSKinematicRanges::DDVCS_KINEMATIC_RANGE_XB,
+                                2)));
+    } else {
+        result.setRangeXB(KinematicRange(0., 1.));
+    }
 
     return result;
 }
@@ -206,12 +255,28 @@ void DDVCSKinematicRanges::setRangePhiS(const KinematicRange &rangePhiS) {
     m_rangePhiS = rangePhiS;
 }
 
-const KinematicRange &DDVCSKinematicRanges::getRangeTheta() const {
-    return m_rangeTheta;
+const KinematicRange &DDVCSKinematicRanges::getRangePhiL() const {
+    return m_rangePhiL;
 }
 
-void DDVCSKinematicRanges::setRangeTheta(const KinematicRange &rangeTheta) {
-    m_rangeTheta = rangeTheta;
+void DDVCSKinematicRanges::setRangePhiL(const KinematicRange &rangePhiL) {
+    m_rangePhiL = rangePhiL;
+}
+
+const KinematicRange &DDVCSKinematicRanges::getRangeThetaL() const {
+    return m_rangeThetaL;
+}
+
+void DDVCSKinematicRanges::setRangeThetaL(const KinematicRange &rangeThetaL) {
+    m_rangeThetaL = rangeThetaL;
+}
+
+const KinematicRange &DDVCSKinematicRanges::getRangeXB() const {
+    return m_rangeXB;
+}
+
+void DDVCSKinematicRanges::setRangeXB(const KinematicRange &rangeXB) {
+    m_rangeXB = rangeXB;
 }
 
 } /* namespace EPIC */

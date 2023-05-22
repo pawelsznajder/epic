@@ -16,18 +16,23 @@
 namespace EPIC {
 
 const std::string GeneralConfiguration::GENERAL_CONFIGURATION_NUMBER_OF_EVENTS =
-		"number_of_events";
+        "number_of_events";
+const std::string GeneralConfiguration::GENERAL_CONFIGURATION_HISTOGRAM_FILE_PATH =
+        "histogram_file_path";
 
 GeneralConfiguration::GeneralConfiguration() :
-		PARTONS::BaseObject("GeneralConfiguration"), m_nEvents(0) {
+        PARTONS::BaseObject("GeneralConfiguration"), m_nEvents(0) {
 }
 
-GeneralConfiguration::GeneralConfiguration(size_t nEvents) :
-		PARTONS::BaseObject("GeneralConfiguration"), m_nEvents(nEvents) {
+GeneralConfiguration::GeneralConfiguration(size_t nEvents,
+        const std::string& histogramFilePath) :
+        PARTONS::BaseObject("GeneralConfiguration"), m_nEvents(nEvents), m_histogramFilePath(
+                histogramFilePath) {
 }
 
 GeneralConfiguration::GeneralConfiguration(const GeneralConfiguration &other) :
-		PARTONS::BaseObject(other), m_nEvents(other.m_nEvents) {
+        PARTONS::BaseObject(other), m_nEvents(other.m_nEvents), m_histogramFilePath(
+                other.m_histogramFilePath) {
 }
 
 GeneralConfiguration::~GeneralConfiguration() {
@@ -35,38 +40,56 @@ GeneralConfiguration::~GeneralConfiguration() {
 
 std::string GeneralConfiguration::toString() const {
 
-	ElemUtils::Formatter formatter;
+    ElemUtils::Formatter formatter;
 
-	formatter << '\n';
-	formatter << "Number of events: " << m_nEvents << '\n';
+    formatter << '\n';
+    formatter << "Number of events: " << m_nEvents << '\n';
+    formatter << "Debugging histogram file: "
+            << ((!m_histogramFilePath.empty()) ?
+                    (m_histogramFilePath) : ("not set")) << '\n';
 
-	return formatter.str();
+    return formatter.str();
 }
 
 GeneralConfiguration GeneralConfiguration::fromTask(
-		const MonteCarloTask &task) {
+        const MonteCarloTask &task) {
 
-	// result
-	GeneralConfiguration result;
+    // result
+    GeneralConfiguration result;
 
-	// data
-	const ElemUtils::Parameters &data =
-			task.getGeneralConfiguration().getParameters();
+    // data
+    const ElemUtils::Parameters &data =
+            task.getGeneralConfiguration().getParameters();
 
-	// number of events
-	result.setNEvents(
-			ContainerUtils::findAndParseUInt("GeneralConfiguration", data,
-					GeneralConfiguration::GENERAL_CONFIGURATION_NUMBER_OF_EVENTS));
+    // number of events
+    result.setNEvents(
+            ContainerUtils::findAndParseUInt("GeneralConfiguration", data,
+                    GeneralConfiguration::GENERAL_CONFIGURATION_NUMBER_OF_EVENTS));
 
-	return result;
+    // number of events
+    result.setHistogramFilePath(
+            ContainerUtils::findAndParseString("GeneralConfiguration", data,
+                    GeneralConfiguration::GENERAL_CONFIGURATION_HISTOGRAM_FILE_PATH));
+
+    return result;
 }
 
 size_t GeneralConfiguration::getNEvents() const {
-	return m_nEvents;
+    return m_nEvents;
 }
 
 void GeneralConfiguration::setNEvents(size_t nEvents) {
-	m_nEvents = nEvents;
+    m_nEvents = nEvents;
+}
+
+const std::string& GeneralConfiguration::getHistogramFilePath() const {
+    return m_histogramFilePath;
+}
+
+void GeneralConfiguration::setHistogramFilePath(
+        const std::string& histogramFilePath) {
+    m_histogramFilePath = histogramFilePath;
 }
 
 } /* namespace EPIC */
+

@@ -13,8 +13,8 @@
 #include <string>
 #include <vector>
 
-#include "../beans/containers/DDVCSKinematic.h"
-#include "../beans/containers/DDVCSKinematicRanges.h"
+#include "../beans/containers/TCSKinematic.h"
+#include "../beans/containers/TCSKinematicRanges.h"
 #include "../modules/kinematic/TCS/TCSKinematicModule.h"
 #include "../modules/radiative_corrections/TCS/TCSRCModule.h"
 #include "GeneratorService.h"
@@ -30,8 +30,8 @@ namespace EPIC {
  * to have a
  * unique instance accessed trough TCSGeneratorService::getInstance() method.
  */
-class TCSGeneratorService: public GeneratorService<DDVCSKinematicRanges,
-        PARTONS::TCSProcessModule, TCSKinematicModule, DDVCSKinematic,
+class TCSGeneratorService: public GeneratorService<TCSKinematicRanges,
+        PARTONS::TCSProcessModule, TCSKinematicModule, TCSKinematic,
         TCSRCModule> {
 
 public:
@@ -66,16 +66,20 @@ private:
     virtual void getAdditionalGeneralConfigurationFromTask(
             const MonteCarloTask &task);
 
+    virtual void getKinematicRangesFromTask(const MonteCarloTask &task);
     virtual void getProcessModuleFromTask(const MonteCarloTask &task);
     virtual void getKinematicModuleFromTask(const MonteCarloTask &task);
     virtual void getRCModuleFromTask(const MonteCarloTask &task);
     virtual void isServiceWellConfigured() const;
     virtual void addAdditionalGenerationConfiguration(GenerationInformation& generationInformation);
 
+    virtual void bookHistograms();
+    void fillHistograms(const std::vector<double>& variables);
+
     /**
      * Get flux of photons.
      */
-    double getFlux(const DDVCSKinematic& kin) const;
+    double getFlux(const TCSKinematic& kin) const;
 
     PARTONS::VCSSubProcessType::Type m_subProcessType; ///< subprocess types.
 };

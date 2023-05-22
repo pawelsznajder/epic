@@ -12,7 +12,7 @@
 #include <tuple>
 #include <vector>
 
-#include "../../../beans/containers/DDVCSKinematic.h"
+#include "../../../beans/containers/TCSKinematic.h"
 #include "../../../beans/containers/ExperimentalConditions.h"
 #include "../RCModule.h"
 
@@ -25,7 +25,7 @@ namespace EPIC {
  *
  * This class defines radiative corrections module for TCS process.
  */
-class TCSRCModule: public RCModule<DDVCSKinematic> {
+class TCSRCModule: public RCModule<TCSKinematic> {
 
 public:
 
@@ -48,9 +48,9 @@ public:
 
     virtual bool runTest() const;
 
-    virtual std::tuple<double, ExperimentalConditions, DDVCSKinematic> evaluate(
+    virtual std::tuple<double, ExperimentalConditions, TCSKinematic> evaluate(
             const ExperimentalConditions& experimentalConditions,
-            const DDVCSKinematic& obsKin,
+            const TCSKinematic& obsKin,
             const std::vector<double>& par) const = 0;
 
     virtual void updateEvent(Event& event,

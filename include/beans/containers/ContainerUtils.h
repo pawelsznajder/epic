@@ -47,6 +47,12 @@ std::vector<double> findAndParseVectorDouble(const std::string& className,
         bool peg = false);
 
 /**
+ * Find and parse string.
+ */
+std::string findAndParseString(const std::string& className,
+        const ElemUtils::Parameters& data, const std::string& key);
+
+/**
  * Parse std::string to unsigned int, optionally using Parsing Expression Grammar.
  */
 size_t stdStringToUInt(const std::string& className, const std::string& str,

@@ -12,7 +12,7 @@
 #include <tuple>
 #include <vector>
 
-#include "../../../beans/containers/DDVCSKinematic.h"
+#include "../../../beans/containers/TCSKinematic.h"
 #include "../../../beans/containers/ExperimentalConditions.h"
 #include "TCSRCModule.h"
 
@@ -49,9 +49,9 @@ public:
 
     virtual TCSRCNull *clone() const;
 
-    virtual std::tuple<double, ExperimentalConditions, DDVCSKinematic> evaluate(
+    virtual std::tuple<double, ExperimentalConditions, TCSKinematic> evaluate(
             const ExperimentalConditions& experimentalConditions,
-            const DDVCSKinematic& obsKin, const std::vector<double>& par) const;
+            const TCSKinematic& obsKin, const std::vector<double>& par) const;
 
     virtual void updateEvent(Event& event,
             const std::vector<double>& par) const;

@@ -47,10 +47,10 @@ DVMPKinematicDefault::DVMPKinematicDefault(const DVMPKinematicDefault &other) :
     if (other.m_randomNumberModule == nullptr) {
         m_randomNumberModule = nullptr;
     } else {
-        m_randomNumberModule = std::make_shared<RandomNumberGSL>(
-                RandomNumberGSL(
-                        *(std::static_pointer_cast<RandomNumberGSL>(
-                                other.m_randomNumberModule))));
+        m_randomNumberModule = std::make_shared < RandomNumberGSL
+                > (RandomNumberGSL(
+                        *(std::static_pointer_cast < RandomNumberGSL
+                                > (other.m_randomNumberModule))));
     }
 }
 
@@ -74,9 +74,9 @@ bool DVMPKinematicDefault::checkIfValid(
     ParticleType::Type beamType = conditions.getLeptonType();
     ParticleType::Type targetType = conditions.getHadronType();
 
-    double xB = kin.getXB();
-    double t = kin.getT();
+    double y = kin.getY();
     double Q2 = kin.getQ2();
+    double t = kin.getT();
     ParticleType::Type exclusiveType = kin.getMesonType();
 
     double Mp = ParticleType(targetType).getMass();
@@ -92,17 +92,17 @@ bool DVMPKinematicDefault::checkIfValid(
     e_TAR.boost(-boost_LAB_to_TAR);
     p_TAR.boost(-boost_LAB_to_TAR);
 
-    //xB
-    if (xB
-            < 2 * Q2 * e_TAR.getEnergy() / Mp
-                    / (4 * pow(e_TAR.getEnergy(), 2) - Q2)) {
+    //y
+    if (y < 0. || y > 1.) {
         return false;
     }
 
-    double y = Q2 / (2 * xB * Mp * e_TAR.getEnergy());
+    //xB
+    double xB = Q2 / (2 * y * Mp * e_TAR.getEnergy());
 
-    //y
-    if (y < 0. || y > 1.) {
+    if (xB
+            < 2 * Q2 * e_TAR.getEnergy() / Mp
+                    / (4 * pow(e_TAR.getEnergy(), 2) - Q2)) {
         return false;
     }
 
@@ -164,9 +164,9 @@ Event DVMPKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     ParticleType::Type beamType = conditions.getLeptonType();
     ParticleType::Type targetType = conditions.getHadronType();
 
-    double xB = kin.getXB();
-    double t = kin.getT();
+    double y = kin.getY();
     double Q2 = kin.getQ2();
+    double t = kin.getT();
     double phi = kin.getPhi();
     double phiS = kin.getPhiS();
     ParticleType::Type exclusiveType = kin.getMesonType();
@@ -191,18 +191,18 @@ Event DVMPKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     e_TAR.boost(-boost_LAB_to_TAR);
     p_TAR.boost(-boost_LAB_to_TAR);
 
-    if (xB
-            < 2 * Q2 * e_TAR.getEnergy() / Mp
-                    / (4 * pow(e_TAR.getEnergy(), 2) - Q2)) {
+    if (y < 0. || y > 1.) {
         throw ElemUtils::CustomException(getClassName(), __func__,
                 ElemUtils::Formatter() << "Kinematics not valid, kinematics: "
                         << kin.toString() << " experimental conditions"
                         << conditions.toString());
     }
 
-    double y = Q2 / (2 * xB * Mp * e_TAR.getEnergy());
+    double xB = Q2 / (2 * y * Mp * e_TAR.getEnergy());
 
-    if (y < 0. || y > 1.) {
+    if (xB
+            < 2 * Q2 * e_TAR.getEnergy() / Mp
+                    / (4 * pow(e_TAR.getEnergy(), 2) - Q2)) {
         throw ElemUtils::CustomException(getClassName(), __func__,
                 ElemUtils::Formatter() << "Kinematics not valid, kinematics: "
                         << kin.toString() << " experimental conditions"
@@ -334,7 +334,7 @@ Event DVMPKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     pS_LAB.boost(boost_LAB_to_TAR);
 
     // 11. Introduce phiS angle
-    
+
     double qT = gammaStar_LAB.getMomentum().X();
     double qL = gammaStar_LAB.getMomentum().Z();
     double eL = e_LAB.getMomentum().Z();
@@ -360,25 +360,25 @@ Event DVMPKinematicDefault::evaluate(const ExperimentalConditions &conditions,
 
     Event event;
 
-    std::vector<std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > > particles(
-            6);
+    std::vector < std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> >
+            > particles(6);
 
     particles.at(0) = std::make_pair(ParticleCodeType::BEAM,
-            std::make_shared<Particle>(e_LAB));
+            std::make_shared < Particle > (e_LAB));
     particles.at(1) = std::make_pair(ParticleCodeType::BEAM,
-            std::make_shared<Particle>(p_LAB));
+            std::make_shared < Particle > (p_LAB));
     particles.at(2) = std::make_pair(ParticleCodeType::SCATTERED,
-            std::make_shared<Particle>(eS_LAB));
+            std::make_shared < Particle > (eS_LAB));
     particles.at(3) = std::make_pair(ParticleCodeType::VIRTUAL,
-            std::make_shared<Particle>(gammaStar_LAB));
+            std::make_shared < Particle > (gammaStar_LAB));
     particles.at(4) = std::make_pair(ParticleCodeType::SCATTERED,
-            std::make_shared<Particle>(pS_LAB));
+            std::make_shared < Particle > (pS_LAB));
     particles.at(5) = std::make_pair(ParticleCodeType::UNDECAYED,
-            std::make_shared<Particle>(exclusive_LAB));
+            std::make_shared < Particle > (exclusive_LAB));
 
     event.setParticles(particles);
 
-    std::vector<std::shared_ptr<Vertex> > vertices(2);
+    std::vector < std::shared_ptr<Vertex> > vertices(2);
 
     vertices.at(0) = std::make_shared<Vertex>();
     vertices.at(0)->addParticleIn(particles.at(0).second);
@@ -454,13 +454,13 @@ void DVMPKinematicDefault::simulateDecayPi0(Event& event,
     gamma2_LAB.boost(pi0->getFourMomentum().BoostVector());
 
     //store and return
-    std::vector<std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > > particles(
-            2);
+    std::vector < std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> >
+            > particles(2);
 
     particles.at(0) = std::make_pair(ParticleCodeType::UNDECAYED,
-            std::make_shared<Particle>(gamma1_LAB));
+            std::make_shared < Particle > (gamma1_LAB));
     particles.at(1) = std::make_pair(ParticleCodeType::UNDECAYED,
-            std::make_shared<Particle>(gamma2_LAB));
+            std::make_shared < Particle > (gamma2_LAB));
 
     std::shared_ptr<Vertex> vertex = std::make_shared<Vertex>();
 

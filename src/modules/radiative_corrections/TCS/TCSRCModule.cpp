@@ -14,11 +14,11 @@ namespace EPIC {
 const std::string TCSRCModule::TCS_RC_MODULE_CLASS_NAME = "TCSRCModule";
 
 TCSRCModule::TCSRCModule(const std::string &className) :
-        RCModule<DDVCSKinematic>(className, PARTONS::ChannelType::TCS) {
+        RCModule<TCSKinematic>(className, PARTONS::ChannelType::TCS) {
 }
 
 TCSRCModule::TCSRCModule(const TCSRCModule &other) :
-        RCModule<DDVCSKinematic>(other) {
+        RCModule<TCSKinematic>(other) {
 }
 
 TCSRCModule::~TCSRCModule() {

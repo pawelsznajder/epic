@@ -49,14 +49,14 @@ const unsigned int TCSGeneratorService::classId =
                 new TCSGeneratorService("TCSGeneratorService"));
 
 TCSGeneratorService::TCSGeneratorService(const std::string &className) :
-        GeneratorService<DDVCSKinematicRanges, PARTONS::TCSProcessModule,
-                TCSKinematicModule, DDVCSKinematic, TCSRCModule>(className) {
+        GeneratorService<TCSKinematicRanges, PARTONS::TCSProcessModule,
+                TCSKinematicModule, TCSKinematic, TCSRCModule>(className) {
     m_subProcessType = PARTONS::VCSSubProcessType::ALL;
 }
 
 TCSGeneratorService::TCSGeneratorService(const TCSGeneratorService &other) :
-        GeneratorService<DDVCSKinematicRanges, PARTONS::TCSProcessModule,
-                TCSKinematicModule, DDVCSKinematic, TCSRCModule>(other) {
+        GeneratorService<TCSKinematicRanges, PARTONS::TCSProcessModule,
+                TCSKinematicModule, TCSKinematic, TCSRCModule>(other) {
     m_subProcessType = other.m_subProcessType;
 }
 
@@ -71,7 +71,7 @@ double TCSGeneratorService::getEventDistribution(
         const std::vector<double> &kin) const {
 
     //observed kinematics
-    DDVCSKinematic partonsKinObs(kin.at(5), kin.at(6), kin.at(0), kin.at(1),
+    TCSKinematic partonsKinObs(kin.at(5), kin.at(6), kin.at(0), kin.at(1),
             m_experimentalConditions.getLeptonEnergyFixedTargetEquivalent(),
             kin.at(2), kin.at(3), kin.at(4));
 
@@ -84,28 +84,33 @@ double TCSGeneratorService::getEventDistribution(
     rcVariables.insert(std::end(rcVariables), std::begin(kin) + 7,
             std::end(kin));
 
-    std::tuple<double, ExperimentalConditions, DDVCSKinematic> rcTrue =
+    std::tuple<double, ExperimentalConditions, TCSKinematic> rcTrue =
             m_pRCModule->evaluate(m_experimentalConditions, partonsKinObs,
                     rcVariables);
 
     //check if zero
-    if (std::get<0>(rcTrue) == 0.)
+    if (std::get < 0 > (rcTrue) == 0.)
         return 0.;
 
     //check if valid
-    if (!m_pKinematicModule->checkIfValid(std::get<1>(rcTrue),
-            std::get<2>(rcTrue))) {
+    if (!m_pKinematicModule->checkIfValid(std::get < 1 > (rcTrue),
+            std::get < 2 > (rcTrue))) {
         return 0.;
     }
 
     //evaluate
-    double result = getFlux(std::get<2>(rcTrue)) * std::get<0>(rcTrue)
-            * m_pProcessModule->compute(std::get<1>(rcTrue).getLeptonHelicity(),
-                    std::get<1>(rcTrue).getHadronPolarisation(),
-                    std::get<2>(rcTrue).toPARTONSTCSObservableKinematic(),
-                    m_pProcessModule->getListOfAvailableGPDTypeForComputation(),
-                    m_subProcessType).getValue().makeSameUnitAs(
-                    PARTONS::PhysicalUnit::NB).getValue();
+    double result =
+            getFlux(std::get < 2 > (rcTrue)) * std::get < 0
+                    > (rcTrue)
+                            * m_pProcessModule->compute(
+                                    std::get < 1 > (rcTrue).getLeptonHelicity(),
+                                    std::get < 1
+                                            > (rcTrue).getHadronPolarisation(),
+                                    std::get < 2
+                                            > (rcTrue).toPARTONSTCSObservableKinematic(),
+                                    m_pProcessModule->getListOfAvailableGPDTypeForComputation(),
+                                    m_subProcessType).getValue().makeSameUnitAs(
+                                    PARTONS::PhysicalUnit::NB).getValue();
 
     if (std::isnan(result)) {
 
@@ -119,8 +124,8 @@ double TCSGeneratorService::getEventDistribution(
 
 void TCSGeneratorService::isServiceWellConfigured() const {
 
-    GeneratorService<DDVCSKinematicRanges, PARTONS::TCSProcessModule,
-            TCSKinematicModule, DDVCSKinematic, TCSRCModule>::isServiceWellConfigured();
+    GeneratorService<TCSKinematicRanges, PARTONS::TCSProcessModule,
+            TCSKinematicModule, TCSKinematic, TCSRCModule>::isServiceWellConfigured();
 
     if (m_subProcessType != PARTONS::VCSSubProcessType::ALL
             && m_subProcessType != PARTONS::VCSSubProcessType::BH
@@ -142,9 +147,9 @@ void TCSGeneratorService::run() {
 
     ranges.at(0) = m_kinematicRanges.getRangeT();
     ranges.at(1) = m_kinematicRanges.getRangeQ2Prim();
-    ranges.at(2) = m_kinematicRanges.getRangePhi();
-    ranges.at(3) = m_kinematicRanges.getRangePhiS();
-    ranges.at(4) = m_kinematicRanges.getRangeTheta();
+    ranges.at(2) = m_kinematicRanges.getRangePhiS();
+    ranges.at(3) = m_kinematicRanges.getRangePhiL();
+    ranges.at(4) = m_kinematicRanges.getRangeThetaL();
     ranges.at(5) = m_kinematicRanges.getRangeY();
     ranges.at(6) = m_kinematicRanges.getRangeQ2();
 
@@ -169,8 +174,11 @@ void TCSGeneratorService::run() {
         std::pair<std::vector<double>, double> eventVec =
                 m_pEventGeneratorModule->generateEvent();
 
+        //histogram
+        fillHistograms(eventVec.first);
+
         //create kinematics object
-        DDVCSKinematic partonsKinObs(eventVec.first.at(5), eventVec.first.at(6),
+        TCSKinematic partonsKinObs(eventVec.first.at(5), eventVec.first.at(6),
                 eventVec.first.at(0), eventVec.first.at(1),
                 m_experimentalConditions.getLeptonEnergyFixedTargetEquivalent(),
                 eventVec.first.at(2), eventVec.first.at(3),
@@ -181,13 +189,13 @@ void TCSGeneratorService::run() {
         rcVariables.insert(std::end(rcVariables),
                 std::begin(eventVec.first) + 7, std::end(eventVec.first));
 
-        std::tuple<double, ExperimentalConditions, DDVCSKinematic> rcTrue =
+        std::tuple<double, ExperimentalConditions, TCSKinematic> rcTrue =
                 m_pRCModule->evaluate(m_experimentalConditions, partonsKinObs,
                         rcVariables);
 
         //create event
-        Event event = m_pKinematicModule->evaluate(std::get<1>(rcTrue),
-                std::get<2>(rcTrue));
+        Event event = m_pKinematicModule->evaluate(std::get < 1 > (rcTrue),
+                std::get < 2 > (rcTrue));
 
         //rc
         m_pRCModule->updateEvent(event, rcVariables);
@@ -209,7 +217,7 @@ void TCSGeneratorService::run() {
     m_pWriterModule->close();
 }
 
-double TCSGeneratorService::getFlux(const DDVCSKinematic& kin) const {
+double TCSGeneratorService::getFlux(const TCSKinematic& kin) const {
 
     double Q2 = kin.getQ2();
     double y = kin.getY();
@@ -246,6 +254,16 @@ void TCSGeneratorService::getAdditionalGeneralConfigurationFromTask(
             << PARTONS::VCSSubProcessType(m_subProcessType).toString() << '\n';
 
     info(__func__, formatter.str());
+}
+
+void TCSGeneratorService::getKinematicRangesFromTask(
+        const MonteCarloTask &task) {
+
+    m_kinematicRanges = TCSKinematicRanges::getTCSKinematicRangesfromTask(task);
+
+    info(__func__,
+            ElemUtils::Formatter() << "Kinematic ranges:\n"
+                    << m_kinematicRanges.toString() << '\n');
 }
 
 void TCSGeneratorService::getProcessModuleFromTask(const MonteCarloTask &task) {
@@ -333,15 +351,72 @@ void TCSGeneratorService::getRCModuleFromTask(const MonteCarloTask &task) {
 }
 
 void TCSGeneratorService::addAdditionalGenerationConfiguration(
-		GenerationInformation& generationInformation) {
+        GenerationInformation& generationInformation) {
 
-	GeneratorService<DDVCSKinematicRanges, PARTONS::TCSProcessModule,
-	            TCSKinematicModule, DDVCSKinematic, TCSRCModule>::addAdditionalGenerationConfiguration(
-			generationInformation);
+    GeneratorService<TCSKinematicRanges, PARTONS::TCSProcessModule,
+            TCSKinematicModule, TCSKinematic, TCSRCModule>::addAdditionalGenerationConfiguration(
+            generationInformation);
 
-	generationInformation.addAdditionalInfo(
-			std::make_pair("suprocesses_type",
-					PARTONS::VCSSubProcessType(m_subProcessType).toString()));
+    generationInformation.addAdditionalInfo(
+            std::make_pair("suprocesses_type",
+                    PARTONS::VCSSubProcessType(m_subProcessType).toString()));
+}
+
+void TCSGeneratorService::bookHistograms(){
+
+    m_histograms.push_back(
+            new TH1D("h_t", "t variable", 100,
+                    m_kinematicRanges.getRangeT().getMin(),
+                    m_kinematicRanges.getRangeT().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_QPrim2", "Q'^{2} variable", 100,
+                    m_kinematicRanges.getRangeQ2Prim().getMin(),
+                    m_kinematicRanges.getRangeQ2Prim().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_phiS", "#phi_{S} angle", 100,
+                    m_kinematicRanges.getRangePhiS().getMin(),
+                    m_kinematicRanges.getRangePhiS().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_phiL", "#phi_{l} angle", 100,
+                    m_kinematicRanges.getRangePhiL().getMin(),
+                    m_kinematicRanges.getRangePhiL().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_thetaL", "#theta_{l} angle", 100,
+                    m_kinematicRanges.getRangeThetaL().getMin(),
+                    m_kinematicRanges.getRangeThetaL().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_y", "y variable", 100,
+                    m_kinematicRanges.getRangeY().getMin(),
+                    m_kinematicRanges.getRangeY().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_Q2", "Q^{2} variable", 100,
+                    m_kinematicRanges.getRangeQ2().getMin(),
+                    m_kinematicRanges.getRangeQ2().getMax()));
+
+    const std::vector<KinematicRange>& rcRanges = m_pRCModule->getVariableRanges();
+    std::vector<KinematicRange>::const_iterator it;
+
+    for(it = rcRanges.begin(); it != rcRanges.end(); it++){
+
+        std::stringstream ssA;
+        ssA << "h_rc" << int(it - rcRanges.begin());
+
+        std::stringstream ssB;
+        ssB << "RC variable " << int(it - rcRanges.begin());
+
+        m_histograms.push_back(
+                new TH1D(ssA.str().c_str(), ssB.str().c_str(), 100,
+                        it->getMin(), it->getMax()));
+    }
+}
+
+void TCSGeneratorService::fillHistograms(const std::vector<double>& variables){
+
+    std::vector<double>::const_iterator it;
+
+    for(it = variables.begin(); it != variables.end(); it++){
+        m_histograms.at(int(it - variables.begin()))->Fill(*it);
+    }
 }
 
 } /* namespace EPIC */

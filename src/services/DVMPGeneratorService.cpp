@@ -144,9 +144,9 @@ void DVMPGeneratorService::run() {
     //kinematic ranges
     std::vector<KinematicRange> ranges(5);
 
-    ranges.at(0) = m_kinematicRanges.getRangeXb();
-    ranges.at(1) = m_kinematicRanges.getRangeT();
-    ranges.at(2) = m_kinematicRanges.getRangeQ2();
+    ranges.at(0) = m_kinematicRanges.getRangeY();
+    ranges.at(1) = m_kinematicRanges.getRangeQ2();
+    ranges.at(2) = m_kinematicRanges.getRangeT();
     ranges.at(3) = m_kinematicRanges.getRangePhi();
     ranges.at(4) = m_kinematicRanges.getRangePhiS();
 
@@ -170,6 +170,9 @@ void DVMPGeneratorService::run() {
         //generate kinematics
         std::pair<std::vector<double>, double> eventVec =
                 m_pEventGeneratorModule->generateEvent();
+
+        //histogram
+        fillHistograms(eventVec.first);
 
         //create kinematics object
         DVMPKinematic partonsKinObs(eventVec.first.at(0), eventVec.first.at(1),
@@ -243,6 +246,16 @@ void DVMPGeneratorService::getAdditionalGeneralConfigurationFromTask(
             << '\n';
 
     info(__func__, formatter.str());
+}
+
+void DVMPGeneratorService::getKinematicRangesFromTask(
+        const MonteCarloTask &task) {
+
+    m_kinematicRanges = DVMPKinematicRanges::getDVMPKinematicRangesfromTask(task);
+
+    info(__func__,
+            ElemUtils::Formatter() << "Kinematic ranges:\n"
+                    << m_kinematicRanges.toString() << '\n');
 }
 
 void DVMPGeneratorService::getProcessModuleFromTask(
@@ -328,6 +341,55 @@ void DVMPGeneratorService::getRCModuleFromTask(const MonteCarloTask &task) {
     info(__func__,
             ElemUtils::Formatter() << "Radiative correction module: "
                     << m_pRCModule->getClassName());
+}
+
+void DVMPGeneratorService::bookHistograms(){
+
+    m_histograms.push_back(
+            new TH1D("h_y", "y variable", 100,
+                    m_kinematicRanges.getRangeY().getMin(),
+                    m_kinematicRanges.getRangeY().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_Q2", "Q^{2} variable", 100,
+                    m_kinematicRanges.getRangeQ2().getMin(),
+                    m_kinematicRanges.getRangeQ2().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_t", "t variable", 100,
+                    m_kinematicRanges.getRangeT().getMin(),
+                    m_kinematicRanges.getRangeT().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_phi", "#phi angle", 100,
+                    m_kinematicRanges.getRangePhi().getMin(),
+                    m_kinematicRanges.getRangePhi().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_phiS", "#phi_{S} angle", 100,
+                    m_kinematicRanges.getRangePhiS().getMin(),
+                    m_kinematicRanges.getRangePhiS().getMax()));
+
+    const std::vector<KinematicRange>& rcRanges = m_pRCModule->getVariableRanges();
+    std::vector<KinematicRange>::const_iterator it;
+
+    for(it = rcRanges.begin(); it != rcRanges.end(); it++){
+
+        std::stringstream ssA;
+        ssA << "h_rc" << int(it - rcRanges.begin());
+
+        std::stringstream ssB;
+        ssB << "RC variable " << int(it - rcRanges.begin());
+
+        m_histograms.push_back(
+                new TH1D(ssA.str().c_str(), ssB.str().c_str(), 100,
+                        it->getMin(), it->getMax()));
+    }
+}
+
+void DVMPGeneratorService::fillHistograms(const std::vector<double>& variables){
+
+    std::vector<double>::const_iterator it;
+
+    for(it = variables.begin(); it != variables.end(); it++){
+        m_histograms.at(int(it - variables.begin()))->Fill(*it);
+    }
 }
 
 } /* namespace EPIC */

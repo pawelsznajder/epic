@@ -14,6 +14,7 @@
 #include "../../include/services/TCSGeneratorService.h"
 #include "../../include/services/DVMPGeneratorService.h"
 #include "../../include/services/GAM2GeneratorService.h"
+#include "../../include/services/DDVCSGeneratorService.h"
 
 namespace EPIC {
 
@@ -41,6 +42,11 @@ DVMPGeneratorService *ServiceObjectRegistry::getDVMPGeneratorService() const {
 GAM2GeneratorService *ServiceObjectRegistry::getGAM2GeneratorService() const {
     return static_cast<GAM2GeneratorService *>(PARTONS::Partons::getInstance()->getBaseObjectFactory()->newBaseObject(
             GAM2GeneratorService::classId));
+}
+
+DDVCSGeneratorService *ServiceObjectRegistry::getDDVCSGeneratorService() const {
+    return static_cast<DDVCSGeneratorService *>(PARTONS::Partons::getInstance()->getBaseObjectFactory()->newBaseObject(
+            DDVCSGeneratorService::classId));
 }
 
 } /* namespace EPIC */

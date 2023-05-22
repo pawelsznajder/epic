@@ -42,14 +42,14 @@ bool DVCSKinematicModule::checkIfValid(const ExperimentalConditions &conditions,
     double Ee = conditions.getLeptonEnergy();
     double Ep = conditions.getHadronEnergy();
 
-    double xB = kin.getXB();
-    double t = kin.getT();
+    double y = kin.getY();
     double Q2 = kin.getQ2();
+    double t = kin.getT();
     double phi = kin.getPhi();
     double phiS = kin.getPhiS();
 
-    if (std::isnan(Ee) || std::isnan(Ep) || std::isnan(xB) || std::isnan(t)
-            || std::isnan(Q2) || std::isnan(phi) || std::isnan(phiS)) {
+    if (std::isnan(Ee) || std::isnan(Ep) || std::isnan(y) || std::isnan(Q2)
+            || std::isnan(t) || std::isnan(phi) || std::isnan(phiS)) {
 
         warn(__func__,
                 ElemUtils::Formatter() << "One or more of values in NaN: "
@@ -66,15 +66,15 @@ bool DVCSKinematicModule::checkIfValid(const ExperimentalConditions &conditions,
         return false;
     }
 
-    if (xB <= 0. || xB >= 1.) {
-        return false;
-    }
-
-    if (t >= 0.) {
+    if (y <= 0. || y >= 1.) {
         return false;
     }
 
     if (Q2 <= 0.) {
+        return false;
+    }
+
+    if (t >= 0.) {
         return false;
     }
 

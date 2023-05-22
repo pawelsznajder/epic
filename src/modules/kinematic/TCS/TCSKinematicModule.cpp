@@ -71,13 +71,13 @@ bool TCSKinematicModule::checkIfValid(const ExperimentalConditions &conditions,
 
     double t = kin.getT();
     double Q2Prim = kin.getQ2Prim();
-    double phi = kin.getPhi();
     double phiS = kin.getPhiS();
-    double theta = kin.getTheta();
+    double phiL = kin.getPhiL();
+    double thetaL = kin.getThetaL();
 
     if (std::isnan(Ee) || std::isnan(Ep) || std::isnan(y) || std::isnan(Q2)
-            || std::isnan(t) || std::isnan(Q2Prim) || std::isnan(phi)
-            || std::isnan(phiS) || std::isnan(theta)) {
+            || std::isnan(t) || std::isnan(Q2Prim) || std::isnan(phiL)
+            || std::isnan(phiS) || std::isnan(thetaL)) {
 
         warn(__func__,
                 ElemUtils::Formatter() << "One or more of values in NaN: "
