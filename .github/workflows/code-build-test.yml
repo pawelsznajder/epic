@@ -1,0 +1,20 @@
+name: code-build-test
+
+on:
+  push:
+    branches:
+    - main
+    
+jobs:
+    code-build-test:
+      runs-on: partons/epic
+      
+      steps:
+       - name: remove 
+         run: rm -rf epic
+         
+       - name: clone
+         run: git clone https://github.com/pawelsznajder/epic.git
+         
+       - name: compile 
+         run: cd epic/build; cmake ..; make
