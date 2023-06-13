@@ -12,13 +12,10 @@ jobs:
       
       steps:
        - name: remove 
-         run: rm -rf epic
+         run: cd /root/workspace; rm -rf epic
          
        - name: clone
-         run: git clone https://github.com/pawelsznajder/epic.git
-         
-       - name: check
-         run: pwd; ls; ls ..
+         run: cd /root/workspace; git clone https://github.com/pawelsznajder/epic.git
          
        - name: compile 
-         run: cd epic/build; cmake ..; make
+         run: cd /root/workspace/epic/build; cmake ..; make
