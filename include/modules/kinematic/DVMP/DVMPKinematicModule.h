@@ -10,6 +10,7 @@
 
 #include <string>
 
+#include "../../../beans/containers/DVMPKinematicRanges.h"
 #include "../../../beans/containers/DVMPKinematic.h"
 #include "../KinematicModule.h"
 
@@ -22,7 +23,7 @@ namespace EPIC {
  *
  * This class defines kinematic module for DVMP process.
  */
-class DVMPKinematicModule: public KinematicModule<DVMPKinematic> {
+class DVMPKinematicModule: public KinematicModule<DVMPKinematicRanges, DVMPKinematic> {
 
 public:
     static const std::string DVMP_KINEMATIC_MODULE_CLASS_NAME; ///< Class name used in parsing XML.
@@ -43,6 +44,8 @@ public:
     virtual ~DVMPKinematicModule();
 
     virtual bool runTest() const;
+
+    virtual std::vector<KinematicRange> getKinematicRanges(const ExperimentalConditions &conditions, const DVMPKinematicRanges& ranges);
 
     virtual bool checkIfValid(const ExperimentalConditions &conditions,
             const DVMPKinematic &kin);

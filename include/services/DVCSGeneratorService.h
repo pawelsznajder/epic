@@ -13,7 +13,6 @@
 #include <string>
 #include <vector>
 
-#include "../beans/containers/DVCSKinematic.h"
 #include "../beans/containers/DVCSKinematicRanges.h"
 #include "../modules/kinematic/DVCS/DVCSKinematicModule.h"
 #include "../modules/radiative_corrections/DVCS/DVCSRCModule.h"
@@ -31,7 +30,7 @@ namespace EPIC {
  * unique instance accessed trough DVCSGeneratorService::getInstance() method.
  */
 class DVCSGeneratorService: public GeneratorService<DVCSKinematicRanges,
-        PARTONS::DVCSProcessModule, DVCSKinematicModule, DVCSKinematic,
+        PARTONS::DVCSProcessModule, DVCSKinematicModule,
         DVCSRCModule> {
 
 public:
@@ -46,7 +45,7 @@ public:
      */
     virtual ~DVCSGeneratorService();
 
-    virtual double getEventDistribution(const std::vector<double> &kin) const;
+    virtual double getEventDistribution(std::vector<double> &kin) const;
     virtual void run();
 
 private:
@@ -72,6 +71,9 @@ private:
     virtual void getRCModuleFromTask(const MonteCarloTask &task);
     virtual void isServiceWellConfigured() const;
     virtual void addAdditionalGenerationConfiguration(GenerationInformation& generationInformation);
+    virtual void transformVariables(std::vector<double>& variables) const;
+    virtual void transformRanges(std::vector<KinematicRange>& ranges) const;
+    virtual double getJacobian(const std::vector<double>& variables) const;
 
     virtual void bookHistograms();
     void fillHistograms(const std::vector<double>& variables);

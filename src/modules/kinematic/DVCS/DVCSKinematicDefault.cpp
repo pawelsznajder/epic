@@ -338,7 +338,7 @@ Event DVCSKinematicDefault::evaluate(const ExperimentalConditions &conditions,
                         + pow(conditions.getHadronPolarisation().getY(), 2));
 
         // Transverse polarization w.r.t the virtual photon's direction
-        double ST =
+        double ST = fabs(
                 (-PL * cos(phiS) * sinTheta
                         + sqrt(
                                 pow(cosTheta, 2)
@@ -346,7 +346,7 @@ Event DVCSKinematicDefault::evaluate(const ExperimentalConditions &conditions,
                                                 + pow(cos(phiS), 2)
                                                         * pow(sinTheta, 2))))
                         / (pow(cosTheta, 2)
-                                + pow(cos(phiS), 2) * pow(sinTheta, 2));
+                                + pow(cos(phiS), 2) * pow(sinTheta, 2)));
 
         // Sine angle value to be rotated in the lab frame
         double sinPsi = ST / PT * sin(phiS);

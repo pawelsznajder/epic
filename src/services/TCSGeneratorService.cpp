@@ -50,13 +50,13 @@ const unsigned int TCSGeneratorService::classId =
 
 TCSGeneratorService::TCSGeneratorService(const std::string &className) :
         GeneratorService<TCSKinematicRanges, PARTONS::TCSProcessModule,
-                TCSKinematicModule, TCSKinematic, TCSRCModule>(className) {
+                TCSKinematicModule, TCSRCModule>(className) {
     m_subProcessType = PARTONS::VCSSubProcessType::ALL;
 }
 
 TCSGeneratorService::TCSGeneratorService(const TCSGeneratorService &other) :
         GeneratorService<TCSKinematicRanges, PARTONS::TCSProcessModule,
-                TCSKinematicModule, TCSKinematic, TCSRCModule>(other) {
+                TCSKinematicModule, TCSRCModule>(other) {
     m_subProcessType = other.m_subProcessType;
 }
 
@@ -68,7 +68,10 @@ TCSGeneratorService::~TCSGeneratorService() {
 }
 
 double TCSGeneratorService::getEventDistribution(
-        const std::vector<double> &kin) const {
+        std::vector<double> &kin) const {
+
+    //transform
+    transformVariables(kin);
 
     //observed kinematics
     TCSKinematic partonsKinObs(kin.at(5), kin.at(6), kin.at(0), kin.at(1),
@@ -112,6 +115,10 @@ double TCSGeneratorService::getEventDistribution(
                                     m_subProcessType).getValue().makeSameUnitAs(
                                     PARTONS::PhysicalUnit::NB).getValue();
 
+    //jacobian
+    result *= getJacobian(kin);
+
+    //check if nan
     if (std::isnan(result)) {
 
         warn(__func__,
@@ -125,7 +132,7 @@ double TCSGeneratorService::getEventDistribution(
 void TCSGeneratorService::isServiceWellConfigured() const {
 
     GeneratorService<TCSKinematicRanges, PARTONS::TCSProcessModule,
-            TCSKinematicModule, TCSKinematic, TCSRCModule>::isServiceWellConfigured();
+            TCSKinematicModule, TCSRCModule>::isServiceWellConfigured();
 
     if (m_subProcessType != PARTONS::VCSSubProcessType::ALL
             && m_subProcessType != PARTONS::VCSSubProcessType::BH
@@ -143,15 +150,9 @@ void TCSGeneratorService::run() {
     isServiceWellConfigured();
 
     //kinematic ranges
-    std::vector<KinematicRange> ranges(7);
+    std::vector<KinematicRange> ranges = m_pKinematicModule->getKinematicRanges(m_experimentalConditions, m_kinematicRanges);
 
-    ranges.at(0) = m_kinematicRanges.getRangeT();
-    ranges.at(1) = m_kinematicRanges.getRangeQ2Prim();
-    ranges.at(2) = m_kinematicRanges.getRangePhiS();
-    ranges.at(3) = m_kinematicRanges.getRangePhiL();
-    ranges.at(4) = m_kinematicRanges.getRangeThetaL();
-    ranges.at(5) = m_kinematicRanges.getRangeY();
-    ranges.at(6) = m_kinematicRanges.getRangeQ2();
+    transformRanges(ranges);
 
     ranges.insert(std::end(ranges),
             std::begin(m_pRCModule->getVariableRanges()),
@@ -174,6 +175,9 @@ void TCSGeneratorService::run() {
         std::pair<std::vector<double>, double> eventVec =
                 m_pEventGeneratorModule->generateEvent();
 
+        //transform variables
+        transformVariables(eventVec.first);
+
         //histogram
         fillHistograms(eventVec.first);
 
@@ -192,6 +196,9 @@ void TCSGeneratorService::run() {
         std::tuple<double, ExperimentalConditions, TCSKinematic> rcTrue =
                 m_pRCModule->evaluate(m_experimentalConditions, partonsKinObs,
                         rcVariables);
+
+        //target polarisation
+        checkTargetPolarisation(std::get<1>(rcTrue));
 
         //create event
         Event event = m_pKinematicModule->evaluate(std::get < 1 > (rcTrue),
@@ -354,7 +361,7 @@ void TCSGeneratorService::addAdditionalGenerationConfiguration(
         GenerationInformation& generationInformation) {
 
     GeneratorService<TCSKinematicRanges, PARTONS::TCSProcessModule,
-            TCSKinematicModule, TCSKinematic, TCSRCModule>::addAdditionalGenerationConfiguration(
+            TCSKinematicModule, TCSRCModule>::addAdditionalGenerationConfiguration(
             generationInformation);
 
     generationInformation.addAdditionalInfo(
@@ -417,6 +424,26 @@ void TCSGeneratorService::fillHistograms(const std::vector<double>& variables){
     for(it = variables.begin(); it != variables.end(); it++){
         m_histograms.at(int(it - variables.begin()))->Fill(*it);
     }
+}
+
+void TCSGeneratorService::transformVariables(std::vector<double>& variables) const{
+
+    variables.at(0) = -1 * exp(variables.at(0));
+    variables.at(1) = exp(variables.at(1));
+    variables.at(5) = exp(variables.at(5));
+    variables.at(6) = exp(variables.at(6));
+}
+
+void TCSGeneratorService::transformRanges(std::vector<KinematicRange>& ranges) const{
+
+    ranges.at(0).setMinMax(log(-1 * ranges.at(0).getMax()), log(-1 * ranges.at(0).getMin()));
+    ranges.at(1).setMinMax(log(ranges.at(1).getMin()), log(ranges.at(1).getMax()));
+    ranges.at(5).setMinMax(log(ranges.at(5).getMin()), log(ranges.at(5).getMax()));
+    ranges.at(6).setMinMax(log(ranges.at(6).getMin()), log(ranges.at(6).getMax()));
+}
+
+double TCSGeneratorService::getJacobian(const std::vector<double>& variables) const{
+    return -1 * variables.at(0) * variables.at(1) * variables.at(5) * variables.at(6);
 }
 
 } /* namespace EPIC */

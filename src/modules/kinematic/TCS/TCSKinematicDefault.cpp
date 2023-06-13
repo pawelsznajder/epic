@@ -368,14 +368,66 @@ Event TCSKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     lepton1_LAB.boost(boost_LAB_to_TAR);
     lepton2_LAB.boost(boost_LAB_to_TAR);
 
-    // 11. Angle in LAB
+    // 11. Introduce phiS angle
 
-    gamma_LAB.rotate(AxisType::Z, phiS);
-    exclusive_LAB.rotate(AxisType::Z, phiS);
-    eS_LAB.rotate(AxisType::Z, phiS);
-    pS_LAB.rotate(AxisType::Z, phiS);
-    lepton1_LAB.rotate(AxisType::Z, phiS);
-    lepton2_LAB.rotate(AxisType::Z, phiS);
+    //rotation angle
+    double psi;
+
+    //target polarisation has transverse component
+    if (conditions.getHadronPolarisation().getX() != 0.
+            || conditions.getHadronPolarisation().getY() != 0.) {
+
+        // Gamma factor
+        double xB = Q2 / (2 * Mp * E_e_TAR * y);
+        double gamma = 2 * Mp * xB / sqrt(Q2);
+
+        // Sine angle between the incoming lepton and the virtual photon
+        double sinTheta = gamma
+                * sqrt(
+                        (1 - y - 1 / 4 * pow(y, 2) * pow(gamma, 2))
+                                / (1 + pow(gamma, 2)));
+
+        // Cosine angle between the incoming lepton and the virtual photon
+        double cosTheta = sqrt(1. - pow(sinTheta, 2));
+
+        // Longitudinal polarization
+        double PL = conditions.getHadronPolarisation().getZ();
+
+        // Transverse polarization, a positive definite number between 0 and 1
+        double PT = sqrt(
+                pow(conditions.getHadronPolarisation().getX(), 2)
+                        + pow(conditions.getHadronPolarisation().getY(), 2));
+
+        // Transverse polarization w.r.t the virtual photon's direction
+        double ST = fabs(
+                (-PL * cos(phiS) * sinTheta
+                        + sqrt(
+                                pow(cosTheta, 2)
+                                        * (-pow(PL, 2) + pow(cosTheta, 2)
+                                                + pow(cos(phiS), 2)
+                                                        * pow(sinTheta, 2))))
+                        / (pow(cosTheta, 2)
+                                + pow(cos(phiS), 2) * pow(sinTheta, 2)));
+
+        // Sine angle value to be rotated in the lab frame
+        double sinPsi = ST / PT * sin(phiS);
+
+        // Cosine angle value to be rotated in the lab frame
+        double cosPsi = (ST * cos(phiS) + sinTheta * PL) / (cosTheta * PT);
+
+        // rotate angle
+        psi = atan2(sinPsi, cosPsi);
+
+    } else {
+        psi = phiS;
+    }
+
+    gamma_LAB.rotate(AxisType::Z, psi);
+    exclusive_LAB.rotate(AxisType::Z, psi);
+    eS_LAB.rotate(AxisType::Z, psi);
+    pS_LAB.rotate(AxisType::Z, psi);
+    lepton1_LAB.rotate(AxisType::Z, psi);
+    lepton2_LAB.rotate(AxisType::Z, psi);
 
     // 12. Store
 

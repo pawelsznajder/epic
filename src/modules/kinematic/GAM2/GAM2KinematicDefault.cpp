@@ -874,6 +874,16 @@ Event GAM2KinematicDefault::evaluate(const ExperimentalConditions &conditions,
     gamma1_X.rotate(AxisType::Y, acos(cosTheta_gamma_TAR));
     gamma2_X.rotate(AxisType::Y, acos(cosTheta_gamma_TAR));
 
+
+
+
+    std::cout << "phiS missing, this implementation can also be wrong" << std::endl;
+    std::cout << "work in progress" << std::endl;
+    exit(0);
+
+
+
+
     //return
     Particle eS_LAB = eS_TAR;
     Particle gamma_LAB = gamma_TAR;

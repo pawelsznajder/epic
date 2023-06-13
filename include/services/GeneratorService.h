@@ -41,7 +41,7 @@ namespace EPIC {
  *
  * This is a template used to create services handling generation of MC events.
  */
-template<class kinRange, class procModule, class kinModule, class kinBean,
+template<class kinRange, class procModule, class kinModule,
         class rcModule>
 class GeneratorService: public PARTONS::BaseObject,
         public EventGeneratorInterface {
@@ -525,6 +525,21 @@ protected:
                 NumA::Vector3D(sin(thetaPol) * cos(phiPol),
                         sin(thetaPol) * sin(phiPol), cos(thetaPol)));
     }
+
+    /**
+     * Transform variables.
+     */
+    virtual void transformVariables(std::vector<double>& variables) const = 0;  
+
+    /**
+     * Transform ranges.
+     */
+    virtual void transformRanges(std::vector<KinematicRange>& ranges) const = 0;
+
+    /**
+     * Get Jacobian related to the transformation of kinematic variables.
+     */
+    virtual double getJacobian(const std::vector<double>& variables) const = 0; 
 
     /**
      * Open histogram file.

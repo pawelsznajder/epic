@@ -9,7 +9,7 @@
 #include <vector>
 
 /**
- * This program transfers MILOU MC generator tables of CFFs into ROOT files used by EpIC.
+ * This program transfers  toyMC generator tables of x-sec into ROOT files used by EpIC.
  *
  * compilation: g++ makeROOTTree.cpp `root-config --libs` -o makeROOTTree.exe
  */

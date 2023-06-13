@@ -20,6 +20,7 @@
 #include <partons/Partons.h>
 #include <partons/utils/type/PhysicalType.h>
 #include <partons/utils/type/PhysicalUnit.h>
+#include <partons/FundamentalPhysicalConstants.h>
 #include <stddef.h>
 #include <chrono>
 #include <cmath>
@@ -49,13 +50,13 @@ const unsigned int DDVCSGeneratorService::classId =
 
 DDVCSGeneratorService::DDVCSGeneratorService(const std::string &className) :
         GeneratorService<DDVCSKinematicRanges, PARTONS::DDVCSProcessModule,
-                DDVCSKinematicModule, DDVCSKinematic, DDVCSRCModule>(className) {
+                DDVCSKinematicModule, DDVCSRCModule>(className) {
     m_subProcessType = PARTONS::VCSSubProcessType::ALL;
 }
 
 DDVCSGeneratorService::DDVCSGeneratorService(const DDVCSGeneratorService &other) :
         GeneratorService<DDVCSKinematicRanges, PARTONS::DDVCSProcessModule,
-                DDVCSKinematicModule, DDVCSKinematic, DDVCSRCModule>(other) {
+                DDVCSKinematicModule, DDVCSRCModule>(other) {
     m_subProcessType = other.m_subProcessType;
 }
 
@@ -67,7 +68,10 @@ DDVCSGeneratorService::~DDVCSGeneratorService() {
 }
 
 double DDVCSGeneratorService::getEventDistribution(
-        const std::vector<double> &kin) const {
+        std::vector<double> &kin) const {
+
+    //transform
+    transformVariables(kin);
 
     //observed kinematics
     DDVCSKinematic partonsKinObs(kin.at(0), kin.at(1), kin.at(2), kin.at(3),
@@ -97,6 +101,10 @@ double DDVCSGeneratorService::getEventDistribution(
         return 0.;
     }
 
+    //PARTONS kinematics
+    PARTONS::DDVCSObservableKinematic ddvcsObservableKinematic =
+        std::get<2>(rcTrue).toPARTONSDDVCSObservableKinematic();
+
     //evaluate
     double result =
             std::get < 0
@@ -108,11 +116,14 @@ double DDVCSGeneratorService::getEventDistribution(
                                                     > (rcTrue).getLeptonType()).getCharge(),
                                     std::get < 1
                                             > (rcTrue).getHadronPolarisation(),
-                                    std::get < 2
-                                            > (rcTrue).toPARTONSDDVCSObservableKinematic(),
+                                    ddvcsObservableKinematic,
                                     m_pProcessModule->getListOfAvailableGPDTypeForComputation(),
                                     m_subProcessType).getValue().makeSameUnitAs(
-                                    PARTONS::PhysicalUnit::NB).getValue() * getDxDyJacobian(std::get <2> (rcTrue));
+                                    PARTONS::PhysicalUnit::NB).getValue();
+
+   //jacobian
+   result *= getJacobian(kin);
+   result /= ddvcsObservableKinematic.getQ2().getValue() / (2 * PARTONS::Constant::PROTON_MASS * ddvcsObservableKinematic.getE().getValue() * pow(ddvcsObservableKinematic.getXB().getValue(), 2));
 
     if (std::isnan(result)) {
 
@@ -127,7 +138,7 @@ double DDVCSGeneratorService::getEventDistribution(
 void DDVCSGeneratorService::isServiceWellConfigured() const {
 
     GeneratorService<DDVCSKinematicRanges, PARTONS::DDVCSProcessModule,
-            DDVCSKinematicModule, DDVCSKinematic, DDVCSRCModule>::isServiceWellConfigured();
+            DDVCSKinematicModule, DDVCSRCModule>::isServiceWellConfigured();
 
     if (m_subProcessType != PARTONS::VCSSubProcessType::ALL
             && m_subProcessType != PARTONS::VCSSubProcessType::BH
@@ -145,16 +156,9 @@ void DDVCSGeneratorService::run() {
     isServiceWellConfigured();
 
     //kinematic ranges
-    std::vector<KinematicRange> ranges(8);
+    std::vector<KinematicRange> ranges = m_pKinematicModule->getKinematicRanges(m_experimentalConditions, m_kinematicRanges);
 
-    ranges.at(0) = m_kinematicRanges.getRangeY();
-    ranges.at(1) = m_kinematicRanges.getRangeQ2();
-    ranges.at(2) = m_kinematicRanges.getRangeT();
-    ranges.at(3) = m_kinematicRanges.getRangeQ2Prim();
-    ranges.at(4) = m_kinematicRanges.getRangePhi();
-    ranges.at(5) = m_kinematicRanges.getRangePhiS();
-    ranges.at(6) = m_kinematicRanges.getRangePhiL();
-    ranges.at(7) = m_kinematicRanges.getRangeThetaL();
+    transformRanges(ranges);
 
     ranges.insert(std::end(ranges),
             std::begin(m_pRCModule->getVariableRanges()),
@@ -177,6 +181,9 @@ void DDVCSGeneratorService::run() {
         std::pair<std::vector<double>, double> eventVec =
                 m_pEventGeneratorModule->generateEvent();
 
+        //transform variables
+        transformVariables(eventVec.first);
+
         //histogram
         fillHistograms(eventVec.first);
 
@@ -195,6 +202,9 @@ void DDVCSGeneratorService::run() {
         std::tuple<double, ExperimentalConditions, DDVCSKinematic> rcTrue =
                 m_pRCModule->evaluate(m_experimentalConditions, partonsKinObs,
                         rcVariables);
+
+        //target polarisation
+        checkTargetPolarisation(std::get<1>(rcTrue));
 
         //create event
         Event event = m_pKinematicModule->evaluate(std::get < 1 > (rcTrue),
@@ -343,7 +353,7 @@ void DDVCSGeneratorService::addAdditionalGenerationConfiguration(
         GenerationInformation& generationInformation) {
 
     GeneratorService<DDVCSKinematicRanges, PARTONS::DDVCSProcessModule,
-            DDVCSKinematicModule, DDVCSKinematic, DDVCSRCModule>::addAdditionalGenerationConfiguration(
+            DDVCSKinematicModule, DDVCSRCModule>::addAdditionalGenerationConfiguration(
             generationInformation);
 
     generationInformation.addAdditionalInfo(
@@ -412,8 +422,24 @@ void DDVCSGeneratorService::fillHistograms(const std::vector<double>& variables)
     }
 }
 
-double DDVCSGeneratorService::getDxDyJacobian(const DDVCSKinematic& kin) const{
-    return kin.getQ2() / (2 * 0.94 * kin.getE()*pow(kin.getY(), 2));
+void DDVCSGeneratorService::transformVariables(std::vector<double>& variables) const{
+
+    variables.at(0) = exp(variables.at(0));
+    variables.at(1) = exp(variables.at(1));
+    variables.at(2) = -1 * exp(variables.at(2));
+    variables.at(3) = exp(variables.at(3));
+}
+
+void DDVCSGeneratorService::transformRanges(std::vector<KinematicRange>& ranges) const{
+    
+    ranges.at(0).setMinMax(log(ranges.at(0).getMin()), log(ranges.at(0).getMax()));
+    ranges.at(1).setMinMax(log(ranges.at(1).getMin()), log(ranges.at(1).getMax()));
+    ranges.at(2).setMinMax(log(-1 * ranges.at(2).getMax()), log(-1 * ranges.at(2).getMin()));
+    ranges.at(3).setMinMax(log(ranges.at(3).getMin()), log(ranges.at(3).getMax()));
+}
+
+double DDVCSGeneratorService::getJacobian(const std::vector<double>& variables) const{
+    return -1 * variables.at(0) * variables.at(1) * variables.at(2) * variables.at(3);
 }
 
 } /* namespace EPIC */

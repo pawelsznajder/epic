@@ -10,6 +10,7 @@
 
 #include <string>
 
+#include "../../../beans/containers/GAM2KinematicRanges.h"
 #include "../../../beans/containers/GAM2Kinematic.h"
 #include "../KinematicModule.h"
 
@@ -22,7 +23,7 @@ namespace EPIC {
  *
  * This class defines kinematic module for GAM2 process.
  */
-class GAM2KinematicModule: public KinematicModule<GAM2Kinematic> {
+class GAM2KinematicModule: public KinematicModule<GAM2KinematicRanges, GAM2Kinematic> {
 
 public:
     static const std::string GAM2_KINEMATIC_MODULE_CLASS_NAME; ///< Class name used in parsing XML.
@@ -43,6 +44,8 @@ public:
     virtual ~GAM2KinematicModule();
 
     virtual bool runTest() const;
+
+    virtual std::vector<KinematicRange> getKinematicRanges(const ExperimentalConditions &conditions, const GAM2KinematicRanges& ranges);
 
     virtual bool checkIfValid(const ExperimentalConditions &conditions,
             const GAM2Kinematic &kin);

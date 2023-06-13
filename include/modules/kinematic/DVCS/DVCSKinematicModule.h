@@ -10,6 +10,7 @@
 
 #include <string>
 
+#include "../../../beans/containers/DVCSKinematicRanges.h"
 #include "../../../beans/containers/DVCSKinematic.h"
 #include "../KinematicModule.h"
 
@@ -22,7 +23,7 @@ namespace EPIC {
  *
  * This class defines kinematic module for DVCS process.
  */
-class DVCSKinematicModule: public KinematicModule<DVCSKinematic> {
+class DVCSKinematicModule: public KinematicModule<DVCSKinematicRanges, DVCSKinematic> {
 
 public:
     static const std::string DVCS_KINEMATIC_MODULE_CLASS_NAME; ///< Class name used in parsing XML.
@@ -43,6 +44,8 @@ public:
     virtual ~DVCSKinematicModule();
 
     virtual bool runTest() const;
+
+    virtual std::vector<KinematicRange> getKinematicRanges(const ExperimentalConditions &conditions, const DVCSKinematicRanges& ranges);
 
     virtual bool checkIfValid(const ExperimentalConditions &conditions,
             const DVCSKinematic &kin);

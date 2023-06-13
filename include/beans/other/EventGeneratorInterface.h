@@ -41,7 +41,7 @@ public:
    * This function is used by EventGeneratorModule to probe event distribution
    * during the initialization step.
    */
-  virtual double getEventDistribution(const std::vector<double> &kin) const = 0;
+  virtual double getEventDistribution(std::vector<double> &kin) const = 0;
 };
 
 } /* namespace EPIC */

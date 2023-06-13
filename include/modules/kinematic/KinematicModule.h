@@ -9,9 +9,12 @@
 #define MODULES_KINEMATIC_KINEMATICMODULE_H_
 
 #include <partons/beans/channel/ChannelType.h>
+#include <ElementaryUtils/string_utils/Formatter.h>
 #include <string>
+#include <vector>
 
 #include "../EpicModuleObject.h"
+#include "../../beans/containers/KinematicRange.h"
 
 namespace EPIC {
 class Event;
@@ -30,7 +33,7 @@ namespace EPIC {
  *
  * This is a template for kinematic modules.
  */
-template <typename KinematicType>
+template <typename KinematicRangeType, typename KinematicType>
 class KinematicModule : public EpicModuleObject {
 
 public:
@@ -38,6 +41,11 @@ public:
    * Destructor.
    */
   virtual ~KinematicModule() {}
+
+  /**
+   * Get correct kinematic ranges.
+   */
+  virtual std::vector<KinematicRange> getKinematicRanges(const ExperimentalConditions &conditions, const KinematicRangeType& ranges) = 0;
 
   /**
    * Check if kinematics is valid.
@@ -69,6 +77,20 @@ protected:
    * @param other Object to be copied.
    */
   KinematicModule(const KinematicModule &other) : EpicModuleObject(other) {}
+
+  void changeKinematicRange(KinematicRange& range, bool isMin, double value, const std::string& name, double divisionFactor = 10) const {
+
+      KinematicRange old = range;
+
+     if(isMin){  
+         range.setMinMax(value/divisionFactor, range.getMax());
+     }else{
+         range.setMinMax(range.getMin(), value/divisionFactor);
+     }
+
+     warn(__func__, ElemUtils::Formatter() << "Range for variable " << name << " changed from " << old.toString() << " to " << range.toString());
+  }
+
 };
 }
 

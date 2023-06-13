@@ -20,6 +20,7 @@
 #include <partons/Partons.h>
 #include <partons/utils/type/PhysicalType.h>
 #include <partons/utils/type/PhysicalUnit.h>
+#include <partons/FundamentalPhysicalConstants.h>
 #include <stddef.h>
 #include <chrono>
 #include <cmath>
@@ -50,7 +51,7 @@ const unsigned int DVMPGeneratorService::classId =
 
 DVMPGeneratorService::DVMPGeneratorService(const std::string &className) :
         GeneratorService<DVMPKinematicRanges, PARTONS::DVMPProcessModule,
-                DVMPKinematicModule, DVMPKinematic, DVMPRCModule>(className) {
+                DVMPKinematicModule, DVMPRCModule>(className) {
 
     m_mesonType = ParticleType::UNDEFINED;
     m_mesonPolarization = PARTONS::PolarizationType::UNDEFINED;
@@ -58,7 +59,7 @@ DVMPGeneratorService::DVMPGeneratorService(const std::string &className) :
 
 DVMPGeneratorService::DVMPGeneratorService(const DVMPGeneratorService &other) :
         GeneratorService<DVMPKinematicRanges, PARTONS::DVMPProcessModule,
-                DVMPKinematicModule, DVMPKinematic, DVMPRCModule>(other) {
+                DVMPKinematicModule, DVMPRCModule>(other) {
 
     m_mesonType = other.m_mesonType;
     m_mesonPolarization = other.m_mesonPolarization;
@@ -72,7 +73,10 @@ DVMPGeneratorService::~DVMPGeneratorService() {
 }
 
 double DVMPGeneratorService::getEventDistribution(
-        const std::vector<double> &kin) const {
+        std::vector<double> &kin) const {
+
+    //transform
+    transformVariables(kin);
 
     //observed kinematics
     DVMPKinematic partonsKinObs(kin.at(0), kin.at(1), kin.at(2),
@@ -102,6 +106,10 @@ double DVMPGeneratorService::getEventDistribution(
         return 0.;
     }
 
+    //PARTONS kinematics
+    PARTONS::DVMPObservableKinematic dvmpObservableKinematic =
+        std::get<2>(rcTrue).toPARTONSDVMPObservableKinematic();
+
     //evaluate
     double result =
             std::get<0>(rcTrue)
@@ -110,14 +118,18 @@ double DVMPGeneratorService::getEventDistribution(
                             ParticleType(std::get<1>(rcTrue).getLeptonType()).getCharge(),
                             std::get<1>(rcTrue).getHadronPolarisation(),
                             m_mesonPolarization,
-                            std::get<2>(rcTrue).toPARTONSDVMPObservableKinematic(),
+                            dvmpObservableKinematic,
                             m_pProcessModule->getListOfAvailableGPDTypeForComputation()).getValue().makeSameUnitAs(
                             PARTONS::PhysicalUnit::NB).getValue();
 
-    if (std::isnan(result)) {
+    //jacobian
+    result *= getJacobian(kin);
+    result /= dvmpObservableKinematic.getQ2().getValue() / (2 * PARTONS::Constant::PROTON_MASS * dvmpObservableKinematic.getE().getValue() * pow(dvmpObservableKinematic.getXB().getValue(), 2));
 
-        warn(__func__,
-                "Value is NaN, setting zero instead, look for previous messages for a reason");
+    if ((! std::isfinite(result)) || (result < 0.)) {
+
+        warn(__func__, ElemUtils::Formatter() <<
+                "Value is " << result << ", setting zero instead, look for previous messages for a reason");
         result = 0.;
     }
 
@@ -127,7 +139,7 @@ double DVMPGeneratorService::getEventDistribution(
 void DVMPGeneratorService::isServiceWellConfigured() const {
 
     GeneratorService<DVMPKinematicRanges, PARTONS::DVMPProcessModule,
-            DVMPKinematicModule, DVMPKinematic, DVMPRCModule>::isServiceWellConfigured();
+            DVMPKinematicModule, DVMPRCModule>::isServiceWellConfigured();
 
     if (m_mesonType == ParticleType::UNDEFINED) {
         throw ElemUtils::CustomException(getClassName(), __func__,
@@ -142,13 +154,9 @@ void DVMPGeneratorService::run() {
     isServiceWellConfigured();
 
     //kinematic ranges
-    std::vector<KinematicRange> ranges(5);
+    std::vector<KinematicRange> ranges = m_pKinematicModule->getKinematicRanges(m_experimentalConditions, m_kinematicRanges);
 
-    ranges.at(0) = m_kinematicRanges.getRangeY();
-    ranges.at(1) = m_kinematicRanges.getRangeQ2();
-    ranges.at(2) = m_kinematicRanges.getRangeT();
-    ranges.at(3) = m_kinematicRanges.getRangePhi();
-    ranges.at(4) = m_kinematicRanges.getRangePhiS();
+    transformRanges(ranges);
 
     ranges.insert(std::end(ranges),
             std::begin(m_pRCModule->getVariableRanges()),
@@ -171,6 +179,9 @@ void DVMPGeneratorService::run() {
         std::pair<std::vector<double>, double> eventVec =
                 m_pEventGeneratorModule->generateEvent();
 
+        //transform variables
+        transformVariables(eventVec.first);
+
         //histogram
         fillHistograms(eventVec.first);
 
@@ -189,6 +200,9 @@ void DVMPGeneratorService::run() {
         std::tuple<double, ExperimentalConditions, DVMPKinematic> rcTrue =
                 m_pRCModule->evaluate(m_experimentalConditions, partonsKinObs,
                         rcVariables);
+
+        //target polarisation
+        checkTargetPolarisation(std::get<1>(rcTrue));
 
         //create event
         Event event = m_pKinematicModule->evaluate(std::get<1>(rcTrue),
@@ -390,6 +404,24 @@ void DVMPGeneratorService::fillHistograms(const std::vector<double>& variables){
     for(it = variables.begin(); it != variables.end(); it++){
         m_histograms.at(int(it - variables.begin()))->Fill(*it);
     }
+}
+
+void DVMPGeneratorService::transformVariables(std::vector<double>& variables) const{
+
+    variables.at(0) = exp(variables.at(0));
+    variables.at(1) = exp(variables.at(1));
+    variables.at(2) = -1 * exp(variables.at(2));
+}
+
+void DVMPGeneratorService::transformRanges(std::vector<KinematicRange>& ranges) const{
+
+    ranges.at(0).setMinMax(log(ranges.at(0).getMin()), log(ranges.at(0).getMax())); 
+    ranges.at(1).setMinMax(log(ranges.at(1).getMin()), log(ranges.at(1).getMax()));
+    ranges.at(2).setMinMax(log(-1 * ranges.at(2).getMax()), log(-1 * ranges.at(2).getMin()));
+}
+
+double DVMPGeneratorService::getJacobian(const std::vector<double>& variables) const{
+    return -1 * variables.at(0) * variables.at(1) * variables.at(2);
 }
 
 } /* namespace EPIC */

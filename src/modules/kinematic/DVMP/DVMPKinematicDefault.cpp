@@ -335,26 +335,61 @@ Event DVMPKinematicDefault::evaluate(const ExperimentalConditions &conditions,
 
     // 11. Introduce phiS angle
 
-    double qT = gammaStar_LAB.getMomentum().X();
-    double qL = gammaStar_LAB.getMomentum().Z();
-    double eL = e_LAB.getMomentum().Z();
-    double epT = eS_LAB.getMomentum().X();
+    //rotation angle
+    double psi;
 
-    double cosTheta = -(qL * sin(phiS))
-            / sqrt(pow(qL, 2) + pow(qT, 2) - pow(qT, 2) * pow(sin(phiS), 2));
-    double sinTheta = (sqrt(pow(eL, 2) * pow(epT, 2)) * cos(phiS)
-            * sqrt(
-                    (pow(qL, 2) * (pow(qL, 2) + pow(qT, 2)))
-                            / (pow(qL, 2) + pow(qT, 2)
-                                    - pow(qT, 2) * pow(sin(phiS), 2))))
-            / (eL * epT * qL);
+    //target polarisation has transverse component
+    if (conditions.getHadronPolarisation().getX() != 0.
+            || conditions.getHadronPolarisation().getY() != 0.) {
 
-    double theta = atan2(sinTheta, cosTheta);
+        // Gamma factor
+        double gamma = 2 * Mp * xB / sqrt(Q2);
 
-    eS_LAB.rotate(AxisType::Z, theta);
-    gammaStar_LAB.rotate(AxisType::Z, theta);
-    exclusive_LAB.rotate(AxisType::Z, theta);
-    pS_LAB.rotate(AxisType::Z, theta);
+        // Sine angle between the incoming lepton and the virtual photon
+        double sinTheta = gamma
+                * sqrt(
+                        (1 - y - 1 / 4 * pow(y, 2) * pow(gamma, 2))
+                                / (1 + pow(gamma, 2)));
+
+        // Cosine angle between the incoming lepton and the virtual photon
+        double cosTheta = sqrt(1. - pow(sinTheta, 2));
+
+        // Longitudinal polarization
+        double PL = conditions.getHadronPolarisation().getZ();
+
+        // Transverse polarization, a positive definite number between 0 and 1
+        double PT = sqrt(
+                pow(conditions.getHadronPolarisation().getX(), 2)
+                        + pow(conditions.getHadronPolarisation().getY(), 2));
+
+        // Transverse polarization w.r.t the virtual photon's direction
+        double ST = fabs(
+                (-PL * cos(phiS) * sinTheta
+                        + sqrt(
+                                pow(cosTheta, 2)
+                                        * (-pow(PL, 2) + pow(cosTheta, 2)
+                                                + pow(cos(phiS), 2)
+                                                        * pow(sinTheta, 2))))
+                        / (pow(cosTheta, 2)
+                                + pow(cos(phiS), 2) * pow(sinTheta, 2)));
+
+        // Sine angle value to be rotated in the lab frame
+        double sinPsi = ST / PT * sin(phiS);
+
+        // Cosine angle value to be rotated in the lab frame
+        double cosPsi = (ST * cos(phiS) + sinTheta * PL) / (cosTheta * PT);
+
+        // rotate angle
+        psi = atan2(sinPsi, cosPsi);
+
+    } else {
+        psi = phiS;
+    }
+
+    eS_LAB.rotate(AxisType::Z, psi);
+    gammaStar_LAB.rotate(AxisType::Z, psi);
+    exclusive_LAB.rotate(AxisType::Z, psi);
+    pS_LAB.rotate(AxisType::Z, psi);
 
     // 12. Store
 

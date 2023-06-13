@@ -19,12 +19,12 @@ const std::string GAM2KinematicModule::GAM2_KINEMATIC_MODULE_CLASS_NAME =
         "GAM2KinematicModule";
 
 GAM2KinematicModule::GAM2KinematicModule(const std::string &className) :
-        KinematicModule<GAM2Kinematic>(className,
+        KinematicModule<GAM2KinematicRanges, GAM2Kinematic>(className,
                 PARTONS::ChannelType::GAM2) {
 }
 
 GAM2KinematicModule::GAM2KinematicModule(const GAM2KinematicModule &other) :
-        KinematicModule<GAM2Kinematic>(other) {
+        KinematicModule<GAM2KinematicRanges, GAM2Kinematic>(other) {
 }
 
 GAM2KinematicModule::~GAM2KinematicModule() {
@@ -34,6 +34,21 @@ bool GAM2KinematicModule::runTest() const {
 
     // TODO
     return true;
+}
+
+std::vector<KinematicRange> GAM2KinematicModule::getKinematicRanges(const ExperimentalConditions &conditions, const GAM2KinematicRanges& ranges){
+
+    //TODO implement correction of ranges
+    std::vector<KinematicRange> result(6);
+
+    result.at(0) = ranges.getRangeT();
+    result.at(1) = ranges.getRangeUPrim();
+    result.at(2) = ranges.getRangeMgg2();
+    result.at(3) = ranges.getRangePhi();
+    result.at(4) = ranges.getRangeY();
+    result.at(5) = ranges.getRangeQ2();
+
+    return result;
 }
 
 bool GAM2KinematicModule::checkIfValid(const ExperimentalConditions &conditions,

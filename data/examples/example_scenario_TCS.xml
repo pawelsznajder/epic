@@ -19,7 +19,7 @@
          <param name="range_t" value="-1.|0." />
          <param name="range_Q2Prim" value="1.|10." />
          <param name="range_phi" value="0.|2*pi" />
-	      <param name="range_phiS" value="0.|2*pi" />
+	 <param name="range_phiS" value="0.|2*pi" />
          <param name="range_theta" value="0.|2*pi" />
          <param name="range_y" value="0.01|0.95" />
          <param name="range_Q2" value="0.|0.01" />

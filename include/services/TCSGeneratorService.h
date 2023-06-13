@@ -31,7 +31,7 @@ namespace EPIC {
  * unique instance accessed trough TCSGeneratorService::getInstance() method.
  */
 class TCSGeneratorService: public GeneratorService<TCSKinematicRanges,
-        PARTONS::TCSProcessModule, TCSKinematicModule, TCSKinematic,
+        PARTONS::TCSProcessModule, TCSKinematicModule, 
         TCSRCModule> {
 
 public:
@@ -46,7 +46,7 @@ public:
      */
     virtual ~TCSGeneratorService();
 
-    virtual double getEventDistribution(const std::vector<double> &kin) const;
+    virtual double getEventDistribution(std::vector<double> &kin) const;
     virtual void run();
 
 private:
@@ -72,6 +72,9 @@ private:
     virtual void getRCModuleFromTask(const MonteCarloTask &task);
     virtual void isServiceWellConfigured() const;
     virtual void addAdditionalGenerationConfiguration(GenerationInformation& generationInformation);
+    virtual void transformVariables(std::vector<double>& variables) const;
+    virtual void transformRanges(std::vector<KinematicRange>& ranges) const;
+    virtual double getJacobian(const std::vector<double>& variables) const;
 
     virtual void bookHistograms();
     void fillHistograms(const std::vector<double>& variables);
