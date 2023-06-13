@@ -7,8 +7,8 @@ cmake_minimum_required(VERSION 3.2)
 project(EPIC CXX)
 
 # define c++ standard and issue all the warning demanded by this standard
-add_definitions(-std=c++11 -pedantic -Wno-vla-extension)
-set(CMAKE_CXX_STANDARD 11)
+add_definitions(-pedantic -Wno-vla-extension)
+set(CMAKE_CXX_STANDARD 14)
 
 if (NOT DEFINED CMAKE_MACOSX_RPATH)
    set(CMAKE_MACOSX_RPATH 0)
@@ -135,7 +135,7 @@ target_link_libraries(
 
         ${QT_LIBRARIES}
 
-		${SFML_LIBRARIES}
+	${SFML_LIBRARIES}
 
         ${ElementaryUtils_LIBRARIES}
 
@@ -149,12 +149,7 @@ target_link_libraries(
         
         ${HEPMC3_LIBRARIES}
 
-		${QT_LIBRARY_CORE}
-		${QT_LIBRARY_SQL}
-		${QT_LIBRARY_XML}
-
-                /mnt/home/psznajder/analysis_epic/apfelxx_instalation/lib/libapfelxx.so
-                
-                /mnt/home/psznajder/analysis_epic/LHAPDF-6.1.6_instalation/lib/libLHAPDF.so
-
+	${QT_LIBRARY_CORE}
+	${QT_LIBRARY_SQL}
+	${QT_LIBRARY_XML}
 )
