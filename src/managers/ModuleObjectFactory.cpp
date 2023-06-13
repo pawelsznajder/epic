@@ -15,10 +15,12 @@
 #include "../../include/modules/kinematic/DVMP/DVMPKinematicModule.h"
 #include "../../include/modules/kinematic/TCS/TCSKinematicModule.h"
 #include "../../include/modules/kinematic/GAM2/GAM2KinematicModule.h"
+#include "../../include/modules/kinematic/DDVCS/DDVCSKinematicModule.h"
 #include "../../include/modules/radiative_corrections/DVCS/DVCSRCModule.h"
 #include "../../include/modules/radiative_corrections/DVMP/DVMPRCModule.h"
 #include "../../include/modules/radiative_corrections/TCS/TCSRCModule.h"
 #include "../../include/modules/radiative_corrections/GAM2/GAM2RCModule.h"
+#include "../../include/modules/radiative_corrections/DDVCS/DDVCSRCModule.h"
 #include "../../include/modules/random_generator/RandomNumberModule.h"
 #include "../../include/modules/writer/WriterModule.h"
 
@@ -90,6 +92,18 @@ std::shared_ptr<GAM2KinematicModule> ModuleObjectFactory::newGAM2KinematicModule
             > (newTestModuleObject(className));
 }
 
+std::shared_ptr<DDVCSKinematicModule> ModuleObjectFactory::newDDVCSKinematicModule(
+        unsigned int classId) {
+    return std::static_pointer_cast < DDVCSKinematicModule
+            > (newTestModuleObject(classId));
+}
+
+std::shared_ptr<DDVCSKinematicModule> ModuleObjectFactory::newDDVCSKinematicModule(
+        const std::string &className) {
+    return std::static_pointer_cast < DDVCSKinematicModule
+            > (newTestModuleObject(className));
+}
+
 std::shared_ptr<DVCSRCModule> ModuleObjectFactory::newDVCSRCModule(
         unsigned int classId) {
     return std::static_pointer_cast < DVCSRCModule
@@ -135,6 +149,18 @@ std::shared_ptr<GAM2RCModule> ModuleObjectFactory::newGAM2RCModule(
 std::shared_ptr<GAM2RCModule> ModuleObjectFactory::newGAM2RCModule(
         const std::string &className) {
     return std::static_pointer_cast < GAM2RCModule
+            > (newTestModuleObject(className));
+}
+
+std::shared_ptr<DDVCSRCModule> ModuleObjectFactory::newDDVCSRCModule(
+        unsigned int classId) {
+    return std::static_pointer_cast < DDVCSRCModule
+            > (newTestModuleObject(classId));
+}
+
+std::shared_ptr<DDVCSRCModule> ModuleObjectFactory::newDDVCSRCModule(
+        const std::string &className) {
+    return std::static_pointer_cast < DDVCSRCModule
             > (newTestModuleObject(className));
 }
 

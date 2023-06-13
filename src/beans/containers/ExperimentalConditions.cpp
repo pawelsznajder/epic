@@ -80,6 +80,9 @@ std::string ExperimentalConditions::toString() const {
     formatter << "Experimental condition hadron polarisation: "
             << m_hadronPolarisation.toString();
 
+    formatter << "Experimental condition fixed target lepton energy equivalent: "
+            << getLeptonEnergyFixedTargetEquivalent() << " [GeV]\n";
+
     return formatter.str();
 }
 
@@ -121,7 +124,7 @@ ExperimentalConditions ExperimentalConditions::fromTask(
     // hadron energy
     result.setHadronEnergy(
             ContainerUtils::findAndParseDouble("ExperimentalConditions", data,
-                    ExperimentalConditions::EXPERIMENTAL_CONDITION_HADRON_ENERGY));
+                    ExperimentalConditions::EXPERIMENTAL_CONDITION_HADRON_ENERGY, true));
 
     // hadron type
     if (data.isAvailable(
@@ -154,14 +157,41 @@ ExperimentalConditions ExperimentalConditions::fromTask(
 
 double ExperimentalConditions::getLeptonEnergyFixedTargetEquivalent() const {
 
+    static bool suppressWarning[2] = {false, false};  
+
     double E1 = m_leptonEnergy;
     double E2 = m_hadronEnergy;
 
     double m1 = ParticleType(m_leptonType).getMass();
     double m2 = ParticleType(m_hadronType).getMass();
 
-    double p1 = sqrt(pow(E1, 2) - pow(m1, 2));
-    double p2 = sqrt(pow(E2, 2) - pow(m2, 2));
+    double p1, p2;
+   
+    if(fabs(1. - m1/E1) < 1.E-6){
+
+        if(!suppressWarning[0]){
+
+            warn(__func__, "Lepton beam energy close to its mass (within 1.E-6 tollerance), setting lepton beam momentum to zero");
+            suppressWarning[0] = true;
+        }
+
+        p1 = 0.;
+    }else{
+        p1 = sqrt(pow(E1, 2) - pow(m1, 2));
+    }
+ 
+    if(fabs(1. - m2/E2) < 1.E-6){
+
+        if(!suppressWarning[1]){
+
+            warn(__func__, "Hadron beam energy close to its mass (within 1.E-6 tollerance), setting hadron beam momentum to zero");
+            suppressWarning[1] = true;
+        }
+
+        p2 = 0.;
+    }else{
+        p2 = sqrt(pow(E2, 2) - pow(m2, 2));
+    }
 
     return (E1 * E2 + p1 * p2) / m2;
 }

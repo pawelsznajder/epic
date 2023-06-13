@@ -13,7 +13,6 @@
 #include <string>
 #include <vector>
 
-#include "../beans/containers/GAM2Kinematic.h"
 #include "../beans/containers/GAM2KinematicRanges.h"
 #include "../modules/kinematic/GAM2/GAM2KinematicModule.h"
 #include "../modules/radiative_corrections/GAM2/GAM2RCModule.h"
@@ -31,7 +30,7 @@ namespace EPIC {
  * unique instance accessed trough GAM2GeneratorService::getInstance() method.
  */
 class GAM2GeneratorService: public GeneratorService<GAM2KinematicRanges,
-        PARTONS::GAM2ProcessModule, GAM2KinematicModule, GAM2Kinematic,
+        PARTONS::GAM2ProcessModule, GAM2KinematicModule,
         GAM2RCModule> {
 
 public:
@@ -44,7 +43,7 @@ public:
      */
     virtual ~GAM2GeneratorService();
 
-    virtual double getEventDistribution(const std::vector<double> &kin) const;
+    virtual double getEventDistribution(std::vector<double> &kin) const;
     virtual void run();
 
 private:
@@ -64,11 +63,17 @@ private:
     virtual void getAdditionalGeneralConfigurationFromTask(
             const MonteCarloTask &task);
 
+    virtual void getKinematicRangesFromTask(const MonteCarloTask &task);
     virtual void getProcessModuleFromTask(const MonteCarloTask &task);
     virtual void getKinematicModuleFromTask(const MonteCarloTask &task);
     virtual void getRCModuleFromTask(const MonteCarloTask &task);
     virtual void isServiceWellConfigured() const;
-    virtual void addAdditionalGenerationConfiguration(GenerationInformation& generationInformation);
+    virtual void transformVariables(std::vector<double>& variables) const;
+    virtual void transformRanges(std::vector<KinematicRange>& ranges) const;
+    virtual double getJacobian(const std::vector<double>& variables) const;
+
+    virtual void bookHistograms();
+    void fillHistograms(const std::vector<double>& variables);
 
     /**
      * Get flux of photons.

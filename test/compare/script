@@ -1,0 +1,103 @@
+#!/bin/bash
+
+#compile comparison macro
+echo "`date` [II] compiling make_comparison.cpp"
+
+g++ make_comparison.cpp -o make_comparison.exe `root-config --cflags --glibs`
+
+if [ $? -ne 0 ]; then
+    
+    echo "`date` [EE] compilation of make_comparison.cpp FAILED"
+    exit 1
+fi
+
+echo "`date` [II] compiling make_comparison.cpp OK"
+
+#dvcs
+echo "`date` [II] testing dvcs"
+
+cd ../..
+./bin/epic --seed=1 --scenario=test/compare/scenarios/epic_scenario_DVCS_minus.xml &> test/compare/data/epic_scenario_DVCS_minus.log
+./bin/epic --seed=1 --scenario=test/compare/scenarios/epic_scenario_DVCS_plus.xml &> test/compare/data/epic_scenario_DVCS_plus.log
+
+cd test/compare 
+./make_comparison.exe dvcs ref_epic/dvcs_histograms_minus.root data/dvcs_events_minus.txt data/dvcs_histograms_minus.root ref_epic/dvcs_histograms_plus.root data/dvcs_events_plus.txt data/dvcs_histograms_plus.root > data/dvcs.log
+
+if [ $? -ne 0 ]; then
+   
+    mv make_comparison.pdf data/dvcs.pdf
+    echo "`date` [EE] testing dvcs FAILED"
+    exit 2
+else
+
+    mv make_comparison.pdf data/dvcs.pdf
+    echo "`date` [II] testing dvcs PASSED"
+fi
+
+#dvmp
+echo "`date` [II] testing dvmp"
+
+cd ../..
+./bin/epic --seed=1 --scenario=test/compare/scenarios/epic_scenario_DVMP_minus.xml &> test/compare/data/epic_scenario_DVMP_minus.log
+./bin/epic --seed=1 --scenario=test/compare/scenarios/epic_scenario_DVMP_plus.xml &> test/compare/data/epic_scenario_DVMP_plus.log
+
+cd test/compare 
+./make_comparison.exe dvmp ref_epic/dvmp_histograms_minus.root data/dvmp_events_minus.txt data/dvmp_histograms_minus.root ref_epic/dvmp_histograms_plus.root data/dvmp_events_plus.txt data/dvmp_histograms_plus.root > data/dvmp.log
+
+if [ $? -ne 0 ]; then
+   
+    mv make_comparison.pdf data/dvmp.pdf
+    echo "`date` [EE] testing dvmp FAILED"
+    exit 3
+else
+
+    mv make_comparison.pdf data/dvmp.pdf
+    echo "`date` [II] testing dvmp PASSED"
+fi
+
+#ddvcs
+echo "`date` [II] testing ddvcs"
+
+cd ../..
+./bin/epic --seed=1 --scenario=test/compare/scenarios/epic_scenario_DDVCS_minus.xml &> test/compare/data/epic_scenario_DDVCS_minus.log
+./bin/epic --seed=1 --scenario=test/compare/scenarios/epic_scenario_DDVCS_plus.xml &> test/compare/data/epic_scenario_DDVCS_plus.log
+
+cd test/compare 
+./make_comparison.exe ddvcs ref_epic/ddvcs_histograms_minus.root data/ddvcs_events_minus.txt data/ddvcs_histograms_minus.root ref_epic/ddvcs_histograms_plus.root data/ddvcs_events_plus.txt data/ddvcs_histograms_plus.root > data/ddvcs.log
+
+if [ $? -ne 0 ]; then
+   
+    mv make_comparison.pdf data/ddvcs.pdf
+    echo "`date` [EE] testing ddvcs FAILED"
+    exit 4
+else
+
+    mv make_comparison.pdf data/ddvcs.pdf
+    echo "`date` [II] testing ddvcs PASSED"
+fi
+
+#tcs
+echo "`date` [II] testing tcs"
+
+cd ../..
+./bin/epic --seed=1 --scenario=test/compare/scenarios/epic_scenario_TCS_phiHigh_minus.xml &> test/compare/data/epic_scenario_TCS_phiHigh_minus.log
+./bin/epic --seed=1 --scenario=test/compare/scenarios/epic_scenario_TCS_phiHigh_plus.xml &> test/compare/data/epic_scenario_TCS_phiHigh_plus.log
+./bin/epic --seed=1 --scenario=test/compare/scenarios/epic_scenario_TCS_phiLow_minus.xml &> test/compare/data/epic_scenario_TCS_phiLow_minus.log
+./bin/epic --seed=1 --scenario=test/compare/scenarios/epic_scenario_TCS_phiLow_plus.xml &> test/compare/data/epic_scenario_TCS_phiLow_plus.log
+
+cd test/compare 
+./make_comparison.exe tcs ref_epic/tcs_histogram_phiHigh_minus.root data/tcs_events_phiHigh_minus.txt data/tcs_histogram_phiHigh_minus.root ref_epic/tcs_histogram_phiHigh_plus.root data/tcs_events_phiHigh_plus.txt data/tcs_histogram_phiHigh_plus.root ref_epic/tcs_histogram_phiLow_minus.root data/tcs_events_phiLow_minus.txt data/tcs_histogram_phiLow_minus.root ref_epic/tcs_histogram_phiLow_plus.root data/tcs_events_phiLow_plus.txt data/tcs_histogram_phiLow_plus.root > data/tcs.log
+
+if [ $? -ne 0 ]; then
+   
+    mv make_comparison.pdf data/tcs.pdf
+    echo "`date` [EE] testing tcs FAILED"
+    exit 5
+else
+
+    mv make_comparison.pdf data/tcs.pdf
+    echo "`date` [II] testing tcs PASSED"
+fi
+
+#exit
+exit 0

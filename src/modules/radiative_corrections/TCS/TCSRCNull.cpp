@@ -32,9 +32,9 @@ TCSRCNull *TCSRCNull::clone() const {
     return new TCSRCNull(*this);
 }
 
-std::tuple<double, ExperimentalConditions, DDVCSKinematic> TCSRCNull::evaluate(
+std::tuple<double, ExperimentalConditions, TCSKinematic> TCSRCNull::evaluate(
         const ExperimentalConditions& experimentalConditions,
-        const DDVCSKinematic& obsKin, const std::vector<double>& par) const {
+        const TCSKinematic& obsKin, const std::vector<double>& par) const {
 
     checkParameters(par);
 

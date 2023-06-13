@@ -68,7 +68,7 @@ public:
     /**
      * Build from task.
      */
-    static GAM2KinematicRanges fromTask(const MonteCarloTask &task);
+    static GAM2KinematicRanges getGAM2KinematicRangesfromTask(const MonteCarloTask &task);
 
     //********************************************************
     //*** SETTERS AND GETTERS ********************************

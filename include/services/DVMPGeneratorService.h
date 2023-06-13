@@ -13,7 +13,6 @@
 #include <string>
 #include <vector>
 
-#include "../beans/containers/DVMPKinematic.h"
 #include "../beans/containers/DVMPKinematicRanges.h"
 #include "../beans/types/ParticleType.h"
 #include "../modules/kinematic/DVMP/DVMPKinematicModule.h"
@@ -33,7 +32,7 @@ namespace EPIC {
  */
 class DVMPGeneratorService: public GeneratorService<DVMPKinematicRanges,
         PARTONS::DVMPProcessModule, DVMPKinematicModule,
-        DVMPKinematic, DVMPRCModule> {
+        DVMPRCModule> {
 
 public:
 
@@ -48,7 +47,7 @@ public:
      */
     virtual ~DVMPGeneratorService();
 
-    virtual double getEventDistribution(const std::vector<double> &kin) const;
+    virtual double getEventDistribution(std::vector<double> &kin) const;
     virtual void run();
 
 private:
@@ -68,10 +67,17 @@ private:
     virtual void getAdditionalGeneralConfigurationFromTask(
             const MonteCarloTask &task);
 
+    virtual void getKinematicRangesFromTask(const MonteCarloTask &task);
     virtual void getProcessModuleFromTask(const MonteCarloTask &task);
     virtual void getKinematicModuleFromTask(const MonteCarloTask &task);
     virtual void getRCModuleFromTask(const MonteCarloTask &task);
     virtual void isServiceWellConfigured() const;
+    virtual void transformVariables(std::vector<double>& variables) const;
+    virtual void transformRanges(std::vector<KinematicRange>& ranges) const;
+    virtual double getJacobian(const std::vector<double>& variables) const;
+
+    virtual void bookHistograms();
+    void fillHistograms(const std::vector<double>& variables);
 
     ParticleType::Type m_mesonType; ///< Meson type.
     PARTONS::PolarizationType::Type m_mesonPolarization; ///< Polarization type.

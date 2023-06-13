@@ -143,7 +143,7 @@ void GAM2KinematicRanges::setRangePhi(const KinematicRange& rangePhi) {
     m_rangePhi = rangePhi;
 }
 
-GAM2KinematicRanges GAM2KinematicRanges::fromTask(const MonteCarloTask &task) {
+GAM2KinematicRanges GAM2KinematicRanges::getGAM2KinematicRangesfromTask(const MonteCarloTask &task) {
 
     GAM2KinematicRanges result;
 

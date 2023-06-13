@@ -26,6 +26,8 @@ namespace EPIC {
  *
  * This class defines radiative correction module for DVCS process. The corrections
  * are evaluated using the collinear approximation.
+ *
+ * Emission of single ISR photon or single FSR photon (1st order) or ISR+FSR pair (2nd order) are implemented.
  */
 class DVCSRCCollinear: public DVCSRCModule {
 
@@ -51,7 +53,7 @@ public:
      */
     virtual ~DVCSRCCollinear();
 
-    virtual DVCSRCCollinear *clone() const;
+    virtual DVCSRCCollinear* clone() const;
 
     virtual void configure(const ElemUtils::Parameters &parameters);
 
@@ -62,7 +64,7 @@ public:
     virtual void updateEvent(Event& event,
             const std::vector<double>& par) const;
 
-private:
+protected:
 
     double m_epsilon;	///< Epsilon near z = 1 point.
 };

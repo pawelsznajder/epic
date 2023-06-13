@@ -32,265 +32,266 @@ namespace EPIC {
 const std::string DVCSRCCollinear::PARAMETER_NAME_EPSILON = "epsilon";
 
 const unsigned int DVCSRCCollinear::classId =
-		PARTONS::BaseObjectRegistry::getInstance()->registerBaseObject(
-				new DVCSRCCollinear("DVCSRCCollinear"));
+        PARTONS::BaseObjectRegistry::getInstance()->registerBaseObject(
+                new DVCSRCCollinear("DVCSRCCollinear"));
 
 DVCSRCCollinear::DVCSRCCollinear(const std::string &className) :
-		DVCSRCModule(className), m_epsilon(1.E-4) {
+        DVCSRCModule(className), m_epsilon(1.E-4) {
 
-	std::vector<KinematicRange> variableRanges(2);
+    std::vector<KinematicRange> variableRanges(2);
 
-	variableRanges.at(0) = KinematicRange(-8., 0.);	//z of ISR
-	variableRanges.at(1) = KinematicRange(-8., 0.);	//z of FSR
+    variableRanges.at(0) = KinematicRange(-8., 0.);	//z of ISR
+    variableRanges.at(1) = KinematicRange(-8., 0.);	//z of FSR
 
-	setVariableRanges(variableRanges);
+    setVariableRanges(variableRanges);
 }
 
 DVCSRCCollinear::DVCSRCCollinear(const DVCSRCCollinear &other) :
-		DVCSRCModule(other), m_epsilon(other.m_epsilon) {
+        DVCSRCModule(other), m_epsilon(other.m_epsilon) {
 }
 
 DVCSRCCollinear::~DVCSRCCollinear() {
 }
 
 DVCSRCCollinear *DVCSRCCollinear::clone() const {
-	return new DVCSRCCollinear(*this);
+    return new DVCSRCCollinear(*this);
 }
 
 void DVCSRCCollinear::configure(const ElemUtils::Parameters &parameters) {
 
-	DVCSRCModule::configure(parameters);
+    DVCSRCModule::configure(parameters);
 
-	if (parameters.isAvailable(DVCSRCCollinear::PARAMETER_NAME_EPSILON)) {
+    if (parameters.isAvailable(DVCSRCCollinear::PARAMETER_NAME_EPSILON)) {
 
-		double newEpsilon = parameters.getLastAvailable().toDouble();
+        double newEpsilon = parameters.getLastAvailable().toDouble();
 
-		if (!getVariableRanges().at(0).inRange(log10(newEpsilon))) {
-			throw ElemUtils::CustomException(getClassName(), __func__,
-					ElemUtils::Formatter()
-							<< "Log10 of epsilon must be in range: "
-							<< getVariableRanges().at(0).toString());
-		}
+        if (!getVariableRanges().at(0).inRange(log10(newEpsilon))) {
+            throw ElemUtils::CustomException(getClassName(), __func__,
+                    ElemUtils::Formatter()
+                            << "Log10 of epsilon must be in range: "
+                            << getVariableRanges().at(0).toString());
+        }
 
-		m_epsilon = newEpsilon;
+        m_epsilon = newEpsilon;
 
-		info(__func__,
-				ElemUtils::Formatter() << "Parameter "
-						<< DVCSRCCollinear::PARAMETER_NAME_EPSILON
-						<< " changed to " << m_epsilon);
-	}
+        info(__func__,
+                ElemUtils::Formatter() << "Parameter "
+                        << DVCSRCCollinear::PARAMETER_NAME_EPSILON
+                        << " changed to " << m_epsilon);
+    }
 }
 
 std::tuple<double, ExperimentalConditions, DVCSKinematic> DVCSRCCollinear::evaluate(
-		const ExperimentalConditions& experimentalConditions,
-		const DVCSKinematic& obsKin, const std::vector<double>& par) const {
+        const ExperimentalConditions& experimentalConditions,
+        const DVCSKinematic& obsKin, const std::vector<double>& par) const {
 
-	//check parameters
-	checkParameters(par);
+    //check parameters
+    checkParameters(par);
 
-	//rc variables
-	double z1 = 1. - pow(10, par.at(0));
-	double z3 = 1. - pow(10, par.at(1));
+    //rc variables
+    double z1 = 1. - pow(10, par.at(0));
+    double z3 = 1. - pow(10, par.at(1));
 
-	//variables
-	double leptonMass =
-			ParticleType(experimentalConditions.getLeptonType()).getMass();
-	double hadronMass =
-			ParticleType(experimentalConditions.getHadronType()).getMass();
-	double x = obsKin.getXB();
-	double Q2 = obsKin.getQ2();
-	double y =
-			Q2
-					/ (2 * hadronMass
-							* experimentalConditions.getLeptonEnergyFixedTargetEquivalent()
-							* x);
+    //variables
+    double leptonMass =
+            ParticleType(experimentalConditions.getLeptonType()).getMass();
+    double hadronMass =
+            ParticleType(experimentalConditions.getHadronType()).getMass();
+    double y = obsKin.getY();
+    double Q2 = obsKin.getQ2();
+    double E = obsKin.getE();
+    double x = Q2 / (2 * hadronMass * E * y);
 
-	//check ranges
-	if ((z1 < (1. - y) / (1. - x * y)) || (z3 < (x * y + (1. - y) / z1))) {
-		return std::make_tuple(0., experimentalConditions, obsKin);
-	}
+    //check ranges
+    if ((z1 < (1. - y) / (1. - x * y)) || (z3 < (x * y + (1. - y) / z1))) {
+        return std::make_tuple(0., experimentalConditions, obsKin);
+    }
 
-	//L
-	double L = PARTONS::Constant::FINE_STRUCTURE_CONSTANT / (2 * M_PI)
-			* log(Q2 / pow(leptonMass, 2));
+    //L
+    double L = PARTONS::Constant::FINE_STRUCTURE_CONSTANT / (2 * M_PI)
+            * log(Q2 / pow(leptonMass, 2));
 
-	//ISR =======================================================================
-	double radiativeFunctionISR = 0.;
+    //ISR =======================================================================
+    double radiativeFunctionISR = 0.;
 
-	//no radiation
-	if (z1 > 1. - m_epsilon) {
+    //no radiation
+    if (z1 > 1. - m_epsilon) {
 
-		radiativeFunctionISR = 1. + L * (2 * log(m_epsilon) + 1.5);
-		radiativeFunctionISR /= log10(m_epsilon)
-				- getVariableRanges().at(0).getMin();
+        radiativeFunctionISR = 1. + L * (2 * log(m_epsilon) + 1.5);
+        radiativeFunctionISR /= log10(m_epsilon)
+                - getVariableRanges().at(0).getMin();
 
-		z1 = 1.;
-	}
-	//radiation
-	else {
-		radiativeFunctionISR = L * (1. + pow(z1, 2)) / (1. - z1);
-		radiativeFunctionISR *= (1. - z1) * log(10.); //from: (dz/dz' where z = 1-10^'z)
-	}
+        z1 = 1.;
+    }
+    //radiation
+    else {
+        radiativeFunctionISR = L * (1. + pow(z1, 2)) / (1. - z1);
+        radiativeFunctionISR *= (1. - z1) * log(10.); //from: (dz/dz' where z = 1-10^'z)
+    }
 
-	//FSR =======================================================================
-	double radiativeFunctionFSR = 0.;
+    //FSR =======================================================================
+    double radiativeFunctionFSR = 0.;
 
-	//no radiation
-	if (z3 > 1. - m_epsilon) {
+    //no radiation
+    if (z3 > 1. - m_epsilon) {
 
-		radiativeFunctionFSR = 1. + L * (2 * log(m_epsilon) + 1.5);
-		radiativeFunctionFSR /= log10(m_epsilon)
-				- getVariableRanges().at(1).getMin();
+        radiativeFunctionFSR = 1. + L * (2 * log(m_epsilon) + 1.5);
+        radiativeFunctionFSR /= log10(m_epsilon)
+                - getVariableRanges().at(1).getMin();
 
-		z3 = 1.;
-	}
-	//radiation
-	else {
-		radiativeFunctionFSR = L * (1. + pow(z3, 2)) / (1. - z3);
-		radiativeFunctionFSR *= (1. - z3) * log(10.); //from: (dz/dz' where z = 1-10^'z)
-	}
+        z3 = 1.;
+    }
+    //radiation
+    else {
+        radiativeFunctionFSR = L * (1. + pow(z3, 2)) / (1. - z3);
+        radiativeFunctionFSR *= (1. - z3) * log(10.); //from: (dz/dz' where z = 1-10^'z)
+    }
 
-	//===========================================================================
+    //===========================================================================
 
-	//true variables
-	double xBHat = z1 * x * y / (z1 * z3 + y - 1.);
-	double Q2Hat = z1 / z3 * Q2;
-	double yHat = (z1 * z3 + y - 1.) / (z1 * z3);
+    //true variables
+    double xBHat = z1 * x * y / (z1 * z3 + y - 1.);
+    double Q2Hat = z1 / z3 * Q2;
+    double yHat = (z1 * z3 + y - 1.) / (z1 * z3);
 
-	//total radiator
-	double radiativeFunction = radiativeFunctionISR * radiativeFunctionFSR;
-	radiativeFunction *= y / yHat * z1 / pow(z3, 2); //from: (dxHat dQ2Hat)/(dx dQ2)
+    //total radiator
+    double radiativeFunction = radiativeFunctionISR * radiativeFunctionFSR;
+    radiativeFunction *= y / yHat * z1 / pow(z3, 2); //from: (dxHat dQ2Hat)/(dx dQ2)
 
-	//set
-	ExperimentalConditions rc_experimentalConditions = experimentalConditions;
-	DVCSKinematic rc_obsKin = obsKin;
+    //set
+    ExperimentalConditions rc_experimentalConditions = experimentalConditions;
+    DVCSKinematic rc_obsKin = obsKin;
 
-	rc_experimentalConditions.setLeptonEnergy(
-			z1 * rc_experimentalConditions.getLeptonEnergy());
+    rc_experimentalConditions.setLeptonEnergy(
+            z1 * rc_experimentalConditions.getLeptonEnergy());
 
-	rc_obsKin.setXB(xBHat);
-	rc_obsKin.setQ2(Q2Hat);
-	rc_obsKin.setE(
-			rc_experimentalConditions.getLeptonEnergyFixedTargetEquivalent());
+    rc_obsKin.setY(yHat);
+    rc_obsKin.setQ2(Q2Hat);
+    rc_obsKin.setE(
+            rc_experimentalConditions.getLeptonEnergyFixedTargetEquivalent());
 
-	// return
-	return std::make_tuple(radiativeFunction, rc_experimentalConditions,
-			rc_obsKin);
+    // return
+    return std::make_tuple(radiativeFunction, rc_experimentalConditions,
+            rc_obsKin);
 }
 
 void DVCSRCCollinear::updateEvent(Event& event,
-		const std::vector<double>& par) const {
+        const std::vector<double>& par) const {
 
-	//check parameters
-	checkParameters(par);
+    //check parameters
+    checkParameters(par);
 
-	//rc variables
-	double z1 = 1. - pow(10, par.at(0));
-	double z3 = 1. - pow(10, par.at(1));
+    //rc variables
+    double z1 = 1. - pow(10, par.at(0));
+    double z3 = 1. - pow(10, par.at(1));
 
-	//check if do anything
-	if ((z1 > 1. - m_epsilon) && (z3 > 1. - m_epsilon)) {
-		return;
-	}
+    //check if do anything
+    if ((z1 > 1. - m_epsilon) && (z3 > 1. - m_epsilon)) {
+        return;
+    }
 
-	//find particles
-	int idE = -1;
-	int idEs = -1;
+    //find particles
+    int idE = -1;
+    int idEs = -1;
 
-	//TODO all leptons
-	for (std::vector<
-			std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > >::const_iterator it =
-			event.getParticles().begin(); it != event.getParticles().end();
-			it++) {
+    //TODO all leptons
+    for (std::vector<
+            std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > >::const_iterator it =
+            event.getParticles().begin(); it != event.getParticles().end();
+            it++) {
 
-		if (it->first == ParticleCodeType::BEAM
-				&&  (it->second->getType() == ParticleType::ELECTRON
+        if (it->first == ParticleCodeType::BEAM
+                && (it->second->getType() == ParticleType::ELECTRON
                         || it->second->getType() == ParticleType::POSITRON
                         || it->second->getType() == ParticleType::MUON_MINUS
                         || it->second->getType() == ParticleType::MUON_PLUS
                         || it->second->getType() == ParticleType::TAU_MINUS
                         || it->second->getType() == ParticleType::TAU_PLUS)) {
 
-			idE = int(it - event.getParticles().begin());
-			continue;
-		}
+            idE = int(it - event.getParticles().begin());
+            continue;
+        }
 
-		if (it->first == ParticleCodeType::SCATTERED
-				&&  (it->second->getType() == ParticleType::ELECTRON
+        if (it->first == ParticleCodeType::SCATTERED
+                && (it->second->getType() == ParticleType::ELECTRON
                         || it->second->getType() == ParticleType::POSITRON
                         || it->second->getType() == ParticleType::MUON_MINUS
                         || it->second->getType() == ParticleType::MUON_PLUS
                         || it->second->getType() == ParticleType::TAU_MINUS
                         || it->second->getType() == ParticleType::TAU_PLUS)) {
-			idEs = int(it - event.getParticles().begin());
-			continue;
-		}
+            idEs = int(it - event.getParticles().begin());
+            continue;
+        }
 
-		if (idE != -1 && idEs != -1)
-			break;
-	}
+        if (idE != -1 && idEs != -1)
+            break;
+    }
 
-	if (idE == -1 || idEs == -1) {
-		throw ElemUtils::CustomException(getClassName(), __func__,
-				"Not able to find particles");
-	}
+    if (idE == -1 || idEs == -1) {
+        throw ElemUtils::CustomException(getClassName(), __func__,
+                "Not able to find particles");
+    }
 
-	std::shared_ptr<Particle> ptrE = event.getParticles().at(idE).second;
-	std::shared_ptr<Particle> ptrEs = event.getParticles().at(idEs).second;
+    std::shared_ptr<Particle> ptrE = event.getParticles().at(idE).second;
+    std::shared_ptr<Particle> ptrEs = event.getParticles().at(idEs).second;
 
-	//ISR
-	if (z1 <= 1. - m_epsilon) {
+    //ISR
+    if (z1 <= 1. - m_epsilon) {
 
-		//change status
-		event.alterParticleCode(idE, ParticleCodeType::DOCUMENTATION);
+        //change status
+        event.alterParticleCode(idE, ParticleCodeType::DOCUMENTATION);
 
-		//create new particles
-		std::shared_ptr<Particle> par1 = std::make_shared<Particle>(
-				ptrE->getType(), ptrE->getMomentum().Unit(),
-				ptrE->getEnergy() / z1);
-		std::shared_ptr<Particle> par2 = std::make_shared<Particle>(
-				ParticleType::PHOTON, ptrE->getMomentum().Unit(),
-				ptrE->getEnergy() / z1 * (1. - z1));
+        //create new particles
+        std::shared_ptr<Particle> par1 =
+                std::make_shared < Particle
+                        > (ptrE->getType(), ptrE->getMomentum().Unit(), ptrE->getEnergy()
+                                / z1);
+        std::shared_ptr<Particle> par2 =
+                std::make_shared < Particle
+                        > (ParticleType::PHOTON, ptrE->getMomentum().Unit(), ptrE->getEnergy()
+                                / z1 * (1. - z1));
 
-		//vertex
-		std::shared_ptr<Vertex> vertex = std::make_shared<Vertex>();
-		vertex->addParticleIn(par1);
-		vertex->addParticleOut(par2);
-		vertex->addParticleOut(ptrE);
+        //vertex
+        std::shared_ptr<Vertex> vertex = std::make_shared<Vertex>();
+        vertex->addParticleIn(par1);
+        vertex->addParticleOut(par2);
+        vertex->addParticleOut(ptrE);
 
-		//add
-		event.addParticle(std::make_pair(ParticleCodeType::BEAM, par1));
-		event.addParticle(std::make_pair(ParticleCodeType::UNDECAYED, par2));
+        //add
+        event.addParticle(std::make_pair(ParticleCodeType::BEAM, par1));
+        event.addParticle(std::make_pair(ParticleCodeType::UNDECAYED, par2));
 
-		event.addVertex(vertex);
-	}
+        event.addVertex(vertex);
+    }
 
-	//FSR
-	if (z3 <= 1. - m_epsilon) {
+    //FSR
+    if (z3 <= 1. - m_epsilon) {
 
         //change status
         event.alterParticleCode(idEs, ParticleCodeType::DOCUMENTATION);
 
-		//create new particles
-		std::shared_ptr<Particle> par1 = std::make_shared<Particle>(
-				ptrEs->getType(), ptrEs->getMomentum().Unit(),
-				ptrEs->getEnergy() * z3);
-		std::shared_ptr<Particle> par2 = std::make_shared<Particle>(
-				ParticleType::PHOTON, ptrEs->getMomentum().Unit(),
-				ptrEs->getEnergy() * (1. - z3));
+        //create new particles
+        std::shared_ptr<Particle> par1 =
+                std::make_shared < Particle
+                        > (ptrEs->getType(), ptrEs->getMomentum().Unit(), ptrEs->getEnergy()
+                                * z3);
+        std::shared_ptr<Particle> par2 =
+                std::make_shared < Particle
+                        > (ParticleType::PHOTON, ptrEs->getMomentum().Unit(), ptrEs->getEnergy()
+                                * (1. - z3));
 
-		//vertex
-		std::shared_ptr<Vertex> vertex = std::make_shared<Vertex>();
-		vertex->addParticleIn(ptrEs);
-		vertex->addParticleOut(par1);
-		vertex->addParticleOut(par2);
+        //vertex
+        std::shared_ptr<Vertex> vertex = std::make_shared<Vertex>();
+        vertex->addParticleIn(ptrEs);
+        vertex->addParticleOut(par1);
+        vertex->addParticleOut(par2);
 
-		//add
-		event.addParticle(std::make_pair(ParticleCodeType::SCATTERED, par1));
-		event.addParticle(std::make_pair(ParticleCodeType::UNDECAYED, par2));
+        //add
+        event.addParticle(std::make_pair(ParticleCodeType::SCATTERED, par1));
+        event.addParticle(std::make_pair(ParticleCodeType::UNDECAYED, par2));
 
-		event.addVertex(vertex);
-	}
+        event.addVertex(vertex);
+    }
 }
 
 } /* namespace EPIC */

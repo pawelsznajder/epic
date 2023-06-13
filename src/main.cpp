@@ -11,6 +11,11 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <chrono>
+#include <thread>
+
+#include <partons/services/automation/AutomationService.h>
+#include <partons/ServiceObjectRegistry.h>
 
 #include "../include/automation/MonteCarloScenario.h"
 #include "../include/automation/MonteCarloTask.h"
@@ -22,6 +27,7 @@
 #include "../include/services/TCSGeneratorService.h"
 #include "../include/services/DVMPGeneratorService.h"
 #include "../include/services/GAM2GeneratorService.h"
+#include "../include/services/DDVCSGeneratorService.h"
 #include "../include/services/GeneratorService.h"
 
 void printHelp(const std::string& path) {
@@ -33,16 +39,17 @@ void printHelp(const std::string& path) {
     std::cout << "Mendatory options:" << std::endl;
     std::cout << "\t--scenario=PATH\t\t" << "path to input scenario"
             << std::endl;
-    std::cout << "\t--seed=UINT\t\t" << "initial random seed" << std::endl;
 
     std::cout << std::endl;
 
     std::cout << "Optional:" << std::endl;
-    std::cout << "\t-h, --help\t\t" << "print this help" << std::endl;
+    std::cout << "\t--seed=UINT\t\t" << "initial random seed" << std::endl;
+    std::cout << "\t--partons\t\t" << "play scenario directly in PARTONS" << std::endl;
+    std::cout << "\t--help, -h\t\t" << "print this help" << std::endl;
 
     std::cout << std::endl;
 
-    std::cout << "For more information see http://XXX and Nature XXX."
+    std::cout << "For more information see https://pawelsznajder.github.io/epic and Eur. Phys. J. C 82 (2022) 9, 819."
             << std::endl;
 }
 
@@ -55,7 +62,8 @@ int main(int argc, char **argv) {
     QCoreApplication a(argc, argv);
 
     // Pointer to application
-    EPIC::Epic *pEpic = nullptr;
+    EPIC::Epic* pEpic = nullptr;
+    PARTONS::Partons* pPartons = nullptr;
 
     // Try.
     try {
@@ -63,11 +71,12 @@ int main(int argc, char **argv) {
         // Variables
         std::pair<bool, std::string> scenarioPath = std::make_pair(false, "");
         std::pair<bool, size_t> seed = std::make_pair(false, 0);
+        bool isPartons = false;
 
         // Parse parameters
         static struct option longOptions[] = { { "help", no_argument, 0, 'h' },
                 { "scenario", required_argument, 0, 0 }, { "seed",
-                        required_argument, 0, 0 } };
+                        required_argument, 0, 0 }, { "partons", no_argument, 0, 0 }};
 
         for (;;) {
 
@@ -94,6 +103,10 @@ int main(int argc, char **argv) {
                     seed = std::make_pair(true, std::atoi(optarg));
                 }
 
+                else if (std::string(longOptions[optionIndex].name) == "partons") {
+                    isPartons = true; 
+                }
+
                 else {
 
                     std::cerr << argv[0] << ": parsing input option failed"
@@ -113,167 +126,112 @@ int main(int argc, char **argv) {
             exit(0);
         }
 
-        if (!seed.first) {
+        if (!isPartons && !seed.first) {
             std::cerr << argv[0] << ": initial random seed is missing"
                     << std::endl;
             printHelp(argv[0]);
             exit(0);
         }
 
-        // Initialize application
-        pEpic = EPIC::Epic::getInstance();
-        pEpic->init(argc, argv);
+        // PARTONS =====================================================================
+        
+        if(isPartons){
 
-        pEpic->getRandomSeedManager()->setSeedCount(seed.second);
+            // Initialize application
+            PARTONS::Partons* pPartons = PARTONS::Partons::getInstance();
+            pPartons->init(argc, argv);
 
-        /*
-         EPIC::TestModuleObjectFactory *pTestModuleObjectFactory =
-         pEpic->getModuleObjectFactory();
+            // Parser 
+            PARTONS::AutomationService* pAutomationService =
+                pPartons->getServiceObjectRegistry()->getAutomationService();
 
-         std::shared_ptr<EPIC::RandomNumberModule> x =
-         pTestModuleObjectFactory->newRandomNumberModule(
-         EPIC::RandomNumberGSL::classId);
-         std::shared_ptr<EPIC::RandomNumberModule> y =
-         pTestModuleObjectFactory->newRandomNumberModule(
-         EPIC::RandomNumberGSL::classId);
+            PARTONS::Scenario* pScenario = pAutomationService->parseXMLFile(
+                scenarioPath.second);
 
-         std::cout << "rnd: " << x->diceFlat() << std::endl;
-
-         y->configure(ElemUtils::Parameter(
-         EPIC::RandomNumberGSL::PARAMETER_NAME_ALGORITHM_NAME, "ranlux389"));
-
-         std::cout << "rnd: " << y->diceFlat() << std::endl;
-
-         EPIC::TestingService::getInstance()->runTest();
-
-         // test scenario
-         PARTONS::AutomationService *pAutomationService =
-         PARTONS::Partons::getInstance()
-         ->getServiceObjectRegistry()
-         ->getAutomationService();
-
-         PARTONS::Scenario *pScenario =
-         pAutomationService->parseXMLFile("test.xml");
-
-         EPIC::DVCSGeneratorService::getInstance()->getWriterModuleFromTask(
-         pScenario->getTask(0));
-         EPIC::DVCSGeneratorService::getInstance()->getKinematicModuleFromTask(
-         pScenario->getTask(0));
-
-         // writer
-         std::shared_ptr<EPIC::WriterModule> w =
-         pTestModuleObjectFactory->newWriterModule(EPIC::WriterHepMC3::classId);
-
-         w->configure(ElemUtils::Parameter(EPIC::WriterModule::PARAMETER_NAME_PATH,
-         "test.txt"));
-         w->configure(ElemUtils::Parameter(
-         EPIC::WriterHepMC3::PARAMETER_NAME_HEPMC3_WRITER_TYPE, "ascii"));
-
-         EPIC::Event e;
-
-         std::shared_ptr<EPIC::Particle> par1 = std::make_shared<EPIC::Particle>(
-         EPIC::ParticleType::ELECTRON, TVector3(1, 2, 3));
-         std::shared_ptr<EPIC::Particle> par2 = std::make_shared<EPIC::Particle>(
-         EPIC::ParticleType::POSITRON, TVector3(4, 5, 6));
-         std::shared_ptr<EPIC::Particle> par3 = std::make_shared<EPIC::Particle>(
-         EPIC::ParticleType::PI0, TVector3(7, 8, 9));
-
-         std::vector<std::shared_ptr<EPIC::Particle>> parAll;
-
-         parAll.push_back(par1);
-         parAll.push_back(par2);
-         parAll.push_back(par3);
-
-         EPIC::Vertex v1;
-
-         v1.addParticleIn(par1);
-         v1.addParticleIn(par2);
-         v1.addParticleOut(par3);
-
-         std::vector<EPIC::Vertex> vAll;
-
-         vAll.push_back(v1);
-
-         e.setParticles(parAll);
-         e.setVertices(vAll);
-         e.setBeamParticles(par1, par2);
-
-         e.addAttribute(EPIC::EventAttributeType::ID, 888888);
-         e.addAttribute(EPIC::EventAttributeType::CROSS_SECTION, 0.1);
-
-         w->open();
-         w->write(e);
-         w->close();
-
-         std::cout << e.toString() << std::endl;
-         */
-
-        //    EPIC::DVCSGeneratorService::getInstance()->getKinematicRangesFromTask(
-        //        pScenario->getTask(0));
-        //    EPIC::DVCSGeneratorService::getInstance()
-        //        ->getExperimentalConditionsFromTask(pScenario->getTask(0));
-        //    EPIC::DVCSGeneratorService::getInstance()->getProcessModuleFromTask(
-        //           pScenario->getTask(0));
-        // GENERATOR ===================================================================
-        // parser
-        std::shared_ptr<EPIC::MonteCarloScenario> scenario =
-                EPIC::AutomationService::getInstance()->parseXMLFile(
-                        scenarioPath.second);
-
-        std::vector<EPIC::MonteCarloTask>::const_iterator it;
-
-        for (it = scenario->getTasks().begin();
-                it != scenario->getTasks().end(); it++) {
-
-            if (it->getServiceName() == "DVCSGeneratorService") {
-
-                EPIC::DVCSGeneratorService *generatorService =
-                        pEpic->getServiceObjectRegistry()->getDVCSGeneratorService();
-
-                generatorService->setScenarioDescription(
-                        scenario->getDescription());
-                generatorService->setScenarioDate(scenario->getDate());
-
-                generatorService->computeTask(*it);
-            }
-
-            if (it->getServiceName() == "TCSGeneratorService") {
-
-                EPIC::TCSGeneratorService *generatorService =
-                        pEpic->getServiceObjectRegistry()->getTCSGeneratorService();
-
-                generatorService->setScenarioDescription(
-                        scenario->getDescription());
-                generatorService->setScenarioDate(scenario->getDate());
-
-                generatorService->computeTask(*it);
-            }
-
-            if (it->getServiceName() == "DVMPGeneratorService") {
-
-                EPIC::DVMPGeneratorService *generatorService =
-                        pEpic->getServiceObjectRegistry()->getDVMPGeneratorService();
-
-                generatorService->setScenarioDescription(
-                        scenario->getDescription());
-                generatorService->setScenarioDate(scenario->getDate());
-
-                generatorService->computeTask(*it);
-            }
-
-            if (it->getServiceName() == "GAM2GeneratorService") {
-
-                EPIC::GAM2GeneratorService *generatorService =
-                        pEpic->getServiceObjectRegistry()->getGAM2GeneratorService();
-
-                generatorService->setScenarioDescription(
-                        scenario->getDescription());
-                generatorService->setScenarioDate(scenario->getDate());
-
-                generatorService->computeTask(*it);
-            }
+            pAutomationService->playScenario(pScenario);
         }
 
+        // GENERATOR ===================================================================
+        
+        else{
+
+            // Initialize application
+            pEpic = EPIC::Epic::getInstance();
+            pEpic->init(argc, argv);
+
+            pEpic->getRandomSeedManager()->setSeedCount(seed.second);
+
+            // Parser
+            std::shared_ptr<EPIC::MonteCarloScenario> scenario =
+                    EPIC::AutomationService::getInstance()->parseXMLFile(
+                            scenarioPath.second);
+
+            std::vector<EPIC::MonteCarloTask>::const_iterator it;
+
+            for (it = scenario->getTasks().begin();
+                    it != scenario->getTasks().end(); it++) {
+
+                if (it->getServiceName() == "DVCSGeneratorService") {
+
+                    EPIC::DVCSGeneratorService *generatorService =
+                            pEpic->getServiceObjectRegistry()->getDVCSGeneratorService();
+
+                    generatorService->setScenarioDescription(
+                            scenario->getDescription());
+                    generatorService->setScenarioDate(scenario->getDate());
+
+                    generatorService->computeTask(*it);
+                }
+
+                if (it->getServiceName() == "TCSGeneratorService") {
+
+                    EPIC::TCSGeneratorService *generatorService =
+                            pEpic->getServiceObjectRegistry()->getTCSGeneratorService();
+
+                    generatorService->setScenarioDescription(
+                            scenario->getDescription());
+                    generatorService->setScenarioDate(scenario->getDate());
+
+                    generatorService->computeTask(*it);
+                }
+
+                if (it->getServiceName() == "DVMPGeneratorService") {
+
+                    EPIC::DVMPGeneratorService *generatorService =
+                            pEpic->getServiceObjectRegistry()->getDVMPGeneratorService();
+
+                    generatorService->setScenarioDescription(
+                            scenario->getDescription());
+                    generatorService->setScenarioDate(scenario->getDate());
+
+                    generatorService->computeTask(*it);
+                }
+
+                if (it->getServiceName() == "GAM2GeneratorService") {
+
+                    EPIC::GAM2GeneratorService *generatorService =
+                            pEpic->getServiceObjectRegistry()->getGAM2GeneratorService();
+
+                    generatorService->setScenarioDescription(
+                            scenario->getDescription());
+                    generatorService->setScenarioDate(scenario->getDate());
+
+                    generatorService->computeTask(*it);
+                }
+
+                if (it->getServiceName() == "DDVCSGeneratorService") {
+
+                    EPIC::DDVCSGeneratorService *generatorService =
+                              pEpic->getServiceObjectRegistry()->getDDVCSGeneratorService();
+
+                    generatorService->setScenarioDescription(
+                             scenario->getDescription());
+                    generatorService->setScenarioDate(scenario->getDate());
+
+                    generatorService->computeTask(*it);
+                }
+            }
+        }
     }
     // Catch ElemUtils exceptions.
     catch (const ElemUtils::CustomException &e) {
@@ -285,6 +243,10 @@ int main(int argc, char **argv) {
         if (pEpic) {
             pEpic->close();
         }
+
+        if (pPartons) {
+            pPartons->close();
+        }
     }
     // Catch std exceptions.
     catch (const std::exception &e) {
@@ -293,9 +255,13 @@ int main(int argc, char **argv) {
         PARTONS::Partons::getInstance()->getLoggerManager()->error("main",
                 __func__, e.what());
 
-        // Close PARTONS application properly
+        // Close application properly
         if (pEpic) {
             pEpic->close();
+        }
+
+        if (pPartons) {
+            pPartons->close();
         }
     }
 
@@ -303,6 +269,13 @@ int main(int argc, char **argv) {
     if (pEpic) {
         pEpic->close();
     }
+
+    if (pPartons) {
+        pPartons->close();
+    }
+
+    //sleep (allows to flush the logger running in independent thread)
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
     return 0;
 }

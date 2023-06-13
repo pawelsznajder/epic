@@ -12,10 +12,12 @@
 #include <ElementaryUtils/parameters/Parameters.h>
 #include <ElementaryUtils/string_utils/Formatter.h>
 #include <ElementaryUtils/string_utils/StringUtils.h>
+#include <partons/FundamentalPhysicalConstants.h>
 #include <stddef.h>
 #include <iostream>
 #include <string>
 #include <vector>
+#include <regex>
 #include <TFormula.h>
 
 namespace EPIC {
@@ -113,6 +115,24 @@ std::vector<double> findAndParseVectorDouble(const std::string& className,
     return valueDouble;
 }
 
+std::string findAndParseString(const std::string& className,
+        const ElemUtils::Parameters& data, const std::string& key){
+
+    std::string value;
+
+    if (data.isAvailable(key)) {
+
+        value = data.getLastAvailable().getString();
+        ElemUtils::StringUtils::trimAll(value);
+
+    } else {
+        throw ElemUtils::CustomException(className, __func__,
+                ElemUtils::Formatter() << "Key " << key << " is missing");
+    }
+
+    return value;
+}
+
 size_t stdStringToUInt(const std::string& className, const std::string& str,
         bool peg) {
 
@@ -166,7 +186,12 @@ double stdStringToDouble(const std::string& className, const std::string& str,
 
     if (peg) {
 
-        TFormula formula("", str.c_str());
+        std::stringstream ss;
+        ss << PARTONS::Constant::PROTON_MASS;   
+
+        std::string strMod = std::regex_replace(str, std::regex("Mp"), ss.str());
+
+        TFormula formula("", strMod.c_str());
 
         if (formula.GetNpar() != 0) {
             throw ElemUtils::CustomException(className, __func__,

@@ -12,7 +12,7 @@
 #include <string>
 
 namespace PARTONS {
-class TCSObservableKinematic;
+class DDVCSObservableKinematic;
 } /* namespace PARTONS */
 
 namespace EPIC {
@@ -22,7 +22,8 @@ namespace EPIC {
  *
  * @brief Class representing single observable kinematics for DDVCS process.
  *
- * This class represents a single observable kinematics for DDVCS process (y, \f$Q^{2}\f$, t, \f$Q'^{2}\f$, E_{b}, \f$\phi\f$, \f$\theta\f$).
+ * This class represents a single observable kinematics for DDVCS process
+ * (y, \f$Q^{2}\f$, t, \f$Q'^{2}\f$, E_{b}, \f$\phi\f$, \f$\phi_{S}\f$, \f$\phi_{L}\f$, \f$\theta_{L}\f$).
  */
 class DDVCSKinematic: public PARTONS::BaseObject {
 
@@ -37,7 +38,7 @@ public:
      * Assignment constructor.
      */
     DDVCSKinematic(double y, double Q2, double t, double Q2Prim, double E,
-            double phi, double phiS, double theta);
+            double phi, double phiS, double phiL, double thetaL);
 
     /**
      * Copy constructor.
@@ -52,9 +53,9 @@ public:
     virtual std::string toString() const;
 
     /**
-     * Convert to PARTONS::TCSObservableKinematic.
+     * Convert to PARTONS::DDVCSObservableKinematic.
      */
-    PARTONS::TCSObservableKinematic toPARTONSTCSObservableKinematic() const;
+    PARTONS::DDVCSObservableKinematic toPARTONSDDVCSObservableKinematic() const;
 
     //********************************************************
     //*** SETTERS AND GETTERS ********************************
@@ -131,16 +132,26 @@ public:
     void setPhiS(double phiS);
 
     /**
-     * Get angle between positively charged lepton and scattered proton in lepton CMS (in radians).
+     * Get azimuthal angle between positively charged lepton and scattered proton in lepton CMS (in radians).
      */
-    double getTheta() const;
+    double getPhiL() const;
 
     /**
-     * Set angle between positively charged lepton and scattered proton in lepton CMS (in radians).
+     * Set azimuthal angle between positively charged lepton and scattered proton in lepton CMS (in radians).
      */
-    void setTheta(double theta);
+    void setPhiL(double thetaL);
 
-private:
+    /**
+     * Get polar angle between positively charged lepton and scattered proton in lepton CMS (in radians).
+     */
+    double getThetaL() const;
+
+    /**
+     * Set polar angle between positively charged lepton and scattered proton in lepton CMS (in radians).
+     */
+    void setThetaL(double thetaL);
+
+protected:
 
     /**
      * Inelasticity.
@@ -173,14 +184,19 @@ private:
     double m_phi;
 
     /**
-     * Angle between leptonic and transverse component of target polarization (in radians).
+     * Angle between leptonic and transverse component of target polarization (in radians, Trento convention).
      */
     double m_phiS;
 
     /**
-     * Angle between positively charged lepton and scattered proton in lepton CMS (in radians).
+     * Azimuthal angle between positively charged lepton and scattered proton in lepton CMS (in radians, BDP convention).
      */
-    double m_theta;
+    double m_phiL;
+
+    /**
+     * Polar angle between positively charged lepton and scattered proton in lepton CMS (in radians, BDP convention).
+     */
+    double m_thetaL;
 };
 
 }

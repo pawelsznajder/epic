@@ -1,5 +1,5 @@
 /*
- * TCSKinematicRanges.h
+ * DDVCSKinematicRanges.h
  *
  *  Created on: Feb 9, 2021
  *      Author: Pawel Sznajder (NCBJ)
@@ -20,11 +20,11 @@ class ExperimentalConditions;
 namespace EPIC {
 
 /**
- * @class TCSKinematicRanges
+ * @class DDVCSKinematicRanges
  *
- * @brief Container to store single kinematic ranges for TCS.
+ * @brief Container to store single kinematic ranges for DDVCS.
  *
- * This class acts as a container to store kinematic range for TCS.
+ * This class acts as a container to store kinematic range for DDVCS.
  */
 class DDVCSKinematicRanges: public PARTONS::BaseObject {
 
@@ -36,7 +36,10 @@ public:
     static const std::string DDVCS_KINEMATIC_RANGE_Q2Prim; ///< Key to set Q'2 kinematic range.
     static const std::string DDVCS_KINEMATIC_RANGE_PHI; ///< Key to set phi kinematic range.
     static const std::string DDVCS_KINEMATIC_RANGE_PHIS; ///< Key to set phiS kinematic range.
-    static const std::string DDVCS_KINEMATIC_RANGE_THETA; ///< Key to set theta kinematic range.
+    static const std::string DDVCS_KINEMATIC_RANGE_PHIL; ///< Key to set phiL kinematic range.
+    static const std::string DDVCS_KINEMATIC_RANGE_THETAL; ///< Key to set thetaL kinematic range.
+
+    static const std::string DDVCS_KINEMATIC_RANGE_XB; ///< Key to set xB kinematic range.
 
     /**
      * Default constructor.
@@ -49,7 +52,8 @@ public:
     DDVCSKinematicRanges(const KinematicRange &rangeY,
             const KinematicRange &rangeQ2, const KinematicRange &rangeT,
             const KinematicRange &rangeQ2Prim, const KinematicRange &rangePhi,
-            const KinematicRange &rangePhiS, const KinematicRange &rangeTheta);
+            const KinematicRange &rangePhiS, const KinematicRange &rangePhiL,
+            const KinematicRange &rangeThetaL);
 
     /**
      * Copy constructor.
@@ -69,7 +73,7 @@ public:
     /**
      * Build from task.
      */
-    static DDVCSKinematicRanges fromTask(const MonteCarloTask &task);
+    static DDVCSKinematicRanges getDDVCSKinematicRangesfromTask(const MonteCarloTask &task);
 
     //********************************************************
     //*** SETTERS AND GETTERS ********************************
@@ -136,16 +140,36 @@ public:
     void setRangePhiS(const KinematicRange &rangePhiS);
 
     /**
+     * Get kinematic range phiL.
+     */
+    const KinematicRange &getRangePhiL() const;
+
+    /**
+     * Set kinematic range phiL.
+     */
+    void setRangePhiL(const KinematicRange &rangePhiL);
+
+    /**
      * Get kinematic range theta.
      */
-    const KinematicRange &getRangeTheta() const;
+    const KinematicRange &getRangeThetaL() const;
 
     /**
      * Set kinematic range theta.
      */
-    void setRangeTheta(const KinematicRange &rangeTheta);
+    void setRangeThetaL(const KinematicRange &rangeThetaL);
 
-private:
+    /**
+     * Get kinematic range xB.
+     */
+    const KinematicRange &getRangeXB() const;
+
+    /**
+     * Set kinematic range xB.
+     */
+    void setRangeXB(const KinematicRange &rangeXB);
+
+protected:
 
     KinematicRange m_rangeY;   ///< Kinematic range y.
     KinematicRange m_rangeQ2;  ///< Kinematic range Q2.
@@ -153,7 +177,10 @@ private:
     KinematicRange m_rangeQ2Prim;  ///< Kinematic range Q'2.
     KinematicRange m_rangePhi; ///< Kinematic range phi.
     KinematicRange m_rangePhiS; ///< Kinematic range phiS.
-    KinematicRange m_rangeTheta; ///< Kinematic range theta.
+    KinematicRange m_rangePhiL; ///< Kinematic range phiL.
+    KinematicRange m_rangeThetaL; ///< Kinematic range thetaL.
+
+    KinematicRange m_rangeXB;   ///< Kinematic range xB.
 };
 
 } /* namespace EPIC */

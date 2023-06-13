@@ -16,11 +16,13 @@ class DVCSKinematicModule;
 class DVMPKinematicModule;
 class TCSKinematicModule;
 class GAM2KinematicModule;
+class DDVCSKinematicModule;
 class EventGeneratorModule;
 class DVCSRCModule;
 class DVMPRCModule;
 class TCSRCModule;
 class GAM2RCModule;
+class DDVCSRCModule;
 class RandomNumberModule;
 class EpicModuleObject;
 class WriterModule;
@@ -105,6 +107,18 @@ public:
     newGAM2KinematicModule(const std::string &className);
 
     /**
+     * New DDVCSKinematicModule by id.
+     */
+    std::shared_ptr<DDVCSKinematicModule>
+    newDDVCSKinematicModule(unsigned int classId);
+
+    /**
+     * New DDVCSKinematicModule by class name.
+     */
+    std::shared_ptr<DDVCSKinematicModule>
+    newDDVCSKinematicModule(const std::string &className);
+
+    /**
      * New DVCSRCModule by id.
      */
     std::shared_ptr<DVCSRCModule>
@@ -151,6 +165,18 @@ public:
      */
     std::shared_ptr<GAM2RCModule>
     newGAM2RCModule(const std::string &className);
+
+    /**
+     * New DDVCSRCModule by id.
+     */
+    std::shared_ptr<DDVCSRCModule>
+    newDDVCSRCModule(unsigned int classId);
+
+    /**
+     * New DDVCSRCModule by class name.
+     */
+    std::shared_ptr<DDVCSRCModule>
+    newDDVCSRCModule(const std::string &className);
 
     /**
      * New WriterModule by id.

@@ -24,7 +24,7 @@ namespace EPIC {
  *
  * @brief Class representing single observable kinematics for DVMP process.
  *
- * This class represents a single observable kinematics for DVMP process (\f$x_{B}\f$, t, \f$Q^{2}\f$, t, E_{b}, \f$\phi\f$).
+ * This class represents a single observable kinematics for DVMP process (\f$y\f$, t, \f$Q^{2}\f$, t, E_{b}, \f$\phi\f$).
  */
 class DVMPKinematic: public PARTONS::BaseObject {
 
@@ -38,7 +38,7 @@ public:
     /**
      * Assignment constructor.
      */
-    DVMPKinematic(double xB, double t, double Q2, double E, double phi,
+    DVMPKinematic(double y, double Q2, double t, double E, double phi,
             double phiS, ParticleType::Type mesonType,
             PARTONS::PolarizationType::Type mesonPolarization);
 
@@ -64,24 +64,14 @@ public:
     //********************************************************
 
     /**
-     * Get Bjorken variable.
+     * Get inelasticity.
      */
-    double getXB() const;
+    double getY() const;
 
     /**
-     * Set Bjorken variable.
+     * Set inelasticity.
      */
-    void setXB(double xB);
-
-    /**
-     * Get four-momentum transfer squared of hadron target.
-     */
-    double getT() const;
-
-    /**
-     * Set four-momentum transfer squared of hadron target.
-     */
-    void setT(double t);
+    void setY(double y);
 
     /**
      * Get incoming virtual-photon virtuality.
@@ -92,6 +82,16 @@ public:
      * Set incoming virtual-photon virtuality.
      */
     void setQ2(double Q2);
+
+    /**
+     * Get four-momentum transfer squared of hadron target.
+     */
+    double getT() const;
+
+    /**
+     * Set four-momentum transfer squared of hadron target.
+     */
+    void setT(double t);
 
     /**
      * Get beam energy.
@@ -141,25 +141,24 @@ public:
     /**
      * Set meson polarization.
      */
-    void setPolarizationType(
-            PARTONS::PolarizationType::Type mesonPolarization);
+    void setPolarizationType(PARTONS::PolarizationType::Type mesonPolarization);
 
 private:
 
     /**
-     * Bjorken variable.
+     * Inelasticity.
      */
-    double m_xB;
-
-    /**
-     * Four-momentum transfer squared of hadron target (in \f$GeV^{2}\f$).
-     */
-    double m_t;
+    double m_y;
 
     /**
      * Initial virtual-photon virtuality (in \f$GeV^{2}\f$).
      */
     double m_Q2;
+
+    /**
+     * Four-momentum transfer squared of hadron target (in \f$GeV^{2}\f$).
+     */
+    double m_t;
 
     /**
      * Beam energy (in GeV).

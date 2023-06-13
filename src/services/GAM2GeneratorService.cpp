@@ -48,12 +48,12 @@ const unsigned int GAM2GeneratorService::classId =
 
 GAM2GeneratorService::GAM2GeneratorService(const std::string &className) :
         GeneratorService<GAM2KinematicRanges, PARTONS::GAM2ProcessModule,
-                GAM2KinematicModule, GAM2Kinematic, GAM2RCModule>(className) {
+                GAM2KinematicModule, GAM2RCModule>(className) {
 }
 
 GAM2GeneratorService::GAM2GeneratorService(const GAM2GeneratorService &other) :
         GeneratorService<GAM2KinematicRanges, PARTONS::GAM2ProcessModule,
-                GAM2KinematicModule, GAM2Kinematic, GAM2RCModule>(other) {
+                GAM2KinematicModule, GAM2RCModule>(other) {
 }
 
 GAM2GeneratorService *GAM2GeneratorService::clone() const {
@@ -63,8 +63,15 @@ GAM2GeneratorService *GAM2GeneratorService::clone() const {
 GAM2GeneratorService::~GAM2GeneratorService() {
 }
 
+void GAM2GeneratorService::getAdditionalGeneralConfigurationFromTask(
+    const MonteCarloTask &task) {
+}
+
 double GAM2GeneratorService::getEventDistribution(
-        const std::vector<double> &kin) const {
+        std::vector<double> &kin) const {
+
+    //transform
+    transformVariables(kin);
 
     //observed kinematics
     GAM2Kinematic partonsKinObs(kin.at(4), kin.at(5), kin.at(0), kin.at(1),
@@ -95,6 +102,10 @@ double GAM2GeneratorService::getEventDistribution(
         return 0.;
     }
 
+    //PARTONS kinematics
+    PARTONS::GAM2ObservableKinematic gam2ObservableKinematic = 
+        std::get<2>(rcTrue).toPARTONSGAM2ObservableKinematic();
+
     //polarisations
     PARTONS::PolarizationType::Type pol0;
 
@@ -117,7 +128,7 @@ double GAM2GeneratorService::getEventDistribution(
                     PARTONS::PolarizationType::LIN_TRANS_X_PLUS,
                     PARTONS::PolarizationType::LIN_TRANS_X_PLUS,
                     std::get < 1 > (rcTrue).getHadronPolarisation(),
-                    std::get < 2 > (rcTrue).toPARTONSGAM2ObservableKinematic(),
+                    gam2ObservableKinematic,
                     m_pProcessModule->getListOfAvailableGPDTypeForComputation()).getValue().makeSameUnitAs(
                     PARTONS::PhysicalUnit::NB).getValue();
 
@@ -148,7 +159,11 @@ double GAM2GeneratorService::getEventDistribution(
                     m_pProcessModule->getListOfAvailableGPDTypeForComputation()).getValue().makeSameUnitAs(
                     PARTONS::PhysicalUnit::NB).getValue();
 
+    //flux
     result *= getFlux(std::get < 2 > (rcTrue)) * std::get < 0 > (rcTrue);
+
+    //jacobian
+    result *= getJacobian(kin);
 
     if (std::isnan(result)) {
 
@@ -162,7 +177,7 @@ double GAM2GeneratorService::getEventDistribution(
 
 void GAM2GeneratorService::isServiceWellConfigured() const {
     GeneratorService<GAM2KinematicRanges, PARTONS::GAM2ProcessModule,
-            GAM2KinematicModule, GAM2Kinematic, GAM2RCModule>::isServiceWellConfigured();
+            GAM2KinematicModule, GAM2RCModule>::isServiceWellConfigured();
 }
 
 void GAM2GeneratorService::run() {
@@ -171,14 +186,9 @@ void GAM2GeneratorService::run() {
     isServiceWellConfigured();
 
     //kinematic ranges
-    std::vector<KinematicRange> ranges(6);
+    std::vector<KinematicRange> ranges = m_pKinematicModule->getKinematicRanges(m_experimentalConditions, m_kinematicRanges);
 
-    ranges.at(0) = m_kinematicRanges.getRangeT();
-    ranges.at(1) = m_kinematicRanges.getRangeUPrim();
-    ranges.at(2) = m_kinematicRanges.getRangeMgg2();
-    ranges.at(3) = m_kinematicRanges.getRangePhi();
-    ranges.at(4) = m_kinematicRanges.getRangeY();
-    ranges.at(5) = m_kinematicRanges.getRangeQ2();
+    transformRanges(ranges);
 
     ranges.insert(std::end(ranges),
             std::begin(m_pRCModule->getVariableRanges()),
@@ -201,6 +211,12 @@ void GAM2GeneratorService::run() {
         std::pair<std::vector<double>, double> eventVec =
                 m_pEventGeneratorModule->generateEvent();
 
+        //transform variables
+        transformVariables(eventVec.first);
+
+        //histogram
+        fillHistograms(eventVec.first);
+
         //create kinematics object
         GAM2Kinematic partonsKinObs(eventVec.first.at(4), eventVec.first.at(5),
                 eventVec.first.at(0), eventVec.first.at(1),
@@ -216,6 +232,9 @@ void GAM2GeneratorService::run() {
         std::tuple<double, ExperimentalConditions, GAM2Kinematic> rcTrue =
                 m_pRCModule->evaluate(m_experimentalConditions, partonsKinObs,
                         rcVariables);
+
+        //target polarisation
+        checkTargetPolarisation(std::get<1>(rcTrue));
 
         //create event
         Event event = m_pKinematicModule->evaluate(std::get < 1 > (rcTrue),
@@ -257,8 +276,14 @@ double GAM2GeneratorService::getFlux(const GAM2Kinematic& kin) const {
             * ((1. + pow(1. - y, 2)) / y - 2 * (1. - y) * Q2Min / (y * Q2));
 }
 
-void GAM2GeneratorService::getAdditionalGeneralConfigurationFromTask(
+void GAM2GeneratorService::getKinematicRangesFromTask(
         const MonteCarloTask &task) {
+
+    m_kinematicRanges = GAM2KinematicRanges::getGAM2KinematicRangesfromTask(task);
+
+    info(__func__,
+            ElemUtils::Formatter() << "Kinematic ranges:\n"
+                    << m_kinematicRanges.toString() << '\n');
 }
 
 void GAM2GeneratorService::getProcessModuleFromTask(
@@ -346,11 +371,77 @@ void GAM2GeneratorService::getRCModuleFromTask(const MonteCarloTask &task) {
                     << m_pRCModule->getClassName());
 }
 
-void GAM2GeneratorService::addAdditionalGenerationConfiguration(
-        GenerationInformation& generationInformation) {
-    GeneratorService<GAM2KinematicRanges, PARTONS::GAM2ProcessModule,
-            GAM2KinematicModule, GAM2Kinematic, GAM2RCModule>::addAdditionalGenerationConfiguration(
-            generationInformation);
+void GAM2GeneratorService::bookHistograms(){
+
+    m_histograms.push_back(
+            new TH1D("h_t", "t variable", 100,
+                    m_kinematicRanges.getRangeT().getMin(),
+                    m_kinematicRanges.getRangeT().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_uPrim", "u' variable", 100,
+                    m_kinematicRanges.getRangeUPrim().getMin(),
+                    m_kinematicRanges.getRangeUPrim().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_Mgg2", "M_{#gamma#gamma}^{2} variable", 100,
+                    m_kinematicRanges.getRangeMgg2().getMin(),
+                    m_kinematicRanges.getRangeMgg2().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_phi", "#phi angle", 100,
+                    m_kinematicRanges.getRangePhi().getMin(),
+                    m_kinematicRanges.getRangePhi().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_y", "y variable", 100,
+                    m_kinematicRanges.getRangeY().getMin(),
+                    m_kinematicRanges.getRangeY().getMax()));
+    m_histograms.push_back(
+            new TH1D("h_Q2", "Q^{2} variable", 100,
+                    m_kinematicRanges.getRangeQ2().getMin(),
+                    m_kinematicRanges.getRangeQ2().getMax()));
+
+    const std::vector<KinematicRange>& rcRanges = m_pRCModule->getVariableRanges();
+    std::vector<KinematicRange>::const_iterator it;
+
+    for(it = rcRanges.begin(); it != rcRanges.end(); it++){
+
+        std::stringstream ssA;
+        ssA << "h_rc" << int(it - rcRanges.begin());
+
+        std::stringstream ssB;
+        ssB << "RC variable " << int(it - rcRanges.begin());
+
+        m_histograms.push_back(
+                new TH1D(ssA.str().c_str(), ssB.str().c_str(), 100,
+                        it->getMin(), it->getMax()));
+    }
+}
+
+void GAM2GeneratorService::fillHistograms(const std::vector<double>& variables){
+
+    std::vector<double>::const_iterator it;
+
+    for(it = variables.begin(); it != variables.end(); it++){
+        m_histograms.at(int(it - variables.begin()))->Fill(*it);
+    }
+}
+
+void GAM2GeneratorService::transformVariables(std::vector<double>& variables) const{
+
+    variables.at(0) = -1 * exp(variables.at(0));
+    variables.at(2) = exp(variables.at(2));
+    variables.at(4) = exp(variables.at(4));
+    variables.at(5) = exp(variables.at(5));
+}
+
+void GAM2GeneratorService::transformRanges(std::vector<KinematicRange>& ranges) const{
+
+    ranges.at(0).setMinMax(log(-1 * ranges.at(0).getMax()), log(-1 * ranges.at(0).getMin()));
+    ranges.at(2).setMinMax(log(ranges.at(2).getMin()), log(ranges.at(2).getMax()));
+    ranges.at(4).setMinMax(log(ranges.at(4).getMin()), log(ranges.at(4).getMax()));
+    ranges.at(5).setMinMax(log(ranges.at(5).getMin()), log(ranges.at(5).getMax()));
+}
+
+double GAM2GeneratorService::getJacobian(const std::vector<double>& variables) const{
+    return -1 * variables.at(0) * variables.at(2) * variables.at(4) * variables.at(5);
 }
 
 } /* namespace EPIC */

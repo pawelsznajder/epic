@@ -30,12 +30,13 @@ class DVMPKinematicRanges: public PARTONS::BaseObject {
 
 public:
 
-    static const std::string DVMP_KINEMATIC_RANGE_XB; ///< Key to set xB kinematic range.
-    static const std::string DVMP_KINEMATIC_RANGE_T; ///< Key to set t kinematic range.
+    static const std::string DVMP_KINEMATIC_RANGE_Y; ///< Key to set y kinematic range.
     static const std::string DVMP_KINEMATIC_RANGE_Q2; ///< Key to set Q2 kinematic range.
+    static const std::string DVMP_KINEMATIC_RANGE_T; ///< Key to set t kinematic range.
     static const std::string DVMP_KINEMATIC_RANGE_PHI; ///< Key to set phi kinematic range.
     static const std::string DVMP_KINEMATIC_RANGE_PHIS; ///< Key to set phiS kinematic range.
-    static const std::string DVMP_KINEMATIC_RANGE_Y; ///< Key to set y kinematic range.
+
+    static const std::string DVMP_KINEMATIC_RANGE_XB; ///< Key to set xB kinematic range.
 
     /**
      * Default constructor.
@@ -45,17 +46,9 @@ public:
     /**
      * Assignment constructor.
      */
-    DVMPKinematicRanges(const KinematicRange &rangeXb,
-            const KinematicRange &rangeT, const KinematicRange &rangeQ2,
+    DVMPKinematicRanges(const KinematicRange &rangeY, const KinematicRange &rangeQ2,
+            const KinematicRange &rangeT,
             const KinematicRange &rangePhi, const KinematicRange &rangePhiS);
-
-    /**
-     * Assignment constructor.
-     */
-    DVMPKinematicRanges(const KinematicRange &rangeXb,
-            const KinematicRange &rangeT, const KinematicRange &rangeQ2,
-            const KinematicRange &rangePhi, const KinematicRange &rangePhiS,
-            const KinematicRange &rangeY);
 
     /**
      * Copy constructor.
@@ -75,31 +68,22 @@ public:
     /**
      * Build from task.
      */
-    static DVMPKinematicRanges fromTask(const MonteCarloTask &task);
+    static DVMPKinematicRanges getDVMPKinematicRangesfromTask(
+            const MonteCarloTask &task);
 
     //********************************************************
     //*** SETTERS AND GETTERS ********************************
     //********************************************************
 
     /**
-     * Get kinematic range xB.
+     * Get kinematic range y.
      */
-    const KinematicRange &getRangeXb() const;
+    const KinematicRange &getRangeY() const;
 
     /**
-     * Set kinematic range xB.
+     * Set kinematic range y.
      */
-    void setRangeXb(const KinematicRange &rangeXb);
-
-    /**
-     * Get kinematic range t.
-     */
-    const KinematicRange &getRangeT() const;
-
-    /**
-     * Set kinematic range t.
-     */
-    void setRangeT(const KinematicRange &rangeT);
+    void setRangeY(const KinematicRange &rangeY);
 
     /**
      * Get kinematic range Q2.
@@ -110,6 +94,16 @@ public:
      * Set kinematic range Q2.
      */
     void setRangeQ2(const KinematicRange &rangeQ2);
+
+    /**
+     * Get kinematic range t.
+     */
+    const KinematicRange &getRangeT() const;
+
+    /**
+     * Set kinematic range t.
+     */
+    void setRangeT(const KinematicRange &rangeT);
 
     /**
      * Get kinematic range phi.
@@ -132,24 +126,24 @@ public:
     void setRangePhiS(const KinematicRange &rangePhiS);
 
     /**
-     * Get kinematic range y.
+     * Get kinematic range xB.
      */
-    const KinematicRange &getRangeY() const;
+    const KinematicRange &getRangeXB() const;
 
     /**
-     * Set kinematic range y.
+     * Set kinematic range xB.
      */
-    void setRangeY(const KinematicRange &rangeY);
+    void setRangeXB(const KinematicRange &rangeXB);
 
 private:
 
-    KinematicRange m_rangeXb;  ///< Kinematic range xB.
-    KinematicRange m_rangeT;   ///< Kinematic range t.
+    KinematicRange m_rangeY;   ///< Kinematic range y.
     KinematicRange m_rangeQ2;  ///< Kinematic range Q2.
+    KinematicRange m_rangeT;   ///< Kinematic range t.
     KinematicRange m_rangePhi; ///< Kinematic range phi.
     KinematicRange m_rangePhiS; ///< Kinematic range phiS.
 
-    KinematicRange m_rangeY;   ///< Kinematic range y.
+    KinematicRange m_rangeXB;  ///< Kinematic range xB.
 };
 
 } /* namespace EPIC */

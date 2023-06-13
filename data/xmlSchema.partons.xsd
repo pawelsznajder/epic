@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="scenario" type="scenarioType" />
+
+	<xs:element name="computation_configuration" type="computationConfigurationType" />
+
+	<xs:complexType name="scenarioType">
+		<xs:sequence>
+			<xs:element name="task" type="taskType" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="date" type="xs:date" use="required" />
+		<xs:attribute name="description" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="paramType">
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="value" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="taskType">
+		<xs:sequence>
+			<xs:element name="task_param" type="taskParamType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="kinematics" type="kinematicsType"
+				minOccurs="0" />
+			<xs:element name="computation_configuration" type="computationConfigurationType"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="service" type="xs:string" use="required" />
+		<xs:attribute name="method" type="xs:string" use="required" />
+		<xs:attribute name="storeInDB" type="xs:boolean" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="computationConfigurationType">
+		<xs:sequence>
+			<xs:element name="module" type="moduleType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="kinematicsType">
+		<xs:sequence>
+			<xs:element name="param" type="paramType" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="type" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="moduleType">
+		<xs:sequence>
+			<xs:element name="param" type="paramType" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:element name="module" type="moduleType" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="type" type="xs:string" use="required" />
+		<xs:attribute name="name" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="taskParamType">
+		<xs:sequence>
+			<xs:element name="param" type="paramType" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="type" type="xs:string" use="required" />
+	</xs:complexType>
+
+</xs:schema>

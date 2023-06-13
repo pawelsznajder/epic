@@ -152,4 +152,9 @@ target_link_libraries(
 		${QT_LIBRARY_CORE}
 		${QT_LIBRARY_SQL}
 		${QT_LIBRARY_XML}
+
+                /mnt/home/psznajder/analysis_epic/apfelxx_instalation/lib/libapfelxx.so
+                
+                /mnt/home/psznajder/analysis_epic/LHAPDF-6.1.6_instalation/lib/libLHAPDF.so
+
 )

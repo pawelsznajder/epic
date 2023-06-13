@@ -17,7 +17,7 @@
 namespace EPIC {
 
 const std::string AutomationService::PROPERTY_NAME_XML_SCHEMA_FILE_PATH =
-    "xml.schema.file.path";
+    "xml.schema.epic.file.path";
 
 AutomationService *AutomationService::m_pInstance = nullptr;
 

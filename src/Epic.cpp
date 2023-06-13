@@ -90,7 +90,7 @@ void Epic::printVersion() const {
 	m_pPartons->getLoggerManager()->info("Epic", __func__,
 			ElemUtils::Formatter() << "EPIC " << EPIC_VERSION_MAJOR << "."
 					<< EPIC_VERSION_MINOR << "." << EPIC_VERSION_PATCH
-					<< " (http://XXX) distributed under GNU Public License");
+					<< " (https://pawelsznajder.github.io/epic) distributed under GNU Public License");
 }
 
 } /* namespace EPIC */

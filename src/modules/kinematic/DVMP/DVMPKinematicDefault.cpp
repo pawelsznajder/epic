@@ -47,10 +47,10 @@ DVMPKinematicDefault::DVMPKinematicDefault(const DVMPKinematicDefault &other) :
     if (other.m_randomNumberModule == nullptr) {
         m_randomNumberModule = nullptr;
     } else {
-        m_randomNumberModule = std::make_shared<RandomNumberGSL>(
-                RandomNumberGSL(
-                        *(std::static_pointer_cast<RandomNumberGSL>(
-                                other.m_randomNumberModule))));
+        m_randomNumberModule = std::make_shared < RandomNumberGSL
+                > (RandomNumberGSL(
+                        *(std::static_pointer_cast < RandomNumberGSL
+                                > (other.m_randomNumberModule))));
     }
 }
 
@@ -74,9 +74,9 @@ bool DVMPKinematicDefault::checkIfValid(
     ParticleType::Type beamType = conditions.getLeptonType();
     ParticleType::Type targetType = conditions.getHadronType();
 
-    double xB = kin.getXB();
-    double t = kin.getT();
+    double y = kin.getY();
     double Q2 = kin.getQ2();
+    double t = kin.getT();
     ParticleType::Type exclusiveType = kin.getMesonType();
 
     double Mp = ParticleType(targetType).getMass();
@@ -92,17 +92,17 @@ bool DVMPKinematicDefault::checkIfValid(
     e_TAR.boost(-boost_LAB_to_TAR);
     p_TAR.boost(-boost_LAB_to_TAR);
 
-    //xB
-    if (xB
-            < 2 * Q2 * e_TAR.getEnergy() / Mp
-                    / (4 * pow(e_TAR.getEnergy(), 2) - Q2)) {
+    //y
+    if (y < 0. || y > 1.) {
         return false;
     }
 
-    double y = Q2 / (2 * xB * Mp * e_TAR.getEnergy());
+    //xB
+    double xB = Q2 / (2 * y * Mp * e_TAR.getEnergy());
 
-    //y
-    if (y < 0. || y > 1.) {
+    if (xB
+            < 2 * Q2 * e_TAR.getEnergy() / Mp
+                    / (4 * pow(e_TAR.getEnergy(), 2) - Q2)) {
         return false;
     }
 
@@ -164,9 +164,9 @@ Event DVMPKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     ParticleType::Type beamType = conditions.getLeptonType();
     ParticleType::Type targetType = conditions.getHadronType();
 
-    double xB = kin.getXB();
-    double t = kin.getT();
+    double y = kin.getY();
     double Q2 = kin.getQ2();
+    double t = kin.getT();
     double phi = kin.getPhi();
     double phiS = kin.getPhiS();
     ParticleType::Type exclusiveType = kin.getMesonType();
@@ -191,18 +191,18 @@ Event DVMPKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     e_TAR.boost(-boost_LAB_to_TAR);
     p_TAR.boost(-boost_LAB_to_TAR);
 
-    if (xB
-            < 2 * Q2 * e_TAR.getEnergy() / Mp
-                    / (4 * pow(e_TAR.getEnergy(), 2) - Q2)) {
+    if (y < 0. || y > 1.) {
         throw ElemUtils::CustomException(getClassName(), __func__,
                 ElemUtils::Formatter() << "Kinematics not valid, kinematics: "
                         << kin.toString() << " experimental conditions"
                         << conditions.toString());
     }
 
-    double y = Q2 / (2 * xB * Mp * e_TAR.getEnergy());
+    double xB = Q2 / (2 * y * Mp * e_TAR.getEnergy());
 
-    if (y < 0. || y > 1.) {
+    if (xB
+            < 2 * Q2 * e_TAR.getEnergy() / Mp
+                    / (4 * pow(e_TAR.getEnergy(), 2) - Q2)) {
         throw ElemUtils::CustomException(getClassName(), __func__,
                 ElemUtils::Formatter() << "Kinematics not valid, kinematics: "
                         << kin.toString() << " experimental conditions"
@@ -334,51 +334,86 @@ Event DVMPKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     pS_LAB.boost(boost_LAB_to_TAR);
 
     // 11. Introduce phiS angle
-    
-    double qT = gammaStar_LAB.getMomentum().X();
-    double qL = gammaStar_LAB.getMomentum().Z();
-    double eL = e_LAB.getMomentum().Z();
-    double epT = eS_LAB.getMomentum().X();
 
-    double cosTheta = -(qL * sin(phiS))
-            / sqrt(pow(qL, 2) + pow(qT, 2) - pow(qT, 2) * pow(sin(phiS), 2));
-    double sinTheta = (sqrt(pow(eL, 2) * pow(epT, 2)) * cos(phiS)
-            * sqrt(
-                    (pow(qL, 2) * (pow(qL, 2) + pow(qT, 2)))
-                            / (pow(qL, 2) + pow(qT, 2)
-                                    - pow(qT, 2) * pow(sin(phiS), 2))))
-            / (eL * epT * qL);
+    //rotation angle
+    double psi;
 
-    double theta = atan2(sinTheta, cosTheta);
+    //target polarisation has transverse component
+    if (conditions.getHadronPolarisation().getX() != 0.
+            || conditions.getHadronPolarisation().getY() != 0.) {
 
-    eS_LAB.rotate(AxisType::Z, theta);
-    gammaStar_LAB.rotate(AxisType::Z, theta);
-    exclusive_LAB.rotate(AxisType::Z, theta);
-    pS_LAB.rotate(AxisType::Z, theta);
+        // Gamma factor
+        double gamma = 2 * Mp * xB / sqrt(Q2);
+
+        // Sine angle between the incoming lepton and the virtual photon
+        double sinTheta = gamma
+                * sqrt(
+                        (1 - y - 1 / 4 * pow(y, 2) * pow(gamma, 2))
+                                / (1 + pow(gamma, 2)));
+
+        // Cosine angle between the incoming lepton and the virtual photon
+        double cosTheta = sqrt(1. - pow(sinTheta, 2));
+
+        // Longitudinal polarization
+        double PL = conditions.getHadronPolarisation().getZ();
+
+        // Transverse polarization, a positive definite number between 0 and 1
+        double PT = sqrt(
+                pow(conditions.getHadronPolarisation().getX(), 2)
+                        + pow(conditions.getHadronPolarisation().getY(), 2));
+
+        // Transverse polarization w.r.t the virtual photon's direction
+        double ST = fabs(
+                (-PL * cos(phiS) * sinTheta
+                        + sqrt(
+                                pow(cosTheta, 2)
+                                        * (-pow(PL, 2) + pow(cosTheta, 2)
+                                                + pow(cos(phiS), 2)
+                                                        * pow(sinTheta, 2))))
+                        / (pow(cosTheta, 2)
+                                + pow(cos(phiS), 2) * pow(sinTheta, 2)));
+
+        // Sine angle value to be rotated in the lab frame
+        double sinPsi = ST / PT * sin(phiS);
+
+        // Cosine angle value to be rotated in the lab frame
+        double cosPsi = (ST * cos(phiS) + sinTheta * PL) / (cosTheta * PT);
+
+        // rotate angle
+        psi = atan2(sinPsi, cosPsi);
+
+    } else {
+        psi = phiS;
+    }
+
+    eS_LAB.rotate(AxisType::Z, psi);
+    gammaStar_LAB.rotate(AxisType::Z, psi);
+    exclusive_LAB.rotate(AxisType::Z, psi);
+    pS_LAB.rotate(AxisType::Z, psi);
 
     // 12. Store
 
     Event event;
 
-    std::vector<std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > > particles(
-            6);
+    std::vector < std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> >
+            > particles(6);
 
     particles.at(0) = std::make_pair(ParticleCodeType::BEAM,
-            std::make_shared<Particle>(e_LAB));
+            std::make_shared < Particle > (e_LAB));
     particles.at(1) = std::make_pair(ParticleCodeType::BEAM,
-            std::make_shared<Particle>(p_LAB));
+            std::make_shared < Particle > (p_LAB));
     particles.at(2) = std::make_pair(ParticleCodeType::SCATTERED,
-            std::make_shared<Particle>(eS_LAB));
+            std::make_shared < Particle > (eS_LAB));
     particles.at(3) = std::make_pair(ParticleCodeType::VIRTUAL,
-            std::make_shared<Particle>(gammaStar_LAB));
+            std::make_shared < Particle > (gammaStar_LAB));
     particles.at(4) = std::make_pair(ParticleCodeType::SCATTERED,
-            std::make_shared<Particle>(pS_LAB));
+            std::make_shared < Particle > (pS_LAB));
     particles.at(5) = std::make_pair(ParticleCodeType::UNDECAYED,
-            std::make_shared<Particle>(exclusive_LAB));
+            std::make_shared < Particle > (exclusive_LAB));
 
     event.setParticles(particles);
 
-    std::vector<std::shared_ptr<Vertex> > vertices(2);
+    std::vector < std::shared_ptr<Vertex> > vertices(2);
 
     vertices.at(0) = std::make_shared<Vertex>();
     vertices.at(0)->addParticleIn(particles.at(0).second);
@@ -454,13 +489,13 @@ void DVMPKinematicDefault::simulateDecayPi0(Event& event,
     gamma2_LAB.boost(pi0->getFourMomentum().BoostVector());
 
     //store and return
-    std::vector<std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > > particles(
-            2);
+    std::vector < std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> >
+            > particles(2);
 
     particles.at(0) = std::make_pair(ParticleCodeType::UNDECAYED,
-            std::make_shared<Particle>(gamma1_LAB));
+            std::make_shared < Particle > (gamma1_LAB));
     particles.at(1) = std::make_pair(ParticleCodeType::UNDECAYED,
-            std::make_shared<Particle>(gamma2_LAB));
+            std::make_shared < Particle > (gamma2_LAB));
 
     std::shared_ptr<Vertex> vertex = std::make_shared<Vertex>();
 

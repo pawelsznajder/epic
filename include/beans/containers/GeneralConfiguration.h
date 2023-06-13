@@ -26,55 +26,67 @@ namespace EPIC {
  * This class acts as a container to store general configuration of generator,
  * like number of events to be generated.
  */
-class GeneralConfiguration : public PARTONS::BaseObject {
+class GeneralConfiguration: public PARTONS::BaseObject {
 
-  static const std::string
-      GENERAL_CONFIGURATION_NUMBER_OF_EVENTS; ///< Key to set number of events.
+    static const std::string GENERAL_CONFIGURATION_NUMBER_OF_EVENTS; ///< Key to set number of events.
+    static const std::string GENERAL_CONFIGURATION_HISTOGRAM_FILE_PATH; ///< Key to set path to file storing debugging histograms.
 
 public:
-  /**
-   * Default constructor.
-   */
-  GeneralConfiguration();
+    /**
+     * Default constructor.
+     */
+    GeneralConfiguration();
 
-  /**
-   * Assignment constructor.
-   */
-  GeneralConfiguration(size_t nEvents);
+    /**
+     * Assignment constructor.
+     */
+    GeneralConfiguration(size_t nEvents, const std::string& histogramFilePath);
 
-  /**
-   * Copy constructor.
-   */
-  GeneralConfiguration(const GeneralConfiguration &other);
+    /**
+     * Copy constructor.
+     */
+    GeneralConfiguration(const GeneralConfiguration &other);
 
-  /**
-   * Destructor.
-   */
-  virtual ~GeneralConfiguration();
+    /**
+     * Destructor.
+     */
+    virtual ~GeneralConfiguration();
 
-  virtual std::string toString() const;
+    virtual std::string toString() const;
 
-  /**
-   * Build from task.
-   */
-  static GeneralConfiguration fromTask(const MonteCarloTask &task);
+    /**
+     * Build from task.
+     */
+    static GeneralConfiguration fromTask(const MonteCarloTask &task);
 
-  //********************************************************
-  //*** SETTERS AND GETTERS ********************************
-  //********************************************************
+    //********************************************************
+    //*** SETTERS AND GETTERS ********************************
+    //********************************************************
 
-  /**
-   * Get number of events.
-   */
-  size_t getNEvents() const;
+    /**
+     * Get number of events.
+     */
+    size_t getNEvents() const;
 
-  /**
-   * Set number of events.
-   */
-  void setNEvents(size_t nEvents);
+    /**
+     * Set number of events.
+     */
+    void setNEvents(size_t nEvents);
+
+    /**
+     * Get path to file storing debugging histograms.
+     */
+    const std::string& getHistogramFilePath() const;
+
+    /**
+     * Set path to file storing debugging histograms.
+     */
+    void setHistogramFilePath(const std::string& histogramFilePath);
 
 private:
-  size_t m_nEvents; ///< Number of events.
+
+    size_t m_nEvents; ///< Number of events.
+    std::string m_histogramFilePath; ///< Path to file storing debugging histograms.
 };
 
 } /* namespace EPIC */
