@@ -19,3 +19,6 @@ jobs:
          
        - name: compile 
          run: cd /root/workspace/epic/build; cmake ..; make
+         
+       - name: compare 
+         run: cd /root/workspace/epic/test/compare; ./script
