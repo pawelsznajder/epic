@@ -1,0 +1,68 @@
+\hypertarget{_writer_hep_m_c3_ascii_and_pythia6_8h_source}{}\doxysection{Writer\+Hep\+MC3\+Ascii\+And\+Pythia6.\+h}
+\label{_writer_hep_m_c3_ascii_and_pythia6_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/modules/writer/WriterHepMC3AsciiAndPythia6.h@{/Users/pawel/projects/epic/NEW2/epic/include/modules/writer/WriterHepMC3AsciiAndPythia6.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * WriterHepMC3AsciiAndPythia6.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Jun 06, 2022}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ) }}
+\DoxyCodeLine{6 \textcolor{comment}{ *  Author: Alex Jentsch (BNL)}}
+\DoxyCodeLine{7 \textcolor{comment}{ */}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef MODULES\_WRITER\_WriterHepMC3AsciiAndPythia6\_H\_}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define MODULES\_WRITER\_WriterHepMC3AsciiAndPythia6\_H\_}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <ElementaryUtils/parameters/Parameters.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <locale>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../../beans/physics/Event.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}WriterModule.h"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{22 \textcolor{keyword}{struct }WriterHepMC3AsciiAndPythia6NoSeparator;}
+\DoxyCodeLine{23 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6}{WriterHepMC3AsciiAndPythia6}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{WriterModule}} \{}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ae573380b53612f65c69b48486c4a6c43}{classId}}; }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44     \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_aad5d8f17c2ff9ff7150dede2339ba383}{WriterHepMC3AsciiAndPythia6}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{49     \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ae85fc226dc90cae848cd238f594e194b}{WriterHepMC3AsciiAndPythia6}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6}{WriterHepMC3AsciiAndPythia6}} \&other);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{54     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_aecddcc007303dfdfdceeed0899e8ba1c}{\string~WriterHepMC3AsciiAndPythia6}}();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6}{WriterHepMC3AsciiAndPythia6}} *clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{57     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} configure(\textcolor{keyword}{const} ElemUtils::Parameters \&parameters);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a25618ce2e2d73109af25300259b1f4d6}{open}}();}
+\DoxyCodeLine{60     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a46337120d6919ccfc77905112d09ca2e}{saveGenerationInformation}}(}
+\DoxyCodeLine{61             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{GenerationInformation}}\& generationInformation);}
+\DoxyCodeLine{62     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a4a26a1a3e25db092af89d80bea819c69}{close}}();}
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ac041732688848ad653e9ff470cfe5f3e}{write}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event);}
+\DoxyCodeLine{64     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a0095edd1e7bc6611464be19664a35870}{write}}(\textcolor{keyword}{const} std::vector<Event> \&events);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{67     \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{68     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{private}:}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     std::shared\_ptr<WriterModule> m\_pWriterHepMC3; }
+\DoxyCodeLine{73     std::shared\_ptr<WriterModule> m\_pWriterPythia6; }
+\DoxyCodeLine{74 \};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_WRITER\_WriterHepMC3AsciiAndPythia6\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

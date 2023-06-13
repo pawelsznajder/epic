@@ -26,7 +26,7 @@ virtual \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_module_a95f8d8aca651459c7f8
 \item 
 virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_module_afab4e571e78e90b176b2f16166bfca40}{run\+Test}} () const
 \item 
-virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_module_a3ac4335d87d9be9bd31e2a5fc927d292}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&obs\+Kin, const std\+::vector$<$ double $>$ \&par) const =0
+virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_module_ad9c57063c7c8071b6a23c78625f4383c}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} \&obs\+Kin, const std\+::vector$<$ double $>$ \&par) const =0
 \item 
 virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_module_aae9bd0f5f832fb62839aa91279c9cf5e}{update\+Event}} (\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event, const std\+::vector$<$ double $>$ \&par) const =0
 \end{DoxyCompactItemize}
@@ -75,19 +75,19 @@ Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_r_c_module_a95f8d8a
 Destructor. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_r_c_module_a3ac4335d87d9be9bd31e2a5fc927d292}\label{class_e_p_i_c_1_1_t_c_s_r_c_module_a3ac4335d87d9be9bd31e2a5fc927d292}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_r_c_module_ad9c57063c7c8071b6a23c78625f4383c}\label{class_e_p_i_c_1_1_t_c_s_r_c_module_ad9c57063c7c8071b6a23c78625f4383c}} 
 \index{EPIC::TCSRCModule@{EPIC::TCSRCModule}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!EPIC::TCSRCModule@{EPIC::TCSRCModule}}
 \doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
-{\footnotesize\ttfamily virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} $>$ EPIC\+::\+TCSRCModule\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&}]{obs\+Kin,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} $>$ EPIC\+::\+TCSRCModule\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} \&}]{obs\+Kin,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 Get radiative function, true experimental conditions and kinematics. 
 
-Implements \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_a1af6111ac8c044031e011169f9a25db3}{EPIC\+::\+RCModule$<$ DDVCSKinematic $>$}}.
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_a1af6111ac8c044031e011169f9a25db3}{EPIC\+::\+RCModule$<$ TCSKinematic $>$}}.
 
 
 
-Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_aef07eaf43d84ce669793a4542e0bf867}{EPIC\+::\+TCSRCNull}}.
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_a893d21c5fcda18bf1dfc69671b4ebb2a}{EPIC\+::\+TCSRCNull}}.
 
 \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_r_c_module_afab4e571e78e90b176b2f16166bfca40}\label{class_e_p_i_c_1_1_t_c_s_r_c_module_afab4e571e78e90b176b2f16166bfca40}} 
 \index{EPIC::TCSRCModule@{EPIC::TCSRCModule}!runTest@{runTest}}
@@ -107,7 +107,7 @@ Implements \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a40142efadbdc81
 
 Update event. 
 
-Implements \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_aff465e81cd5888a62d048f64b7fe72bd}{EPIC\+::\+RCModule$<$ DDVCSKinematic $>$}}.
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_r_c_module_aff465e81cd5888a62d048f64b7fe72bd}{EPIC\+::\+RCModule$<$ TCSKinematic $>$}}.
 
 
 
@@ -117,4 +117,4 @@ Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_af6e2b9c6f7b216
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/pawel/projects/epic/epic/include/modules/radiative\+\_\+corrections/\+TCS/TCSRCModule.\+h\end{DoxyCompactItemize}
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/modules/radiative\+\_\+corrections/\+TCS/TCSRCModule.\+h\end{DoxyCompactItemize}

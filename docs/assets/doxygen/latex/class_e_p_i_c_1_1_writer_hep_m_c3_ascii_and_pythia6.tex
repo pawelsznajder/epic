@@ -1,0 +1,150 @@
+\hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6}{}\doxysection{EPIC\+::Writer\+Hep\+MC3\+Ascii\+And\+Pythia6 Class Reference}
+\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6}\index{EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}}
+
+
+\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} writer printing to two files\+: one in HEPMC3 format (Ascii), second in Pythia6 format.  
+
+
+
+
+{\ttfamily \#include $<$Writer\+Hep\+MC3\+Ascii\+And\+Pythia6.\+h$>$}
+
+Inheritance diagram for EPIC\+::Writer\+Hep\+MC3\+Ascii\+And\+Pythia6\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_aad5d8f17c2ff9ff7150dede2339ba383}{Writer\+Hep\+MC3\+Ascii\+And\+Pythia6}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ae85fc226dc90cae848cd238f594e194b}{Writer\+Hep\+MC3\+Ascii\+And\+Pythia6}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6}{Writer\+Hep\+MC3\+Ascii\+And\+Pythia6}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_aecddcc007303dfdfdceeed0899e8ba1c}{$\sim$\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a85a0490d8a9b8c160efe9b9f6f8403f8}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a85a0490d8a9b8c160efe9b9f6f8403f8}} 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6}{Writer\+Hep\+MC3\+Ascii\+And\+Pythia6}} $\ast$ {\bfseries clone} () const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ac5879c8c141f917d7fb1bfd2c257aae1}{configure}} (const Elem\+Utils\+::\+Parameters \&parameters)
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a25618ce2e2d73109af25300259b1f4d6}{open}} ()
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a46337120d6919ccfc77905112d09ca2e}{save\+Generation\+Information}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&generation\+Information)
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a4a26a1a3e25db092af89d80bea819c69}{close}} ()
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ac041732688848ad653e9ff470cfe5f3e}{write}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event)
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a0095edd1e7bc6611464be19664a35870}{write}} (const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} $>$ \&events)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ae573380b53612f65c69b48486c4a6c43}{class\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} writer printing to two files\+: one in HEPMC3 format (Ascii), second in Pythia6 format. 
+
+Module dedicated to writing events. It utilizes both \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3}{Writer\+Hep\+MC3}} and \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6}{Writer\+Pythia6}} formats. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_aad5d8f17c2ff9ff7150dede2339ba383}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_aad5d8f17c2ff9ff7150dede2339ba383}} 
+\index{EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}!WriterHepMC3AsciiAndPythia6@{WriterHepMC3AsciiAndPythia6}}
+\index{WriterHepMC3AsciiAndPythia6@{WriterHepMC3AsciiAndPythia6}!EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}}
+\doxysubsubsection{\texorpdfstring{WriterHepMC3AsciiAndPythia6()}{WriterHepMC3AsciiAndPythia6()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ae85fc226dc90cae848cd238f594e194b}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ae85fc226dc90cae848cd238f594e194b}} 
+\index{EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}!WriterHepMC3AsciiAndPythia6@{WriterHepMC3AsciiAndPythia6}}
+\index{WriterHepMC3AsciiAndPythia6@{WriterHepMC3AsciiAndPythia6}!EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}}
+\doxysubsubsection{\texorpdfstring{WriterHepMC3AsciiAndPythia6()}{WriterHepMC3AsciiAndPythia6()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6}{Writer\+Hep\+MC3\+Ascii\+And\+Pythia6}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_aecddcc007303dfdfdceeed0899e8ba1c}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_aecddcc007303dfdfdceeed0899e8ba1c}} 
+\index{EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}!````~WriterHepMC3AsciiAndPythia6@{$\sim$WriterHepMC3AsciiAndPythia6}}
+\index{````~WriterHepMC3AsciiAndPythia6@{$\sim$WriterHepMC3AsciiAndPythia6}!EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}}
+\doxysubsubsection{\texorpdfstring{$\sim$WriterHepMC3AsciiAndPythia6()}{~WriterHepMC3AsciiAndPythia6()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6\+::$\sim$\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a4a26a1a3e25db092af89d80bea819c69}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a4a26a1a3e25db092af89d80bea819c69}} 
+\index{EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}!close@{close}}
+\index{close@{close}!EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Close file. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_adea38f3f36abb4f693c254b5c987535f}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ac5879c8c141f917d7fb1bfd2c257aae1}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ac5879c8c141f917d7fb1bfd2c257aae1}} 
+\index{EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}!configure@{configure}}
+\index{configure@{configure}!EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}}
+\doxysubsubsection{\texorpdfstring{configure()}{configure()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6\+::configure (\begin{DoxyParamCaption}\item[{const Elem\+Utils\+::\+Parameters \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a25618ce2e2d73109af25300259b1f4d6}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a25618ce2e2d73109af25300259b1f4d6}} 
+\index{EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}!open@{open}}
+\index{open@{open}!EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6\+::open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Open file. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_ad54c98a083e702c4f19e8e8f20dae3b4}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a46337120d6919ccfc77905112d09ca2e}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a46337120d6919ccfc77905112d09ca2e}} 
+\index{EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}!saveGenerationInformation@{saveGenerationInformation}}
+\index{saveGenerationInformation@{saveGenerationInformation}!EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}}
+\doxysubsubsection{\texorpdfstring{saveGenerationInformation()}{saveGenerationInformation()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6\+::save\+Generation\+Information (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&}]{generation\+Information }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Save run information. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_ab08eec41a1c75a9fad7df6c082243223}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ac041732688848ad653e9ff470cfe5f3e}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ac041732688848ad653e9ff470cfe5f3e}} 
+\index{EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}!write@{write}}
+\index{write@{write}!EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write single event (file must be open). 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a7663bea189a270126c5b8c9d7ab54959}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a0095edd1e7bc6611464be19664a35870}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_a0095edd1e7bc6611464be19664a35870}} 
+\index{EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}!write@{write}}
+\index{write@{write}!EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6\+::write (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} $>$ \&}]{events }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write vector of events (file must be open). 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a9179b564aaa81c53fbe47bb99dc6eb49}{EPIC\+::\+Writer\+Module}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ae573380b53612f65c69b48486c4a6c43}\label{class_e_p_i_c_1_1_writer_hep_m_c3_ascii_and_pythia6_ae573380b53612f65c69b48486c4a6c43}} 
+\index{EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}!classId@{classId}}
+\index{classId@{classId}!EPIC::WriterHepMC3AsciiAndPythia6@{EPIC::WriterHepMC3AsciiAndPythia6}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+Writer\+Hep\+MC3\+Ascii\+And\+Pythia6\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+Unique ID to automatically register the class in the registry. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/modules/writer/Writer\+Hep\+MC3\+Ascii\+And\+Pythia6.\+h\end{DoxyCompactItemize}

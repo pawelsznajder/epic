@@ -1,5 +1,5 @@
 \hypertarget{_d_v_c_s_generator_service_8h_source}{}\doxysection{DVCSGenerator\+Service.\+h}
-\label{_d_v_c_s_generator_service_8h_source}\index{/Users/pawel/projects/epic/epic/include/services/DVCSGeneratorService.h@{/Users/pawel/projects/epic/epic/include/services/DVCSGeneratorService.h}}
+\label{_d_v_c_s_generator_service_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/services/DVCSGeneratorService.h@{/Users/pawel/projects/epic/NEW2/epic/include/services/DVCSGeneratorService.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*}}
@@ -17,50 +17,57 @@
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../beans/containers/DVCSKinematic.h"{}}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../beans/containers/DVCSKinematicRanges.h"{}}}
-\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../modules/kinematic/DVCS/DVCSKinematicModule.h"{}}}
-\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../modules/radiative\_corrections/DVCS/DVCSRCModule.h"{}}}
-\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}GeneratorService.h"{}}}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22 \textcolor{keyword}{namespace }EPIC \{}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{GeneratorService}}<DVCSKinematicRanges,}
-\DoxyCodeLine{34         PARTONS::DVCSProcessModule, DVCSKinematicModule, DVCSKinematic,}
-\DoxyCodeLine{35         DVCSRCModule> \{}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37 \textcolor{keyword}{public}:}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_a72eff24480fa19647e5aff3971d501cc}{DVCS\_GENERATOR\_SERVICE\_SUBPROCESSTYPE}}; }
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_ade1a13df015e4b2c6a74938a64f55389}{classId}}; }
-\DoxyCodeLine{43 }
-\DoxyCodeLine{47     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_aa0ef297d34bc77d1339ce23c4b85ccd5}{\string~DVCSGeneratorService}}();}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_a4c968f869abb652ddaac29e93872fe90}{getEventDistribution}}(\textcolor{keyword}{const} std::vector<double> \&kin) \textcolor{keyword}{const};}
-\DoxyCodeLine{50     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_a5042af01bc018fb47e82616472536330}{run}}();}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52 \textcolor{keyword}{private}:}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{57     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}}(\textcolor{keyword}{const} std::string \&className);}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{62     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}} \&other);}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{64     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}} *clone() \textcolor{keyword}{const};}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{66     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getAdditionalGeneralConfigurationFromTask(}
-\DoxyCodeLine{67             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
-\DoxyCodeLine{68 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../beans/containers/DVCSKinematicRanges.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../modules/kinematic/DVCS/DVCSKinematicModule.h"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../modules/radiative\_corrections/DVCS/DVCSRCModule.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}GeneratorService.h"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{GeneratorService}}<DVCSKinematicRanges,}
+\DoxyCodeLine{33         PARTONS::DVCSProcessModule, DVCSKinematicModule,}
+\DoxyCodeLine{34         DVCSRCModule> \{}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_a72eff24480fa19647e5aff3971d501cc}{DVCS\_GENERATOR\_SERVICE\_SUBPROCESSTYPE}}; }
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_ade1a13df015e4b2c6a74938a64f55389}{classId}}; }
+\DoxyCodeLine{42 }
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_aa0ef297d34bc77d1339ce23c4b85ccd5}{\string~DVCSGeneratorService}}();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_ac47209b26ff56910c834478e3d11feef}{getEventDistribution}}(std::vector<double> \&kin) \textcolor{keyword}{const};}
+\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_a5042af01bc018fb47e82616472536330}{run}}();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{private}:}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{56     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{61     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}} \&other);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}} *clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getAdditionalGeneralConfigurationFromTask(}
+\DoxyCodeLine{66             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getKinematicRangesFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
 \DoxyCodeLine{69     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getProcessModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
 \DoxyCodeLine{70     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getKinematicModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
 \DoxyCodeLine{71     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getRCModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
 \DoxyCodeLine{72     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isServiceWellConfigured() \textcolor{keyword}{const};}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{74     PARTONS::VCSSubProcessType::Type m\_subProcessType; }
-\DoxyCodeLine{75 \};}
-\DoxyCodeLine{76 }
-\DoxyCodeLine{77 \} \textcolor{comment}{/* namespace EPIC */}}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SERVICES\_DVCSGENERATORSERVICE\_H\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{73     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} addAdditionalGenerationConfiguration(\mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{GenerationInformation}}\& generationInformation);}
+\DoxyCodeLine{74     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} transformVariables(std::vector<double>\& variables) \textcolor{keyword}{const};}
+\DoxyCodeLine{75     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} transformRanges(std::vector<KinematicRange>\& ranges) \textcolor{keyword}{const};}
+\DoxyCodeLine{76     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} getJacobian(\textcolor{keyword}{const} std::vector<double>\& variables) \textcolor{keyword}{const};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} bookHistograms();}
+\DoxyCodeLine{79     \textcolor{keywordtype}{void} fillHistograms(\textcolor{keyword}{const} std::vector<double>\& variables);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     PARTONS::VCSSubProcessType::Type m\_subProcessType; }
+\DoxyCodeLine{82 \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SERVICES\_DVCSGENERATORSERVICE\_H\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

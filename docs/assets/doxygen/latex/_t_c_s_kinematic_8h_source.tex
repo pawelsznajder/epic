@@ -1,0 +1,42 @@
+\hypertarget{_t_c_s_kinematic_8h_source}{}\doxysection{TCSKinematic.\+h}
+\label{_t_c_s_kinematic_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/TCSKinematic.h@{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/TCSKinematic.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BEANS\_CONTAINERS\_TCS\_KINEMATIC\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BEANS\_CONTAINERS\_TCS\_KINEMATIC\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}DDVCSKinematic.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }PARTONS \{}
+\DoxyCodeLine{14 \textcolor{keyword}{class }TCSObservableKinematic;}
+\DoxyCodeLine{15 \} \textcolor{comment}{/* namespace PARTONS */}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_a062c98f0cf3c4d3f0e5c07ac2f7457b5}{TCSKinematic}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{39     \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_aa1aafbcd72c5069c299f54f6c0560729}{TCSKinematic}}(\textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} Q2, \textcolor{keywordtype}{double} t, \textcolor{keywordtype}{double} Q2Prim, \textcolor{keywordtype}{double} E,}
+\DoxyCodeLine{40             \textcolor{keywordtype}{double} phiS, \textcolor{keywordtype}{double} phiL, \textcolor{keywordtype}{double} thetaL);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{45     \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_af418526b20d02f42f1839806b5d07387}{TCSKinematic}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} \&other);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ae034749f7cc1b18c296516c79076aff4}{\string~TCSKinematic}}();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57     PARTONS::TCSObservableKinematic \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ab6d2b9216fac16b1271cf348fab44765}{toPARTONSTCSObservableKinematic}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     PARTONS::DDVCSObservableKinematic toPARTONSDDVCSObservableKinematic() \textcolor{keyword}{const} = \textcolor{keyword}{delete};}
+\DoxyCodeLine{60     \textcolor{keywordtype}{double} getPhi() \textcolor{keyword}{const} = \textcolor{keyword}{delete};}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} setPhi(\textcolor{keywordtype}{double} phi) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_CONTAINERS\_TCS\_KINEMATIC\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

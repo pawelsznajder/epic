@@ -1,11 +1,11 @@
 \hypertarget{_d_v_m_p_kinematic_8h_source}{}\doxysection{DVMPKinematic.\+h}
-\label{_d_v_m_p_kinematic_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/containers/DVMPKinematic.h@{/Users/pawel/projects/epic/epic/include/beans/containers/DVMPKinematic.h}}
+\label{_d_v_m_p_kinematic_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/DVMPKinematic.h@{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/DVMPKinematic.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BEANS\_CONTAINERS\_DVMP\_KINEMATIC\_H}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#define BEANS\_CONTAINERS\_DVMP\_KINEMATIC\_H}}
 \DoxyCodeLine{3 }
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/beans/MesonPolarization.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/beans/PolarizationType.h>}}
 \DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{13 }
 \DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../types/ParticleType.h"{}}}
@@ -22,9 +22,9 @@
 \DoxyCodeLine{32 }
 \DoxyCodeLine{36     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a851ff221e2d5c6774a72c1bc2a8bdc7a}{DVMPKinematic}}();}
 \DoxyCodeLine{37 }
-\DoxyCodeLine{41     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a3274febee2d468b0db3b6ff4590b5908}{DVMPKinematic}}(\textcolor{keywordtype}{double} xB, \textcolor{keywordtype}{double} t, \textcolor{keywordtype}{double} Q2, \textcolor{keywordtype}{double} E, \textcolor{keywordtype}{double} phi,}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_ada54c2ebf5bf87ca0e0973551487b47c}{DVMPKinematic}}(\textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} Q2, \textcolor{keywordtype}{double} t, \textcolor{keywordtype}{double} E, \textcolor{keywordtype}{double} phi,}
 \DoxyCodeLine{42             \textcolor{keywordtype}{double} phiS, \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} mesonType,}
-\DoxyCodeLine{43             PARTONS::MesonPolarization::Type mesonPolarization);}
+\DoxyCodeLine{43             PARTONS::PolarizationType::Type mesonPolarization);}
 \DoxyCodeLine{44 }
 \DoxyCodeLine{48     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a480892024aecc2619919d6997f943ca9}{DVMPKinematic}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic}{DVMPKinematic}} \&other);}
 \DoxyCodeLine{49 }
@@ -38,17 +38,17 @@
 \DoxyCodeLine{63     \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
 \DoxyCodeLine{64     \textcolor{comment}{//********************************************************}}
 \DoxyCodeLine{65 }
-\DoxyCodeLine{69     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_ae58ae24b875c044591bf61bdc5a7eaff}{getXB}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{69     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a9f6c37e5a2d5f89e7e42dde9889148e7}{getY}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{70 }
-\DoxyCodeLine{74     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a87793e9678f07b1624bfea3c81634212}{setXB}}(\textcolor{keywordtype}{double} xB);}
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a295b5632b00838250362cc0c5a9c239f}{setY}}(\textcolor{keywordtype}{double} y);}
 \DoxyCodeLine{75 }
-\DoxyCodeLine{79     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_ae8fd69b0b0972c7d0496326ec70d9cf3}{getT}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{79     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a6a7db6d27ec520b61160010d1a125e85}{getQ2}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{80 }
-\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a39f5e1e52d2b458f4620c0ba054d77a2}{setT}}(\textcolor{keywordtype}{double} t);}
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a03db2015e2cad9eaf28b7ec1ec775f72}{setQ2}}(\textcolor{keywordtype}{double} Q2);}
 \DoxyCodeLine{85 }
-\DoxyCodeLine{89     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a6a7db6d27ec520b61160010d1a125e85}{getQ2}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{89     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_ae8fd69b0b0972c7d0496326ec70d9cf3}{getT}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{90 }
-\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a03db2015e2cad9eaf28b7ec1ec775f72}{setQ2}}(\textcolor{keywordtype}{double} Q2);}
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a39f5e1e52d2b458f4620c0ba054d77a2}{setT}}(\textcolor{keywordtype}{double} t);}
 \DoxyCodeLine{95 }
 \DoxyCodeLine{99     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a7906405739a99bcb3a799105ff241fdb}{getE}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{100 }
@@ -66,32 +66,31 @@
 \DoxyCodeLine{130 }
 \DoxyCodeLine{134     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a541b665c8f7465a1b2282ea58f835939}{setMesonType}}(\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} mesonType);}
 \DoxyCodeLine{135 }
-\DoxyCodeLine{139     PARTONS::MesonPolarization::Type \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a7d410c4fde14e6991c27bd615bc3409d}{getMesonPolarization}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{139     PARTONS::PolarizationType::Type \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a43525d6ff8c99eeebb31bb9469814d3b}{getPolarizationType}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{140 }
-\DoxyCodeLine{144     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_a9583eb021c99ec27af217d6e307a896e}{setMesonPolarization}}(}
-\DoxyCodeLine{145             PARTONS::MesonPolarization::Type mesonPolarization);}
-\DoxyCodeLine{146 }
-\DoxyCodeLine{147 \textcolor{keyword}{private}:}
-\DoxyCodeLine{148 }
-\DoxyCodeLine{152     \textcolor{keywordtype}{double} m\_xB;}
-\DoxyCodeLine{153 }
-\DoxyCodeLine{157     \textcolor{keywordtype}{double} m\_t;}
-\DoxyCodeLine{158 }
-\DoxyCodeLine{162     \textcolor{keywordtype}{double} m\_Q2;}
-\DoxyCodeLine{163 }
-\DoxyCodeLine{167     \textcolor{keywordtype}{double} m\_E;}
-\DoxyCodeLine{168 }
-\DoxyCodeLine{172     \textcolor{keywordtype}{double} m\_phi;}
-\DoxyCodeLine{173 }
-\DoxyCodeLine{177     \textcolor{keywordtype}{double} m\_phiS;}
-\DoxyCodeLine{178 }
-\DoxyCodeLine{182     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} m\_mesonType;}
-\DoxyCodeLine{183 }
-\DoxyCodeLine{187     PARTONS::MesonPolarization::Type m\_mesonPolarization;}
-\DoxyCodeLine{188 \};}
-\DoxyCodeLine{189 }
-\DoxyCodeLine{190 \}}
-\DoxyCodeLine{191 }
-\DoxyCodeLine{192 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_CONTAINERS\_DVMP\_KINEMATIC\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{144     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_kinematic_ac75ae18c3c10ceacec5d6f9b3f0d004f}{setPolarizationType}}(PARTONS::PolarizationType::Type mesonPolarization);}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{keyword}{private}:}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{151     \textcolor{keywordtype}{double} m\_y;}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{156     \textcolor{keywordtype}{double} m\_Q2;}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{161     \textcolor{keywordtype}{double} m\_t;}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{166     \textcolor{keywordtype}{double} m\_E;}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{171     \textcolor{keywordtype}{double} m\_phi;}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{176     \textcolor{keywordtype}{double} m\_phiS;}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{181     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} m\_mesonType;}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{186     PARTONS::PolarizationType::Type m\_mesonPolarization;}
+\DoxyCodeLine{187 \};}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189 \}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_CONTAINERS\_DVMP\_KINEMATIC\_H */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

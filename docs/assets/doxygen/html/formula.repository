@@ -1,7 +1,9 @@
-\_form#0:$Q^{2}$
-\_form#1:$Q'^{2}$
-\_form#2:$\phi$
-\_form#3:$\theta$
-\_form#4:$GeV^{2}$
-\_form#5:$x_{B}$
-\_form#6:$\phi_{S}$
+\_form#0=15x14:$Q^{2}$
+\_form#1=18x14:$Q'^{2}$
+\_form#2=8x13:$\phi$
+\_form#3=14x13:$\phi_{S}$
+\_form#4=14x13:$\phi_{L}$
+\_form#5=13x13:$\theta_{L}$
+\_form#6=30x11:$GeV^{2}$
+\_form#7=8x9:$y$
+\_form#8=16x9:$x_{B}$

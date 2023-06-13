@@ -1,0 +1,107 @@
+\hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges}{}\doxysection{EPIC\+::TCSKinematic\+Ranges Class Reference}
+\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges}\index{EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}}
+
+
+Container to store single kinematic ranges for TCS.  
+
+
+
+
+{\ttfamily \#include $<$TCSKinematic\+Ranges.\+h$>$}
+
+Inheritance diagram for EPIC\+::TCSKinematic\+Ranges\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_e_p_i_c_1_1_t_c_s_kinematic_ranges}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a1a8d59e634524047e22e4da0552b2c68}{TCSKinematic\+Ranges}} ()
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a28006b76153290d53e2d14ba24fe0c46}{TCSKinematic\+Ranges}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&rangeY, const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&range\+Q2, const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&rangeT, const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&range\+Q2\+Prim, const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&range\+PhiS, const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&range\+PhiL, const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&range\+ThetaL)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a423269c1a4be659e6a82d3fe54167dc8}{TCSKinematic\+Ranges}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges}{TCSKinematic\+Ranges}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a558ecb9c2689d89b8773a1c66c5b8cdf}{$\sim$\+TCSKinematic\+Ranges}} ()
+\item 
+virtual std\+::string \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a2638f2d72a454905163e2557ef61752f}{to\+String}} () const
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_ab055b5dfcdaf4cfaf0a57cd8476070a2}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_ab055b5dfcdaf4cfaf0a57cd8476070a2}} 
+bool {\bfseries in\+Range} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} \&obs\+Kin) const
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a52e54b4b352295a90a12f59c74cf8845}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a52e54b4b352295a90a12f59c74cf8845}} 
+bool {\bfseries in\+Range} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&obs\+Kin) const =delete
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a9fa65d42f01c99ee44aa3abafeec5065}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a9fa65d42f01c99ee44aa3abafeec5065}} 
+const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \& {\bfseries get\+Range\+Phi} () const =delete
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a17270c38e0d25553b1883094657c5623}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a17270c38e0d25553b1883094657c5623}} 
+void {\bfseries set\+Range\+Phi} (const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&range\+Phi)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges}{TCSKinematic\+Ranges}} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a0c9ea91b2610163ed269938496d24703}{get\+TCSKinematic\+Rangesfrom\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a43fbab51cda06e53d68e15cda9618811}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a43fbab51cda06e53d68e15cda9618811}} 
+static \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ranges}{DDVCSKinematic\+Ranges}} {\bfseries get\+DDVCSKinematic\+Rangesfrom\+Task} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Container to store single kinematic ranges for TCS. 
+
+This class acts as a container to store kinematic range for TCS. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a1a8d59e634524047e22e4da0552b2c68}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a1a8d59e634524047e22e4da0552b2c68}} 
+\index{EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}!TCSKinematicRanges@{TCSKinematicRanges}}
+\index{TCSKinematicRanges@{TCSKinematicRanges}!EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}}
+\doxysubsubsection{\texorpdfstring{TCSKinematicRanges()}{TCSKinematicRanges()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily EPIC\+::\+TCSKinematic\+Ranges\+::\+TCSKinematic\+Ranges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a28006b76153290d53e2d14ba24fe0c46}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a28006b76153290d53e2d14ba24fe0c46}} 
+\index{EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}!TCSKinematicRanges@{TCSKinematicRanges}}
+\index{TCSKinematicRanges@{TCSKinematicRanges}!EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}}
+\doxysubsubsection{\texorpdfstring{TCSKinematicRanges()}{TCSKinematicRanges()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily EPIC\+::\+TCSKinematic\+Ranges\+::\+TCSKinematic\+Ranges (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&}]{rangeY,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&}]{range\+Q2,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&}]{rangeT,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&}]{range\+Q2\+Prim,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&}]{range\+PhiS,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&}]{range\+PhiL,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} \&}]{range\+ThetaL }\end{DoxyParamCaption})}
+
+Assignment constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a423269c1a4be659e6a82d3fe54167dc8}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a423269c1a4be659e6a82d3fe54167dc8}} 
+\index{EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}!TCSKinematicRanges@{TCSKinematicRanges}}
+\index{TCSKinematicRanges@{TCSKinematicRanges}!EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}}
+\doxysubsubsection{\texorpdfstring{TCSKinematicRanges()}{TCSKinematicRanges()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily EPIC\+::\+TCSKinematic\+Ranges\+::\+TCSKinematic\+Ranges (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges}{TCSKinematic\+Ranges}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a558ecb9c2689d89b8773a1c66c5b8cdf}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a558ecb9c2689d89b8773a1c66c5b8cdf}} 
+\index{EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}!````~TCSKinematicRanges@{$\sim$TCSKinematicRanges}}
+\index{````~TCSKinematicRanges@{$\sim$TCSKinematicRanges}!EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}}
+\doxysubsubsection{\texorpdfstring{$\sim$TCSKinematicRanges()}{~TCSKinematicRanges()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+TCSKinematic\+Ranges\+::$\sim$\+TCSKinematic\+Ranges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a0c9ea91b2610163ed269938496d24703}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a0c9ea91b2610163ed269938496d24703}} 
+\index{EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}!getTCSKinematicRangesfromTask@{getTCSKinematicRangesfromTask}}
+\index{getTCSKinematicRangesfromTask@{getTCSKinematicRangesfromTask}!EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}}
+\doxysubsubsection{\texorpdfstring{getTCSKinematicRangesfromTask()}{getTCSKinematicRangesfromTask()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges}{TCSKinematic\+Ranges}} EPIC\+::\+TCSKinematic\+Ranges\+::get\+TCSKinematic\+Rangesfrom\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Build from task. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a2638f2d72a454905163e2557ef61752f}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a2638f2d72a454905163e2557ef61752f}} 
+\index{EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}!toString@{toString}}
+\index{toString@{toString}!EPIC::TCSKinematicRanges@{EPIC::TCSKinematicRanges}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily virtual std\+::string EPIC\+::\+TCSKinematic\+Ranges\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ranges}{EPIC\+::\+DDVCSKinematic\+Ranges}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/beans/containers/TCSKinematic\+Ranges.\+h\end{DoxyCompactItemize}

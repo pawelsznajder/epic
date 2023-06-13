@@ -1,0 +1,83 @@
+\hypertarget{class_e_p_i_c_1_1_g_a_m2_generator_service}{}\doxysection{EPIC\+::GAM2\+Generator\+Service Class Reference}
+\label{class_e_p_i_c_1_1_g_a_m2_generator_service}\index{EPIC::GAM2GeneratorService@{EPIC::GAM2GeneratorService}}
+
+
+Service used to perform generation of GAM2 MC events.  
+
+
+
+
+{\ttfamily \#include $<$GAM2\+Generator\+Service.\+h$>$}
+
+Inheritance diagram for EPIC\+::GAM2\+Generator\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.114058cm]{class_e_p_i_c_1_1_g_a_m2_generator_service}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service_ac3f1d7600b80ab931c3cc61b7cf954dc}{$\sim$\+GAM2\+Generator\+Service}} ()
+\item 
+virtual double \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service_a39e33a5b71f074a133dac580173ff201}{get\+Event\+Distribution}} (std\+::vector$<$ double $>$ \&kin) const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service_a85224c8fdf7ca2d3c9ed13c3cdf94922}{run}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service_a70f02899537f35ed76cd5772b9533fa8}{class\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Service used to perform generation of GAM2 MC events. 
+
+This class handles generation process of MC events for GAM2. It is intended to have a unique instance accessed trough GAM2\+Generator\+Service\+::get\+Instance() method. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_generator_service_ac3f1d7600b80ab931c3cc61b7cf954dc}\label{class_e_p_i_c_1_1_g_a_m2_generator_service_ac3f1d7600b80ab931c3cc61b7cf954dc}} 
+\index{EPIC::GAM2GeneratorService@{EPIC::GAM2GeneratorService}!````~GAM2GeneratorService@{$\sim$GAM2GeneratorService}}
+\index{````~GAM2GeneratorService@{$\sim$GAM2GeneratorService}!EPIC::GAM2GeneratorService@{EPIC::GAM2GeneratorService}}
+\doxysubsubsection{\texorpdfstring{$\sim$GAM2GeneratorService()}{~GAM2GeneratorService()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+GAM2\+Generator\+Service\+::$\sim$\+GAM2\+Generator\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_generator_service_a39e33a5b71f074a133dac580173ff201}\label{class_e_p_i_c_1_1_g_a_m2_generator_service_a39e33a5b71f074a133dac580173ff201}} 
+\index{EPIC::GAM2GeneratorService@{EPIC::GAM2GeneratorService}!getEventDistribution@{getEventDistribution}}
+\index{getEventDistribution@{getEventDistribution}!EPIC::GAM2GeneratorService@{EPIC::GAM2GeneratorService}}
+\doxysubsubsection{\texorpdfstring{getEventDistribution()}{getEventDistribution()}}
+{\footnotesize\ttfamily virtual double EPIC\+::\+GAM2\+Generator\+Service\+::get\+Event\+Distribution (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{kin }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function is used by \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} to probe event distribution during the initialization step. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_interface_a2e70f6295e34a2d8aac5ffe929bc82fa}{EPIC\+::\+Event\+Generator\+Interface}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_generator_service_a85224c8fdf7ca2d3c9ed13c3cdf94922}\label{class_e_p_i_c_1_1_g_a_m2_generator_service_a85224c8fdf7ca2d3c9ed13c3cdf94922}} 
+\index{EPIC::GAM2GeneratorService@{EPIC::GAM2GeneratorService}!run@{run}}
+\index{run@{run}!EPIC::GAM2GeneratorService@{EPIC::GAM2GeneratorService}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+GAM2\+Generator\+Service\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Run/ 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a08e2461bab7f40d8a21d8e5fc6d79fb6}{EPIC\+::\+Generator\+Service$<$ GAM2\+Kinematic\+Ranges, PARTONS\+::\+GAM2\+Process\+Module, GAM2\+Kinematic\+Module, GAM2\+RCModule $>$}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_generator_service_a70f02899537f35ed76cd5772b9533fa8}\label{class_e_p_i_c_1_1_g_a_m2_generator_service_a70f02899537f35ed76cd5772b9533fa8}} 
+\index{EPIC::GAM2GeneratorService@{EPIC::GAM2GeneratorService}!classId@{classId}}
+\index{classId@{classId}!EPIC::GAM2GeneratorService@{EPIC::GAM2GeneratorService}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+GAM2\+Generator\+Service\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+Unique ID to automatically register the class in the registry. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/services/GAM2\+Generator\+Service.\+h\end{DoxyCompactItemize}

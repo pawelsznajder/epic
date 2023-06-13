@@ -1,0 +1,125 @@
+\hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order}{}\doxysection{EPIC\+::DVCSRCCollinear\+Full2nd\+Order Class Reference}
+\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order}\index{EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}}
+
+
+Radiative correction module for DVCS process using collinear approximation.  
+
+
+
+
+{\ttfamily \#include $<$DVCSRCCollinear\+Full2nd\+Order.\+h$>$}
+
+Inheritance diagram for EPIC\+::DVCSRCCollinear\+Full2nd\+Order\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=6.000000cm]{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a171664208ab3232387627f701ca675f0}{DVCSRCCollinear\+Full2nd\+Order}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_afb836701c13d812c518a7a5156dbeb6e}{DVCSRCCollinear\+Full2nd\+Order}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order}{DVCSRCCollinear\+Full2nd\+Order}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a13de103d7e4ebeeb5ac99222fea2d045}{$\sim$\+DVCSRCCollinear\+Full2nd\+Order}} ()
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order}{DVCSRCCollinear\+Full2nd\+Order}} $\ast$ \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_ac4a974e10b1e08b25cd9e331c3db7154}{clone}} () const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a5e050cfd31c9d5cb397d65a220edc79c}{configure}} (const Elem\+Utils\+::\+Parameters \&parameters)
+\item 
+virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic}{DVCSKinematic}} $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_aa495ee5247d1d161b8e44ea411dc2d4b}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic}{DVCSKinematic}} \&obs\+Kin, const std\+::vector$<$ double $>$ \&par) const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a9b2e39a7e93ba67c295f771bf47d8cb9}{update\+Event}} (\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event, const std\+::vector$<$ double $>$ \&par) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_ac897fad9e7f4df5a4beeea0ddd076d9f}{class\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Radiative correction module for DVCS process using collinear approximation. 
+
+This class defines radiative correction module for DVCS process. The corrections are evaluated using the collinear approximation.
+
+Emission of single ISR photon or single FSR photon (1st order) or two ISR photons or two FSR photons or ISR+\+FSR pair (2nd order) are implemented. In the case of two ISR/\+FSR photons both of them are combined in the output into a single photon record. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a171664208ab3232387627f701ca675f0}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a171664208ab3232387627f701ca675f0}} 
+\index{EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}!DVCSRCCollinearFull2ndOrder@{DVCSRCCollinearFull2ndOrder}}
+\index{DVCSRCCollinearFull2ndOrder@{DVCSRCCollinearFull2ndOrder}!EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}}
+\doxysubsubsection{\texorpdfstring{DVCSRCCollinearFull2ndOrder()}{DVCSRCCollinearFull2ndOrder()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+DVCSRCCollinear\+Full2nd\+Order\+::\+DVCSRCCollinear\+Full2nd\+Order (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_afb836701c13d812c518a7a5156dbeb6e}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_afb836701c13d812c518a7a5156dbeb6e}} 
+\index{EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}!DVCSRCCollinearFull2ndOrder@{DVCSRCCollinearFull2ndOrder}}
+\index{DVCSRCCollinearFull2ndOrder@{DVCSRCCollinearFull2ndOrder}!EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}}
+\doxysubsubsection{\texorpdfstring{DVCSRCCollinearFull2ndOrder()}{DVCSRCCollinearFull2ndOrder()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+DVCSRCCollinear\+Full2nd\+Order\+::\+DVCSRCCollinear\+Full2nd\+Order (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order}{DVCSRCCollinear\+Full2nd\+Order}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a13de103d7e4ebeeb5ac99222fea2d045}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a13de103d7e4ebeeb5ac99222fea2d045}} 
+\index{EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}!````~DVCSRCCollinearFull2ndOrder@{$\sim$DVCSRCCollinearFull2ndOrder}}
+\index{````~DVCSRCCollinearFull2ndOrder@{$\sim$DVCSRCCollinearFull2ndOrder}!EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}}
+\doxysubsubsection{\texorpdfstring{$\sim$DVCSRCCollinearFull2ndOrder()}{~DVCSRCCollinearFull2ndOrder()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+DVCSRCCollinear\+Full2nd\+Order\+::$\sim$\+DVCSRCCollinear\+Full2nd\+Order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_ac4a974e10b1e08b25cd9e331c3db7154}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_ac4a974e10b1e08b25cd9e331c3db7154}} 
+\index{EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}!clone@{clone}}
+\index{clone@{clone}!EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order}{DVCSRCCollinear\+Full2nd\+Order}} $\ast$ EPIC\+::\+DVCSRCCollinear\+Full2nd\+Order\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear}{EPIC\+::\+DVCSRCCollinear}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a5e050cfd31c9d5cb397d65a220edc79c}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a5e050cfd31c9d5cb397d65a220edc79c}} 
+\index{EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}!configure@{configure}}
+\index{configure@{configure}!EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}}
+\doxysubsubsection{\texorpdfstring{configure()}{configure()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+DVCSRCCollinear\+Full2nd\+Order\+::configure (\begin{DoxyParamCaption}\item[{const Elem\+Utils\+::\+Parameters \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear}{EPIC\+::\+DVCSRCCollinear}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_aa495ee5247d1d161b8e44ea411dc2d4b}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_aa495ee5247d1d161b8e44ea411dc2d4b}} 
+\index{EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic}{DVCSKinematic}} $>$ EPIC\+::\+DVCSRCCollinear\+Full2nd\+Order\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic}{DVCSKinematic}} \&}]{obs\+Kin,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get radiative function, true experimental conditions and kinematics. 
+
+Reimplemented from \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a336ce6c3774d2879451c85f8b7c92a1f}{EPIC\+::\+DVCSRCCollinear}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a9b2e39a7e93ba67c295f771bf47d8cb9}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a9b2e39a7e93ba67c295f771bf47d8cb9}} 
+\index{EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}!updateEvent@{updateEvent}}
+\index{updateEvent@{updateEvent}!EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}}
+\doxysubsubsection{\texorpdfstring{updateEvent()}{updateEvent()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+DVCSRCCollinear\+Full2nd\+Order\+::update\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&}]{event,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Update event. 
+
+Reimplemented from \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a00e73f1e7ed1a248cf732eb4549f8703}{EPIC\+::\+DVCSRCCollinear}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_ac897fad9e7f4df5a4beeea0ddd076d9f}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_ac897fad9e7f4df5a4beeea0ddd076d9f}} 
+\index{EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}!classId@{classId}}
+\index{classId@{classId}!EPIC::DVCSRCCollinearFull2ndOrder@{EPIC::DVCSRCCollinearFull2ndOrder}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+DVCSRCCollinear\+Full2nd\+Order\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+Unique ID to automatically register the class in the registry. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/modules/radiative\+\_\+corrections/\+DVCS/DVCSRCCollinear\+Full2nd\+Order.\+h\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weight_0',['WEIGHT',['../class_e_p_i_c_1_1_event_attribute_type.html#a67a9a1d210e0e6bf5b8f66f92fbc2e82a74aa8eb8433afe74882418b339c481de',1,'EPIC::EventAttributeType']]]
+  ['virtual_0',['VIRTUAL',['../class_e_p_i_c_1_1_particle_code_type.html#aa1adb42eb01d1c2428cee012d53ceb61ada3d83fc5a5c22b3a5766b181d7484aa',1,'EPIC::ParticleCodeType']]]
 ];

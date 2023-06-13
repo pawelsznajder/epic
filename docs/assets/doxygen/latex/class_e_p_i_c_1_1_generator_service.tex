@@ -1,5 +1,5 @@
-\hypertarget{class_e_p_i_c_1_1_generator_service}{}\doxysection{EPIC\+::Generator\+Service\texorpdfstring{$<$}{<} kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module \texorpdfstring{$>$}{>} Class Template Reference}
-\label{class_e_p_i_c_1_1_generator_service}\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+\hypertarget{class_e_p_i_c_1_1_generator_service}{}\doxysection{EPIC\+::Generator\+Service\texorpdfstring{$<$}{<} kin\+Range, proc\+Module, kin\+Module, rc\+Module \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_e_p_i_c_1_1_generator_service}\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 
 
 Template for services handling generation of MC events.  
@@ -9,412 +9,493 @@ Template for services handling generation of MC events.
 
 {\ttfamily \#include $<$Generator\+Service.\+h$>$}
 
-Inheritance diagram for EPIC\+::Generator\+Service\texorpdfstring{$<$}{<} kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+Inheritance diagram for EPIC\+::Generator\+Service\texorpdfstring{$<$}{<} kin\+Range, proc\+Module, kin\+Module, rc\+Module \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=1.138211cm]{class_e_p_i_c_1_1_generator_service}
+\includegraphics[height=1.278539cm]{class_e_p_i_c_1_1_generator_service}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ae306a7cfeb548ae15c2bcb59b9f51bea}{Generator\+Service}} (const std\+::string \&class\+Name)
+\mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a5a1c72705364a8107d7b8f24e25f4c56}{Generator\+Service}} (const std\+::string \&class\+Name)
 \item 
-\mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_acef5e7cbbe5e6bcaa1763e8fe1bf5089}{Generator\+Service}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{Generator\+Service}} \&other)
+\mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a4d909cdd2f1c6bc02a702b475ed43031}{Generator\+Service}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{Generator\+Service}} \&other)
 \item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ae987f46ed16a4a3e939f5693a2279127}\label{class_e_p_i_c_1_1_generator_service_ae987f46ed16a4a3e939f5693a2279127}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a34326d488c41c84e1e8f8d32d74d1b72}\label{class_e_p_i_c_1_1_generator_service_a34326d488c41c84e1e8f8d32d74d1b72}} 
 virtual \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{Generator\+Service}} $\ast$ {\bfseries clone} () const =0
 \item 
-virtual \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a62821cf735511077a8ef5bca05f47a15}{$\sim$\+Generator\+Service}} ()
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a53cb1700efd3f612deeac85a81be170c}{$\sim$\+Generator\+Service}} ()
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_adecdf319c3255bc3eafa31ba9ac5b234}{compute\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a7054551bb087ec059c274f53de25002f}{compute\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
 \item 
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a6cc715cabcc55e7e24eb8cd960b9ee17}{run}} ()=0
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a08e2461bab7f40d8a21d8e5fc6d79fb6}{run}} ()=0
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a0d1d455cc9e64068d607a82f901fabe6}{print\+And\+Save\+Generation\+Configuration}} ()
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_aa860c2879f60fcb792d4a0974895c265}{print\+And\+Save\+Generation\+Configuration}} ()
 \item 
-const \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{General\+Configuration}} \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a22850634d1b2f7e40c97cc93707bb977}{get\+General\+Configuration}} () const
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a05eba661f06916fe9ecca50611f61007}{add\+Additional\+Generation\+Configuration}} (\mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&generation\+Information)
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_abb674ceff37dd5f5736ba7c90269dce4}{set\+General\+Configuration}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{General\+Configuration}} \&general\+Configuration)
+const \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{General\+Configuration}} \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ae3ec95e3d4092c6f6ebd6333ebf61fea}{get\+General\+Configuration}} () const
 \item 
-const kin\+Range \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a7b7bdd732a31912cde35c2f5d7a9dfef}{get\+Kinematic\+Ranges}} () const
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a7e2f486a23adc379c1a2fd1b03976e18}{set\+General\+Configuration}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{General\+Configuration}} \&general\+Configuration)
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a7cac675ccdf25bc2a93cff0a68180ea1}{set\+Kinematic\+Ranges}} (const kin\+Range \&kinematic\+Ranges)
+const kin\+Range \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_af9128e57dc68859a5bc946781d838b5e}{get\+Kinematic\+Ranges}} () const
 \item 
-const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a1561ff29e5f85e27b454cfed19d1c152}{get\+Experimental\+Conditions}} () const
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_aa30cab04aa484c6e5d00defceff9a271}{set\+Kinematic\+Ranges}} (const kin\+Range \&kinematic\+Ranges)
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a093980d7c25c6cb68fed2a4f5722e9cf}{set\+Experimental\+Conditions}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions)
+const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_adf964efa086781699b88a47acba5e061}{get\+Experimental\+Conditions}} () const
 \item 
-proc\+Module $\ast$ \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a94e5c542e698cbb591f47332facee362}{get\+Process\+Module}} () const
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ab68f46385a8010dd6fbfe0c69208be3e}{set\+Experimental\+Conditions}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions)
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a5029e05e40f1a18d02010d051bf653a1}{set\+Process\+Module}} (proc\+Module $\ast$process\+Module)
+proc\+Module $\ast$ \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a62885d59ee9a0a29f7a2a686e1b23bc9}{get\+Process\+Module}} () const
 \item 
-const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ad4c686e1a5944a8d57c6d613a4e518c7}{get\+Event\+Generator\+Module}} () const
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a22954fca6f6aa751ca2b09a339f9dc15}{set\+Process\+Module}} (proc\+Module $\ast$process\+Module)
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_accd712050dfb42e46cebcf6c9958102b}{set\+Event\+Generator\+Module}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} $>$ \&p\+Event\+Generator\+Module)
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a8799b147c6c46a463c9d680e06c67695}{get\+Event\+Generator\+Module}} () const
 \item 
-const std\+::shared\+\_\+ptr$<$ kin\+Module $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a59d25241080315b2fc9533f2c4e353ac}{get\+Kinematic\+Module}} () const
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_aeabe2becbeedfc578500413fed103e6f}{set\+Event\+Generator\+Module}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} $>$ \&p\+Event\+Generator\+Module)
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_af7f35b941d67436022b658ee520e0688}{set\+Kinematic\+Module}} (const std\+::shared\+\_\+ptr$<$ kin\+Module $>$ \&p\+Kinematic\+Module)
+const std\+::shared\+\_\+ptr$<$ kin\+Module $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a14afac1d4527091f41900dc0e206b24c}{get\+Kinematic\+Module}} () const
 \item 
-const std\+::shared\+\_\+ptr$<$ rc\+Module $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a9d7937a305acb9ca3d8b8cbfab37bdae}{get\+RCModule}} () const
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ac2e038726753909abec40e3e0699f391}{set\+Kinematic\+Module}} (const std\+::shared\+\_\+ptr$<$ kin\+Module $>$ \&p\+Kinematic\+Module)
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_abb668c5bb38ffc9603a8a46d10c33f44}{set\+RCModule}} (const std\+::shared\+\_\+ptr$<$ rc\+Module $>$ \&p\+RCModule)
+const std\+::shared\+\_\+ptr$<$ rc\+Module $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a07dc4c6e3e68dbe4086f01cb4ff9e8da}{get\+RCModule}} () const
 \item 
-const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{Writer\+Module}} $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a6279c39bc286fe02664fbcca9d78cc4b}{get\+Writer\+Module}} () const
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a4cd8d5a6ae8319390a5249cdfb039dc9}{set\+RCModule}} (const std\+::shared\+\_\+ptr$<$ rc\+Module $>$ \&p\+RCModule)
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a84068066981e01376eae2c0f13c2a030}{set\+Writer\+Module}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{Writer\+Module}} $>$ \&p\+Writer\+Module)
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{Writer\+Module}} $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a683a7c38f97467bef00ca648a4e2c952}{get\+Writer\+Module}} () const
 \item 
-const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ad7ac758c18328724f385d0b9aa53f122}{get\+Scenario\+Description}} () const
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ace8bc7f50a06cf4ca638a663768a680c}{set\+Writer\+Module}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{Writer\+Module}} $>$ \&p\+Writer\+Module)
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a9f04de47744108ba5090c8a8f9ed2a16}{set\+Scenario\+Description}} (const std\+::string \&scenario\+Description)
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_aec80966280f69cbc87b1c017855a409b}{get\+Scenario\+Description}} () const
 \item 
-const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a956cf26e99d926f7365b1e4e94233917}{get\+Scenario\+Date}} () const
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a93999506ab6db94e5ee5e2ad42b3c114}{set\+Scenario\+Description}} (const std\+::string \&scenario\+Description)
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_afdb66a6c284a608c4eb1acfdd68e9d2e}{set\+Scenario\+Date}} (const std\+::string \&scenario\+Date)
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a4fed23968adb54cfe30e59b2c70f6614}{get\+Scenario\+Date}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a2f4a267ee1146f807d9bf984e49e2bdf}{set\+Scenario\+Date}} (const std\+::string \&scenario\+Date)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a95d4dfb048eddcab4216acf0579e3737}{get\+General\+Configuration\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a61a9d28e8edc27f87c3b61e28bef8344}{get\+General\+Configuration\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
 \item 
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a0749ce652f192981f6a87bf2f5274fb7}{get\+Additional\+General\+Configuration\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)=0
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ad030d64e93c783c94aa38d55b58c8b8b}{get\+Additional\+General\+Configuration\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)=0
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a2a4da88b44cdbad9b0491b3be866ff91}{get\+Experimental\+Conditions\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a897a5c66c3d2aad34a211c9f413bc0e9}{get\+Experimental\+Conditions\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a0817abf83d6a9bc41fb2b21bcde19571}{get\+Kinematic\+Ranges\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a99e1741c3c9c28fe9951a169dbb60e3c}{get\+Kinematic\+Ranges\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)=0
 \item 
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ac4e6854b4189e11e566121dd74d14568}{get\+Process\+Module\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)=0
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a8f0bb968f1a0dbf7200e9e40aacb9e74}{get\+Process\+Module\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)=0
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a746612089a05eda64e865eb5ea22bc86}{get\+Event\+Generator\+Module\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ad1d0943b7f4074db2495daa281744f60}{get\+Event\+Generator\+Module\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
 \item 
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a4e2440430161df7ab7fda3359793a557}{get\+Kinematic\+Module\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)=0
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ab51031db717e218467996e5cb0162530}{get\+Kinematic\+Module\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)=0
 \item 
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a1dab4d68b7f9bca531aa54c27da34e2d}{get\+RCModule\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)=0
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_ab6906406a76a2156e4f5466ce04a8100}{get\+RCModule\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)=0
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a47af69a723247ccd26115c2f9ebd5ade}{get\+Writer\+Module\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a5a64afcd9e6ce6cad8b7f1431f305673}{get\+Writer\+Module\+From\+Task}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&task)
 \item 
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a16910b9c4f7dd8d8b3a7d2253433585d}{is\+Service\+Well\+Configured}} () const
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a73048b2b68648612fb95177425e2827a}{is\+Service\+Well\+Configured}} () const
 \item 
-std\+::string \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a13c423928597a751af08bf1edfb6a6d8}{get\+Current\+Date}} () const
+std\+::string \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a8e05f767f64e96453ab0e8b1150fbcb1}{get\+Current\+Date}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_aee62a2819128a0d7f2907b4dbb00a712}{check\+Target\+Polarisation}} (\mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions) const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_afc73e1bd0785efa7a70d122a034f4606}{transform\+Variables}} (std\+::vector$<$ double $>$ \&variables) const =0
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a2b4e2e11f311fc53aae3ac4c49d8eca9}{transform\+Ranges}} (std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \&ranges) const =0
+\item 
+virtual double \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_aa116f2e801d4f4f37c784f6a9f3c0396}{get\+Jacobian}} (const std\+::vector$<$ double $>$ \&variables) const =0
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a5fd4ede29e72ea090c43051c744996f2}{open\+Histogram\+File}} ()
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a4077a9d054be0559c906f74dc2330876}{book\+Histograms}} ()
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_afde43d52eb827364d87b4653f5ab97e3}{close\+Histogram\+File}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a2869b8b05dcc5e9092b18200f7d7bc99}\label{class_e_p_i_c_1_1_generator_service_a2869b8b05dcc5e9092b18200f7d7bc99}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a72ca66df13cdbda2486e19ddc2539d74}\label{class_e_p_i_c_1_1_generator_service_a72ca66df13cdbda2486e19ddc2539d74}} 
 kin\+Range {\bfseries m\+\_\+kinematic\+Ranges}
 \begin{DoxyCompactList}\small\item\em Kinematic ranges. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a660b598d42a7e2e958b23f00b7dda4b7}\label{class_e_p_i_c_1_1_generator_service_a660b598d42a7e2e958b23f00b7dda4b7}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a92f142b5b05f64e1bf87c20c6c5acafb}\label{class_e_p_i_c_1_1_generator_service_a92f142b5b05f64e1bf87c20c6c5acafb}} 
 proc\+Module $\ast$ {\bfseries m\+\_\+p\+Process\+Module}
 \begin{DoxyCompactList}\small\item\em Process module. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a141fdf680173302c9dd63ab06828b4cc}\label{class_e_p_i_c_1_1_generator_service_a141fdf680173302c9dd63ab06828b4cc}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_aacb4f5d3d39f33616fc0143b78b7f482}\label{class_e_p_i_c_1_1_generator_service_aacb4f5d3d39f33616fc0143b78b7f482}} 
 std\+::shared\+\_\+ptr$<$ kin\+Module $>$ {\bfseries m\+\_\+p\+Kinematic\+Module}
 \begin{DoxyCompactList}\small\item\em Kinematic module. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a36a7d5e3746f27e91ac95e8083eb69c2}\label{class_e_p_i_c_1_1_generator_service_a36a7d5e3746f27e91ac95e8083eb69c2}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_aa7c8dfacd445e7f2e7a6a3a04e10b37e}\label{class_e_p_i_c_1_1_generator_service_aa7c8dfacd445e7f2e7a6a3a04e10b37e}} 
 std\+::shared\+\_\+ptr$<$ rc\+Module $>$ {\bfseries m\+\_\+p\+RCModule}
 \begin{DoxyCompactList}\small\item\em Radiative correction module. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a95e506be9e1231e202fb6810f83d2562}\label{class_e_p_i_c_1_1_generator_service_a95e506be9e1231e202fb6810f83d2562}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a270361cfb1c499912f0d1b348522d785}\label{class_e_p_i_c_1_1_generator_service_a270361cfb1c499912f0d1b348522d785}} 
 \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{General\+Configuration}} {\bfseries m\+\_\+general\+Configuration}
 \begin{DoxyCompactList}\small\item\em General configuration. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a5958d054d56d8682686d8dcdd4628f94}\label{class_e_p_i_c_1_1_generator_service_a5958d054d56d8682686d8dcdd4628f94}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_aac4cb487af2b229007929ff59756ae2c}\label{class_e_p_i_c_1_1_generator_service_aac4cb487af2b229007929ff59756ae2c}} 
 \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} {\bfseries m\+\_\+experimental\+Conditions}
 \begin{DoxyCompactList}\small\item\em Experimental conditions. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a7ed2c338e72aa711793575735156dcfa}\label{class_e_p_i_c_1_1_generator_service_a7ed2c338e72aa711793575735156dcfa}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a9143ff548a6a3a91ba43a6878214c311}\label{class_e_p_i_c_1_1_generator_service_a9143ff548a6a3a91ba43a6878214c311}} 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} $>$ {\bfseries m\+\_\+p\+Event\+Generator\+Module}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} generator module. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a6cfa218f1f96f6c441699cf31a80e369}\label{class_e_p_i_c_1_1_generator_service_a6cfa218f1f96f6c441699cf31a80e369}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a5a43a2475f3655ecbd3a892a5a65d58f}\label{class_e_p_i_c_1_1_generator_service_a5a43a2475f3655ecbd3a892a5a65d58f}} 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{Writer\+Module}} $>$ {\bfseries m\+\_\+p\+Writer\+Module}
 \begin{DoxyCompactList}\small\item\em Writer module. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a5e29709d84e8e3c1fb1bd39ee1cde405}\label{class_e_p_i_c_1_1_generator_service_a5e29709d84e8e3c1fb1bd39ee1cde405}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_adf0e6c2c821a4d61fd8a28803bce913b}\label{class_e_p_i_c_1_1_generator_service_adf0e6c2c821a4d61fd8a28803bce913b}} 
 std\+::string {\bfseries m\+\_\+scenario\+Date}
 \begin{DoxyCompactList}\small\item\em Scenario date. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a1e0a38fbcadc46092b6719dc2b0c3737}\label{class_e_p_i_c_1_1_generator_service_a1e0a38fbcadc46092b6719dc2b0c3737}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a8f2084591f5446a4a6337fbae76e7c4e}\label{class_e_p_i_c_1_1_generator_service_a8f2084591f5446a4a6337fbae76e7c4e}} 
 std\+::string {\bfseries m\+\_\+scenario\+Description}
 \begin{DoxyCompactList}\small\item\em Scenario description. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_af087f02e80aa89beb5d7d377ae71acb6}\label{class_e_p_i_c_1_1_generator_service_af087f02e80aa89beb5d7d377ae71acb6}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ac688443b6e0c243049dfbac439639b83}\label{class_e_p_i_c_1_1_generator_service_ac688443b6e0c243049dfbac439639b83}} 
 std\+::pair$<$ std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point, std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point $>$ {\bfseries m\+\_\+debug\+Time\+Initialization}
 \begin{DoxyCompactList}\small\item\em Timer spent for initialization. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a0d974556917d81a58facf01d470eeefa}\label{class_e_p_i_c_1_1_generator_service_a0d974556917d81a58facf01d470eeefa}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a11b6e7af6bde060c486010675f1092f6}\label{class_e_p_i_c_1_1_generator_service_a11b6e7af6bde060c486010675f1092f6}} 
 std\+::pair$<$ std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point, std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point $>$ {\bfseries m\+\_\+debug\+Time\+Generation}
-\begin{DoxyCompactList}\small\item\em Timer spent for generation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Timer spent for generation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_af349146ccb69d9d3d63cd3359afdcd41}\label{class_e_p_i_c_1_1_generator_service_af349146ccb69d9d3d63cd3359afdcd41}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_random_number_module}{Random\+Number\+Module}} $>$ {\bfseries m\+\_\+random\+Number\+Module}
+\begin{DoxyCompactList}\small\item\em Random number module. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a69169bfa9dc615b3db64d45483fa3ab4}\label{class_e_p_i_c_1_1_generator_service_a69169bfa9dc615b3db64d45483fa3ab4}} 
+TFile $\ast$ {\bfseries m\+\_\+histogram\+File}
+\begin{DoxyCompactList}\small\item\em File containing histograms. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a6d4782c0a2ef3cc52fb406b9680c94c9}\label{class_e_p_i_c_1_1_generator_service_a6d4782c0a2ef3cc52fb406b9680c94c9}} 
+std\+::vector$<$ TH1 $\ast$ $>$ {\bfseries m\+\_\+histograms}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\subsubsection*{template$<$class kin\+Range, class proc\+Module, class kin\+Module, class kin\+Bean, class rc\+Module$>$\newline
-class EPIC\+::\+Generator\+Service$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$}
+\subsubsection*{template$<$class kin\+Range, class proc\+Module, class kin\+Module, class rc\+Module$>$\newline
+class EPIC\+::\+Generator\+Service$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$}
 Template for services handling generation of MC events. 
 
 This is a template used to create services handling generation of MC events. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ae306a7cfeb548ae15c2bcb59b9f51bea}\label{class_e_p_i_c_1_1_generator_service_ae306a7cfeb548ae15c2bcb59b9f51bea}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!GeneratorService@{GeneratorService}}
-\index{GeneratorService@{GeneratorService}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a5a1c72705364a8107d7b8f24e25f4c56}\label{class_e_p_i_c_1_1_generator_service_a5a1c72705364a8107d7b8f24e25f4c56}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!GeneratorService@{GeneratorService}}
+\index{GeneratorService@{GeneratorService}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{GeneratorService()}{GeneratorService()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-\mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::\+Generator\+Service (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+\mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::\+Generator\+Service (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_acef5e7cbbe5e6bcaa1763e8fe1bf5089}\label{class_e_p_i_c_1_1_generator_service_acef5e7cbbe5e6bcaa1763e8fe1bf5089}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!GeneratorService@{GeneratorService}}
-\index{GeneratorService@{GeneratorService}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a4d909cdd2f1c6bc02a702b475ed43031}\label{class_e_p_i_c_1_1_generator_service_a4d909cdd2f1c6bc02a702b475ed43031}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!GeneratorService@{GeneratorService}}
+\index{GeneratorService@{GeneratorService}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{GeneratorService()}{GeneratorService()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-\mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::\+Generator\+Service (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+\mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::\+Generator\+Service (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a62821cf735511077a8ef5bca05f47a15}\label{class_e_p_i_c_1_1_generator_service_a62821cf735511077a8ef5bca05f47a15}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!````~GeneratorService@{$\sim$GeneratorService}}
-\index{````~GeneratorService@{$\sim$GeneratorService}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a53cb1700efd3f612deeac85a81be170c}\label{class_e_p_i_c_1_1_generator_service_a53cb1700efd3f612deeac85a81be170c}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!````~GeneratorService@{$\sim$GeneratorService}}
+\index{````~GeneratorService@{$\sim$GeneratorService}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{$\sim$GeneratorService()}{~GeneratorService()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-virtual \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::$\sim$\mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{Generator\+Service}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::$\sim$\mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{Generator\+Service}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 Destructor. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_adecdf319c3255bc3eafa31ba9ac5b234}\label{class_e_p_i_c_1_1_generator_service_adecdf319c3255bc3eafa31ba9ac5b234}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!computeTask@{computeTask}}
-\index{computeTask@{computeTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a05eba661f06916fe9ecca50611f61007}\label{class_e_p_i_c_1_1_generator_service_a05eba661f06916fe9ecca50611f61007}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!addAdditionalGenerationConfiguration@{addAdditionalGenerationConfiguration}}
+\index{addAdditionalGenerationConfiguration@{addAdditionalGenerationConfiguration}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
+\doxysubsubsection{\texorpdfstring{addAdditionalGenerationConfiguration()}{addAdditionalGenerationConfiguration()}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::add\+Additional\+Generation\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&}]{generation\+Information }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Add additional information to \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} printout. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a4077a9d054be0559c906f74dc2330876}\label{class_e_p_i_c_1_1_generator_service_a4077a9d054be0559c906f74dc2330876}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!bookHistograms@{bookHistograms}}
+\index{bookHistograms@{bookHistograms}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
+\doxysubsubsection{\texorpdfstring{bookHistograms()}{bookHistograms()}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::book\+Histograms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Book histograms. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_aee62a2819128a0d7f2907b4dbb00a712}\label{class_e_p_i_c_1_1_generator_service_aee62a2819128a0d7f2907b4dbb00a712}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!checkTargetPolarisation@{checkTargetPolarisation}}
+\index{checkTargetPolarisation@{checkTargetPolarisation}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
+\doxysubsubsection{\texorpdfstring{checkTargetPolarisation()}{checkTargetPolarisation()}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::check\+Target\+Polarisation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Check target polarisation state. If not longitidinal and transverse, generate randomly polarisation state (in any direction). \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_afde43d52eb827364d87b4653f5ab97e3}\label{class_e_p_i_c_1_1_generator_service_afde43d52eb827364d87b4653f5ab97e3}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!closeHistogramFile@{closeHistogramFile}}
+\index{closeHistogramFile@{closeHistogramFile}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
+\doxysubsubsection{\texorpdfstring{closeHistogramFile()}{closeHistogramFile()}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::close\+Histogram\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Close histogram file. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a7054551bb087ec059c274f53de25002f}\label{class_e_p_i_c_1_1_generator_service_a7054551bb087ec059c274f53de25002f}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!computeTask@{computeTask}}
+\index{computeTask@{computeTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{computeTask()}{computeTask()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::compute\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::compute\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Configure and run whole computation. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a0749ce652f192981f6a87bf2f5274fb7}\label{class_e_p_i_c_1_1_generator_service_a0749ce652f192981f6a87bf2f5274fb7}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getAdditionalGeneralConfigurationFromTask@{getAdditionalGeneralConfigurationFromTask}}
-\index{getAdditionalGeneralConfigurationFromTask@{getAdditionalGeneralConfigurationFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Configure and run whole computation. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ad030d64e93c783c94aa38d55b58c8b8b}\label{class_e_p_i_c_1_1_generator_service_ad030d64e93c783c94aa38d55b58c8b8b}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getAdditionalGeneralConfigurationFromTask@{getAdditionalGeneralConfigurationFromTask}}
+\index{getAdditionalGeneralConfigurationFromTask@{getAdditionalGeneralConfigurationFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getAdditionalGeneralConfigurationFromTask()}{getAdditionalGeneralConfigurationFromTask()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Additional\+General\+Configuration\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Additional\+General\+Configuration\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
 
-Get additional general configuration from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a13c423928597a751af08bf1edfb6a6d8}\label{class_e_p_i_c_1_1_generator_service_a13c423928597a751af08bf1edfb6a6d8}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getCurrentDate@{getCurrentDate}}
-\index{getCurrentDate@{getCurrentDate}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get additional general configuration from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a8e05f767f64e96453ab0e8b1150fbcb1}\label{class_e_p_i_c_1_1_generator_service_a8e05f767f64e96453ab0e8b1150fbcb1}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getCurrentDate@{getCurrentDate}}
+\index{getCurrentDate@{getCurrentDate}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getCurrentDate()}{getCurrentDate()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-std\+::string \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Current\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+std\+::string \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Current\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
-Get current date. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ad4c686e1a5944a8d57c6d613a4e518c7}\label{class_e_p_i_c_1_1_generator_service_ad4c686e1a5944a8d57c6d613a4e518c7}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getEventGeneratorModule@{getEventGeneratorModule}}
-\index{getEventGeneratorModule@{getEventGeneratorModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get current date. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a8799b147c6c46a463c9d680e06c67695}\label{class_e_p_i_c_1_1_generator_service_a8799b147c6c46a463c9d680e06c67695}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getEventGeneratorModule@{getEventGeneratorModule}}
+\index{getEventGeneratorModule@{getEventGeneratorModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getEventGeneratorModule()}{getEventGeneratorModule()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Event\+Generator\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Event\+Generator\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get event generator module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a746612089a05eda64e865eb5ea22bc86}\label{class_e_p_i_c_1_1_generator_service_a746612089a05eda64e865eb5ea22bc86}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getEventGeneratorModuleFromTask@{getEventGeneratorModuleFromTask}}
-\index{getEventGeneratorModuleFromTask@{getEventGeneratorModuleFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get event generator module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ad1d0943b7f4074db2495daa281744f60}\label{class_e_p_i_c_1_1_generator_service_ad1d0943b7f4074db2495daa281744f60}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getEventGeneratorModuleFromTask@{getEventGeneratorModuleFromTask}}
+\index{getEventGeneratorModuleFromTask@{getEventGeneratorModuleFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getEventGeneratorModuleFromTask()}{getEventGeneratorModuleFromTask()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Event\+Generator\+Module\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Event\+Generator\+Module\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
-Get event generator module from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a1561ff29e5f85e27b454cfed19d1c152}\label{class_e_p_i_c_1_1_generator_service_a1561ff29e5f85e27b454cfed19d1c152}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getExperimentalConditions@{getExperimentalConditions}}
-\index{getExperimentalConditions@{getExperimentalConditions}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get event generator module from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_adf964efa086781699b88a47acba5e061}\label{class_e_p_i_c_1_1_generator_service_adf964efa086781699b88a47acba5e061}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getExperimentalConditions@{getExperimentalConditions}}
+\index{getExperimentalConditions@{getExperimentalConditions}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getExperimentalConditions()}{getExperimentalConditions()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Experimental\+Conditions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Experimental\+Conditions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get experimental conditions. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a2a4da88b44cdbad9b0491b3be866ff91}\label{class_e_p_i_c_1_1_generator_service_a2a4da88b44cdbad9b0491b3be866ff91}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getExperimentalConditionsFromTask@{getExperimentalConditionsFromTask}}
-\index{getExperimentalConditionsFromTask@{getExperimentalConditionsFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get experimental conditions. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a897a5c66c3d2aad34a211c9f413bc0e9}\label{class_e_p_i_c_1_1_generator_service_a897a5c66c3d2aad34a211c9f413bc0e9}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getExperimentalConditionsFromTask@{getExperimentalConditionsFromTask}}
+\index{getExperimentalConditionsFromTask@{getExperimentalConditionsFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getExperimentalConditionsFromTask()}{getExperimentalConditionsFromTask()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Experimental\+Conditions\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Experimental\+Conditions\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
-Get experimental conditions from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a22850634d1b2f7e40c97cc93707bb977}\label{class_e_p_i_c_1_1_generator_service_a22850634d1b2f7e40c97cc93707bb977}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getGeneralConfiguration@{getGeneralConfiguration}}
-\index{getGeneralConfiguration@{getGeneralConfiguration}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get experimental conditions from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ae3ec95e3d4092c6f6ebd6333ebf61fea}\label{class_e_p_i_c_1_1_generator_service_ae3ec95e3d4092c6f6ebd6333ebf61fea}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getGeneralConfiguration@{getGeneralConfiguration}}
+\index{getGeneralConfiguration@{getGeneralConfiguration}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getGeneralConfiguration()}{getGeneralConfiguration()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-const \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{General\+Configuration}} \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+General\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+const \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{General\+Configuration}} \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+General\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get general configurations. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a95d4dfb048eddcab4216acf0579e3737}\label{class_e_p_i_c_1_1_generator_service_a95d4dfb048eddcab4216acf0579e3737}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getGeneralConfigurationFromTask@{getGeneralConfigurationFromTask}}
-\index{getGeneralConfigurationFromTask@{getGeneralConfigurationFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get general configurations. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a61a9d28e8edc27f87c3b61e28bef8344}\label{class_e_p_i_c_1_1_generator_service_a61a9d28e8edc27f87c3b61e28bef8344}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getGeneralConfigurationFromTask@{getGeneralConfigurationFromTask}}
+\index{getGeneralConfigurationFromTask@{getGeneralConfigurationFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getGeneralConfigurationFromTask()}{getGeneralConfigurationFromTask()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+General\+Configuration\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+General\+Configuration\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
-Get general configuration from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a59d25241080315b2fc9533f2c4e353ac}\label{class_e_p_i_c_1_1_generator_service_a59d25241080315b2fc9533f2c4e353ac}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getKinematicModule@{getKinematicModule}}
-\index{getKinematicModule@{getKinematicModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get general configuration from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_aa116f2e801d4f4f37c784f6a9f3c0396}\label{class_e_p_i_c_1_1_generator_service_aa116f2e801d4f4f37c784f6a9f3c0396}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getJacobian@{getJacobian}}
+\index{getJacobian@{getJacobian}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
+\doxysubsubsection{\texorpdfstring{getJacobian()}{getJacobian()}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual double \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Jacobian (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{variables }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+Get Jacobian related to the transformation of kinematic variables. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a14afac1d4527091f41900dc0e206b24c}\label{class_e_p_i_c_1_1_generator_service_a14afac1d4527091f41900dc0e206b24c}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getKinematicModule@{getKinematicModule}}
+\index{getKinematicModule@{getKinematicModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getKinematicModule()}{getKinematicModule()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-const std\+::shared\+\_\+ptr$<$ kin\+Module $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Kinematic\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+const std\+::shared\+\_\+ptr$<$ kin\+Module $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Kinematic\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get kinematic module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a4e2440430161df7ab7fda3359793a557}\label{class_e_p_i_c_1_1_generator_service_a4e2440430161df7ab7fda3359793a557}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getKinematicModuleFromTask@{getKinematicModuleFromTask}}
-\index{getKinematicModuleFromTask@{getKinematicModuleFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get kinematic module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ab51031db717e218467996e5cb0162530}\label{class_e_p_i_c_1_1_generator_service_ab51031db717e218467996e5cb0162530}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getKinematicModuleFromTask@{getKinematicModuleFromTask}}
+\index{getKinematicModuleFromTask@{getKinematicModuleFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getKinematicModuleFromTask()}{getKinematicModuleFromTask()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Kinematic\+Module\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Kinematic\+Module\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
 
-Get kinematic module from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a7b7bdd732a31912cde35c2f5d7a9dfef}\label{class_e_p_i_c_1_1_generator_service_a7b7bdd732a31912cde35c2f5d7a9dfef}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getKinematicRanges@{getKinematicRanges}}
-\index{getKinematicRanges@{getKinematicRanges}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get kinematic module from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_af9128e57dc68859a5bc946781d838b5e}\label{class_e_p_i_c_1_1_generator_service_af9128e57dc68859a5bc946781d838b5e}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getKinematicRanges@{getKinematicRanges}}
+\index{getKinematicRanges@{getKinematicRanges}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getKinematicRanges()}{getKinematicRanges()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-const kin\+Range \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Kinematic\+Ranges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+const kin\+Range \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Kinematic\+Ranges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get kinematic ranges. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a0817abf83d6a9bc41fb2b21bcde19571}\label{class_e_p_i_c_1_1_generator_service_a0817abf83d6a9bc41fb2b21bcde19571}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getKinematicRangesFromTask@{getKinematicRangesFromTask}}
-\index{getKinematicRangesFromTask@{getKinematicRangesFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get kinematic ranges. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a99e1741c3c9c28fe9951a169dbb60e3c}\label{class_e_p_i_c_1_1_generator_service_a99e1741c3c9c28fe9951a169dbb60e3c}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getKinematicRangesFromTask@{getKinematicRangesFromTask}}
+\index{getKinematicRangesFromTask@{getKinematicRangesFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getKinematicRangesFromTask()}{getKinematicRangesFromTask()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Kinematic\+Ranges\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Kinematic\+Ranges\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
 
-Get kinematic range from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a94e5c542e698cbb591f47332facee362}\label{class_e_p_i_c_1_1_generator_service_a94e5c542e698cbb591f47332facee362}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getProcessModule@{getProcessModule}}
-\index{getProcessModule@{getProcessModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get kinematic range from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a62885d59ee9a0a29f7a2a686e1b23bc9}\label{class_e_p_i_c_1_1_generator_service_a62885d59ee9a0a29f7a2a686e1b23bc9}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getProcessModule@{getProcessModule}}
+\index{getProcessModule@{getProcessModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getProcessModule()}{getProcessModule()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-proc\+Module $\ast$ \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Process\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+proc\+Module $\ast$ \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Process\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get process module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ac4e6854b4189e11e566121dd74d14568}\label{class_e_p_i_c_1_1_generator_service_ac4e6854b4189e11e566121dd74d14568}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getProcessModuleFromTask@{getProcessModuleFromTask}}
-\index{getProcessModuleFromTask@{getProcessModuleFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get process module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a8f0bb968f1a0dbf7200e9e40aacb9e74}\label{class_e_p_i_c_1_1_generator_service_a8f0bb968f1a0dbf7200e9e40aacb9e74}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getProcessModuleFromTask@{getProcessModuleFromTask}}
+\index{getProcessModuleFromTask@{getProcessModuleFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getProcessModuleFromTask()}{getProcessModuleFromTask()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Process\+Module\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Process\+Module\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
 
-Get process module from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a9d7937a305acb9ca3d8b8cbfab37bdae}\label{class_e_p_i_c_1_1_generator_service_a9d7937a305acb9ca3d8b8cbfab37bdae}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getRCModule@{getRCModule}}
-\index{getRCModule@{getRCModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get process module from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a07dc4c6e3e68dbe4086f01cb4ff9e8da}\label{class_e_p_i_c_1_1_generator_service_a07dc4c6e3e68dbe4086f01cb4ff9e8da}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getRCModule@{getRCModule}}
+\index{getRCModule@{getRCModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getRCModule()}{getRCModule()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-const std\+::shared\+\_\+ptr$<$ rc\+Module $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+RCModule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+const std\+::shared\+\_\+ptr$<$ rc\+Module $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+RCModule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get radiative correction module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a1dab4d68b7f9bca531aa54c27da34e2d}\label{class_e_p_i_c_1_1_generator_service_a1dab4d68b7f9bca531aa54c27da34e2d}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getRCModuleFromTask@{getRCModuleFromTask}}
-\index{getRCModuleFromTask@{getRCModuleFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get radiative correction module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ab6906406a76a2156e4f5466ce04a8100}\label{class_e_p_i_c_1_1_generator_service_ab6906406a76a2156e4f5466ce04a8100}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getRCModuleFromTask@{getRCModuleFromTask}}
+\index{getRCModuleFromTask@{getRCModuleFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getRCModuleFromTask()}{getRCModuleFromTask()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+RCModule\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+RCModule\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
 
-Get radiative correction module from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a956cf26e99d926f7365b1e4e94233917}\label{class_e_p_i_c_1_1_generator_service_a956cf26e99d926f7365b1e4e94233917}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getScenarioDate@{getScenarioDate}}
-\index{getScenarioDate@{getScenarioDate}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get radiative correction module from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a4fed23968adb54cfe30e59b2c70f6614}\label{class_e_p_i_c_1_1_generator_service_a4fed23968adb54cfe30e59b2c70f6614}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getScenarioDate@{getScenarioDate}}
+\index{getScenarioDate@{getScenarioDate}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getScenarioDate()}{getScenarioDate()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Scenario\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Scenario\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get scenario date. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ad7ac758c18328724f385d0b9aa53f122}\label{class_e_p_i_c_1_1_generator_service_ad7ac758c18328724f385d0b9aa53f122}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getScenarioDescription@{getScenarioDescription}}
-\index{getScenarioDescription@{getScenarioDescription}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get scenario date. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_aec80966280f69cbc87b1c017855a409b}\label{class_e_p_i_c_1_1_generator_service_aec80966280f69cbc87b1c017855a409b}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getScenarioDescription@{getScenarioDescription}}
+\index{getScenarioDescription@{getScenarioDescription}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getScenarioDescription()}{getScenarioDescription()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Scenario\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Scenario\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get scenario description. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a6279c39bc286fe02664fbcca9d78cc4b}\label{class_e_p_i_c_1_1_generator_service_a6279c39bc286fe02664fbcca9d78cc4b}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getWriterModule@{getWriterModule}}
-\index{getWriterModule@{getWriterModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get scenario description. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a683a7c38f97467bef00ca648a4e2c952}\label{class_e_p_i_c_1_1_generator_service_a683a7c38f97467bef00ca648a4e2c952}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getWriterModule@{getWriterModule}}
+\index{getWriterModule@{getWriterModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getWriterModule()}{getWriterModule()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{Writer\+Module}} $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Writer\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{Writer\+Module}} $>$ \& \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Writer\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Get writer module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a47af69a723247ccd26115c2f9ebd5ade}\label{class_e_p_i_c_1_1_generator_service_a47af69a723247ccd26115c2f9ebd5ade}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!getWriterModuleFromTask@{getWriterModuleFromTask}}
-\index{getWriterModuleFromTask@{getWriterModuleFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get writer module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a5a64afcd9e6ce6cad8b7f1431f305673}\label{class_e_p_i_c_1_1_generator_service_a5a64afcd9e6ce6cad8b7f1431f305673}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!getWriterModuleFromTask@{getWriterModuleFromTask}}
+\index{getWriterModuleFromTask@{getWriterModuleFromTask}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{getWriterModuleFromTask()}{getWriterModuleFromTask()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::get\+Writer\+Module\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::get\+Writer\+Module\+From\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
-Get writer module from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a16910b9c4f7dd8d8b3a7d2253433585d}\label{class_e_p_i_c_1_1_generator_service_a16910b9c4f7dd8d8b3a7d2253433585d}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!isServiceWellConfigured@{isServiceWellConfigured}}
-\index{isServiceWellConfigured@{isServiceWellConfigured}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Get writer module from XML. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a73048b2b68648612fb95177425e2827a}\label{class_e_p_i_c_1_1_generator_service_a73048b2b68648612fb95177425e2827a}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!isServiceWellConfigured@{isServiceWellConfigured}}
+\index{isServiceWellConfigured@{isServiceWellConfigured}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{isServiceWellConfigured()}{isServiceWellConfigured()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::is\+Service\+Well\+Configured (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::is\+Service\+Well\+Configured (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
 
-Check if well configured. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a0d1d455cc9e64068d607a82f901fabe6}\label{class_e_p_i_c_1_1_generator_service_a0d1d455cc9e64068d607a82f901fabe6}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!printAndSaveGenerationConfiguration@{printAndSaveGenerationConfiguration}}
-\index{printAndSaveGenerationConfiguration@{printAndSaveGenerationConfiguration}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Check if well configured. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a5fd4ede29e72ea090c43051c744996f2}\label{class_e_p_i_c_1_1_generator_service_a5fd4ede29e72ea090c43051c744996f2}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!openHistogramFile@{openHistogramFile}}
+\index{openHistogramFile@{openHistogramFile}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
+\doxysubsubsection{\texorpdfstring{openHistogramFile()}{openHistogramFile()}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::open\+Histogram\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Open histogram file. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_aa860c2879f60fcb792d4a0974895c265}\label{class_e_p_i_c_1_1_generator_service_aa860c2879f60fcb792d4a0974895c265}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!printAndSaveGenerationConfiguration@{printAndSaveGenerationConfiguration}}
+\index{printAndSaveGenerationConfiguration@{printAndSaveGenerationConfiguration}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{printAndSaveGenerationConfiguration()}{printAndSaveGenerationConfiguration()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::print\+And\+Save\+Generation\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::print\+And\+Save\+Generation\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Save generation configuration. Must be invoked when writer is open. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a6cc715cabcc55e7e24eb8cd960b9ee17}\label{class_e_p_i_c_1_1_generator_service_a6cc715cabcc55e7e24eb8cd960b9ee17}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!run@{run}}
-\index{run@{run}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Save generation configuration. Must be invoked when writer is open. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a08e2461bab7f40d8a21d8e5fc6d79fb6}\label{class_e_p_i_c_1_1_generator_service_a08e2461bab7f40d8a21d8e5fc6d79fb6}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!run@{run}}
+\index{run@{run}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 Run/ 
 
-Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_a5042af01bc018fb47e82616472536330}{EPIC\+::\+DVCSGenerator\+Service}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a15e4bfb962084e49c687e67dcd08a5dc}{EPIC\+::\+DVMPGenerator\+Service}}, and \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_generator_service_a73290b29dcff6a6f65c583684032feb3}{EPIC\+::\+TCSGenerator\+Service}}.
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_abc568c9d86ddedfa7d22d3673351b725}{EPIC\+::\+DDVCSGenerator\+Service}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service_a5042af01bc018fb47e82616472536330}{EPIC\+::\+DVCSGenerator\+Service}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service_a15e4bfb962084e49c687e67dcd08a5dc}{EPIC\+::\+DVMPGenerator\+Service}}, \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service_a85224c8fdf7ca2d3c9ed13c3cdf94922}{EPIC\+::\+GAM2\+Generator\+Service}}, and \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_generator_service_a73290b29dcff6a6f65c583684032feb3}{EPIC\+::\+TCSGenerator\+Service}}.
 
-\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_accd712050dfb42e46cebcf6c9958102b}\label{class_e_p_i_c_1_1_generator_service_accd712050dfb42e46cebcf6c9958102b}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!setEventGeneratorModule@{setEventGeneratorModule}}
-\index{setEventGeneratorModule@{setEventGeneratorModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_aeabe2becbeedfc578500413fed103e6f}\label{class_e_p_i_c_1_1_generator_service_aeabe2becbeedfc578500413fed103e6f}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!setEventGeneratorModule@{setEventGeneratorModule}}
+\index{setEventGeneratorModule@{setEventGeneratorModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{setEventGeneratorModule()}{setEventGeneratorModule()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::set\+Event\+Generator\+Module (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} $>$ \&}]{p\+Event\+Generator\+Module }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::set\+Event\+Generator\+Module (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} $>$ \&}]{p\+Event\+Generator\+Module }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Set event generator module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a093980d7c25c6cb68fed2a4f5722e9cf}\label{class_e_p_i_c_1_1_generator_service_a093980d7c25c6cb68fed2a4f5722e9cf}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!setExperimentalConditions@{setExperimentalConditions}}
-\index{setExperimentalConditions@{setExperimentalConditions}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Set event generator module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ab68f46385a8010dd6fbfe0c69208be3e}\label{class_e_p_i_c_1_1_generator_service_ab68f46385a8010dd6fbfe0c69208be3e}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!setExperimentalConditions@{setExperimentalConditions}}
+\index{setExperimentalConditions@{setExperimentalConditions}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{setExperimentalConditions()}{setExperimentalConditions()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::set\+Experimental\+Conditions (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::set\+Experimental\+Conditions (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Set experimental conditions. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_abb674ceff37dd5f5736ba7c90269dce4}\label{class_e_p_i_c_1_1_generator_service_abb674ceff37dd5f5736ba7c90269dce4}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!setGeneralConfiguration@{setGeneralConfiguration}}
-\index{setGeneralConfiguration@{setGeneralConfiguration}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Set experimental conditions. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a7e2f486a23adc379c1a2fd1b03976e18}\label{class_e_p_i_c_1_1_generator_service_a7e2f486a23adc379c1a2fd1b03976e18}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!setGeneralConfiguration@{setGeneralConfiguration}}
+\index{setGeneralConfiguration@{setGeneralConfiguration}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{setGeneralConfiguration()}{setGeneralConfiguration()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::set\+General\+Configuration (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{General\+Configuration}} \&}]{general\+Configuration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::set\+General\+Configuration (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{General\+Configuration}} \&}]{general\+Configuration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Set general configuration. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_af7f35b941d67436022b658ee520e0688}\label{class_e_p_i_c_1_1_generator_service_af7f35b941d67436022b658ee520e0688}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!setKinematicModule@{setKinematicModule}}
-\index{setKinematicModule@{setKinematicModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Set general configuration. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ac2e038726753909abec40e3e0699f391}\label{class_e_p_i_c_1_1_generator_service_ac2e038726753909abec40e3e0699f391}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!setKinematicModule@{setKinematicModule}}
+\index{setKinematicModule@{setKinematicModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{setKinematicModule()}{setKinematicModule()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::set\+Kinematic\+Module (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ kin\+Module $>$ \&}]{p\+Kinematic\+Module }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::set\+Kinematic\+Module (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ kin\+Module $>$ \&}]{p\+Kinematic\+Module }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Set kinematic module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a7cac675ccdf25bc2a93cff0a68180ea1}\label{class_e_p_i_c_1_1_generator_service_a7cac675ccdf25bc2a93cff0a68180ea1}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!setKinematicRanges@{setKinematicRanges}}
-\index{setKinematicRanges@{setKinematicRanges}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Set kinematic module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_aa30cab04aa484c6e5d00defceff9a271}\label{class_e_p_i_c_1_1_generator_service_aa30cab04aa484c6e5d00defceff9a271}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!setKinematicRanges@{setKinematicRanges}}
+\index{setKinematicRanges@{setKinematicRanges}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{setKinematicRanges()}{setKinematicRanges()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::set\+Kinematic\+Ranges (\begin{DoxyParamCaption}\item[{const kin\+Range \&}]{kinematic\+Ranges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::set\+Kinematic\+Ranges (\begin{DoxyParamCaption}\item[{const kin\+Range \&}]{kinematic\+Ranges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Set kinematic ranges. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a5029e05e40f1a18d02010d051bf653a1}\label{class_e_p_i_c_1_1_generator_service_a5029e05e40f1a18d02010d051bf653a1}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!setProcessModule@{setProcessModule}}
-\index{setProcessModule@{setProcessModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Set kinematic ranges. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a22954fca6f6aa751ca2b09a339f9dc15}\label{class_e_p_i_c_1_1_generator_service_a22954fca6f6aa751ca2b09a339f9dc15}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!setProcessModule@{setProcessModule}}
+\index{setProcessModule@{setProcessModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{setProcessModule()}{setProcessModule()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::set\+Process\+Module (\begin{DoxyParamCaption}\item[{proc\+Module $\ast$}]{process\+Module }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::set\+Process\+Module (\begin{DoxyParamCaption}\item[{proc\+Module $\ast$}]{process\+Module }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Set process module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_abb668c5bb38ffc9603a8a46d10c33f44}\label{class_e_p_i_c_1_1_generator_service_abb668c5bb38ffc9603a8a46d10c33f44}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!setRCModule@{setRCModule}}
-\index{setRCModule@{setRCModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Set process module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a4cd8d5a6ae8319390a5249cdfb039dc9}\label{class_e_p_i_c_1_1_generator_service_a4cd8d5a6ae8319390a5249cdfb039dc9}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!setRCModule@{setRCModule}}
+\index{setRCModule@{setRCModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{setRCModule()}{setRCModule()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::set\+RCModule (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ rc\+Module $>$ \&}]{p\+RCModule }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::set\+RCModule (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ rc\+Module $>$ \&}]{p\+RCModule }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Set radiative correction module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_afdb66a6c284a608c4eb1acfdd68e9d2e}\label{class_e_p_i_c_1_1_generator_service_afdb66a6c284a608c4eb1acfdd68e9d2e}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!setScenarioDate@{setScenarioDate}}
-\index{setScenarioDate@{setScenarioDate}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Set radiative correction module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a2f4a267ee1146f807d9bf984e49e2bdf}\label{class_e_p_i_c_1_1_generator_service_a2f4a267ee1146f807d9bf984e49e2bdf}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!setScenarioDate@{setScenarioDate}}
+\index{setScenarioDate@{setScenarioDate}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{setScenarioDate()}{setScenarioDate()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::set\+Scenario\+Date (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{scenario\+Date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::set\+Scenario\+Date (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{scenario\+Date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Set scenario date. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a9f04de47744108ba5090c8a8f9ed2a16}\label{class_e_p_i_c_1_1_generator_service_a9f04de47744108ba5090c8a8f9ed2a16}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!setScenarioDescription@{setScenarioDescription}}
-\index{setScenarioDescription@{setScenarioDescription}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Set scenario date. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a93999506ab6db94e5ee5e2ad42b3c114}\label{class_e_p_i_c_1_1_generator_service_a93999506ab6db94e5ee5e2ad42b3c114}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!setScenarioDescription@{setScenarioDescription}}
+\index{setScenarioDescription@{setScenarioDescription}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{setScenarioDescription()}{setScenarioDescription()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::set\+Scenario\+Description (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{scenario\+Description }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::set\+Scenario\+Description (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{scenario\+Description }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Set scenario description. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a84068066981e01376eae2c0f13c2a030}\label{class_e_p_i_c_1_1_generator_service_a84068066981e01376eae2c0f13c2a030}} 
-\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}!setWriterModule@{setWriterModule}}
-\index{setWriterModule@{setWriterModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, kinBean, rcModule $>$}}
+Set scenario description. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_ace8bc7f50a06cf4ca638a663768a680c}\label{class_e_p_i_c_1_1_generator_service_ace8bc7f50a06cf4ca638a663768a680c}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!setWriterModule@{setWriterModule}}
+\index{setWriterModule@{setWriterModule}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
 \doxysubsubsection{\texorpdfstring{setWriterModule()}{setWriterModule()}}
-{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class kin\+Bean , class rc\+Module $>$ \\
-void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, kin\+Bean, rc\+Module $>$\+::set\+Writer\+Module (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{Writer\+Module}} $>$ \&}]{p\+Writer\+Module }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::set\+Writer\+Module (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{Writer\+Module}} $>$ \&}]{p\+Writer\+Module }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Set writer module. 
+Set writer module. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_a2b4e2e11f311fc53aae3ac4c49d8eca9}\label{class_e_p_i_c_1_1_generator_service_a2b4e2e11f311fc53aae3ac4c49d8eca9}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!transformRanges@{transformRanges}}
+\index{transformRanges@{transformRanges}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
+\doxysubsubsection{\texorpdfstring{transformRanges()}{transformRanges()}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::transform\+Ranges (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \&}]{ranges }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+Transform ranges. \mbox{\Hypertarget{class_e_p_i_c_1_1_generator_service_afc73e1bd0785efa7a70d122a034f4606}\label{class_e_p_i_c_1_1_generator_service_afc73e1bd0785efa7a70d122a034f4606}} 
+\index{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}!transformVariables@{transformVariables}}
+\index{transformVariables@{transformVariables}!EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$@{EPIC::GeneratorService$<$ kinRange, procModule, kinModule, rcModule $>$}}
+\doxysubsubsection{\texorpdfstring{transformVariables()}{transformVariables()}}
+{\footnotesize\ttfamily template$<$class kin\+Range , class proc\+Module , class kin\+Module , class rc\+Module $>$ \\
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{EPIC\+::\+Generator\+Service}}$<$ kin\+Range, proc\+Module, kin\+Module, rc\+Module $>$\+::transform\+Variables (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{variables }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+Transform variables. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/pawel/projects/epic/epic/include/services/Generator\+Service.\+h\end{DoxyCompactItemize}
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/services/Generator\+Service.\+h\end{DoxyCompactItemize}

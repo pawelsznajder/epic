@@ -1,0 +1,51 @@
+\hypertarget{_d_d_v_c_s_r_c_null_8h_source}{}\doxysection{DDVCSRCNull.\+h}
+\label{_d_d_v_c_s_r_c_null_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/modules/radiative\_corrections/DDVCS/DDVCSRCNull.h@{/Users/pawel/projects/epic/NEW2/epic/include/modules/radiative\_corrections/DDVCS/DDVCSRCNull.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * DDVCSRCNull.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Jun 13, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ) }}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_RADIATIVECORRECTIONS\_DDVCS\_DDVCSRCNULL\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_RADIATIVECORRECTIONS\_DDVCS\_DDVCSRCNULL\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}../../../beans/containers/DDVCSKinematic.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../../../beans/containers/ExperimentalConditions.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}DDVCSRCModule.h"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null}{DDVCSRCNull}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_module}{DDVCSRCModule}} \{}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a9c07ea6449009b7ef967624333da8f3b}{classId}}; }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a8f1d31020140874bcbf10ecf5e443d83}{DDVCSRCNull}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43     \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a12d887f796a4cda86bcf5ef9c1a9f0ef}{DDVCSRCNull}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null}{DDVCSRCNull}} \&other);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_adc9589263be6b447efcf94a3134223f0}{\string~DDVCSRCNull}}();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null}{DDVCSRCNull}} *clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} std::tuple<double, ExperimentalConditions, DDVCSKinematic> \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_afaa13771188dca4d0a355eabdaa7e52e}{evaluate}}(}
+\DoxyCodeLine{53             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}}\& experimentalConditions,}
+\DoxyCodeLine{54             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}}\& obsKin, \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_ac47ee434d6b9fd83747feec94613dd47}{updateEvent}}(\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}}\& event,}
+\DoxyCodeLine{57             \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const};}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_RADIATIVECORRECTIONS\_DDVCS\_DDVCSRCNULL\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,5 +1,5 @@
 \hypertarget{_kinematic_module_8h_source}{}\doxysection{Kinematic\+Module.\+h}
-\label{_kinematic_module_8h_source}\index{/Users/pawel/projects/epic/epic/include/modules/kinematic/KinematicModule.h@{/Users/pawel/projects/epic/epic/include/modules/kinematic/KinematicModule.h}}
+\label{_kinematic_module_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/modules/kinematic/KinematicModule.h@{/Users/pawel/projects/epic/NEW2/epic/include/modules/kinematic/KinematicModule.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*}}
@@ -13,41 +13,60 @@
 \DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_KINEMATIC\_KINEMATICMODULE\_H\_}}
 \DoxyCodeLine{10 }
 \DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/beans/channel/ChannelType.h>}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../EpicModuleObject.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <ElementaryUtils/string\_utils/Formatter.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{keyword}{namespace }EPIC \{}
-\DoxyCodeLine{17 \textcolor{keyword}{class }Event;}
-\DoxyCodeLine{18 \} \textcolor{comment}{/* namespace EPIC */}}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20 \textcolor{keyword}{namespace }EPIC \{}
-\DoxyCodeLine{21 \textcolor{keyword}{class }ExperimentalConditions;}
-\DoxyCodeLine{22 \} \textcolor{comment}{/* namespace EPIC */}}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24 \textcolor{keyword}{namespace }EPIC \{}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{33 \textcolor{keyword}{template} <\textcolor{keyword}{typename} KinematicType>}
-\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{KinematicModule}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}} \{}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36 \textcolor{keyword}{public}:}
-\DoxyCodeLine{40   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a6707233e46605f370442a69001d3a64b}{\string~KinematicModule}}() \{\}}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{45   \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a2e235f419d40be0f1ddafe4e4253df83}{checkIfValid}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
-\DoxyCodeLine{46                             \textcolor{keyword}{const} KinematicType \&kin) = 0;}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{52   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_ab93a6f69837beba044d5a84a9b06d3e2}{evaluate}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
-\DoxyCodeLine{53                          \textcolor{keyword}{const} KinematicType \&kin) = 0;}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{63   \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a0e71a3ecd0c7e1073a901b297a95884e}{KinematicModule}}(\textcolor{keyword}{const} std::string \&className,}
-\DoxyCodeLine{64                   PARTONS::ChannelType::Type channelType)}
-\DoxyCodeLine{65       : \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}}(className, channelType) \{\}}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{71   \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a068e088a9285209ba3e52d69fa3ca93a}{KinematicModule}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{KinematicModule}} \&other) : \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}}(other) \{\}}
-\DoxyCodeLine{72 \};}
-\DoxyCodeLine{73 \}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../EpicModuleObject.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../../beans/containers/KinematicRange.h"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{20 \textcolor{keyword}{class }Event;}
+\DoxyCodeLine{21 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{24 \textcolor{keyword}{class }ExperimentalConditions;}
+\DoxyCodeLine{25 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{36 \textcolor{keyword}{template} <\textcolor{keyword}{typename} KinematicRangeType, \textcolor{keyword}{typename} KinematicType>}
+\DoxyCodeLine{37 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{KinematicModule}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}} \{}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{keyword}{public}:}
+\DoxyCodeLine{43   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a8603513e8eec83a7b501cee402475341}{\string~KinematicModule}}() \{\}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48   \textcolor{keyword}{virtual} std::vector<KinematicRange> \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_aa0882d60cac7066f5ac4d9d9cac69c50}{getKinematicRanges}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions, \textcolor{keyword}{const} KinematicRangeType\& ranges) = 0;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{53   \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a843f59848de1ce3732ea809567703b80}{checkIfValid}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
+\DoxyCodeLine{54                             \textcolor{keyword}{const} KinematicType \&kin) = 0;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{60   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a529b93ec0661a3920edb58765c4edd1d}{evaluate}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
+\DoxyCodeLine{61                          \textcolor{keyword}{const} KinematicType \&kin) = 0;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{71   \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_abdf9efb79f2443c49749bc7e8ab88571}{KinematicModule}}(\textcolor{keyword}{const} std::string \&className,}
+\DoxyCodeLine{72                   PARTONS::ChannelType::Type channelType)}
+\DoxyCodeLine{73       : \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}}(className, channelType) \{\}}
 \DoxyCodeLine{74 }
-\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_KINEMATIC\_KINEMATICMODULE\_H\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{79   \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a27e571419c961b18b528baa730822146}{KinematicModule}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{KinematicModule}} \&other) : \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object}{EpicModuleObject}}(other) \{\}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81   \textcolor{keywordtype}{void} changeKinematicRange(\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& range, \textcolor{keywordtype}{bool} isMin, \textcolor{keywordtype}{double} value, \textcolor{keyword}{const} std::string\& name, \textcolor{keywordtype}{double} divisionFactor = 10)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83       \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} old = range;}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85      \textcolor{keywordflow}{if}(isMin)\{  }
+\DoxyCodeLine{86          range.\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a2fffc269423bcb1852cf60967faef29e}{setMinMax}}(value/divisionFactor, range.\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_ae6e2d12d1cdb532ec92769576b141518}{getMax}}());}
+\DoxyCodeLine{87      \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{88          range.\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a2fffc269423bcb1852cf60967faef29e}{setMinMax}}(range.\mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range_a230aacf5cfac326ee006c5319229115c}{getMin}}(), value/divisionFactor);}
+\DoxyCodeLine{89      \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91      warn(\_\_func\_\_, ElemUtils::Formatter() << \textcolor{stringliteral}{"{}Range for variable "{}} << name << \textcolor{stringliteral}{"{} changed from "{}} << old.toString() << \textcolor{stringliteral}{"{} to "{}} << range.toString());}
+\DoxyCodeLine{92   \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \};}
+\DoxyCodeLine{95 \}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_KINEMATIC\_KINEMATICMODULE\_H\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

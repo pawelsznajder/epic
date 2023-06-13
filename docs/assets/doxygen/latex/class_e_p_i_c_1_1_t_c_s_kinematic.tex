@@ -1,0 +1,98 @@
+\hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic}{}\doxysection{EPIC\+::TCSKinematic Class Reference}
+\label{class_e_p_i_c_1_1_t_c_s_kinematic}\index{EPIC::TCSKinematic@{EPIC::TCSKinematic}}
+
+
+Class representing single observable kinematics for TCS process.  
+
+
+
+
+{\ttfamily \#include $<$TCSKinematic.\+h$>$}
+
+Inheritance diagram for EPIC\+::TCSKinematic\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_e_p_i_c_1_1_t_c_s_kinematic}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_a062c98f0cf3c4d3f0e5c07ac2f7457b5}{TCSKinematic}} ()
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_aa1aafbcd72c5069c299f54f6c0560729}{TCSKinematic}} (double y, double Q2, double t, double Q2\+Prim, double E, double phiS, double phiL, double thetaL)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_af418526b20d02f42f1839806b5d07387}{TCSKinematic}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ae034749f7cc1b18c296516c79076aff4}{$\sim$\+TCSKinematic}} ()
+\item 
+virtual std\+::string \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_a692f6eb01025b754ca51e7330b6f4442}{to\+String}} () const
+\item 
+PARTONS\+::\+TCSObservable\+Kinematic \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ab6d2b9216fac16b1271cf348fab44765}{to\+PARTONSTCSObservable\+Kinematic}} () const
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ac0e85d07ff2cb642f73260eb44785f5e}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ac0e85d07ff2cb642f73260eb44785f5e}} 
+PARTONS\+::\+DDVCSObservable\+Kinematic {\bfseries to\+PARTONSDDVCSObservable\+Kinematic} () const =delete
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_aae89ecedc67878a10315ce2e1d2677b5}\label{class_e_p_i_c_1_1_t_c_s_kinematic_aae89ecedc67878a10315ce2e1d2677b5}} 
+double {\bfseries get\+Phi} () const =delete
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_a577b622cb68982f095e1444997ced562}\label{class_e_p_i_c_1_1_t_c_s_kinematic_a577b622cb68982f095e1444997ced562}} 
+void {\bfseries set\+Phi} (double phi)=delete
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class representing single observable kinematics for TCS process. 
+
+This class represents a single observable kinematics for TCS process (y, $Q^{2}$, t, $Q\textnormal{\textquotesingle}^{2}$, E\+\_\+\{b\}, $\phi_{S}$, $\phi_{L}$, $\theta_{L}$). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_a062c98f0cf3c4d3f0e5c07ac2f7457b5}\label{class_e_p_i_c_1_1_t_c_s_kinematic_a062c98f0cf3c4d3f0e5c07ac2f7457b5}} 
+\index{EPIC::TCSKinematic@{EPIC::TCSKinematic}!TCSKinematic@{TCSKinematic}}
+\index{TCSKinematic@{TCSKinematic}!EPIC::TCSKinematic@{EPIC::TCSKinematic}}
+\doxysubsubsection{\texorpdfstring{TCSKinematic()}{TCSKinematic()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily EPIC\+::\+TCSKinematic\+::\+TCSKinematic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_aa1aafbcd72c5069c299f54f6c0560729}\label{class_e_p_i_c_1_1_t_c_s_kinematic_aa1aafbcd72c5069c299f54f6c0560729}} 
+\index{EPIC::TCSKinematic@{EPIC::TCSKinematic}!TCSKinematic@{TCSKinematic}}
+\index{TCSKinematic@{TCSKinematic}!EPIC::TCSKinematic@{EPIC::TCSKinematic}}
+\doxysubsubsection{\texorpdfstring{TCSKinematic()}{TCSKinematic()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily EPIC\+::\+TCSKinematic\+::\+TCSKinematic (\begin{DoxyParamCaption}\item[{double}]{y,  }\item[{double}]{Q2,  }\item[{double}]{t,  }\item[{double}]{Q2\+Prim,  }\item[{double}]{E,  }\item[{double}]{phiS,  }\item[{double}]{phiL,  }\item[{double}]{thetaL }\end{DoxyParamCaption})}
+
+Assignment constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_af418526b20d02f42f1839806b5d07387}\label{class_e_p_i_c_1_1_t_c_s_kinematic_af418526b20d02f42f1839806b5d07387}} 
+\index{EPIC::TCSKinematic@{EPIC::TCSKinematic}!TCSKinematic@{TCSKinematic}}
+\index{TCSKinematic@{TCSKinematic}!EPIC::TCSKinematic@{EPIC::TCSKinematic}}
+\doxysubsubsection{\texorpdfstring{TCSKinematic()}{TCSKinematic()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily EPIC\+::\+TCSKinematic\+::\+TCSKinematic (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ae034749f7cc1b18c296516c79076aff4}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ae034749f7cc1b18c296516c79076aff4}} 
+\index{EPIC::TCSKinematic@{EPIC::TCSKinematic}!````~TCSKinematic@{$\sim$TCSKinematic}}
+\index{````~TCSKinematic@{$\sim$TCSKinematic}!EPIC::TCSKinematic@{EPIC::TCSKinematic}}
+\doxysubsubsection{\texorpdfstring{$\sim$TCSKinematic()}{~TCSKinematic()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+TCSKinematic\+::$\sim$\+TCSKinematic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_ab6d2b9216fac16b1271cf348fab44765}\label{class_e_p_i_c_1_1_t_c_s_kinematic_ab6d2b9216fac16b1271cf348fab44765}} 
+\index{EPIC::TCSKinematic@{EPIC::TCSKinematic}!toPARTONSTCSObservableKinematic@{toPARTONSTCSObservableKinematic}}
+\index{toPARTONSTCSObservableKinematic@{toPARTONSTCSObservableKinematic}!EPIC::TCSKinematic@{EPIC::TCSKinematic}}
+\doxysubsubsection{\texorpdfstring{toPARTONSTCSObservableKinematic()}{toPARTONSTCSObservableKinematic()}}
+{\footnotesize\ttfamily PARTONS\+::\+TCSObservable\+Kinematic EPIC\+::\+TCSKinematic\+::to\+PARTONSTCSObservable\+Kinematic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Convert to PARTONS\+::\+TCSObservable\+Kinematic. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_a692f6eb01025b754ca51e7330b6f4442}\label{class_e_p_i_c_1_1_t_c_s_kinematic_a692f6eb01025b754ca51e7330b6f4442}} 
+\index{EPIC::TCSKinematic@{EPIC::TCSKinematic}!toString@{toString}}
+\index{toString@{toString}!EPIC::TCSKinematic@{EPIC::TCSKinematic}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily virtual std\+::string EPIC\+::\+TCSKinematic\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{EPIC\+::\+DDVCSKinematic}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/beans/containers/TCSKinematic.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,47 @@
+\hypertarget{_d_v_c_s_r_c_collinear_full2nd_order_8h_source}{}\doxysection{DVCSRCCollinear\+Full2nd\+Order.\+h}
+\label{_d_v_c_s_r_c_collinear_full2nd_order_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/modules/radiative\_corrections/DVCS/DVCSRCCollinearFull2ndOrder.h@{/Users/pawel/projects/epic/NEW2/epic/include/modules/radiative\_corrections/DVCS/DVCSRCCollinearFull2ndOrder.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * DVCSRCCollinearFull2ndOrder.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Jun 13, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ) }}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_RADIATIVECORRECTIONS\_DVCS\_DVCSRCCOLLINEARFULL2NDORDER\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_RADIATIVECORRECTIONS\_DVCS\_DVCSRCCOLLINEARFULL2NDORDER\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}DVCSRCCollinear.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order}{DVCSRCCollinearFull2ndOrder}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear}{DVCSRCCollinear}} \{}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_ac897fad9e7f4df5a4beeea0ddd076d9f}{classId}}; }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{36     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a171664208ab3232387627f701ca675f0}{DVCSRCCollinearFull2ndOrder}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{41     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_afb836701c13d812c518a7a5156dbeb6e}{DVCSRCCollinearFull2ndOrder}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order}{DVCSRCCollinearFull2ndOrder}} \&other);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a13de103d7e4ebeeb5ac99222fea2d045}{\string~DVCSRCCollinearFull2ndOrder}}();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order}{DVCSRCCollinearFull2ndOrder}}* clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} configure(\textcolor{keyword}{const} ElemUtils::Parameters \&parameters);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} std::tuple<double, ExperimentalConditions, DVCSKinematic> \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_aa495ee5247d1d161b8e44ea411dc2d4b}{evaluate}}(}
+\DoxyCodeLine{53             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}}\& experimentalConditions,}
+\DoxyCodeLine{54             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic}{DVCSKinematic}}\& obsKin, \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a9b2e39a7e93ba67c295f771bf47d8cb9}{updateEvent}}(\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}}\& event,}
+\DoxyCodeLine{57             \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const};}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_RADIATIVECORRECTIONS\_DVCS\_DVCSRCCOLLINEARFULL2NDORDER\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

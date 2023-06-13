@@ -1,5 +1,5 @@
 \hypertarget{_container_utils_8h_source}{}\doxysection{Container\+Utils.\+h}
-\label{_container_utils_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/containers/ContainerUtils.h@{/Users/pawel/projects/epic/epic/include/beans/containers/ContainerUtils.h}}
+\label{_container_utils_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/ContainerUtils.h@{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/ContainerUtils.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*}}
@@ -38,18 +38,21 @@
 \DoxyCodeLine{46         \textcolor{keywordtype}{size\_t} nElements,}
 \DoxyCodeLine{47         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
 \DoxyCodeLine{48 }
-\DoxyCodeLine{52 \textcolor{keywordtype}{size\_t} stdStringToUInt(\textcolor{keyword}{const} std::string\& className, \textcolor{keyword}{const} std::string\& str,}
-\DoxyCodeLine{53         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
+\DoxyCodeLine{52 std::string findAndParseString(\textcolor{keyword}{const} std::string\& className,}
+\DoxyCodeLine{53         \textcolor{keyword}{const} ElemUtils::Parameters\& data, \textcolor{keyword}{const} std::string\& key);}
 \DoxyCodeLine{54 }
-\DoxyCodeLine{58 \textcolor{keywordtype}{int} stdStringToInt(\textcolor{keyword}{const} std::string\& className, \textcolor{keyword}{const} std::string\& str,}
+\DoxyCodeLine{58 \textcolor{keywordtype}{size\_t} stdStringToUInt(\textcolor{keyword}{const} std::string\& className, \textcolor{keyword}{const} std::string\& str,}
 \DoxyCodeLine{59         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
 \DoxyCodeLine{60 }
-\DoxyCodeLine{64 \textcolor{keywordtype}{double} stdStringToDouble(\textcolor{keyword}{const} std::string\& className, \textcolor{keyword}{const} std::string\& str,}
+\DoxyCodeLine{64 \textcolor{keywordtype}{int} stdStringToInt(\textcolor{keyword}{const} std::string\& className, \textcolor{keyword}{const} std::string\& str,}
 \DoxyCodeLine{65         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
-\DoxyCodeLine{66 \}}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68 \}}
-\DoxyCodeLine{69 }
-\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_CONTAINERS\_CONTAINERUTILS\_H\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{70 \textcolor{keywordtype}{double} stdStringToDouble(\textcolor{keyword}{const} std::string\& className, \textcolor{keyword}{const} std::string\& str,}
+\DoxyCodeLine{71         \textcolor{keywordtype}{bool} peg = \textcolor{keyword}{false});}
+\DoxyCodeLine{72 \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_CONTAINERS\_CONTAINERUTILS\_H\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

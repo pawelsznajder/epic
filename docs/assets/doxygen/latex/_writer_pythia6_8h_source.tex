@@ -1,0 +1,79 @@
+\hypertarget{_writer_pythia6_8h_source}{}\doxysection{Writer\+Pythia6.\+h}
+\label{_writer_pythia6_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/modules/writer/WriterPythia6.h@{/Users/pawel/projects/epic/NEW2/epic/include/modules/writer/WriterPythia6.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * WriterPythia6.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Jun 06, 2022}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ) }}
+\DoxyCodeLine{6 \textcolor{comment}{ *  Author: Alex Jentsch (BNL)}}
+\DoxyCodeLine{7 \textcolor{comment}{ */}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef MODULES\_WRITER\_WRITERPYTHIA6\_H\_}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define MODULES\_WRITER\_WRITERPYTHIA6\_H\_}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <ElementaryUtils/parameters/Parameters.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <locale>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../../beans/physics/Event.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}WriterModule.h"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{22 \textcolor{keyword}{struct }WriterPythia6NoSeparator;}
+\DoxyCodeLine{23 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6}{WriterPythia6}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{WriterModule}} \{}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a41d1fd5f10b250f8b8ceb9accd9d052e}{classId}}; }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44     \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a83a88ddea859633c7d1463ace7caa6e1}{WriterPythia6}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{49     \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a4effe3fd15d4aa03d2cd26373e1dbb51}{WriterPythia6}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6}{WriterPythia6}} \&other);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{54     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_ad4c3460ca92ba58058f9b2fa3eeaf139}{\string~WriterPythia6}}();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6}{WriterPythia6}} *clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{57     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} configure(\textcolor{keyword}{const} ElemUtils::Parameters \&parameters);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_ac02d8958940bbfb2217475e6d0702400}{open}}();}
+\DoxyCodeLine{60     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a5bd742c1a030d23a1f83cab9e8845a89}{saveGenerationInformation}}(}
+\DoxyCodeLine{61             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{GenerationInformation}}\& generationInformation);}
+\DoxyCodeLine{62     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_ab181c2603ea182f8000db9f07c82d846}{close}}();}
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a14eac531ee524c5057e4b6785ff837aa}{write}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event);}
+\DoxyCodeLine{64     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a7f5c72c3ee757193dba201f65eebceef}{write}}(\textcolor{keyword}{const} std::vector<Event> \&events);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{67     \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{68     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{private}:}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{75     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} getParticleCode(\mbox{\hyperlink{class_e_p_i_c_1_1_particle_code_type_aa1adb42eb01d1c2428cee012d53ceb61}{ParticleCodeType::Type}} type) \textcolor{keyword}{const};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keyword}{inline} std::string trailSign(\textcolor{keywordtype}{double} v);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     std::ofstream m\_ofstream; }
+\DoxyCodeLine{80     std::stringstream m\_trailSign; }
+\DoxyCodeLine{81     \mbox{\hyperlink{struct_e_p_i_c_1_1_writer_pythia6_no_separator}{WriterPythia6NoSeparator}}* m\_writerPythia6NoSeparator; }
+\DoxyCodeLine{82 \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{91 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_e_p_i_c_1_1_writer_pythia6_no_separator}{WriterPythia6NoSeparator}}: std::numpunct<char> \{}
+\DoxyCodeLine{92 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{93     \textcolor{keyword}{virtual} string\_type do\_grouping()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{94         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)000"{}};}
+\DoxyCodeLine{95     \}}
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_WRITER\_WRITERPYTHIA6\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

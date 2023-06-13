@@ -1,0 +1,102 @@
+\hypertarget{class_e_p_i_c_1_1_g_a_m2_r_c_null}{}\doxysection{EPIC\+::GAM2\+RCNull Class Reference}
+\label{class_e_p_i_c_1_1_g_a_m2_r_c_null}\index{EPIC::GAM2RCNull@{EPIC::GAM2RCNull}}
+
+
+Radiative correction module for GAM2 process giving no corrections.  
+
+
+
+
+{\ttfamily \#include $<$GAM2\+RCNull.\+h$>$}
+
+Inheritance diagram for EPIC\+::GAM2\+RCNull\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_e_p_i_c_1_1_g_a_m2_r_c_null}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_r_c_null_a3fc12f8735f2bb77a2d7b0da68e61f7e}{GAM2\+RCNull}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_r_c_null_a7fb4be85c18383122397c1968d133a19}{GAM2\+RCNull}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_r_c_null}{GAM2\+RCNull}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_r_c_null_a84b2b2fb51e76796f9acc288bbd43a22}{$\sim$\+GAM2\+RCNull}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_r_c_null_a09b4777e638578c69037bcf6c5549c65}\label{class_e_p_i_c_1_1_g_a_m2_r_c_null_a09b4777e638578c69037bcf6c5549c65}} 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_r_c_null}{GAM2\+RCNull}} $\ast$ {\bfseries clone} () const
+\item 
+virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2\+Kinematic}} $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_r_c_null_a3d394104dc395da1653cc05b0607ddd1}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2\+Kinematic}} \&obs\+Kin, const std\+::vector$<$ double $>$ \&par) const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_r_c_null_a870215a19ccbb048744e5344cf31faed}{update\+Event}} (\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event, const std\+::vector$<$ double $>$ \&par) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_r_c_null_aefc14272f0c4cfb24c5ec298cb071e01}{class\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Radiative correction module for GAM2 process giving no corrections. 
+
+This class defines radiative correction module for GAM2 process. The module gives no corrections. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_r_c_null_a3fc12f8735f2bb77a2d7b0da68e61f7e}\label{class_e_p_i_c_1_1_g_a_m2_r_c_null_a3fc12f8735f2bb77a2d7b0da68e61f7e}} 
+\index{EPIC::GAM2RCNull@{EPIC::GAM2RCNull}!GAM2RCNull@{GAM2RCNull}}
+\index{GAM2RCNull@{GAM2RCNull}!EPIC::GAM2RCNull@{EPIC::GAM2RCNull}}
+\doxysubsubsection{\texorpdfstring{GAM2RCNull()}{GAM2RCNull()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+GAM2\+RCNull\+::\+GAM2\+RCNull (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_r_c_null_a7fb4be85c18383122397c1968d133a19}\label{class_e_p_i_c_1_1_g_a_m2_r_c_null_a7fb4be85c18383122397c1968d133a19}} 
+\index{EPIC::GAM2RCNull@{EPIC::GAM2RCNull}!GAM2RCNull@{GAM2RCNull}}
+\index{GAM2RCNull@{GAM2RCNull}!EPIC::GAM2RCNull@{EPIC::GAM2RCNull}}
+\doxysubsubsection{\texorpdfstring{GAM2RCNull()}{GAM2RCNull()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+GAM2\+RCNull\+::\+GAM2\+RCNull (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_r_c_null}{GAM2\+RCNull}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_r_c_null_a84b2b2fb51e76796f9acc288bbd43a22}\label{class_e_p_i_c_1_1_g_a_m2_r_c_null_a84b2b2fb51e76796f9acc288bbd43a22}} 
+\index{EPIC::GAM2RCNull@{EPIC::GAM2RCNull}!````~GAM2RCNull@{$\sim$GAM2RCNull}}
+\index{````~GAM2RCNull@{$\sim$GAM2RCNull}!EPIC::GAM2RCNull@{EPIC::GAM2RCNull}}
+\doxysubsubsection{\texorpdfstring{$\sim$GAM2RCNull()}{~GAM2RCNull()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+GAM2\+RCNull\+::$\sim$\+GAM2\+RCNull (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_r_c_null_a3d394104dc395da1653cc05b0607ddd1}\label{class_e_p_i_c_1_1_g_a_m2_r_c_null_a3d394104dc395da1653cc05b0607ddd1}} 
+\index{EPIC::GAM2RCNull@{EPIC::GAM2RCNull}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!EPIC::GAM2RCNull@{EPIC::GAM2RCNull}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2\+Kinematic}} $>$ EPIC\+::\+GAM2\+RCNull\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2\+Kinematic}} \&}]{obs\+Kin,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get radiative function, true experimental conditions and kinematics. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_r_c_module_a7945d79348e938acea129d2081c5e180}{EPIC\+::\+GAM2\+RCModule}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_r_c_null_a870215a19ccbb048744e5344cf31faed}\label{class_e_p_i_c_1_1_g_a_m2_r_c_null_a870215a19ccbb048744e5344cf31faed}} 
+\index{EPIC::GAM2RCNull@{EPIC::GAM2RCNull}!updateEvent@{updateEvent}}
+\index{updateEvent@{updateEvent}!EPIC::GAM2RCNull@{EPIC::GAM2RCNull}}
+\doxysubsubsection{\texorpdfstring{updateEvent()}{updateEvent()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+GAM2\+RCNull\+::update\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&}]{event,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Update event. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_r_c_module_a85ca44c572725efdcd16c5dd9dfe5d48}{EPIC\+::\+GAM2\+RCModule}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_r_c_null_aefc14272f0c4cfb24c5ec298cb071e01}\label{class_e_p_i_c_1_1_g_a_m2_r_c_null_aefc14272f0c4cfb24c5ec298cb071e01}} 
+\index{EPIC::GAM2RCNull@{EPIC::GAM2RCNull}!classId@{classId}}
+\index{classId@{classId}!EPIC::GAM2RCNull@{EPIC::GAM2RCNull}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+GAM2\+RCNull\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+Unique ID to automatically register the class in the registry. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/modules/radiative\+\_\+corrections/\+GAM2/GAM2\+RCNull.\+h\end{DoxyCompactItemize}

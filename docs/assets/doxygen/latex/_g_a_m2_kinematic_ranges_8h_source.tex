@@ -1,0 +1,97 @@
+\hypertarget{_g_a_m2_kinematic_ranges_8h_source}{}\doxysection{GAM2\+Kinematic\+Ranges.\+h}
+\label{_g_a_m2_kinematic_ranges_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/GAM2KinematicRanges.h@{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/GAM2KinematicRanges.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * GAM2KinematicRanges.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 9, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef BEANS\_GAM2KINEMATICRANGES\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define BEANS\_GAM2KINEMATICRANGES\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}KinematicRange.h"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{16 \textcolor{keyword}{class }GAM2Kinematic;}
+\DoxyCodeLine{17 \textcolor{keyword}{class }ExperimentalConditions;}
+\DoxyCodeLine{18 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges}{GAM2KinematicRanges}}: \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a703cf65a983cfd53b70d1a26b98279f2}{GAM2\_KINEMATIC\_RANGE\_Y}}; }
+\DoxyCodeLine{34     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a8c1bc47e288a7b644cb5a03c008c624c}{GAM2\_KINEMATIC\_RANGE\_Q2}}; }
+\DoxyCodeLine{35     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a8e83c616afece3f0e9a2f27246367c30}{GAM2\_KINEMATIC\_RANGE\_T}}; }
+\DoxyCodeLine{36     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_aa2c0097497c6968ebbf6aaf6748899b5}{GAM2\_KINEMATIC\_RANGE\_UPRIM}}; }
+\DoxyCodeLine{37     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a0e680d1b7c3022be6f64008e3c5a5184}{GAM2\_KINEMATIC\_RANGE\_MGG2}}; }
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_ae2c0ef96f5e18f529235ea4462c5789a}{GAM2\_KINEMATIC\_RANGE\_PHI}}; }
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43     \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a4656fdeb39040728a505bbe3eb918e7c}{GAM2KinematicRanges}}();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48     \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_ad68eafec2b1e410a8b87e1ee5abc6356}{GAM2KinematicRanges}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangeY,}
+\DoxyCodeLine{49             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangeQ2, \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangeT,}
+\DoxyCodeLine{50             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangeUPrim, \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangeMgg2,}
+\DoxyCodeLine{51             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangePhi);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{56     \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a085fd77e33314fe138a8b1e8cf8d05cc}{GAM2KinematicRanges}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges}{GAM2KinematicRanges}} \&other);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{61     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a357436e8c48210c3837ce2eb3b1e9450}{\string~GAM2KinematicRanges}}();}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{bool} inRange(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}}\& experimentalConditions,}
+\DoxyCodeLine{66             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2Kinematic}}\& obsKin) \textcolor{keyword}{const};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71     \textcolor{keyword}{static} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges}{GAM2KinematicRanges}} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a921abfd58551a57b7a69d4e80a70b7b7}{getGAM2KinematicRangesfromTask}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{74     \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{75     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{80     \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a3c38329b45bad47b96dee68a375c0f15}{getRangeY}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{85     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a3be3dbc1ec21f5790b5f5b15e7381354}{setRangeY}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& rangeY);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{90     \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_aa7acfdd61f5911d66b0da36b5f81d646}{getRangeQ2}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a067eca3d693ee7bf41a2098f7449eae4}{setRangeQ2}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& rangeQ2);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{100     \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a8ca34dd516f295ba06d5833aec2e3f82}{getRangeT}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{105     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a58593eb8c9e752d9d32711d8f2847aea}{setRangeT}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& rangeT);}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{110     \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a3890224a35eb53e5c662a96a324b4d7d}{getRangeUPrim}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a6d2f34ea8617dc33d46ef6e78c09dae2}{setRangeUPrim}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& rangeUPrim);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{120     \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a15bba314db494faafab643e852616dbb}{getRangeMgg2}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{125     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_ad69c3a6501645e09e113e49efb9aadc6}{setRangeMgg2}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& rangeMgg2);}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{130     \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a53f4355390d5fa181a72864e731366fa}{getRangePhi}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{135     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges_a558f79e13f35e6d6dd215323002a103c}{setRangePhi}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}}\& rangePhi);}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{keyword}{private}:}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139     \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} m\_rangeY;   }
+\DoxyCodeLine{140     \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} m\_rangeQ2;   }
+\DoxyCodeLine{141     \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} m\_rangeT;   }
+\DoxyCodeLine{142     \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} m\_rangeUPrim;  }
+\DoxyCodeLine{143     \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} m\_rangeMgg2; }
+\DoxyCodeLine{144     \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} m\_rangePhi;   }
+\DoxyCodeLine{145 \};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_GAM2KINEMATICRANGES\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,91 @@
+\hypertarget{_d_d_v_c_s_c_f_f_tables_8h_source}{}\doxysection{DDVCSCFFTables.\+h}
+\label{_d_d_v_c_s_c_f_f_tables_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/physics/convol\_coeff\_function/DDVCS/DDVCSCFFTables.h@{/Users/pawel/projects/epic/NEW2/epic/include/physics/convol\_coeff\_function/DDVCS/DDVCSCFFTables.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef DDVCS\_CFFTABLES\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define DDVCS\_CFFTABLES\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <ElementaryUtils/parameters/Parameters.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <partons/beans/gpd/GPDType.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <partons/modules/convol\_coeff\_function/DDVCS/DDVCSConvolCoeffFunctionModule.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <complex>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}../../../algorithms/interpolation/linterp/linterp.h"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{namespace }PARTONS \{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{43 \textcolor{keyword}{class }\mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_d_v_c_s_c_f_f_tables}{DDVCSCFFTables}}: \textcolor{keyword}{public} DDVCSConvolCoeffFunctionModule \{}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{public}:}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_d_v_c_s_c_f_f_tables_a7f8f297eb9f5de84af59ca7ffb043309}{PARAMETER\_NAME\_SET\_FILE}}; }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_d_v_c_s_c_f_f_tables_a3a6ce1b5326b95e5e0aeb1040f9c1483}{classId}}; }
+\DoxyCodeLine{50 }
+\DoxyCodeLine{56     \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_d_v_c_s_c_f_f_tables_a36b5461f1a4cb7c668b55f8f0d7f8dc8}{DDVCSCFFTables}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_d_v_c_s_c_f_f_tables}{DDVCSCFFTables}}* clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_d_v_c_s_c_f_f_tables_ac0a9db3d164a8ce6130a5dd5fd341029}{\string~DDVCSCFFTables}}();}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} configure(\textcolor{keyword}{const} ElemUtils::Parameters \&parameters);}
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} std::complex<double> computeCFF();}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_d_v_c_s_c_f_f_tables_a7d95aff4e17d1f9ccf2b8cbb6d31940a}{getCFFSetFile}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_d_v_c_s_c_f_f_tables_af4c72ace0b213d322383aae45052a053}{setCFFSetFile}}(\textcolor{keyword}{const} std::string\& cffSetFile);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{84     \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_d_v_c_s_c_f_f_tables_aa086f365cb819001f5d1de3719461fd7}{DDVCSCFFTables}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_d_v_c_s_c_f_f_tables}{DDVCSCFFTables}} \&other);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} initModule();}
+\DoxyCodeLine{87     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isModuleWellConfigured();}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{keyword}{private}:}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{comment}{/*}}
+\DoxyCodeLine{92 \textcolor{comment}{     * Load grids from default location and given set.}}
+\DoxyCodeLine{93 \textcolor{comment}{     */}}
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} loadGrids();}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{comment}{/*}}
+\DoxyCodeLine{97 \textcolor{comment}{     * Load single grid.}}
+\DoxyCodeLine{98 \textcolor{comment}{     */}}
+\DoxyCodeLine{99     std::pair<std::shared\_ptr<NDInterpolator\_4\_ML>,}
+\DoxyCodeLine{100             std::shared\_ptr<NDInterpolator\_4\_ML> > loadGrid(}
+\DoxyCodeLine{101             \textcolor{keyword}{const} std::string\& type);}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{106     std::vector<std::vector<double> > readGrid(\textcolor{keyword}{const} std::string\& type) \textcolor{keyword}{const};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{111     \textcolor{keywordtype}{void} checkAndSetRange(std::pair<double, double>\& target,}
+\DoxyCodeLine{112             \textcolor{keyword}{const} std::pair<double, double>\& source);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{117     \textcolor{keywordtype}{bool} checkRange(\textcolor{keywordtype}{double}\& value, \textcolor{keyword}{const} std::pair<double, double>\& range,}
+\DoxyCodeLine{118             \textcolor{keyword}{const} std::pair<bool, bool>\& freeze);}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{123     \textcolor{keywordtype}{int} findIndex(\textcolor{keyword}{const} std::vector<double>\& vec, \textcolor{keywordtype}{double} val) \textcolor{keyword}{const};}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{128     \textcolor{keywordtype}{bool} checkIfUnique(\textcolor{keyword}{const} std::vector<double>\& vec, \textcolor{keywordtype}{double} val) \textcolor{keyword}{const};}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     std::string m\_cffSetFile; }
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     \textcolor{keywordtype}{bool} m\_tablesLoaded; }
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134     std::vector<std::pair<double, double> > m\_ranges; }
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     std::map<GPDType::Type, std::vector<std::shared\_ptr<NDInterpolator\_4\_ML> > > m\_map; }
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{keywordtype}{bool} m\_printOutsideGridWarnings; }
+\DoxyCodeLine{139 \};}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \} \textcolor{comment}{/* namespace PARTONS */}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DDVCS\_CFFTABLES\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

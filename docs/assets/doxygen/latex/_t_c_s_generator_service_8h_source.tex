@@ -1,5 +1,5 @@
 \hypertarget{_t_c_s_generator_service_8h_source}{}\doxysection{TCSGenerator\+Service.\+h}
-\label{_t_c_s_generator_service_8h_source}\index{/Users/pawel/projects/epic/epic/include/services/TCSGeneratorService.h@{/Users/pawel/projects/epic/epic/include/services/TCSGeneratorService.h}}
+\label{_t_c_s_generator_service_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/services/TCSGeneratorService.h@{/Users/pawel/projects/epic/NEW2/epic/include/services/TCSGeneratorService.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*}}
@@ -17,16 +17,16 @@
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../beans/containers/DDVCSKinematic.h"{}}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../beans/containers/DDVCSKinematicRanges.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../beans/containers/TCSKinematic.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../beans/containers/TCSKinematicRanges.h"{}}}
 \DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../modules/kinematic/TCS/TCSKinematicModule.h"{}}}
 \DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../modules/radiative\_corrections/TCS/TCSRCModule.h"{}}}
 \DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}GeneratorService.h"{}}}
 \DoxyCodeLine{21 }
 \DoxyCodeLine{22 \textcolor{keyword}{namespace }EPIC \{}
 \DoxyCodeLine{23 }
-\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_generator_service}{TCSGeneratorService}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{GeneratorService}}<DDVCSKinematicRanges,}
-\DoxyCodeLine{34         PARTONS::TCSProcessModule, TCSKinematicModule, DDVCSKinematic,}
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_generator_service}{TCSGeneratorService}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{GeneratorService}}<TCSKinematicRanges,}
+\DoxyCodeLine{34         PARTONS::TCSProcessModule, TCSKinematicModule, }
 \DoxyCodeLine{35         TCSRCModule> \{}
 \DoxyCodeLine{36 }
 \DoxyCodeLine{37 \textcolor{keyword}{public}:}
@@ -37,7 +37,7 @@
 \DoxyCodeLine{43 }
 \DoxyCodeLine{47     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_generator_service_ae1bc1818030323c3078f67277bad5cdc}{\string~TCSGeneratorService}}();}
 \DoxyCodeLine{48 }
-\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_generator_service_a4a6cc811de90caab336f5fc058a78774}{getEventDistribution}}(\textcolor{keyword}{const} std::vector<double> \&kin) \textcolor{keyword}{const};}
+\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_generator_service_a22c3dac55b5a907ed68eebc8928e62e3}{getEventDistribution}}(std::vector<double> \&kin) \textcolor{keyword}{const};}
 \DoxyCodeLine{50     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_generator_service_a73290b29dcff6a6f65c583684032feb3}{run}}();}
 \DoxyCodeLine{51 }
 \DoxyCodeLine{52 \textcolor{keyword}{private}:}
@@ -51,18 +51,26 @@
 \DoxyCodeLine{66     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getAdditionalGeneralConfigurationFromTask(}
 \DoxyCodeLine{67             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
 \DoxyCodeLine{68 }
-\DoxyCodeLine{69     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getProcessModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
-\DoxyCodeLine{70     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getKinematicModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
-\DoxyCodeLine{71     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getRCModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
-\DoxyCodeLine{72     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isServiceWellConfigured() \textcolor{keyword}{const};}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{77     \textcolor{keywordtype}{double} getFlux(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}}\& kin) \textcolor{keyword}{const};}
+\DoxyCodeLine{69     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getKinematicRangesFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{70     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getProcessModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{71     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getKinematicModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{72     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getRCModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{73     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isServiceWellConfigured() \textcolor{keyword}{const};}
+\DoxyCodeLine{74     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} addAdditionalGenerationConfiguration(\mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{GenerationInformation}}\& generationInformation);}
+\DoxyCodeLine{75     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} transformVariables(std::vector<double>\& variables) \textcolor{keyword}{const};}
+\DoxyCodeLine{76     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} transformRanges(std::vector<KinematicRange>\& ranges) \textcolor{keyword}{const};}
+\DoxyCodeLine{77     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} getJacobian(\textcolor{keyword}{const} std::vector<double>\& variables) \textcolor{keyword}{const};}
 \DoxyCodeLine{78 }
-\DoxyCodeLine{79     PARTONS::VCSSubProcessType::Type m\_subProcessType; }
-\DoxyCodeLine{80 \};}
+\DoxyCodeLine{79     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} bookHistograms();}
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} fillHistograms(\textcolor{keyword}{const} std::vector<double>\& variables);}
 \DoxyCodeLine{81 }
-\DoxyCodeLine{82 \} \textcolor{comment}{/* namespace EPIC */}}
-\DoxyCodeLine{83 }
-\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SERVICES\_TCSGENERATORSERVICE\_H\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{85     \textcolor{keywordtype}{double} getFlux(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}}\& kin) \textcolor{keyword}{const};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     PARTONS::VCSSubProcessType::Type m\_subProcessType; }
+\DoxyCodeLine{88 \};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SERVICES\_TCSGENERATORSERVICE\_H\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

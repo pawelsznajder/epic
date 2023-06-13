@@ -1,0 +1,150 @@
+\hypertarget{class_e_p_i_c_1_1_writer_pythia6}{}\doxysection{EPIC\+::Writer\+Pythia6 Class Reference}
+\label{class_e_p_i_c_1_1_writer_pythia6}\index{EPIC::WriterPythia6@{EPIC::WriterPythia6}}
+
+
+\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} writer to match PYTHIA 6 format.  
+
+
+
+
+{\ttfamily \#include $<$Writer\+Pythia6.\+h$>$}
+
+Inheritance diagram for EPIC\+::Writer\+Pythia6\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_e_p_i_c_1_1_writer_pythia6}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a83a88ddea859633c7d1463ace7caa6e1}{Writer\+Pythia6}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a4effe3fd15d4aa03d2cd26373e1dbb51}{Writer\+Pythia6}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6}{Writer\+Pythia6}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_ad4c3460ca92ba58058f9b2fa3eeaf139}{$\sim$\+Writer\+Pythia6}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_pythia6_a2401f2af7746c402cc773c74db0b9798}\label{class_e_p_i_c_1_1_writer_pythia6_a2401f2af7746c402cc773c74db0b9798}} 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6}{Writer\+Pythia6}} $\ast$ {\bfseries clone} () const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_aeb07edaab0b3866d2d8ac6c28c3cb8cf}{configure}} (const Elem\+Utils\+::\+Parameters \&parameters)
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_ac02d8958940bbfb2217475e6d0702400}{open}} ()
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a5bd742c1a030d23a1f83cab9e8845a89}{save\+Generation\+Information}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&generation\+Information)
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_ab181c2603ea182f8000db9f07c82d846}{close}} ()
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a14eac531ee524c5057e4b6785ff837aa}{write}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event)
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a7f5c72c3ee757193dba201f65eebceef}{write}} (const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} $>$ \&events)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6_a41d1fd5f10b250f8b8ceb9accd9d052e}{class\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} writer to match PYTHIA 6 format. 
+
+Module dedicated to writing events. It gives output compatible with that of PYTHIA 6. Auxiliary information is stored in .log file. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_pythia6_a83a88ddea859633c7d1463ace7caa6e1}\label{class_e_p_i_c_1_1_writer_pythia6_a83a88ddea859633c7d1463ace7caa6e1}} 
+\index{EPIC::WriterPythia6@{EPIC::WriterPythia6}!WriterPythia6@{WriterPythia6}}
+\index{WriterPythia6@{WriterPythia6}!EPIC::WriterPythia6@{EPIC::WriterPythia6}}
+\doxysubsubsection{\texorpdfstring{WriterPythia6()}{WriterPythia6()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Writer\+Pythia6\+::\+Writer\+Pythia6 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_pythia6_a4effe3fd15d4aa03d2cd26373e1dbb51}\label{class_e_p_i_c_1_1_writer_pythia6_a4effe3fd15d4aa03d2cd26373e1dbb51}} 
+\index{EPIC::WriterPythia6@{EPIC::WriterPythia6}!WriterPythia6@{WriterPythia6}}
+\index{WriterPythia6@{WriterPythia6}!EPIC::WriterPythia6@{EPIC::WriterPythia6}}
+\doxysubsubsection{\texorpdfstring{WriterPythia6()}{WriterPythia6()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+Writer\+Pythia6\+::\+Writer\+Pythia6 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_writer_pythia6}{Writer\+Pythia6}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_writer_pythia6_ad4c3460ca92ba58058f9b2fa3eeaf139}\label{class_e_p_i_c_1_1_writer_pythia6_ad4c3460ca92ba58058f9b2fa3eeaf139}} 
+\index{EPIC::WriterPythia6@{EPIC::WriterPythia6}!````~WriterPythia6@{$\sim$WriterPythia6}}
+\index{````~WriterPythia6@{$\sim$WriterPythia6}!EPIC::WriterPythia6@{EPIC::WriterPythia6}}
+\doxysubsubsection{\texorpdfstring{$\sim$WriterPythia6()}{~WriterPythia6()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+Writer\+Pythia6\+::$\sim$\+Writer\+Pythia6 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_pythia6_ab181c2603ea182f8000db9f07c82d846}\label{class_e_p_i_c_1_1_writer_pythia6_ab181c2603ea182f8000db9f07c82d846}} 
+\index{EPIC::WriterPythia6@{EPIC::WriterPythia6}!close@{close}}
+\index{close@{close}!EPIC::WriterPythia6@{EPIC::WriterPythia6}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Pythia6\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Close file. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_adea38f3f36abb4f693c254b5c987535f}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_pythia6_aeb07edaab0b3866d2d8ac6c28c3cb8cf}\label{class_e_p_i_c_1_1_writer_pythia6_aeb07edaab0b3866d2d8ac6c28c3cb8cf}} 
+\index{EPIC::WriterPythia6@{EPIC::WriterPythia6}!configure@{configure}}
+\index{configure@{configure}!EPIC::WriterPythia6@{EPIC::WriterPythia6}}
+\doxysubsubsection{\texorpdfstring{configure()}{configure()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Pythia6\+::configure (\begin{DoxyParamCaption}\item[{const Elem\+Utils\+::\+Parameters \&}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_pythia6_ac02d8958940bbfb2217475e6d0702400}\label{class_e_p_i_c_1_1_writer_pythia6_ac02d8958940bbfb2217475e6d0702400}} 
+\index{EPIC::WriterPythia6@{EPIC::WriterPythia6}!open@{open}}
+\index{open@{open}!EPIC::WriterPythia6@{EPIC::WriterPythia6}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Pythia6\+::open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Open file. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_ad54c98a083e702c4f19e8e8f20dae3b4}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_pythia6_a5bd742c1a030d23a1f83cab9e8845a89}\label{class_e_p_i_c_1_1_writer_pythia6_a5bd742c1a030d23a1f83cab9e8845a89}} 
+\index{EPIC::WriterPythia6@{EPIC::WriterPythia6}!saveGenerationInformation@{saveGenerationInformation}}
+\index{saveGenerationInformation@{saveGenerationInformation}!EPIC::WriterPythia6@{EPIC::WriterPythia6}}
+\doxysubsubsection{\texorpdfstring{saveGenerationInformation()}{saveGenerationInformation()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Pythia6\+::save\+Generation\+Information (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{Generation\+Information}} \&}]{generation\+Information }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Save run information. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_ab08eec41a1c75a9fad7df6c082243223}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_pythia6_a14eac531ee524c5057e4b6785ff837aa}\label{class_e_p_i_c_1_1_writer_pythia6_a14eac531ee524c5057e4b6785ff837aa}} 
+\index{EPIC::WriterPythia6@{EPIC::WriterPythia6}!write@{write}}
+\index{write@{write}!EPIC::WriterPythia6@{EPIC::WriterPythia6}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Pythia6\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write single event (file must be open). 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a7663bea189a270126c5b8c9d7ab54959}{EPIC\+::\+Writer\+Module}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_pythia6_a7f5c72c3ee757193dba201f65eebceef}\label{class_e_p_i_c_1_1_writer_pythia6_a7f5c72c3ee757193dba201f65eebceef}} 
+\index{EPIC::WriterPythia6@{EPIC::WriterPythia6}!write@{write}}
+\index{write@{write}!EPIC::WriterPythia6@{EPIC::WriterPythia6}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+Writer\+Pythia6\+::write (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} $>$ \&}]{events }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write vector of events (file must be open). 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_writer_module_a9179b564aaa81c53fbe47bb99dc6eb49}{EPIC\+::\+Writer\+Module}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_writer_pythia6_a41d1fd5f10b250f8b8ceb9accd9d052e}\label{class_e_p_i_c_1_1_writer_pythia6_a41d1fd5f10b250f8b8ceb9accd9d052e}} 
+\index{EPIC::WriterPythia6@{EPIC::WriterPythia6}!classId@{classId}}
+\index{classId@{classId}!EPIC::WriterPythia6@{EPIC::WriterPythia6}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+Writer\+Pythia6\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+Unique ID to automatically register the class in the registry. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/modules/writer/Writer\+Pythia6.\+h\end{DoxyCompactItemize}

@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 477.941162
+%%BoundingBox: 0 0 500 380.047516
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,12 +19,12 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 1.046154 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 1.315625 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
-/rows 13 def
+/rows 16 def
 /cols 2 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
@@ -175,14 +175,17 @@ boxfont setfont
 1 boundaspect scale
 (EPIC::EpicModuleObject) cw
 (PARTONS::ModuleObject) cw
-(EPIC::KinematicModule< DVCSKinematic >) cw
-(EPIC::KinematicModule< DVMPKinematic >) cw
-(EPIC::KinematicModule< DDVCSKinematic >) cw
+(EPIC::KinematicModule< DDVCSKinematicRanges, DDVCSKinematic >) cw
+(EPIC::KinematicModule< DVCSKinematicRanges, DVCSKinematic >) cw
+(EPIC::KinematicModule< DVMPKinematicRanges, DVMPKinematic >) cw
+(EPIC::KinematicModule< GAM2KinematicRanges, GAM2Kinematic >) cw
+(EPIC::RCModule< DDVCSKinematic >) cw
 (EPIC::RCModule< DVCSKinematic >) cw
 (EPIC::RCModule< DVMPKinematic >) cw
-(EPIC::RCModule< DDVCSKinematic >) cw
+(EPIC::RCModule< GAM2Kinematic >) cw
+(EPIC::RCModule< TCSKinematic >) cw
 (EPIC::EventGeneratorModule) cw
-(EPIC::KinematicModule< KinematicType >) cw
+(EPIC::KinematicModule< KinematicRangeType, KinematicType >) cw
 (EPIC::RCModule< ObsKinType >) cw
 (EPIC::RandomNumberModule) cw
 (EPIC::WriterModule) cw
@@ -197,23 +200,29 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (EPIC::EpicModuleObject) 0.000000 11.000000 box
- (PARTONS::ModuleObject) 0.000000 12.000000 box
- (EPIC::KinematicModule< DVCSKinematic >) 1.000000 10.000000 box
+ (EPIC::EpicModuleObject) 0.000000 14.000000 box
+ (PARTONS::ModuleObject) 0.000000 15.000000 box
+ (EPIC::KinematicModule< DDVCSKinematicRanges, DDVCSKinematic >) 1.000000 13.000000 box
+1.000000 13.000000 mark
+ (EPIC::KinematicModule< DVCSKinematicRanges, DVCSKinematic >) 1.000000 12.000000 box
+1.000000 12.000000 mark
+ (EPIC::KinematicModule< DVMPKinematicRanges, DVMPKinematic >) 1.000000 11.000000 box
+1.000000 11.000000 mark
+ (EPIC::KinematicModule< GAM2KinematicRanges, GAM2Kinematic >) 1.000000 10.000000 box
 1.000000 10.000000 mark
- (EPIC::KinematicModule< DVMPKinematic >) 1.000000 9.000000 box
+ (EPIC::RCModule< DDVCSKinematic >) 1.000000 9.000000 box
 1.000000 9.000000 mark
- (EPIC::KinematicModule< DDVCSKinematic >) 1.000000 8.000000 box
+ (EPIC::RCModule< DVCSKinematic >) 1.000000 8.000000 box
 1.000000 8.000000 mark
- (EPIC::RCModule< DVCSKinematic >) 1.000000 7.000000 box
+ (EPIC::RCModule< DVMPKinematic >) 1.000000 7.000000 box
 1.000000 7.000000 mark
- (EPIC::RCModule< DVMPKinematic >) 1.000000 6.000000 box
+ (EPIC::RCModule< GAM2Kinematic >) 1.000000 6.000000 box
 1.000000 6.000000 mark
- (EPIC::RCModule< DDVCSKinematic >) 1.000000 5.000000 box
+ (EPIC::RCModule< TCSKinematic >) 1.000000 5.000000 box
 1.000000 5.000000 mark
  (EPIC::EventGeneratorModule) 1.000000 4.000000 box
 1.000000 4.000000 mark
- (EPIC::KinematicModule< KinematicType >) 1.000000 3.000000 box
+ (EPIC::KinematicModule< KinematicRangeType, KinematicType >) 1.000000 3.000000 box
  (EPIC::RCModule< ObsKinType >) 1.000000 2.000000 box
  (EPIC::RandomNumberModule) 1.000000 1.000000 box
 1.000000 1.000000 mark
@@ -223,11 +232,17 @@ boundx scalefactor div boundy scalefactor div scale
 % ----- relations -----
 
 solid
-0 0.000000 11.000000 out
+0 0.000000 14.000000 out
 solid
-1 0.000000 12.000000 in
+1 0.000000 15.000000 in
 solid
-1 0.000000 10.250000 out
+1 0.000000 13.250000 out
+solid
+0 0.000000 13.500000 hedge
+solid
+0 0.000000 12.500000 hedge
+solid
+0 0.000000 11.500000 hedge
 solid
 0 0.000000 10.500000 hedge
 solid
@@ -251,4 +266,4 @@ solid
 solid
 0 0.000000 0.500000 hedge
 solid
-0.000000 11.000000 0.500000 vedge
+0.000000 14.000000 0.500000 vedge

@@ -26,6 +26,8 @@ virtual \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_ac991694926a
 \item 
 virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_a0307170d66fb8e44ec6d9f02a858eb3c}{run\+Test}} () const
 \item 
+virtual std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_a4014f127f55b4fc1199405b834aaa15d}{get\+Kinematic\+Ranges}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_ranges}{DVCSKinematic\+Ranges}} \&ranges)
+\item 
 virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_ae68d3050218de180fd94cb29e7ba664b}{check\+If\+Valid}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic}{DVCSKinematic}} \&kin)
 \item 
 virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_ab0fc8e1f8619c50d105880f1fca77608}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic}{DVCSKinematic}} \&kin)=0
@@ -83,7 +85,7 @@ Destructor.
 
 Check if kinematics is valid. 
 
-Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a2e235f419d40be0f1ddafe4e4253df83}{EPIC\+::\+Kinematic\+Module$<$ DVCSKinematic $>$}}.
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a843f59848de1ce3732ea809567703b80}{EPIC\+::\+Kinematic\+Module$<$ DVCSKinematic\+Ranges, DVCSKinematic $>$}}.
 
 
 
@@ -97,11 +99,21 @@ Reimplemented in \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_default_a2
 
 Get experimental conditions (like beam types), kinematics and return a set of particles. 
 
-Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_ab93a6f69837beba044d5a84a9b06d3e2}{EPIC\+::\+Kinematic\+Module$<$ DVCSKinematic $>$}}.
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a529b93ec0661a3920edb58765c4edd1d}{EPIC\+::\+Kinematic\+Module$<$ DVCSKinematic\+Ranges, DVCSKinematic $>$}}.
 
 
 
 Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_default_a749dae7f513988fb1213e47cfe9266e9}{EPIC\+::\+DVCSKinematic\+Default}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_a4014f127f55b4fc1199405b834aaa15d}\label{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_a4014f127f55b4fc1199405b834aaa15d}} 
+\index{EPIC::DVCSKinematicModule@{EPIC::DVCSKinematicModule}!getKinematicRanges@{getKinematicRanges}}
+\index{getKinematicRanges@{getKinematicRanges}!EPIC::DVCSKinematicModule@{EPIC::DVCSKinematicModule}}
+\doxysubsubsection{\texorpdfstring{getKinematicRanges()}{getKinematicRanges()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ EPIC\+::\+DVCSKinematic\+Module\+::get\+Kinematic\+Ranges (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_kinematic_ranges}{DVCSKinematic\+Ranges}} \&}]{ranges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get correct kinematic ranges. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_aa0882d60cac7066f5ac4d9d9cac69c50}{EPIC\+::\+Kinematic\+Module$<$ DVCSKinematic\+Ranges, DVCSKinematic $>$}}.
 
 \mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_a0307170d66fb8e44ec6d9f02a858eb3c}\label{class_e_p_i_c_1_1_d_v_c_s_kinematic_module_a0307170d66fb8e44ec6d9f02a858eb3c}} 
 \index{EPIC::DVCSKinematicModule@{EPIC::DVCSKinematicModule}!runTest@{runTest}}
@@ -117,4 +129,4 @@ Implements \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a40142efadbdc81
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/pawel/projects/epic/epic/include/modules/kinematic/\+DVCS/DVCSKinematic\+Module.\+h\end{DoxyCompactItemize}
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/modules/kinematic/\+DVCS/DVCSKinematic\+Module.\+h\end{DoxyCompactItemize}

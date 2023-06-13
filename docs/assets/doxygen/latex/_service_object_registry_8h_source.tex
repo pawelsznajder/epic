@@ -1,5 +1,5 @@
 \hypertarget{_service_object_registry_8h_source}{}\doxysection{Service\+Object\+Registry.\+h}
-\label{_service_object_registry_8h_source}\index{/Users/pawel/projects/epic/epic/include/managers/ServiceObjectRegistry.h@{/Users/pawel/projects/epic/epic/include/managers/ServiceObjectRegistry.h}}
+\label{_service_object_registry_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/managers/ServiceObjectRegistry.h@{/Users/pawel/projects/epic/NEW2/epic/include/managers/ServiceObjectRegistry.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*}}
@@ -16,29 +16,35 @@
 \DoxyCodeLine{12 \textcolor{keyword}{class }DVCSGeneratorService;}
 \DoxyCodeLine{13 \textcolor{keyword}{class }TCSGeneratorService;}
 \DoxyCodeLine{14 \textcolor{keyword}{class }DVMPGeneratorService;}
-\DoxyCodeLine{15 \} \textcolor{comment}{/* namespace EPIC */}}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{15 \textcolor{keyword}{class }GAM2GeneratorService;}
+\DoxyCodeLine{16 \textcolor{keyword}{class }DDVCSGeneratorService;}
+\DoxyCodeLine{17 \} \textcolor{comment}{/* namespace EPIC */}}
 \DoxyCodeLine{18 }
-\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry}{ServiceObjectRegistry}} \{}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29 \textcolor{keyword}{public}:}
-\DoxyCodeLine{33     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry_afc5028c4b75db3d46349a7e33aaf8cbe}{\string~ServiceObjectRegistry}}();}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{38     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}} *\mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry_af002b0ab5b4b62233906dd9160b36eba}{getDVCSGeneratorService}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{43     \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_generator_service}{TCSGeneratorService}} *\mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry_adfe1f5e174831790ee7cb4a7cd341dbc}{getTCSGeneratorService}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{48     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service}{DVMPGeneratorService}} *\mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry_a25d1ba15ac4d258f1b7b6d8e3889803d}{getDVMPGeneratorService}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50 \textcolor{keyword}{private}:}
-\DoxyCodeLine{51     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_epic}{Epic}}; }
-\DoxyCodeLine{52 }
-\DoxyCodeLine{56     \mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry}{ServiceObjectRegistry}}();}
-\DoxyCodeLine{57 \};}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59 \} \textcolor{comment}{/* namespace EPIC */}}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SERVICEOBJECTREGISTRY\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry}{ServiceObjectRegistry}} \{}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{35     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry_afc5028c4b75db3d46349a7e33aaf8cbe}{\string~ServiceObjectRegistry}}();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_generator_service}{DVCSGeneratorService}} *\mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry_af002b0ab5b4b62233906dd9160b36eba}{getDVCSGeneratorService}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{45     \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_generator_service}{TCSGeneratorService}} *\mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry_adfe1f5e174831790ee7cb4a7cd341dbc}{getTCSGeneratorService}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50     \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_m_p_generator_service}{DVMPGeneratorService}} *\mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry_a25d1ba15ac4d258f1b7b6d8e3889803d}{getDVMPGeneratorService}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{55     \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service}{GAM2GeneratorService}} *\mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry_ab9db4a43fbbc9720aeaf88d928b67d5e}{getGAM2GeneratorService}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{60     \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_generator_service}{DDVCSGeneratorService}} *\mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry_aaf7c5ac2e492b9835b55e29d0f01566f}{getDDVCSGeneratorService}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{private}:}
+\DoxyCodeLine{63     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_epic}{Epic}}; }
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68     \mbox{\hyperlink{class_e_p_i_c_1_1_service_object_registry}{ServiceObjectRegistry}}();}
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SERVICEOBJECTREGISTRY\_H */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

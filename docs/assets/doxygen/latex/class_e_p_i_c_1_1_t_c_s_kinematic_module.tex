@@ -29,6 +29,8 @@ virtual void {\bfseries configure} (const Elem\+Utils\+::\+Parameters \&paramete
 \item 
 virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a827a4da1b182fa5033eee6fd856194ce}{run\+Test}} () const
 \item 
+virtual std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_af101fcc451176ae0ed26d5defa97f330}{get\+Kinematic\+Ranges}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ranges}{DDVCSKinematic\+Ranges}} \&ranges)
+\item 
 virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a548ca1fe31b0d044e430052b7e89331d}{check\+If\+Valid}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&kin)
 \item 
 virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_module_a433da85bdacb76233a7e7cb31929129e}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&kin)=0
@@ -98,7 +100,7 @@ Destructor.
 
 Check if kinematics is valid. 
 
-Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a2e235f419d40be0f1ddafe4e4253df83}{EPIC\+::\+Kinematic\+Module$<$ DDVCSKinematic $>$}}.
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a843f59848de1ce3732ea809567703b80}{EPIC\+::\+Kinematic\+Module$<$ DDVCSKinematic\+Ranges, DDVCSKinematic $>$}}.
 
 
 
@@ -112,7 +114,7 @@ Reimplemented in \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_a10f
 
 Get experimental conditions (like beam types), kinematics and return a set of particles. 
 
-Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_ab93a6f69837beba044d5a84a9b06d3e2}{EPIC\+::\+Kinematic\+Module$<$ DDVCSKinematic $>$}}.
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a529b93ec0661a3920edb58765c4edd1d}{EPIC\+::\+Kinematic\+Module$<$ DDVCSKinematic\+Ranges, DDVCSKinematic $>$}}.
 
 
 
@@ -124,7 +126,17 @@ Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_default_aa4c45
 \doxysubsubsection{\texorpdfstring{getDecayType()}{getDecayType()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{Particle\+Type\+::\+Type}} EPIC\+::\+TCSKinematic\+Module\+::get\+Decay\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Get decay lepton type. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a827a4da1b182fa5033eee6fd856194ce}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a827a4da1b182fa5033eee6fd856194ce}} 
+Get decay lepton type. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_af101fcc451176ae0ed26d5defa97f330}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_af101fcc451176ae0ed26d5defa97f330}} 
+\index{EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}!getKinematicRanges@{getKinematicRanges}}
+\index{getKinematicRanges@{getKinematicRanges}!EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}}
+\doxysubsubsection{\texorpdfstring{getKinematicRanges()}{getKinematicRanges()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ EPIC\+::\+TCSKinematic\+Module\+::get\+Kinematic\+Ranges (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ranges}{DDVCSKinematic\+Ranges}} \&}]{ranges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get correct kinematic ranges. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_aa0882d60cac7066f5ac4d9d9cac69c50}{EPIC\+::\+Kinematic\+Module$<$ DDVCSKinematic\+Ranges, DDVCSKinematic $>$}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_kinematic_module_a827a4da1b182fa5033eee6fd856194ce}\label{class_e_p_i_c_1_1_t_c_s_kinematic_module_a827a4da1b182fa5033eee6fd856194ce}} 
 \index{EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}!runTest@{runTest}}
 \index{runTest@{runTest}!EPIC::TCSKinematicModule@{EPIC::TCSKinematicModule}}
 \doxysubsubsection{\texorpdfstring{runTest()}{runTest()}}
@@ -144,4 +156,4 @@ Set decay lepton type.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/pawel/projects/epic/epic/include/modules/kinematic/\+TCS/TCSKinematic\+Module.\+h\end{DoxyCompactItemize}
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/modules/kinematic/\+TCS/TCSKinematic\+Module.\+h\end{DoxyCompactItemize}

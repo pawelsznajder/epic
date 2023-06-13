@@ -1,5 +1,5 @@
 \hypertarget{_t_c_s_r_c_null_8h_source}{}\doxysection{TCSRCNull.\+h}
-\label{_t_c_s_r_c_null_8h_source}\index{/Users/pawel/projects/epic/epic/include/modules/radiative\_corrections/TCS/TCSRCNull.h@{/Users/pawel/projects/epic/epic/include/modules/radiative\_corrections/TCS/TCSRCNull.h}}
+\label{_t_c_s_r_c_null_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/modules/radiative\_corrections/TCS/TCSRCNull.h@{/Users/pawel/projects/epic/NEW2/epic/include/modules/radiative\_corrections/TCS/TCSRCNull.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*}}
@@ -16,7 +16,7 @@
 \DoxyCodeLine{12 \textcolor{preprocessor}{\#include <tuple>}}
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{14 }
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}../../../beans/containers/DDVCSKinematic.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}../../../beans/containers/TCSKinematic.h"{}}}
 \DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../../../beans/containers/ExperimentalConditions.h"{}}}
 \DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}TCSRCModule.h"{}}}
 \DoxyCodeLine{18 }
@@ -36,9 +36,9 @@
 \DoxyCodeLine{49 }
 \DoxyCodeLine{50     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null}{TCSRCNull}} *clone() \textcolor{keyword}{const};}
 \DoxyCodeLine{51 }
-\DoxyCodeLine{52     \textcolor{keyword}{virtual} std::tuple<double, ExperimentalConditions, DDVCSKinematic> \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_aef07eaf43d84ce669793a4542e0bf867}{evaluate}}(}
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} std::tuple<double, ExperimentalConditions, TCSKinematic> \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_a893d21c5fcda18bf1dfc69671b4ebb2a}{evaluate}}(}
 \DoxyCodeLine{53             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}}\& experimentalConditions,}
-\DoxyCodeLine{54             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}}\& obsKin, \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const};}
+\DoxyCodeLine{54             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}}\& obsKin, \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const};}
 \DoxyCodeLine{55 }
 \DoxyCodeLine{56     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_af6e2b9c6f7b21645a5e3cd81ed6507de}{updateEvent}}(\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}}\& event,}
 \DoxyCodeLine{57             \textcolor{keyword}{const} std::vector<double>\& par) \textcolor{keyword}{const};}

@@ -16,14 +16,13 @@ Exclusive processes currently available in EpIC are:
 * deeply virtual Compton scattering (DVCS) 
 * time-like Compton scattering (TCS)
 * deeply virtual meson production (DVMP), only &#960;<sup>0</sup> case
-* diphoton photoproduction
+* double deeply virtual Compton scattering (DDVCS) 
+* diphoton photoproduction (work in progress)
 
 We refer to [PARTONS documentation of modules](http://partons.cea.fr/partons/doc/html/files.html) for information on theory developments (like GPD models) available for the evaluation of Born cross-sections. 
-
 
 EpIC is written in C++. It utilities paradigms of the modular programming. Each step of the generation of Monte Carlo events is well distinguished from the others, allowing for the encapsulation of specific pieces of the code into easy-to-develop modules. The flow of data between the modules is supervised by services. 
 
 This page provides user's guide, allowing physicists to use EpIC in real life analyses. More technical information, which is important for a better understanding of the architecture of EpIC, *e.g.* for the purpose of further developments, can be found in [this article](https://inspirehep.net/literature/2077191). The article also provides the official reference points to be used in publications. 
-
 
 The code of the project is stored in [GitHub](https://github.com/pawelsznajder/epic). Doxygen documentation can be found [here](assets/doxygen/html/annotated.html).

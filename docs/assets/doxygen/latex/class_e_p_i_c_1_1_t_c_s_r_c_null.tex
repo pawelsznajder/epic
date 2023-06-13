@@ -27,7 +27,7 @@ virtual \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_a526d82fbf75009c896251
 \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_r_c_null_afa4b54895be323b251f58d2d89c1b2bd}\label{class_e_p_i_c_1_1_t_c_s_r_c_null_afa4b54895be323b251f58d2d89c1b2bd}} 
 virtual \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null}{TCSRCNull}} $\ast$ {\bfseries clone} () const
 \item 
-virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_aef07eaf43d84ce669793a4542e0bf867}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&obs\+Kin, const std\+::vector$<$ double $>$ \&par) const
+virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_a893d21c5fcda18bf1dfc69671b4ebb2a}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} \&obs\+Kin, const std\+::vector$<$ double $>$ \&par) const
 \item 
 virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_null_af6e2b9c6f7b21645a5e3cd81ed6507de}{update\+Event}} (\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event, const std\+::vector$<$ double $>$ \&par) const
 \end{DoxyCompactItemize}
@@ -66,15 +66,15 @@ Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_r_c_null_a526d82fbf
 Destructor. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_r_c_null_aef07eaf43d84ce669793a4542e0bf867}\label{class_e_p_i_c_1_1_t_c_s_r_c_null_aef07eaf43d84ce669793a4542e0bf867}} 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_r_c_null_a893d21c5fcda18bf1dfc69671b4ebb2a}\label{class_e_p_i_c_1_1_t_c_s_r_c_null_a893d21c5fcda18bf1dfc69671b4ebb2a}} 
 \index{EPIC::TCSRCNull@{EPIC::TCSRCNull}!evaluate@{evaluate}}
 \index{evaluate@{evaluate}!EPIC::TCSRCNull@{EPIC::TCSRCNull}}
 \doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
-{\footnotesize\ttfamily virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} $>$ EPIC\+::\+TCSRCNull\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&}]{obs\+Kin,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} $>$ EPIC\+::\+TCSRCNull\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}} \&}]{obs\+Kin,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 Get radiative function, true experimental conditions and kinematics. 
 
-Implements \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_module_a3ac4335d87d9be9bd31e2a5fc927d292}{EPIC\+::\+TCSRCModule}}.
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_r_c_module_ad9c57063c7c8071b6a23c78625f4383c}{EPIC\+::\+TCSRCModule}}.
 
 \mbox{\Hypertarget{class_e_p_i_c_1_1_t_c_s_r_c_null_af6e2b9c6f7b21645a5e3cd81ed6507de}\label{class_e_p_i_c_1_1_t_c_s_r_c_null_af6e2b9c6f7b21645a5e3cd81ed6507de}} 
 \index{EPIC::TCSRCNull@{EPIC::TCSRCNull}!updateEvent@{updateEvent}}
@@ -99,4 +99,4 @@ Unique ID to automatically register the class in the registry.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/pawel/projects/epic/epic/include/modules/radiative\+\_\+corrections/\+TCS/TCSRCNull.\+h\end{DoxyCompactItemize}
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/modules/radiative\+\_\+corrections/\+TCS/TCSRCNull.\+h\end{DoxyCompactItemize}

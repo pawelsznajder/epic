@@ -12,7 +12,7 @@ Radiative correction module for DVCS process using collinear approximation.
 Inheritance diagram for EPIC\+::DVCSRCCollinear\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=5.000000cm]{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear}
+\includegraphics[height=6.000000cm]{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -39,16 +39,24 @@ virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a00e73f1e7
 \item 
 \mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a113dad4c4320daaa9dfcb525a37e7521}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a113dad4c4320daaa9dfcb525a37e7521}} 
 static const std\+::string {\bfseries PARAMETER\+\_\+\+NAME\+\_\+\+EPSILON}
-\begin{DoxyCompactList}\small\item\em Key to set DVCSRCCollinear\+::m\+\_\+epsilon. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Key to set \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a0f4c1b9cd75687732750ab62446e2158}{DVCSRCCollinear\+::m\+\_\+epsilon}}. \end{DoxyCompactList}\item 
 static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a15b05e555e56e8d8e4ce39ea5583bedb}{class\+Id}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a0f4c1b9cd75687732750ab62446e2158}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a0f4c1b9cd75687732750ab62446e2158}} 
+double {\bfseries m\+\_\+epsilon}
+\begin{DoxyCompactList}\small\item\em Epsilon near z = 1 point. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 Radiative correction module for DVCS process using collinear approximation. 
 
-This class defines radiative correction module for DVCS process. The corrections are evaluated using the collinear approximation. 
+This class defines radiative correction module for DVCS process. The corrections are evaluated using the collinear approximation.
+
+Emission of single ISR photon or single FSR photon (1st order) or ISR+\+FSR pair (2nd order) are implemented. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a0a7bbb853744de57ad45a548a53384d1}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a0a7bbb853744de57ad45a548a53384d1}} 
@@ -82,6 +90,10 @@ Get radiative function, true experimental conditions and kinematics.
 
 Implements \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_module_aa698fece203c1498b2a6cd3bbaa31136}{EPIC\+::\+DVCSRCModule}}.
 
+
+
+Reimplemented in \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_aa495ee5247d1d161b8e44ea411dc2d4b}{EPIC\+::\+DVCSRCCollinear\+Full2nd\+Order}}.
+
 \mbox{\Hypertarget{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a00e73f1e7ed1a248cf732eb4549f8703}\label{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_a00e73f1e7ed1a248cf732eb4549f8703}} 
 \index{EPIC::DVCSRCCollinear@{EPIC::DVCSRCCollinear}!updateEvent@{updateEvent}}
 \index{updateEvent@{updateEvent}!EPIC::DVCSRCCollinear@{EPIC::DVCSRCCollinear}}
@@ -91,6 +103,10 @@ Implements \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_module_aa698fece203c14
 Update event. 
 
 Implements \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_module_a58761c6c1c1bdd051756097fa7138df4}{EPIC\+::\+DVCSRCModule}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_e_p_i_c_1_1_d_v_c_s_r_c_collinear_full2nd_order_a9b2e39a7e93ba67c295f771bf47d8cb9}{EPIC\+::\+DVCSRCCollinear\+Full2nd\+Order}}.
 
 
 
@@ -105,4 +121,4 @@ Unique ID to automatically register the class in the registry.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/pawel/projects/epic/epic/include/modules/radiative\+\_\+corrections/\+DVCS/DVCSRCCollinear.\+h\end{DoxyCompactItemize}
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/modules/radiative\+\_\+corrections/\+DVCS/DVCSRCCollinear.\+h\end{DoxyCompactItemize}

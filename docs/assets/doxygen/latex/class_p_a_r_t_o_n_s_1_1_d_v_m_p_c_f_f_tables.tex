@@ -1,0 +1,119 @@
+\hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables}{}\doxysection{PARTONS\+::DVMPCFFTables Class Reference}
+\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables}\index{PARTONS::DVMPCFFTables@{PARTONS::DVMPCFFTables}}
+
+
+Module for evaluation of CFF values from lookup tables.  
+
+
+
+
+{\ttfamily \#include $<$DVMPCFFTables.\+h$>$}
+
+Inheritance diagram for PARTONS\+::DVMPCFFTables\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a55cda1d0bbb37f4bdd88249840dcc703}{DVMPCFFTables}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a903f3d2016abea59bdcdb93494a010ce}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a903f3d2016abea59bdcdb93494a010ce}} 
+virtual \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables}{DVMPCFFTables}} $\ast$ {\bfseries clone} () const
+\item 
+virtual \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_af2c674935c56108f6793de4b543269c0}{$\sim$\+DVMPCFFTables}} ()
+\item 
+\mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_ae0dc49cfb8f5cfa4c1a9842063964813}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_ae0dc49cfb8f5cfa4c1a9842063964813}} 
+virtual void {\bfseries configure} (const Elem\+Utils\+::\+Parameters \&parameters)
+\item 
+\mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a756d99e563488caa12d476e5939f9885}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a756d99e563488caa12d476e5939f9885}} 
+virtual std\+::complex$<$ double $>$ {\bfseries compute\+CFF} ()
+\item 
+const std\+::string \& \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a3051136467d5dbd622f0acc3f7bb07aa}{get\+CFFSet\+File}} () const
+\item 
+void \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a17967a6153195328656693ddef1cac86}{set\+CFFSet\+File}} (const std\+::string \&cff\+Set\+File)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_aa82790e380e8c93912b3dd703492338b}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_aa82790e380e8c93912b3dd703492338b}} 
+static const std\+::string {\bfseries PARAMETER\+\_\+\+NAME\+\_\+\+SET\+\_\+\+FILE}
+\begin{DoxyCompactList}\small\item\em String used to switch between available CFF sets. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a22abb763acf2c0e2bc96933c92c522d8}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a22abb763acf2c0e2bc96933c92c522d8}} 
+static const unsigned int {\bfseries class\+Id}
+\begin{DoxyCompactList}\small\item\em Unique ID to automatically register the class in the registry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a3c4b79422c5efc681e347fa859dbf689}{DVMPCFFTables}} (const \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables}{DVMPCFFTables}} \&other)
+\item 
+\mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_adfd1a02fdefb8ef3371179df83dbb691}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_adfd1a02fdefb8ef3371179df83dbb691}} 
+virtual void {\bfseries init\+Module} ()
+\item 
+\mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a5225406abc16d1c0cef9b76c6643bf98}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a5225406abc16d1c0cef9b76c6643bf98}} 
+virtual void {\bfseries is\+Module\+Well\+Configured} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module for evaluation of CFF values from lookup tables. 
+
+Module for evaluation of CFF values from lookup tables (xi, t, Q2). Available tables are generated with PARTONS.
+
+User may change between available sets of tables with \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a17967a6153195328656693ddef1cac86}{DVMPCFFTables\+::set\+CFFSet\+File()}}, or DVMPCFFTables\+::configure() using \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_aa82790e380e8c93912b3dd703492338b}{DVMPCFFTables\+::\+PARAMETER\+\_\+\+NAME\+\_\+\+SET\+\_\+\+FILE}} tag.
+
+By default \char`\"{}data/\+DVMPCFFTables/pi0\+\_\+table\+\_\+\+GK.\+root\char`\"{} tables are probed.
+
+The interpolation over lookup table is done with linterp library (\href{https://rncarpio.github.io/linterp}{\texttt{ https\+://rncarpio.\+github.\+io/linterp}}). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a55cda1d0bbb37f4bdd88249840dcc703}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a55cda1d0bbb37f4bdd88249840dcc703}} 
+\index{PARTONS::DVMPCFFTables@{PARTONS::DVMPCFFTables}!DVMPCFFTables@{DVMPCFFTables}}
+\index{DVMPCFFTables@{DVMPCFFTables}!PARTONS::DVMPCFFTables@{PARTONS::DVMPCFFTables}}
+\doxysubsubsection{\texorpdfstring{DVMPCFFTables()}{DVMPCFFTables()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily PARTONS\+::\+DVMPCFFTables\+::\+DVMPCFFTables (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Constructor. See Base\+Object\+::\+Base\+Object and Module\+Object\+::\+Module\+Object for more details. 
+\begin{DoxyParams}{Parameters}
+{\em class\+Name} & Name of last child class. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_af2c674935c56108f6793de4b543269c0}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_af2c674935c56108f6793de4b543269c0}} 
+\index{PARTONS::DVMPCFFTables@{PARTONS::DVMPCFFTables}!````~DVMPCFFTables@{$\sim$DVMPCFFTables}}
+\index{````~DVMPCFFTables@{$\sim$DVMPCFFTables}!PARTONS::DVMPCFFTables@{PARTONS::DVMPCFFTables}}
+\doxysubsubsection{\texorpdfstring{$\sim$DVMPCFFTables()}{~DVMPCFFTables()}}
+{\footnotesize\ttfamily virtual PARTONS\+::\+DVMPCFFTables\+::$\sim$\+DVMPCFFTables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Default destructor. \mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a3c4b79422c5efc681e347fa859dbf689}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a3c4b79422c5efc681e347fa859dbf689}} 
+\index{PARTONS::DVMPCFFTables@{PARTONS::DVMPCFFTables}!DVMPCFFTables@{DVMPCFFTables}}
+\index{DVMPCFFTables@{DVMPCFFTables}!PARTONS::DVMPCFFTables@{PARTONS::DVMPCFFTables}}
+\doxysubsubsection{\texorpdfstring{DVMPCFFTables()}{DVMPCFFTables()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily PARTONS\+::\+DVMPCFFTables\+::\+DVMPCFFTables (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables}{DVMPCFFTables}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Copy constructor. 
+\begin{DoxyParams}{Parameters}
+{\em other} & Object to be copied. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a3051136467d5dbd622f0acc3f7bb07aa}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a3051136467d5dbd622f0acc3f7bb07aa}} 
+\index{PARTONS::DVMPCFFTables@{PARTONS::DVMPCFFTables}!getCFFSetFile@{getCFFSetFile}}
+\index{getCFFSetFile@{getCFFSetFile}!PARTONS::DVMPCFFTables@{PARTONS::DVMPCFFTables}}
+\doxysubsubsection{\texorpdfstring{getCFFSetFile()}{getCFFSetFile()}}
+{\footnotesize\ttfamily const std\+::string \& PARTONS\+::\+DVMPCFFTables\+::get\+CFFSet\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get CFF set file. \mbox{\Hypertarget{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a17967a6153195328656693ddef1cac86}\label{class_p_a_r_t_o_n_s_1_1_d_v_m_p_c_f_f_tables_a17967a6153195328656693ddef1cac86}} 
+\index{PARTONS::DVMPCFFTables@{PARTONS::DVMPCFFTables}!setCFFSetFile@{setCFFSetFile}}
+\index{setCFFSetFile@{setCFFSetFile}!PARTONS::DVMPCFFTables@{PARTONS::DVMPCFFTables}}
+\doxysubsubsection{\texorpdfstring{setCFFSetFile()}{setCFFSetFile()}}
+{\footnotesize\ttfamily void PARTONS\+::\+DVMPCFFTables\+::set\+CFFSet\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cff\+Set\+File }\end{DoxyParamCaption})}
+
+Set CFF set file. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/physics/convol\+\_\+coeff\+\_\+function/\+DVMP/DVMPCFFTables.\+h\end{DoxyCompactItemize}

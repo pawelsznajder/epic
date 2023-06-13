@@ -1,0 +1,102 @@
+\hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null}{}\doxysection{EPIC\+::DDVCSRCNull Class Reference}
+\label{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null}\index{EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}}
+
+
+Radiative correction module for DDVCS process giving no corrections.  
+
+
+
+
+{\ttfamily \#include $<$DDVCSRCNull.\+h$>$}
+
+Inheritance diagram for EPIC\+::DDVCSRCNull\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a8f1d31020140874bcbf10ecf5e443d83}{DDVCSRCNull}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a12d887f796a4cda86bcf5ef9c1a9f0ef}{DDVCSRCNull}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null}{DDVCSRCNull}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_adc9589263be6b447efcf94a3134223f0}{$\sim$\+DDVCSRCNull}} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_ad2c2110b1e8f0f4c27c5a0c40d761e90}\label{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_ad2c2110b1e8f0f4c27c5a0c40d761e90}} 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null}{DDVCSRCNull}} $\ast$ {\bfseries clone} () const
+\item 
+virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_afaa13771188dca4d0a355eabdaa7e52e}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&experimental\+Conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&obs\+Kin, const std\+::vector$<$ double $>$ \&par) const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_ac47ee434d6b9fd83747feec94613dd47}{update\+Event}} (\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&event, const std\+::vector$<$ double $>$ \&par) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a9c07ea6449009b7ef967624333da8f3b}{class\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Radiative correction module for DDVCS process giving no corrections. 
+
+This class defines radiative correction module for DDVCS process. The module gives no corrections. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a8f1d31020140874bcbf10ecf5e443d83}\label{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a8f1d31020140874bcbf10ecf5e443d83}} 
+\index{EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}!DDVCSRCNull@{DDVCSRCNull}}
+\index{DDVCSRCNull@{DDVCSRCNull}!EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}}
+\doxysubsubsection{\texorpdfstring{DDVCSRCNull()}{DDVCSRCNull()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+DDVCSRCNull\+::\+DDVCSRCNull (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a12d887f796a4cda86bcf5ef9c1a9f0ef}\label{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a12d887f796a4cda86bcf5ef9c1a9f0ef}} 
+\index{EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}!DDVCSRCNull@{DDVCSRCNull}}
+\index{DDVCSRCNull@{DDVCSRCNull}!EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}}
+\doxysubsubsection{\texorpdfstring{DDVCSRCNull()}{DDVCSRCNull()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+DDVCSRCNull\+::\+DDVCSRCNull (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null}{DDVCSRCNull}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_adc9589263be6b447efcf94a3134223f0}\label{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_adc9589263be6b447efcf94a3134223f0}} 
+\index{EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}!````~DDVCSRCNull@{$\sim$DDVCSRCNull}}
+\index{````~DDVCSRCNull@{$\sim$DDVCSRCNull}!EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}}
+\doxysubsubsection{\texorpdfstring{$\sim$DDVCSRCNull()}{~DDVCSRCNull()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+DDVCSRCNull\+::$\sim$\+DDVCSRCNull (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_afaa13771188dca4d0a355eabdaa7e52e}\label{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_afaa13771188dca4d0a355eabdaa7e52e}} 
+\index{EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily virtual std\+::tuple$<$ double, \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}}, \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} $>$ EPIC\+::\+DDVCSRCNull\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{experimental\+Conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&}]{obs\+Kin,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get radiative function, true experimental conditions and kinematics. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_module_a34c92dc46f638b68bbfe3673d10c46b3}{EPIC\+::\+DDVCSRCModule}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_ac47ee434d6b9fd83747feec94613dd47}\label{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_ac47ee434d6b9fd83747feec94613dd47}} 
+\index{EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}!updateEvent@{updateEvent}}
+\index{updateEvent@{updateEvent}!EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}}
+\doxysubsubsection{\texorpdfstring{updateEvent()}{updateEvent()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+DDVCSRCNull\+::update\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \&}]{event,  }\item[{const std\+::vector$<$ double $>$ \&}]{par }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Update event. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_r_c_module_a507c6c6bf674844ab855aeab88901deb}{EPIC\+::\+DDVCSRCModule}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a9c07ea6449009b7ef967624333da8f3b}\label{class_e_p_i_c_1_1_d_d_v_c_s_r_c_null_a9c07ea6449009b7ef967624333da8f3b}} 
+\index{EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}!classId@{classId}}
+\index{classId@{classId}!EPIC::DDVCSRCNull@{EPIC::DDVCSRCNull}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+DDVCSRCNull\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+Unique ID to automatically register the class in the registry. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/modules/radiative\+\_\+corrections/\+DDVCS/DDVCSRCNull.\+h\end{DoxyCompactItemize}

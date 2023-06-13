@@ -1,5 +1,5 @@
 \hypertarget{_general_configuration_8h_source}{}\doxysection{General\+Configuration.\+h}
-\label{_general_configuration_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/containers/GeneralConfiguration.h@{/Users/pawel/projects/epic/epic/include/beans/containers/GeneralConfiguration.h}}
+\label{_general_configuration_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/GeneralConfiguration.h@{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/GeneralConfiguration.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*}}
@@ -22,38 +22,44 @@
 \DoxyCodeLine{18 }
 \DoxyCodeLine{19 \textcolor{keyword}{namespace }EPIC \{}
 \DoxyCodeLine{20 }
-\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{GeneralConfiguration}} : \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{GeneralConfiguration}}: \textcolor{keyword}{public} PARTONS::BaseObject \{}
 \DoxyCodeLine{30 }
-\DoxyCodeLine{31   \textcolor{keyword}{static} \textcolor{keyword}{const} std::string}
-\DoxyCodeLine{32       GENERAL\_CONFIGURATION\_NUMBER\_OF\_EVENTS; }
+\DoxyCodeLine{31     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string GENERAL\_CONFIGURATION\_NUMBER\_OF\_EVENTS; }
+\DoxyCodeLine{32     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string GENERAL\_CONFIGURATION\_HISTOGRAM\_FILE\_PATH; }
 \DoxyCodeLine{33 }
 \DoxyCodeLine{34 \textcolor{keyword}{public}:}
-\DoxyCodeLine{38   \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a848a270dab351e54cede8811e7cde27c}{GeneralConfiguration}}();}
+\DoxyCodeLine{38     \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a848a270dab351e54cede8811e7cde27c}{GeneralConfiguration}}();}
 \DoxyCodeLine{39 }
-\DoxyCodeLine{43   \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a3d7657414ea8eb22cf588aa3754b3dbf}{GeneralConfiguration}}(\textcolor{keywordtype}{size\_t} nEvents);}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_ac6518e71d5f3c21788b35cb5f4d6771f}{GeneralConfiguration}}(\textcolor{keywordtype}{size\_t} nEvents, \textcolor{keyword}{const} std::string\& histogramFilePath);}
 \DoxyCodeLine{44 }
-\DoxyCodeLine{48   \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_aa8273ba76fdfcb6a4069f3da817366de}{GeneralConfiguration}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{GeneralConfiguration}} \&other);}
+\DoxyCodeLine{48     \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_aa8273ba76fdfcb6a4069f3da817366de}{GeneralConfiguration}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{GeneralConfiguration}} \&other);}
 \DoxyCodeLine{49 }
-\DoxyCodeLine{53   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a641039ff1dd0c5c0205ef81d0a64ff3f}{\string~GeneralConfiguration}}();}
+\DoxyCodeLine{53     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a641039ff1dd0c5c0205ef81d0a64ff3f}{\string~GeneralConfiguration}}();}
 \DoxyCodeLine{54 }
-\DoxyCodeLine{55   \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{55     \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
 \DoxyCodeLine{56 }
-\DoxyCodeLine{60   \textcolor{keyword}{static} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{GeneralConfiguration}} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a7b9590f4a4389647f46bae2b488ef5d2}{fromTask}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{60     \textcolor{keyword}{static} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{GeneralConfiguration}} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a7b9590f4a4389647f46bae2b488ef5d2}{fromTask}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
 \DoxyCodeLine{61 }
-\DoxyCodeLine{62   \textcolor{comment}{//********************************************************}}
-\DoxyCodeLine{63   \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
-\DoxyCodeLine{64   \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{62     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{63     \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{64     \textcolor{comment}{//********************************************************}}
 \DoxyCodeLine{65 }
-\DoxyCodeLine{69   \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a8585b9978ce7762b4d7028676fe9c22c}{getNEvents}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{69     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a8585b9978ce7762b4d7028676fe9c22c}{getNEvents}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{70 }
-\DoxyCodeLine{74   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_aba71fac42c9acf1447f8d6e6d6570f1c}{setNEvents}}(\textcolor{keywordtype}{size\_t} nEvents);}
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_aba71fac42c9acf1447f8d6e6d6570f1c}{setNEvents}}(\textcolor{keywordtype}{size\_t} nEvents);}
 \DoxyCodeLine{75 }
-\DoxyCodeLine{76 \textcolor{keyword}{private}:}
-\DoxyCodeLine{77   \textcolor{keywordtype}{size\_t} m\_nEvents; }
-\DoxyCodeLine{78 \};}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80 \} \textcolor{comment}{/* namespace EPIC */}}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_GENERALCONFIGURATION\_H\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{79     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a825b37e63ff5550e1bc6b3b43756c66a}{getHistogramFilePath}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a7c55530ca18489af0efba2e354624d79}{setHistogramFilePath}}(\textcolor{keyword}{const} std::string\& histogramFilePath);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{private}:}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{keywordtype}{size\_t} m\_nEvents; }
+\DoxyCodeLine{89     std::string m\_histogramFilePath; }
+\DoxyCodeLine{90 \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_GENERALCONFIGURATION\_H\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

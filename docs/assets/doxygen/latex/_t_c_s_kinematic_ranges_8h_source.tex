@@ -1,0 +1,58 @@
+\hypertarget{_t_c_s_kinematic_ranges_8h_source}{}\doxysection{TCSKinematic\+Ranges.\+h}
+\label{_t_c_s_kinematic_ranges_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/TCSKinematicRanges.h@{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/TCSKinematicRanges.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * TCSKinematicRanges.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 9, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef BEANS\_TCSKINEMATICRANGES\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define BEANS\_TCSKINEMATICRANGES\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}DDVCSKinematicRanges.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{14 \textcolor{keyword}{class }TCSKinematic;}
+\DoxyCodeLine{15 \textcolor{keyword}{class }ExperimentalConditions;}
+\DoxyCodeLine{16 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges}{TCSKinematicRanges}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ranges}{DDVCSKinematicRanges}} \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a1a8d59e634524047e22e4da0552b2c68}{TCSKinematicRanges}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{39     \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a28006b76153290d53e2d14ba24fe0c46}{TCSKinematicRanges}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangeY,}
+\DoxyCodeLine{40             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangeQ2, \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangeT,}
+\DoxyCodeLine{41             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangeQ2Prim, \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangePhiS,}
+\DoxyCodeLine{42             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangePhiL, \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangeThetaL);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{47     \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a423269c1a4be659e6a82d3fe54167dc8}{TCSKinematicRanges}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges}{TCSKinematicRanges}} \&other);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a558ecb9c2689d89b8773a1c66c5b8cdf}{\string~TCSKinematicRanges}}();}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{bool} inRange(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}}\& experimentalConditions,}
+\DoxyCodeLine{57             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic}{TCSKinematic}}\& obsKin) \textcolor{keyword}{const};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{62     \textcolor{keyword}{static} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges}{TCSKinematicRanges}} \mbox{\hyperlink{class_e_p_i_c_1_1_t_c_s_kinematic_ranges_a0c9ea91b2610163ed269938496d24703}{getTCSKinematicRangesfromTask}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{bool} inRange(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}}\& experimentalConditions,}
+\DoxyCodeLine{65             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}}\& obsKin) \textcolor{keyword}{const} = \textcolor{keyword}{delete};}
+\DoxyCodeLine{66     \textcolor{keyword}{static} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ranges}{DDVCSKinematicRanges}} getDDVCSKinematicRangesfromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{67     \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&getRangePhi() \textcolor{keyword}{const} = \textcolor{keyword}{delete};}
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} setRangePhi(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{KinematicRange}} \&rangePhi) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_TCSKINEMATICRANGES\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

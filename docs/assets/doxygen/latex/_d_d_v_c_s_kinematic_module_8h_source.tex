@@ -1,0 +1,68 @@
+\hypertarget{_d_d_v_c_s_kinematic_module_8h_source}{}\doxysection{DDVCSKinematic\+Module.\+h}
+\label{_d_d_v_c_s_kinematic_module_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/modules/kinematic/DDVCS/DDVCSKinematicModule.h@{/Users/pawel/projects/epic/NEW2/epic/include/modules/kinematic/DDVCS/DDVCSKinematicModule.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * DDVCSKinematicModule.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 12, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_KINEMATIC\_DDVCS\_DDVCSKINEMATICMODULE\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_KINEMATIC\_DDVCS\_DDVCSKINEMATICMODULE\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <ElementaryUtils/parameters/Parameters.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../../../beans/containers/DDVCSKinematicRanges.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}../../../beans/containers/DDVCSKinematic.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../../../beans/types/ParticleType.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../KinematicModule.h"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module}{DDVCSKinematicModule}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module}{KinematicModule}}<DDVCSKinematicRanges, DDVCSKinematic> \{}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_a4408bd4bf816d5bd3db143793f0fc281}{DDVCS\_KINEMATIC\_MODULE\_CLASS\_NAME}}; }
+\DoxyCodeLine{32     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_ab799ab71ef1baf6c7f0838b1459b971a}{DDVCS\_KINEMATIC\_MODULE\_PARAMETER\_DECAY\_TYPE}}; }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_a4c72ed5fc57712d8e7c522b1407dc120}{DDVCSKinematicModule}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42     \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_afc86f1fadbbb045e3f2e000952dbdd27}{DDVCSKinematicModule}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module}{DDVCSKinematicModule}} \&other);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{47     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_a6e3127b4d558cec16430a1f2af5a09fb}{\string~DDVCSKinematicModule}}();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} configure(\textcolor{keyword}{const} ElemUtils::Parameters \&parameters);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_a71dded7e8335fe6d7f681a6889218945}{runTest}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keyword}{virtual} std::vector<KinematicRange> \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_afbedca7b555338dfe4313f8c0f44d5fb}{getKinematicRanges}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions, \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ranges}{DDVCSKinematicRanges}}\& ranges);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_a5cb0585242a4b110b54f5bc07602f81e}{checkIfValid}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
+\DoxyCodeLine{56             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&kin);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_aa81364fe23dc6d0310af0109d33401fa}{evaluate}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
+\DoxyCodeLine{59             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&kin) = 0;}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{62     \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{63     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_a0907727fc226b377a94c39a9a116b77c}{getDecayType}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_a8cbc12c0144dfd781df7c06584062797}{setDecayType}}(\mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} decayType);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{76     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} initModule();}
+\DoxyCodeLine{77     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isModuleWellConfigured();}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \mbox{\hyperlink{class_e_p_i_c_1_1_particle_type_ad6ccd8b641b310c2a2a6ac9a2a285962}{ParticleType::Type}} \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_module_a8a98380d97e9955c94df54d612932752}{m\_decayType}}; }
+\DoxyCodeLine{80 \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_KINEMATIC\_DDVCS\_DDVCSKINEMATICMODULE\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

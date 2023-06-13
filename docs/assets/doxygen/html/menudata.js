@@ -23,8 +23,8 @@
  @licend  The above is the entire license notice for the JavaScript code in this file
 */
 var menudata={children:[
-{text:"Go to homepage",url:"../../../index.html"},
-{text:"Go to GitHub page",url:"https://github.com/pawelsznajder/epic"},
+{text:"Go back to homepage",url:"../../../index.html"},
+{text:"GitHub page",url:"^https://github.com/pawelsznajder/epic"},
 {text:"Classes",url:"annotated.html",children:[
 {text:"Class List",url:"annotated.html"},
 {text:"Class Members",url:"functions.html",children:[

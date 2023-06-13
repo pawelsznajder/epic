@@ -1,0 +1,54 @@
+\hypertarget{_g_a_m2_kinematic_default_8h_source}{}\doxysection{GAM2\+Kinematic\+Default.\+h}
+\label{_g_a_m2_kinematic_default_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/modules/kinematic/GAM2/GAM2KinematicDefault.h@{/Users/pawel/projects/epic/NEW2/epic/include/modules/kinematic/GAM2/GAM2KinematicDefault.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * GAM2KinematicDefault.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Aug 24, 2022}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Bartosz Skura (PW)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef MODULES\_KINEMATIC\_GAM2\_GAM2KINEMATICDEFAULT\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define MODULES\_KINEMATIC\_GAM2\_GAM2KINEMATICDEFAULT\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}GAM2KinematicModule.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{17 \textcolor{keyword}{class }RandomNumberModule;}
+\DoxyCodeLine{18 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_default}{GAM2KinematicDefault}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_module}{GAM2KinematicModule}} \{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_default_a230d97f037a26919302b684df5950997}{classId}}; }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_default_a7dd46986f60b07512a33063cb79d91ad}{GAM2KinematicDefault}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{45     \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_default_a4b92fe0511d007e81d4aad9b410b7695}{GAM2KinematicDefault}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_default}{GAM2KinematicDefault}} \&other);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_default_af40e9f8f8c5f45de590ccbcc1a6b483e}{\string~GAM2KinematicDefault}}();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_default}{GAM2KinematicDefault}} *clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_default_a85cdf2b798d217afb3a4f204a8c67a13}{checkIfValid}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
+\DoxyCodeLine{55             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2Kinematic}} \&kin);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_default_ad06e92c6b143ea98b1b260fee3e3a261}{evaluate}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{ExperimentalConditions}} \&conditions,}
+\DoxyCodeLine{58             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2Kinematic}} \&kin);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keyword}{private}:}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     std::shared\_ptr<RandomNumberModule> m\_randomNumberModule; }
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MODULES\_KINEMATIC\_GAM2\_GAM2KINEMATICDEFAULT\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

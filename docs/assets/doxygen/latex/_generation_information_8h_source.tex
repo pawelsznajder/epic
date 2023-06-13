@@ -1,5 +1,5 @@
 \hypertarget{_generation_information_8h_source}{}\doxysection{Generation\+Information.\+h}
-\label{_generation_information_8h_source}\index{/Users/pawel/projects/epic/epic/include/beans/containers/GenerationInformation.h@{/Users/pawel/projects/epic/epic/include/beans/containers/GenerationInformation.h}}
+\label{_generation_information_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/GenerationInformation.h@{/Users/pawel/projects/epic/NEW2/epic/include/beans/containers/GenerationInformation.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*}}
@@ -15,79 +15,90 @@
 \DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/BaseObject.h>}}
 \DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#include <utility>}}
-\DoxyCodeLine{14 }
-\DoxyCodeLine{15 \textcolor{keyword}{namespace }EPIC \{}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{GenerationInformation}}: \textcolor{keyword}{public} PARTONS::BaseObject \{}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26 \textcolor{keyword}{public}:}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{31     \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a63a3f146bbf6116d0ea4f97811ded8ac}{GenerationInformation}}();}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{36     \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a2f335a1d3e086570841fbf012f4d45ef}{GenerationInformation}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{GenerationInformation}} \&other);}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{41     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_ae4fbde078340faa38fd11f969b827fe5}{\string~GenerationInformation}}();}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43     \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45     \textcolor{comment}{//********************************************************}}
-\DoxyCodeLine{46     \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
-\DoxyCodeLine{47     \textcolor{comment}{//********************************************************}}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{52     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a9a583e9a4b8a29283c49f6c311a042eb}{getGeneratorName}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a4b1d77316f76edfd9773818bf24b5b1d}{setGeneratorName}}(\textcolor{keyword}{const} std::string\& generatorName);}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{62     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_af9991160ed37203688f81025aa36810c}{getGeneratorVersion}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_aa80619a4447dbb65bf3777f07d6c3716}{setGeneratorVersion}}(\textcolor{keyword}{const} std::string\& generatorVersion);}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{72     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a640833f7a1200083e5f49d33303eb79a}{getDescription}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{77     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_abeb98f9e6a40766ba786f83bc46febc1}{setDescription}}(\textcolor{keyword}{const} std::string\& description);}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{82     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a0276e99070cc3babcfcd5d6492c53414}{getServiceName}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{83 }
-\DoxyCodeLine{87     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a745938089bde4bb157bffc1acbdff5db}{setServiceName}}(\textcolor{keyword}{const} std::string\& serviceName);}
-\DoxyCodeLine{88 }
-\DoxyCodeLine{92     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_aa32d08f77ae3587a3bb6349d1b247ba4}{getNEvents}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{93 }
-\DoxyCodeLine{97     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a03e61cf8bc622d42ce8ae938f18e544f}{setNEvents}}(\textcolor{keywordtype}{int} nEvents);}
-\DoxyCodeLine{98 }
-\DoxyCodeLine{102     \textcolor{keyword}{const} std::pair<double, double>\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_aa39d10d03f907212e548bf5832afbe67}{getIntegratedCrossSection}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{103 }
-\DoxyCodeLine{107     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_acc58789e1118b22e94fd57926fbb71e7}{setIntegratedCrossSection}}(}
-\DoxyCodeLine{108             \textcolor{keyword}{const} std::pair<double, double>\& integratedCrossSection);}
-\DoxyCodeLine{109 }
-\DoxyCodeLine{113     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_ad16e5983d95f9eb78a3fd63ed7343d40}{getGenerationDate}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{114 }
-\DoxyCodeLine{118     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a49ac66576c0e374806a789415418b49d}{setGenerationDate}}(\textcolor{keyword}{const} std::string\& generationDate);}
-\DoxyCodeLine{119 }
-\DoxyCodeLine{123     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a4d61beb67a68169d4c01650e59fded9a}{getGenerationTime}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{124 }
-\DoxyCodeLine{128     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a08b56ad69aa99d6f3e479eb1a04d6b80}{setGenerationTime}}(\textcolor{keywordtype}{double} generationTime);}
-\DoxyCodeLine{129 }
-\DoxyCodeLine{133     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_af44fdcf963799f8191448f68eb89a47f}{getInitializationTime}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{138     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a077ecd459e9051ddf8c9969f082b0a70}{setInitializationTime}}(\textcolor{keywordtype}{double} initializationTime);}
-\DoxyCodeLine{139 }
-\DoxyCodeLine{140 \textcolor{keyword}{private}:}
-\DoxyCodeLine{141 }
-\DoxyCodeLine{142     std::string m\_generatorName; }
-\DoxyCodeLine{143     std::string m\_generatorVersion; }
-\DoxyCodeLine{144     std::string m\_description; }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{GenerationInformation}}: \textcolor{keyword}{public} PARTONS::BaseObject \{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{32     \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a63a3f146bbf6116d0ea4f97811ded8ac}{GenerationInformation}}();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a2f335a1d3e086570841fbf012f4d45ef}{GenerationInformation}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information}{GenerationInformation}} \&other);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_ae4fbde078340faa38fd11f969b827fe5}{\string~GenerationInformation}}();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} std::string toString() \textcolor{keyword}{const};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{47     \textcolor{comment}{//*** SETTERS AND GETTERS ********************************}}
+\DoxyCodeLine{48     \textcolor{comment}{//********************************************************}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{53     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a9a583e9a4b8a29283c49f6c311a042eb}{getGeneratorName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a4b1d77316f76edfd9773818bf24b5b1d}{setGeneratorName}}(\textcolor{keyword}{const} std::string\& generatorName);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{63     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_af9991160ed37203688f81025aa36810c}{getGeneratorVersion}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_aa80619a4447dbb65bf3777f07d6c3716}{setGeneratorVersion}}(\textcolor{keyword}{const} std::string\& generatorVersion);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{73     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a640833f7a1200083e5f49d33303eb79a}{getDescription}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_abeb98f9e6a40766ba786f83bc46febc1}{setDescription}}(\textcolor{keyword}{const} std::string\& description);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{83     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a0276e99070cc3babcfcd5d6492c53414}{getServiceName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a745938089bde4bb157bffc1acbdff5db}{setServiceName}}(\textcolor{keyword}{const} std::string\& serviceName);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{93     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_aa32d08f77ae3587a3bb6349d1b247ba4}{getNEvents}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{98     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a03e61cf8bc622d42ce8ae938f18e544f}{setNEvents}}(\textcolor{keywordtype}{int} nEvents);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{103     \textcolor{keyword}{const} std::pair<double, double>\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_aa39d10d03f907212e548bf5832afbe67}{getIntegratedCrossSection}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{108     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_acc58789e1118b22e94fd57926fbb71e7}{setIntegratedCrossSection}}(}
+\DoxyCodeLine{109             \textcolor{keyword}{const} std::pair<double, double>\& integratedCrossSection);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{114     \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_ad16e5983d95f9eb78a3fd63ed7343d40}{getGenerationDate}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a49ac66576c0e374806a789415418b49d}{setGenerationDate}}(\textcolor{keyword}{const} std::string\& generationDate);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{124     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a4d61beb67a68169d4c01650e59fded9a}{getGenerationTime}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{129     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a08b56ad69aa99d6f3e479eb1a04d6b80}{setGenerationTime}}(\textcolor{keywordtype}{double} generationTime);}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{134     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_af44fdcf963799f8191448f68eb89a47f}{getInitializationTime}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{139     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a077ecd459e9051ddf8c9969f082b0a70}{setInitializationTime}}(\textcolor{keywordtype}{double} initializationTime);}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{144     \textcolor{keyword}{const} std::vector<std::pair<std::string, std::string> >\& \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_af81ec2a2d7b9373d012eb04b72b1aecd}{getAdditionalInfo}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{145 }
-\DoxyCodeLine{146     std::string m\_serviceName; }
-\DoxyCodeLine{147     \textcolor{keywordtype}{int} m\_nEvents; }
-\DoxyCodeLine{148     std::pair<double, double> m\_integratedCrossSection; }
-\DoxyCodeLine{149     std::string m\_generationDate; }
-\DoxyCodeLine{150 }
-\DoxyCodeLine{151     \textcolor{keywordtype}{double} m\_initializationTime; }
-\DoxyCodeLine{152     \textcolor{keywordtype}{double} m\_generationTime; }
-\DoxyCodeLine{153 \};}
-\DoxyCodeLine{154 }
-\DoxyCodeLine{155 \} \textcolor{comment}{/* namespace EPIC */}}
-\DoxyCodeLine{156 }
-\DoxyCodeLine{157 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_GENERATIONINFORMATION\_H\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{149     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_af466a90a08d367125973e8563f548b9e}{setAdditionalInfo}}(}
+\DoxyCodeLine{150             \textcolor{keyword}{const} std::vector<std::pair<std::string, std::string> >\& additionalInfo);}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{155     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_generation_information_a48ed9b8a0cd7156121f01a5237d27095}{addAdditionalInfo}}(}
+\DoxyCodeLine{156             \textcolor{keyword}{const} std::pair<std::string, std::string>\& additionalInfo);}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{keyword}{private}:}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     std::string m\_generatorName; }
+\DoxyCodeLine{161     std::string m\_generatorVersion; }
+\DoxyCodeLine{162     std::string m\_description; }
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     std::string m\_serviceName; }
+\DoxyCodeLine{165     \textcolor{keywordtype}{int} m\_nEvents; }
+\DoxyCodeLine{166     std::pair<double, double> m\_integratedCrossSection; }
+\DoxyCodeLine{167     std::string m\_generationDate; }
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169     \textcolor{keywordtype}{double} m\_initializationTime; }
+\DoxyCodeLine{170     \textcolor{keywordtype}{double} m\_generationTime; }
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172     std::vector<std::pair<std::string, std::string> > m\_additionalInfo; }
+\DoxyCodeLine{173 \};}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BEANS\_GENERATIONINFORMATION\_H\_ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

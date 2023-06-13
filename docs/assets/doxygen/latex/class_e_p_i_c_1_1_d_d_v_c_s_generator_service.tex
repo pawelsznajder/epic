@@ -1,0 +1,86 @@
+\hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_generator_service}{}\doxysection{EPIC\+::DDVCSGenerator\+Service Class Reference}
+\label{class_e_p_i_c_1_1_d_d_v_c_s_generator_service}\index{EPIC::DDVCSGeneratorService@{EPIC::DDVCSGeneratorService}}
+
+
+Service used to perform generation of DDVCS MC events.  
+
+
+
+
+{\ttfamily \#include $<$DDVCSGenerator\+Service.\+h$>$}
+
+Inheritance diagram for EPIC\+::DDVCSGenerator\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.068702cm]{class_e_p_i_c_1_1_d_d_v_c_s_generator_service}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_a9df59c3ce5e69ee6b78b6a47fb62a897}{$\sim$\+DDVCSGenerator\+Service}} ()
+\item 
+virtual double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_a6d1d52f59ed011a9a73cb0c712110c00}{get\+Event\+Distribution}} (std\+::vector$<$ double $>$ \&kin) const
+\item 
+virtual void \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_abc568c9d86ddedfa7d22d3673351b725}{run}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_a7d3d19caa0f0456eeb6886370fb4d167}\label{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_a7d3d19caa0f0456eeb6886370fb4d167}} 
+static const std\+::string {\bfseries DDVCS\+\_\+\+GENERATOR\+\_\+\+SERVICE\+\_\+\+SUBPROCESSTYPE}
+\begin{DoxyCompactList}\small\item\em String used to set subprocess type via XML scenario. \end{DoxyCompactList}\item 
+static const unsigned int \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_a63cfbe60c74e9f0441d1d0e353224534}{class\+Id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Service used to perform generation of DDVCS MC events. 
+
+This class handles generation process of MC events for DDVCS. It is intended to have a unique instance accessed trough DDVCSGenerator\+Service\+::get\+Instance() method. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_a9df59c3ce5e69ee6b78b6a47fb62a897}\label{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_a9df59c3ce5e69ee6b78b6a47fb62a897}} 
+\index{EPIC::DDVCSGeneratorService@{EPIC::DDVCSGeneratorService}!````~DDVCSGeneratorService@{$\sim$DDVCSGeneratorService}}
+\index{````~DDVCSGeneratorService@{$\sim$DDVCSGeneratorService}!EPIC::DDVCSGeneratorService@{EPIC::DDVCSGeneratorService}}
+\doxysubsubsection{\texorpdfstring{$\sim$DDVCSGeneratorService()}{~DDVCSGeneratorService()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+DDVCSGenerator\+Service\+::$\sim$\+DDVCSGenerator\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_a6d1d52f59ed011a9a73cb0c712110c00}\label{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_a6d1d52f59ed011a9a73cb0c712110c00}} 
+\index{EPIC::DDVCSGeneratorService@{EPIC::DDVCSGeneratorService}!getEventDistribution@{getEventDistribution}}
+\index{getEventDistribution@{getEventDistribution}!EPIC::DDVCSGeneratorService@{EPIC::DDVCSGeneratorService}}
+\doxysubsubsection{\texorpdfstring{getEventDistribution()}{getEventDistribution()}}
+{\footnotesize\ttfamily virtual double EPIC\+::\+DDVCSGenerator\+Service\+::get\+Event\+Distribution (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$ \&}]{kin }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This function is used by \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_module}{Event\+Generator\+Module}} to probe event distribution during the initialization step. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_event_generator_interface_a2e70f6295e34a2d8aac5ffe929bc82fa}{EPIC\+::\+Event\+Generator\+Interface}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_abc568c9d86ddedfa7d22d3673351b725}\label{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_abc568c9d86ddedfa7d22d3673351b725}} 
+\index{EPIC::DDVCSGeneratorService@{EPIC::DDVCSGeneratorService}!run@{run}}
+\index{run@{run}!EPIC::DDVCSGeneratorService@{EPIC::DDVCSGeneratorService}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily virtual void EPIC\+::\+DDVCSGenerator\+Service\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Run/ 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service_a08e2461bab7f40d8a21d8e5fc6d79fb6}{EPIC\+::\+Generator\+Service$<$ DDVCSKinematic\+Ranges, PARTONS\+::\+DDVCSProcess\+Module, DDVCSKinematic\+Module, DDVCSRCModule $>$}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_a63cfbe60c74e9f0441d1d0e353224534}\label{class_e_p_i_c_1_1_d_d_v_c_s_generator_service_a63cfbe60c74e9f0441d1d0e353224534}} 
+\index{EPIC::DDVCSGeneratorService@{EPIC::DDVCSGeneratorService}!classId@{classId}}
+\index{classId@{classId}!EPIC::DDVCSGeneratorService@{EPIC::DDVCSGeneratorService}}
+\doxysubsubsection{\texorpdfstring{classId}{classId}}
+{\footnotesize\ttfamily const unsigned int EPIC\+::\+DDVCSGenerator\+Service\+::class\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+Unique ID to automatically register the class in the registry. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/services/DDVCSGenerator\+Service.\+h\end{DoxyCompactItemize}

@@ -12,7 +12,7 @@ Class representing single observable kinematics for DDVCS process.
 Inheritance diagram for EPIC\+::DDVCSKinematic\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}
+\includegraphics[height=3.000000cm]{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -20,7 +20,7 @@ Inheritance diagram for EPIC\+::DDVCSKinematic\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a0eaaea54b84883e49c6310e3c0a661df}{DDVCSKinematic}} ()
 \item 
-\mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a18cd0d0d56a109791fa9018e0f95432e}{DDVCSKinematic}} (double y, double Q2, double t, double Q2\+Prim, double E, double phi, double phiS, double theta)
+\mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a37cf71e8ae822080505635591fb4a703}{DDVCSKinematic}} (double y, double Q2, double t, double Q2\+Prim, double E, double phi, double phiS, double phiL, double thetaL)
 \item 
 \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac605944ad4cf64e05eb0b0ae1b000e51}{DDVCSKinematic}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic}{DDVCSKinematic}} \&other)
 \item 
@@ -29,7 +29,7 @@ virtual \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ad104137eac2e87f4
 \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a5b030391a73021add0b1a44c9c6f4bc6}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a5b030391a73021add0b1a44c9c6f4bc6}} 
 virtual std\+::string {\bfseries to\+String} () const
 \item 
-PARTONS\+::\+TCSObservable\+Kinematic \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a651524abe9ef43c86c8e88660ff08eca}{to\+PARTONSTCSObservable\+Kinematic}} () const
+PARTONS\+::\+DDVCSObservable\+Kinematic \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a9c142b046b926a5d6ffa312fad266081}{to\+PARTONSDDVCSObservable\+Kinematic}} () const
 \item 
 double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a042842159d249f579eff286424251119}{getY}} () const
 \item 
@@ -59,16 +59,41 @@ double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a5a2e768f26d5f1359
 \item 
 void \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ada211fdde28eceaa23a7f9ba1e2473ac}{set\+PhiS}} (double phiS)
 \item 
-double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a8f699a6ddbb86a3aa730c4a6c372e360}{get\+Theta}} () const
+double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac8a5a66fdd5e9903e8be48d29b6f062d}{get\+PhiL}} () const
 \item 
-void \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a3ec6bf3b4e6e0424ce0021025d16fc66}{set\+Theta}} (double theta)
+void \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_aa16be196b8e04a2aa63f2c358e1b787a}{set\+PhiL}} (double thetaL)
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a81048b1312e7bda7795d780fd1938b1a}{get\+ThetaL}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_af207c447deee84115f129ba5c58cc8ee}{set\+ThetaL}} (double thetaL)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a16af53657d2fde49c1718bb99cba2caf}{m\+\_\+y}}
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac2fc2890eaf76866a13e10748d71234c}{m\+\_\+\+Q2}}
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_aa2151ee4946f8f9a0c41e3497a582650}{m\+\_\+t}}
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a2b4fa85db7dcea1e3942792acc6bb3ad}{m\+\_\+\+Q2\+Prim}}
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a98bf905a2f8569edc84e9984db29c9c8}{m\+\_\+E}}
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a120f17fbd2d07413837fc58b5a39f9a0}{m\+\_\+phi}}
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a4086502db442a8abde0ea3aa9fe995b5}{m\+\_\+phiS}}
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac32304e878f2a6085a0f6ee4bb7e4781}{m\+\_\+phiL}}
+\item 
+double \mbox{\hyperlink{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac7f3eab477e5e3e9e923da8395d46651}{m\+\_\+thetaL}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class representing single observable kinematics for DDVCS process. 
 
-This class represents a single observable kinematics for DDVCS process (y, $Q^{2}$, t, $Q\textnormal{\textquotesingle}^{2}$, E\+\_\+\{b\}, $\phi$, $\theta$). 
+This class represents a single observable kinematics for DDVCS process (y, $Q^{2}$, t, $Q\textnormal{\textquotesingle}^{2}$, E\+\_\+\{b\}, $\phi$, $\phi_{S}$, $\phi_{L}$, $\theta_{L}$). 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a0eaaea54b84883e49c6310e3c0a661df}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a0eaaea54b84883e49c6310e3c0a661df}} 
@@ -77,11 +102,11 @@ This class represents a single observable kinematics for DDVCS process (y, $Q^{2
 \doxysubsubsection{\texorpdfstring{DDVCSKinematic()}{DDVCSKinematic()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily EPIC\+::\+DDVCSKinematic\+::\+DDVCSKinematic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a18cd0d0d56a109791fa9018e0f95432e}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a18cd0d0d56a109791fa9018e0f95432e}} 
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a37cf71e8ae822080505635591fb4a703}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a37cf71e8ae822080505635591fb4a703}} 
 \index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!DDVCSKinematic@{DDVCSKinematic}}
 \index{DDVCSKinematic@{DDVCSKinematic}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
 \doxysubsubsection{\texorpdfstring{DDVCSKinematic()}{DDVCSKinematic()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily EPIC\+::\+DDVCSKinematic\+::\+DDVCSKinematic (\begin{DoxyParamCaption}\item[{double}]{y,  }\item[{double}]{Q2,  }\item[{double}]{t,  }\item[{double}]{Q2\+Prim,  }\item[{double}]{E,  }\item[{double}]{phi,  }\item[{double}]{phiS,  }\item[{double}]{theta }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily EPIC\+::\+DDVCSKinematic\+::\+DDVCSKinematic (\begin{DoxyParamCaption}\item[{double}]{y,  }\item[{double}]{Q2,  }\item[{double}]{t,  }\item[{double}]{Q2\+Prim,  }\item[{double}]{E,  }\item[{double}]{phi,  }\item[{double}]{phiS,  }\item[{double}]{phiL,  }\item[{double}]{thetaL }\end{DoxyParamCaption})}
 
 Assignment constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac605944ad4cf64e05eb0b0ae1b000e51}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac605944ad4cf64e05eb0b0ae1b000e51}} 
 \index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!DDVCSKinematic@{DDVCSKinematic}}
@@ -110,7 +135,13 @@ Get beam energy. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_abddd5
 \doxysubsubsection{\texorpdfstring{getPhi()}{getPhi()}}
 {\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::get\+Phi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Get angle between leptonic and hadronic planes (in radians). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a5a2e768f26d5f1359dcecca7af01a668}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a5a2e768f26d5f1359dcecca7af01a668}} 
+Get angle between leptonic and hadronic planes (in radians). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac8a5a66fdd5e9903e8be48d29b6f062d}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac8a5a66fdd5e9903e8be48d29b6f062d}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!getPhiL@{getPhiL}}
+\index{getPhiL@{getPhiL}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{getPhiL()}{getPhiL()}}
+{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::get\+PhiL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get azimuthal angle between positively charged lepton and scattered proton in lepton CMS (in radians). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a5a2e768f26d5f1359dcecca7af01a668}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a5a2e768f26d5f1359dcecca7af01a668}} 
 \index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!getPhiS@{getPhiS}}
 \index{getPhiS@{getPhiS}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
 \doxysubsubsection{\texorpdfstring{getPhiS()}{getPhiS()}}
@@ -134,13 +165,13 @@ Get outgoing virtual-\/photon virtuality. \mbox{\Hypertarget{class_e_p_i_c_1_1_d
 \doxysubsubsection{\texorpdfstring{getT()}{getT()}}
 {\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::getT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Get four-\/momentum transfer squared of hadron target. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a8f699a6ddbb86a3aa730c4a6c372e360}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a8f699a6ddbb86a3aa730c4a6c372e360}} 
-\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!getTheta@{getTheta}}
-\index{getTheta@{getTheta}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
-\doxysubsubsection{\texorpdfstring{getTheta()}{getTheta()}}
-{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::get\+Theta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+Get four-\/momentum transfer squared of hadron target. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a81048b1312e7bda7795d780fd1938b1a}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a81048b1312e7bda7795d780fd1938b1a}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!getThetaL@{getThetaL}}
+\index{getThetaL@{getThetaL}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{getThetaL()}{getThetaL()}}
+{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::get\+ThetaL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Get angle between positively charged lepton and scattered proton in lepton CMS (in radians). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a042842159d249f579eff286424251119}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a042842159d249f579eff286424251119}} 
+Get polar angle between positively charged lepton and scattered proton in lepton CMS (in radians). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a042842159d249f579eff286424251119}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a042842159d249f579eff286424251119}} 
 \index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!getY@{getY}}
 \index{getY@{getY}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
 \doxysubsubsection{\texorpdfstring{getY()}{getY()}}
@@ -158,7 +189,13 @@ Set beam energy. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a50fdc
 \doxysubsubsection{\texorpdfstring{setPhi()}{setPhi()}}
 {\footnotesize\ttfamily void EPIC\+::\+DDVCSKinematic\+::set\+Phi (\begin{DoxyParamCaption}\item[{double}]{phi }\end{DoxyParamCaption})}
 
-Set angle between leptonic and hadronic planes (in radians). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ada211fdde28eceaa23a7f9ba1e2473ac}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ada211fdde28eceaa23a7f9ba1e2473ac}} 
+Set angle between leptonic and hadronic planes (in radians). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_aa16be196b8e04a2aa63f2c358e1b787a}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_aa16be196b8e04a2aa63f2c358e1b787a}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!setPhiL@{setPhiL}}
+\index{setPhiL@{setPhiL}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{setPhiL()}{setPhiL()}}
+{\footnotesize\ttfamily void EPIC\+::\+DDVCSKinematic\+::set\+PhiL (\begin{DoxyParamCaption}\item[{double}]{thetaL }\end{DoxyParamCaption})}
+
+Set azimuthal angle between positively charged lepton and scattered proton in lepton CMS (in radians). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ada211fdde28eceaa23a7f9ba1e2473ac}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ada211fdde28eceaa23a7f9ba1e2473ac}} 
 \index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!setPhiS@{setPhiS}}
 \index{setPhiS@{setPhiS}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
 \doxysubsubsection{\texorpdfstring{setPhiS()}{setPhiS()}}
@@ -182,26 +219,83 @@ Set outgoing virtual-\/photon virtuality. \mbox{\Hypertarget{class_e_p_i_c_1_1_d
 \doxysubsubsection{\texorpdfstring{setT()}{setT()}}
 {\footnotesize\ttfamily void EPIC\+::\+DDVCSKinematic\+::setT (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
 
-Set four-\/momentum transfer squared of hadron target. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a3ec6bf3b4e6e0424ce0021025d16fc66}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a3ec6bf3b4e6e0424ce0021025d16fc66}} 
-\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!setTheta@{setTheta}}
-\index{setTheta@{setTheta}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
-\doxysubsubsection{\texorpdfstring{setTheta()}{setTheta()}}
-{\footnotesize\ttfamily void EPIC\+::\+DDVCSKinematic\+::set\+Theta (\begin{DoxyParamCaption}\item[{double}]{theta }\end{DoxyParamCaption})}
+Set four-\/momentum transfer squared of hadron target. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_af207c447deee84115f129ba5c58cc8ee}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_af207c447deee84115f129ba5c58cc8ee}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!setThetaL@{setThetaL}}
+\index{setThetaL@{setThetaL}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{setThetaL()}{setThetaL()}}
+{\footnotesize\ttfamily void EPIC\+::\+DDVCSKinematic\+::set\+ThetaL (\begin{DoxyParamCaption}\item[{double}]{thetaL }\end{DoxyParamCaption})}
 
-Set angle between positively charged lepton and scattered proton in lepton CMS (in radians). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a28493fefcfc460e657b0649609fbb8b2}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a28493fefcfc460e657b0649609fbb8b2}} 
+Set polar angle between positively charged lepton and scattered proton in lepton CMS (in radians). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a28493fefcfc460e657b0649609fbb8b2}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a28493fefcfc460e657b0649609fbb8b2}} 
 \index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!setY@{setY}}
 \index{setY@{setY}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
 \doxysubsubsection{\texorpdfstring{setY()}{setY()}}
 {\footnotesize\ttfamily void EPIC\+::\+DDVCSKinematic\+::setY (\begin{DoxyParamCaption}\item[{double}]{y }\end{DoxyParamCaption})}
 
-Set inelasticity. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a651524abe9ef43c86c8e88660ff08eca}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a651524abe9ef43c86c8e88660ff08eca}} 
-\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!toPARTONSTCSObservableKinematic@{toPARTONSTCSObservableKinematic}}
-\index{toPARTONSTCSObservableKinematic@{toPARTONSTCSObservableKinematic}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
-\doxysubsubsection{\texorpdfstring{toPARTONSTCSObservableKinematic()}{toPARTONSTCSObservableKinematic()}}
-{\footnotesize\ttfamily PARTONS\+::\+TCSObservable\+Kinematic EPIC\+::\+DDVCSKinematic\+::to\+PARTONSTCSObservable\+Kinematic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+Set inelasticity. \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a9c142b046b926a5d6ffa312fad266081}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a9c142b046b926a5d6ffa312fad266081}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!toPARTONSDDVCSObservableKinematic@{toPARTONSDDVCSObservableKinematic}}
+\index{toPARTONSDDVCSObservableKinematic@{toPARTONSDDVCSObservableKinematic}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{toPARTONSDDVCSObservableKinematic()}{toPARTONSDDVCSObservableKinematic()}}
+{\footnotesize\ttfamily PARTONS\+::\+DDVCSObservable\+Kinematic EPIC\+::\+DDVCSKinematic\+::to\+PARTONSDDVCSObservable\+Kinematic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Convert to PARTONS\+::\+TCSObservable\+Kinematic. 
+Convert to PARTONS\+::\+DDVCSObservable\+Kinematic. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a98bf905a2f8569edc84e9984db29c9c8}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a98bf905a2f8569edc84e9984db29c9c8}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!m\_E@{m\_E}}
+\index{m\_E@{m\_E}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{m\_E}{m\_E}}
+{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::m\+\_\+E\hspace{0.3cm}{\ttfamily [protected]}}
+
+Beam energy (in GeV). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a120f17fbd2d07413837fc58b5a39f9a0}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a120f17fbd2d07413837fc58b5a39f9a0}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!m\_phi@{m\_phi}}
+\index{m\_phi@{m\_phi}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{m\_phi}{m\_phi}}
+{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::m\+\_\+phi\hspace{0.3cm}{\ttfamily [protected]}}
+
+Angle between leptonic and hadronic planes (in radians, Trento convention). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac32304e878f2a6085a0f6ee4bb7e4781}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac32304e878f2a6085a0f6ee4bb7e4781}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!m\_phiL@{m\_phiL}}
+\index{m\_phiL@{m\_phiL}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{m\_phiL}{m\_phiL}}
+{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::m\+\_\+phiL\hspace{0.3cm}{\ttfamily [protected]}}
+
+Azimuthal angle between positively charged lepton and scattered proton in lepton CMS (in radians, BDP convention). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a4086502db442a8abde0ea3aa9fe995b5}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a4086502db442a8abde0ea3aa9fe995b5}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!m\_phiS@{m\_phiS}}
+\index{m\_phiS@{m\_phiS}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{m\_phiS}{m\_phiS}}
+{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::m\+\_\+phiS\hspace{0.3cm}{\ttfamily [protected]}}
+
+Angle between leptonic and transverse component of target polarization (in radians, Trento convention). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac2fc2890eaf76866a13e10748d71234c}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac2fc2890eaf76866a13e10748d71234c}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!m\_Q2@{m\_Q2}}
+\index{m\_Q2@{m\_Q2}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{m\_Q2}{m\_Q2}}
+{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::m\+\_\+\+Q2\hspace{0.3cm}{\ttfamily [protected]}}
+
+Initial virtual-\/photon virtuality (in $GeV^{2}$). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a2b4fa85db7dcea1e3942792acc6bb3ad}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a2b4fa85db7dcea1e3942792acc6bb3ad}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!m\_Q2Prim@{m\_Q2Prim}}
+\index{m\_Q2Prim@{m\_Q2Prim}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{m\_Q2Prim}{m\_Q2Prim}}
+{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::m\+\_\+\+Q2\+Prim\hspace{0.3cm}{\ttfamily [protected]}}
+
+Outgoing virtual-\/photon virtuality (in $GeV^{2}$). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_aa2151ee4946f8f9a0c41e3497a582650}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_aa2151ee4946f8f9a0c41e3497a582650}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!m\_t@{m\_t}}
+\index{m\_t@{m\_t}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{m\_t}{m\_t}}
+{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::m\+\_\+t\hspace{0.3cm}{\ttfamily [protected]}}
+
+Four-\/momentum transfer squared of hadron target (in $GeV^{2}$). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac7f3eab477e5e3e9e923da8395d46651}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_ac7f3eab477e5e3e9e923da8395d46651}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!m\_thetaL@{m\_thetaL}}
+\index{m\_thetaL@{m\_thetaL}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{m\_thetaL}{m\_thetaL}}
+{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::m\+\_\+thetaL\hspace{0.3cm}{\ttfamily [protected]}}
+
+Polar angle between positively charged lepton and scattered proton in lepton CMS (in radians, BDP convention). \mbox{\Hypertarget{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a16af53657d2fde49c1718bb99cba2caf}\label{class_e_p_i_c_1_1_d_d_v_c_s_kinematic_a16af53657d2fde49c1718bb99cba2caf}} 
+\index{EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}!m\_y@{m\_y}}
+\index{m\_y@{m\_y}!EPIC::DDVCSKinematic@{EPIC::DDVCSKinematic}}
+\doxysubsubsection{\texorpdfstring{m\_y}{m\_y}}
+{\footnotesize\ttfamily double EPIC\+::\+DDVCSKinematic\+::m\+\_\+y\hspace{0.3cm}{\ttfamily [protected]}}
+
+Inelasticity. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/pawel/projects/epic/epic/include/beans/containers/DDVCSKinematic.\+h\end{DoxyCompactItemize}
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/beans/containers/DDVCSKinematic.\+h\end{DoxyCompactItemize}

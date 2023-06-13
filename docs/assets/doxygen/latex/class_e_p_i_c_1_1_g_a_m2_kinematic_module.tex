@@ -1,0 +1,132 @@
+\hypertarget{class_e_p_i_c_1_1_g_a_m2_kinematic_module}{}\doxysection{EPIC\+::GAM2\+Kinematic\+Module Class Reference}
+\label{class_e_p_i_c_1_1_g_a_m2_kinematic_module}\index{EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}}
+
+
+Kinematic module for GAM2.  
+
+
+
+
+{\ttfamily \#include $<$GAM2\+Kinematic\+Module.\+h$>$}
+
+Inheritance diagram for EPIC\+::GAM2\+Kinematic\+Module\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_e_p_i_c_1_1_g_a_m2_kinematic_module}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ad28067d24e8f5b7c8ddeeba73ff8cbce}{GAM2\+Kinematic\+Module}} (const std\+::string \&class\+Name)
+\item 
+\mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ad9062156d92cf0044f24aec36e9633c7}{GAM2\+Kinematic\+Module}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_module}{GAM2\+Kinematic\+Module}} \&other)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ac01561b79500dd4e8fe353298daa8be9}{$\sim$\+GAM2\+Kinematic\+Module}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ae22a90bf9f4db6666b490912ce3a5d33}{run\+Test}} () const
+\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_module_acb23af440a0dfad326a60f44fdd84674}{get\+Kinematic\+Ranges}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges}{GAM2\+Kinematic\+Ranges}} \&ranges)
+\item 
+virtual bool \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_module_a5b798ba586b7699289b05b67c218b8db}{check\+If\+Valid}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2\+Kinematic}} \&kin)
+\item 
+virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_module_a1d6999f4165ad0cfbace13c2c789c237}{evaluate}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&conditions, const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2\+Kinematic}} \&kin)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_kinematic_module_aa0f8580b361b64f33bfe764c43de5644}\label{class_e_p_i_c_1_1_g_a_m2_kinematic_module_aa0f8580b361b64f33bfe764c43de5644}} 
+static const std\+::string {\bfseries GAM2\+\_\+\+KINEMATIC\+\_\+\+MODULE\+\_\+\+CLASS\+\_\+\+NAME}
+\begin{DoxyCompactList}\small\item\em Class name used in parsing XML. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_kinematic_module_a7cf24349386f15146805ade82939fa04}\label{class_e_p_i_c_1_1_g_a_m2_kinematic_module_a7cf24349386f15146805ade82939fa04}} 
+virtual void {\bfseries init\+Module} ()
+\item 
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_kinematic_module_a73f48c83ba7fbd30079146b6f69f8f08}\label{class_e_p_i_c_1_1_g_a_m2_kinematic_module_a73f48c83ba7fbd30079146b6f69f8f08}} 
+virtual void {\bfseries is\+Module\+Well\+Configured} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Kinematic module for GAM2. 
+
+This class defines kinematic module for GAM2 process. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ad28067d24e8f5b7c8ddeeba73ff8cbce}\label{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ad28067d24e8f5b7c8ddeeba73ff8cbce}} 
+\index{EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}!GAM2KinematicModule@{GAM2KinematicModule}}
+\index{GAM2KinematicModule@{GAM2KinematicModule}!EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}}
+\doxysubsubsection{\texorpdfstring{GAM2KinematicModule()}{GAM2KinematicModule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily EPIC\+::\+GAM2\+Kinematic\+Module\+::\+GAM2\+Kinematic\+Module (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{class\+Name }\end{DoxyParamCaption})}
+
+Constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ad9062156d92cf0044f24aec36e9633c7}\label{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ad9062156d92cf0044f24aec36e9633c7}} 
+\index{EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}!GAM2KinematicModule@{GAM2KinematicModule}}
+\index{GAM2KinematicModule@{GAM2KinematicModule}!EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}}
+\doxysubsubsection{\texorpdfstring{GAM2KinematicModule()}{GAM2KinematicModule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily EPIC\+::\+GAM2\+Kinematic\+Module\+::\+GAM2\+Kinematic\+Module (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_module}{GAM2\+Kinematic\+Module}} \&}]{other }\end{DoxyParamCaption})}
+
+Copy constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ac01561b79500dd4e8fe353298daa8be9}\label{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ac01561b79500dd4e8fe353298daa8be9}} 
+\index{EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}!````~GAM2KinematicModule@{$\sim$GAM2KinematicModule}}
+\index{````~GAM2KinematicModule@{$\sim$GAM2KinematicModule}!EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}}
+\doxysubsubsection{\texorpdfstring{$\sim$GAM2KinematicModule()}{~GAM2KinematicModule()}}
+{\footnotesize\ttfamily virtual EPIC\+::\+GAM2\+Kinematic\+Module\+::$\sim$\+GAM2\+Kinematic\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_kinematic_module_a5b798ba586b7699289b05b67c218b8db}\label{class_e_p_i_c_1_1_g_a_m2_kinematic_module_a5b798ba586b7699289b05b67c218b8db}} 
+\index{EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}!checkIfValid@{checkIfValid}}
+\index{checkIfValid@{checkIfValid}!EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}}
+\doxysubsubsection{\texorpdfstring{checkIfValid()}{checkIfValid()}}
+{\footnotesize\ttfamily virtual bool EPIC\+::\+GAM2\+Kinematic\+Module\+::check\+If\+Valid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2\+Kinematic}} \&}]{kin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Check if kinematics is valid. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a843f59848de1ce3732ea809567703b80}{EPIC\+::\+Kinematic\+Module$<$ GAM2\+Kinematic\+Ranges, GAM2\+Kinematic $>$}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_default_a85cdf2b798d217afb3a4f204a8c67a13}{EPIC\+::\+GAM2\+Kinematic\+Default}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_kinematic_module_a1d6999f4165ad0cfbace13c2c789c237}\label{class_e_p_i_c_1_1_g_a_m2_kinematic_module_a1d6999f4165ad0cfbace13c2c789c237}} 
+\index{EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}}
+\doxysubsubsection{\texorpdfstring{evaluate()}{evaluate()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_e_p_i_c_1_1_event}{Event}} EPIC\+::\+GAM2\+Kinematic\+Module\+::evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2\+Kinematic}} \&}]{kin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get experimental conditions (like beam types), kinematics and return a set of particles. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_a529b93ec0661a3920edb58765c4edd1d}{EPIC\+::\+Kinematic\+Module$<$ GAM2\+Kinematic\+Ranges, GAM2\+Kinematic $>$}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_default_ad06e92c6b143ea98b1b260fee3e3a261}{EPIC\+::\+GAM2\+Kinematic\+Default}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_kinematic_module_acb23af440a0dfad326a60f44fdd84674}\label{class_e_p_i_c_1_1_g_a_m2_kinematic_module_acb23af440a0dfad326a60f44fdd84674}} 
+\index{EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}!getKinematicRanges@{getKinematicRanges}}
+\index{getKinematicRanges@{getKinematicRanges}!EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}}
+\doxysubsubsection{\texorpdfstring{getKinematicRanges()}{getKinematicRanges()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_range}{Kinematic\+Range}} $>$ EPIC\+::\+GAM2\+Kinematic\+Module\+::get\+Kinematic\+Ranges (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_experimental_conditions}{Experimental\+Conditions}} \&}]{conditions,  }\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic_ranges}{GAM2\+Kinematic\+Ranges}} \&}]{ranges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get correct kinematic ranges. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_kinematic_module_aa0882d60cac7066f5ac4d9d9cac69c50}{EPIC\+::\+Kinematic\+Module$<$ GAM2\+Kinematic\+Ranges, GAM2\+Kinematic $>$}}.
+
+\mbox{\Hypertarget{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ae22a90bf9f4db6666b490912ce3a5d33}\label{class_e_p_i_c_1_1_g_a_m2_kinematic_module_ae22a90bf9f4db6666b490912ce3a5d33}} 
+\index{EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}!runTest@{runTest}}
+\index{runTest@{runTest}!EPIC::GAM2KinematicModule@{EPIC::GAM2KinematicModule}}
+\doxysubsubsection{\texorpdfstring{runTest()}{runTest()}}
+{\footnotesize\ttfamily virtual bool EPIC\+::\+GAM2\+Kinematic\+Module\+::run\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Definition of test. 
+
+Implements \mbox{\hyperlink{class_e_p_i_c_1_1_epic_module_object_a40142efadbdc81511a75586d8ae41e43}{EPIC\+::\+Epic\+Module\+Object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/modules/kinematic/\+GAM2/GAM2\+Kinematic\+Module.\+h\end{DoxyCompactItemize}

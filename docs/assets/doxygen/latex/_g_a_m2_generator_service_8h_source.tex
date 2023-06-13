@@ -1,0 +1,70 @@
+\hypertarget{_g_a_m2_generator_service_8h_source}{}\doxysection{GAM2\+Generator\+Service.\+h}
+\label{_g_a_m2_generator_service_8h_source}\index{/Users/pawel/projects/epic/NEW2/epic/include/services/GAM2GeneratorService.h@{/Users/pawel/projects/epic/NEW2/epic/include/services/GAM2GeneratorService.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * GAM2GeneratorService.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Feb 8, 2021}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: Pawel Sznajder (NCBJ)}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef SERVICES\_GAM2GENERATORSERVICE\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define SERVICES\_GAM2GENERATORSERVICE\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <partons/beans/process/VCSSubProcessType.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <partons/modules/process/GAM2/GAM2ProcessModule.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../beans/containers/GAM2KinematicRanges.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../modules/kinematic/GAM2/GAM2KinematicModule.h"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../modules/radiative\_corrections/GAM2/GAM2RCModule.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}GeneratorService.h"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{namespace }EPIC \{}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service}{GAM2GeneratorService}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_e_p_i_c_1_1_generator_service}{GeneratorService}}<GAM2KinematicRanges,}
+\DoxyCodeLine{33         PARTONS::GAM2ProcessModule, GAM2KinematicModule,}
+\DoxyCodeLine{34         GAM2RCModule> \{}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service_a70f02899537f35ed76cd5772b9533fa8}{classId}}; }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service_ac3f1d7600b80ab931c3cc61b7cf954dc}{\string~GAM2GeneratorService}}();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service_a39e33a5b71f074a133dac580173ff201}{getEventDistribution}}(std::vector<double> \&kin) \textcolor{keyword}{const};}
+\DoxyCodeLine{47     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service_a85224c8fdf7ca2d3c9ed13c3cdf94922}{run}}();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{private}:}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{54     \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service}{GAM2GeneratorService}}(\textcolor{keyword}{const} std::string \&className);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{59     \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service}{GAM2GeneratorService}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service}{GAM2GeneratorService}} \&other);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_generator_service}{GAM2GeneratorService}} *clone() \textcolor{keyword}{const};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getAdditionalGeneralConfigurationFromTask(}
+\DoxyCodeLine{64             \textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getKinematicRangesFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{67     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getProcessModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{68     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getKinematicModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{69     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} getRCModuleFromTask(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{MonteCarloTask}} \&task);}
+\DoxyCodeLine{70     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} isServiceWellConfigured() \textcolor{keyword}{const};}
+\DoxyCodeLine{71     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} transformVariables(std::vector<double>\& variables) \textcolor{keyword}{const};}
+\DoxyCodeLine{72     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} transformRanges(std::vector<KinematicRange>\& ranges) \textcolor{keyword}{const};}
+\DoxyCodeLine{73     \textcolor{keyword}{virtual} \textcolor{keywordtype}{double} getJacobian(\textcolor{keyword}{const} std::vector<double>\& variables) \textcolor{keyword}{const};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} bookHistograms();}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} fillHistograms(\textcolor{keyword}{const} std::vector<double>\& variables);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{double} getFlux(\textcolor{keyword}{const} \mbox{\hyperlink{class_e_p_i_c_1_1_g_a_m2_kinematic}{GAM2Kinematic}}\& kin) \textcolor{keyword}{const};}
+\DoxyCodeLine{82 \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \} \textcolor{comment}{/* namespace EPIC */}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SERVICES\_GAM2GENERATORSERVICE\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

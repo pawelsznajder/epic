@@ -20,7 +20,7 @@ Inheritance diagram for EPIC\+::General\+Configuration\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a848a270dab351e54cede8811e7cde27c}{General\+Configuration}} ()
 \item 
-\mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a3d7657414ea8eb22cf588aa3754b3dbf}{General\+Configuration}} (size\+\_\+t n\+Events)
+\mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_ac6518e71d5f3c21788b35cb5f4d6771f}{General\+Configuration}} (size\+\_\+t n\+Events, const std\+::string \&histogram\+File\+Path)
 \item 
 \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_aa8273ba76fdfcb6a4069f3da817366de}{General\+Configuration}} (const \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{General\+Configuration}} \&other)
 \item 
@@ -32,6 +32,10 @@ virtual std\+::string {\bfseries to\+String} () const
 size\+\_\+t \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a8585b9978ce7762b4d7028676fe9c22c}{get\+NEvents}} () const
 \item 
 void \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_aba71fac42c9acf1447f8d6e6d6570f1c}{set\+NEvents}} (size\+\_\+t n\+Events)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a825b37e63ff5550e1bc6b3b43756c66a}{get\+Histogram\+File\+Path}} () const
+\item 
+void \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration_a7c55530ca18489af0efba2e354624d79}{set\+Histogram\+File\+Path}} (const std\+::string \&histogram\+File\+Path)
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -52,11 +56,11 @@ This class acts as a container to store general configuration of generator, like
 \doxysubsubsection{\texorpdfstring{GeneralConfiguration()}{GeneralConfiguration()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily EPIC\+::\+General\+Configuration\+::\+General\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_general_configuration_a3d7657414ea8eb22cf588aa3754b3dbf}\label{class_e_p_i_c_1_1_general_configuration_a3d7657414ea8eb22cf588aa3754b3dbf}} 
+Default constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_general_configuration_ac6518e71d5f3c21788b35cb5f4d6771f}\label{class_e_p_i_c_1_1_general_configuration_ac6518e71d5f3c21788b35cb5f4d6771f}} 
 \index{EPIC::GeneralConfiguration@{EPIC::GeneralConfiguration}!GeneralConfiguration@{GeneralConfiguration}}
 \index{GeneralConfiguration@{GeneralConfiguration}!EPIC::GeneralConfiguration@{EPIC::GeneralConfiguration}}
 \doxysubsubsection{\texorpdfstring{GeneralConfiguration()}{GeneralConfiguration()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily EPIC\+::\+General\+Configuration\+::\+General\+Configuration (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n\+Events }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily EPIC\+::\+General\+Configuration\+::\+General\+Configuration (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n\+Events,  }\item[{const std\+::string \&}]{histogram\+File\+Path }\end{DoxyParamCaption})}
 
 Assignment constructor. \mbox{\Hypertarget{class_e_p_i_c_1_1_general_configuration_aa8273ba76fdfcb6a4069f3da817366de}\label{class_e_p_i_c_1_1_general_configuration_aa8273ba76fdfcb6a4069f3da817366de}} 
 \index{EPIC::GeneralConfiguration@{EPIC::GeneralConfiguration}!GeneralConfiguration@{GeneralConfiguration}}
@@ -79,13 +83,25 @@ Destructor.
 \doxysubsubsection{\texorpdfstring{fromTask()}{fromTask()}}
 {\footnotesize\ttfamily static \mbox{\hyperlink{class_e_p_i_c_1_1_general_configuration}{General\+Configuration}} EPIC\+::\+General\+Configuration\+::from\+Task (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_p_i_c_1_1_monte_carlo_task}{Monte\+Carlo\+Task}} \&}]{task }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Build from task. \mbox{\Hypertarget{class_e_p_i_c_1_1_general_configuration_a8585b9978ce7762b4d7028676fe9c22c}\label{class_e_p_i_c_1_1_general_configuration_a8585b9978ce7762b4d7028676fe9c22c}} 
+Build from task. \mbox{\Hypertarget{class_e_p_i_c_1_1_general_configuration_a825b37e63ff5550e1bc6b3b43756c66a}\label{class_e_p_i_c_1_1_general_configuration_a825b37e63ff5550e1bc6b3b43756c66a}} 
+\index{EPIC::GeneralConfiguration@{EPIC::GeneralConfiguration}!getHistogramFilePath@{getHistogramFilePath}}
+\index{getHistogramFilePath@{getHistogramFilePath}!EPIC::GeneralConfiguration@{EPIC::GeneralConfiguration}}
+\doxysubsubsection{\texorpdfstring{getHistogramFilePath()}{getHistogramFilePath()}}
+{\footnotesize\ttfamily const std\+::string \& EPIC\+::\+General\+Configuration\+::get\+Histogram\+File\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Get path to file storing debugging histograms. \mbox{\Hypertarget{class_e_p_i_c_1_1_general_configuration_a8585b9978ce7762b4d7028676fe9c22c}\label{class_e_p_i_c_1_1_general_configuration_a8585b9978ce7762b4d7028676fe9c22c}} 
 \index{EPIC::GeneralConfiguration@{EPIC::GeneralConfiguration}!getNEvents@{getNEvents}}
 \index{getNEvents@{getNEvents}!EPIC::GeneralConfiguration@{EPIC::GeneralConfiguration}}
 \doxysubsubsection{\texorpdfstring{getNEvents()}{getNEvents()}}
 {\footnotesize\ttfamily size\+\_\+t EPIC\+::\+General\+Configuration\+::get\+NEvents (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Get number of events. \mbox{\Hypertarget{class_e_p_i_c_1_1_general_configuration_aba71fac42c9acf1447f8d6e6d6570f1c}\label{class_e_p_i_c_1_1_general_configuration_aba71fac42c9acf1447f8d6e6d6570f1c}} 
+Get number of events. \mbox{\Hypertarget{class_e_p_i_c_1_1_general_configuration_a7c55530ca18489af0efba2e354624d79}\label{class_e_p_i_c_1_1_general_configuration_a7c55530ca18489af0efba2e354624d79}} 
+\index{EPIC::GeneralConfiguration@{EPIC::GeneralConfiguration}!setHistogramFilePath@{setHistogramFilePath}}
+\index{setHistogramFilePath@{setHistogramFilePath}!EPIC::GeneralConfiguration@{EPIC::GeneralConfiguration}}
+\doxysubsubsection{\texorpdfstring{setHistogramFilePath()}{setHistogramFilePath()}}
+{\footnotesize\ttfamily void EPIC\+::\+General\+Configuration\+::set\+Histogram\+File\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{histogram\+File\+Path }\end{DoxyParamCaption})}
+
+Set path to file storing debugging histograms. \mbox{\Hypertarget{class_e_p_i_c_1_1_general_configuration_aba71fac42c9acf1447f8d6e6d6570f1c}\label{class_e_p_i_c_1_1_general_configuration_aba71fac42c9acf1447f8d6e6d6570f1c}} 
 \index{EPIC::GeneralConfiguration@{EPIC::GeneralConfiguration}!setNEvents@{setNEvents}}
 \index{setNEvents@{setNEvents}!EPIC::GeneralConfiguration@{EPIC::GeneralConfiguration}}
 \doxysubsubsection{\texorpdfstring{setNEvents()}{setNEvents()}}
@@ -95,4 +111,4 @@ Set number of events.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/pawel/projects/epic/epic/include/beans/containers/General\+Configuration.\+h\end{DoxyCompactItemize}
+/\+Users/pawel/projects/epic/\+NEW2/epic/include/beans/containers/General\+Configuration.\+h\end{DoxyCompactItemize}
