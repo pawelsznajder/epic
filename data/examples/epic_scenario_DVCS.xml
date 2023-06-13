@@ -10,27 +10,29 @@
       <!-- General configuration -->
       <!-- Subprocess can be "ALL", "BH" or "DVCS" -->
       <general_configuration>
-         <param name="number_of_events" value="10" />
-	      <param name="subprocess_type" value="ALL" />
+         <param name="number_of_events" value="10000" />
+         <param name="histogram_file_path" value="epic_hist_file.root" />
+	 <param name="subprocess_type" value="ALL" />
       </general_configuration>
 
       <!-- Kinematic limits -->
-      <!-- Limit on 'y' is optional, if not set 0 < y < 1 is assumed -->
+      <!-- Limit on 'x' is optional, if not set 0 < x < 1 is assumed -->
       <kinematic_range>
-         <param name="range_xB" value="0.|1." />
-         <param name="range_t" value="-1.|0." />
-         <param name="range_Q2" value="1.|2." />
-         <param name="range_phi" value="0.|2*pi" />
-	      <param name="range_phiS" value="0.|2*pi" />
-         <param name="range_y" value="0.|1." />
+         <param name="range_y" value="0.05|0.95" />
+         <param name="range_Q2" value="1.|10." />
+         <param name="range_t" value="-1.|-0.0001" />
+         <param name="range_phi" value="0.05|6.2331853" />
+	 <param name="range_phiS" value="0.|2*pi" />
+
+         <param name="range_xB" value="0.000001|1." />
       </kinematic_range>
 
       <!-- Experimental conditions -->
       <experimental_conditions>
-         <param name="lepton_energy" value="1.1" />
+         <param name="lepton_energy" value="100." />
          <param name="lepton_type" value="e-" />
-         <param name="lepton_helicity" value="1" />
-         <param name="hadron_energy" value="10.0" />
+         <param name="lepton_helicity" value="-1" />
+         <param name="hadron_energy" value="1.00001*Mp" />
          <param name="hadron_type" value="p" />
          <param name="hadron_polarisation" value="0.|0.|0." />
       </experimental_conditions>
@@ -47,24 +49,21 @@
          	<module type="DVCSXiConverterModule" name="DVCSXiConverterXBToXi">
          	</module>
 
-         	<module type="DVCSConvolCoeffFunctionModule" name="DVCSCFFConstant">
-
+         	<module type="DVCSConvolCoeffFunctionModule" name="DVCSCFFCMILOU3DTables">
          		<param name="qcd_order_type" value="LO" />
-
-         		<param name="cff_value_H_Re" value="1." />
-         		<param name="cff_value_H_Im" value="2." />
-
          	</module>
+
          </module>
+
       </computation_configuration>
 
       <!-- Generator module configuration -->
       <generator_configuration>
          <module type="EventGeneratorModule" name="EventGeneratorFOAM">
-         	<param name="nCells" value="500" />
-         	<param name="nSamples" value="500" />
+         	<param name="nCells" value="1000" />
+         	<param name="nSamples" value="1000" />
          	<param name="nBins" value="100" />
-		      <!-- <param name="state_file_path" value="test.root" /> -->
+		<!-- <param name="state_file_path" value="test.root" /> -->
          </module>
       </generator_configuration>
 
@@ -83,7 +82,7 @@
       <!-- Writer module configuration-->
       <writer_configuration>
          <module type="WriterModule" name="WriterHepMC3">
-         	<param name="output_file_path" value="test.txt" />
+         	<param name="output_file_path" value="epic_out_file.txt" />
          	<param name="HepMC3_writer_type" value="ascii" />
          </module>
       </writer_configuration>
