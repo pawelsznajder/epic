@@ -80,7 +80,8 @@
       </rc_configuration>
 
       <!-- Writer module configuration-->
-      <writer_configuration>
+
+	      <writer_configuration>
          <module type="WriterModule" name="WriterHepMC3">
          	<param name="output_file_path" value="epic_out_file.txt" />
          	<param name="HepMC3_writer_type" value="ascii" />

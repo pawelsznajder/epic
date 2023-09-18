@@ -7,9 +7,13 @@
 
 #include "../../../../include/modules/kinematic/DVMP/DVMPKinematicDefault.h"
 
-#include <ElementaryUtils/logger/CustomException.h>
+
+#include <ElementaryUtils/parameters/GenericType.h>
 #include <ElementaryUtils/string_utils/Formatter.h>
 #include <partons/BaseObjectRegistry.h>
+#include <partons/Partons.h>
+#include <partons/services/hash_sum/CryptographicHashService.h>
+#include <partons/ServiceObjectRegistry.h>
 #include <stddef.h>
 #include <TLorentzVector.h>
 #include <TVector3.h>
@@ -17,6 +21,8 @@
 #include <iterator>
 #include <utility>
 #include <vector>
+#include <TFoam.h>
+#include <TRandom3.h>
 
 #include "../../../../include/beans/containers/DVMPKinematic.h"
 #include "../../../../include/beans/containers/ExperimentalConditions.h"
@@ -32,17 +38,38 @@
 
 namespace EPIC {
 
+
 const unsigned int DVMPKinematicDefault::classId =
         PARTONS::BaseObjectRegistry::getInstance()->registerBaseObject(
                 new DVMPKinematicDefault("DVMPKinematicDefault"));
 
 DVMPKinematicDefault::DVMPKinematicDefault(const std::string &className) :
         DVMPKinematicModule(className) {
+
     m_randomNumberModule = nullptr;
+
+
+	std::string rootObjectNameA =
+			PARTONS::Partons::getInstance()->getServiceObjectRegistry()->getCryptographicHashService()->generateSHA1HashSum(
+					ElemUtils::Formatter() << gRandom->Uniform());
+
+	std::string rootObjectNameB =
+			PARTONS::Partons::getInstance()->getServiceObjectRegistry()->getCryptographicHashService()->generateSHA1HashSum(
+					ElemUtils::Formatter() << gRandom->Uniform());
+
+    m_pWTheta = new TF1(rootObjectNameA.c_str(),"3./8.*(1 + [0] + (1 - 3*[0])*cos(x)*cos(x))",0,TMath::Pi());
+	m_pWPhi  = new TF1(rootObjectNameB.c_str(),"1/(2.*TMath::Pi())*(1 + [0]*cos(2*x))",0,2*TMath::Pi());
+
+
+	std::cout << rootObjectNameA << ' ' << rootObjectNameB << std::endl;
+	m_pWTheta->SetParameter(0,0.29); // Distributions and parameters from Eur.Phys.J.C6:603-627,1999
+	m_pWPhi->SetParameter(0,-0.04);
+  //gRandom->SetSeed(0); Not sure if it is necessary
 }
 
 DVMPKinematicDefault::DVMPKinematicDefault(const DVMPKinematicDefault &other) :
         DVMPKinematicModule(other) {
+
 
     if (other.m_randomNumberModule == nullptr) {
         m_randomNumberModule = nullptr;
@@ -52,6 +79,22 @@ DVMPKinematicDefault::DVMPKinematicDefault(const DVMPKinematicDefault &other) :
                         *(std::static_pointer_cast < RandomNumberGSL
                                 > (other.m_randomNumberModule))));
     }
+
+
+	std::string rootObjectNameA =
+			PARTONS::Partons::getInstance()->getServiceObjectRegistry()->getCryptographicHashService()->generateSHA1HashSum(
+					ElemUtils::Formatter() << gRandom->Uniform());
+
+	std::string rootObjectNameB =
+			PARTONS::Partons::getInstance()->getServiceObjectRegistry()->getCryptographicHashService()->generateSHA1HashSum(
+					ElemUtils::Formatter() << gRandom->Uniform());
+
+    m_pWTheta = new TF1(rootObjectNameA.c_str(),"3./8.*(1 + [0] + (1 - 3*[0])*cos(x)*cos(x))",0,TMath::Pi());
+	m_pWPhi  = new TF1(rootObjectNameB.c_str(),"1/(2.*TMath::Pi())*(1 + [0]*cos(2*x))",0,2*TMath::Pi());
+
+	m_pWTheta->SetParameter(0,0.29);
+	m_pWPhi->SetParameter(0,-0.04);
+	//gRandom->SetSeed(0); Not sure if it is necessary
 }
 
 DVMPKinematicDefault::~DVMPKinematicDefault() {
@@ -456,6 +499,15 @@ void DVMPKinematicDefault::simulateDecay(Event& event) {
                 simulateDecayPi0(event, it->second);
                 break;
             }
+            else if (it->first == ParticleCodeType::UNDECAYED
+                    && it->second->getType() == ParticleType::JPSI) {
+
+                event.alterParticleCode(
+                        size_t(it - event.getParticles().begin()),
+                        ParticleCodeType::DECAYED);
+                simulateDecayJPsi(event, it->second);
+                break;
+            }
         }
 
         if (it == event.getParticles().end())
@@ -500,6 +552,53 @@ void DVMPKinematicDefault::simulateDecayPi0(Event& event,
     std::shared_ptr<Vertex> vertex = std::make_shared<Vertex>();
 
     vertex->addParticleIn(pi0);
+    vertex->addParticleOut(particles.at(0).second);
+    vertex->addParticleOut(particles.at(1).second);
+
+    event.addParticle(particles.at(0));
+    event.addParticle(particles.at(1));
+    event.addVertex(vertex);
+}
+
+void DVMPKinematicDefault::simulateDecayJPsi(Event& event,
+        std::shared_ptr<Particle> jpsi) {
+
+
+    //mass
+    double Mjpsi = ParticleType(ParticleType::JPSI).getMass();
+
+
+    //decay angles
+    double phi = m_pWPhi->GetRandom();
+    double theta = m_pWTheta->GetRandom();
+
+
+    //particles in CMS
+    Particle muon1_CMS(ParticleType::MUON_PLUS,
+            TVector3(sin(theta) * cos(phi),sin(theta) * sin(phi), cos(theta)),
+            		Mjpsi / 2);
+    Particle muon2_CMS(ParticleType::MUON_MINUS, -muon1_CMS.getMomentum(),
+    				Mjpsi / 2);
+
+    //particles in LAB
+    Particle muon1_LAB = muon1_CMS;
+    Particle muon2_LAB = muon2_CMS;
+
+    muon1_LAB.boost(jpsi->getFourMomentum().BoostVector());
+    muon2_LAB.boost(jpsi->getFourMomentum().BoostVector());
+
+    //store and return
+    std::vector < std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> >
+            > particles(2);
+
+    particles.at(0) = std::make_pair(ParticleCodeType::UNDECAYED,
+            std::make_shared < Particle > (muon1_LAB));
+    particles.at(1) = std::make_pair(ParticleCodeType::UNDECAYED,
+            std::make_shared < Particle > (muon2_LAB));
+
+    std::shared_ptr<Vertex> vertex = std::make_shared<Vertex>();
+
+    vertex->addParticleIn(jpsi);
     vertex->addParticleOut(particles.at(0).second);
     vertex->addParticleOut(particles.at(1).second);
 

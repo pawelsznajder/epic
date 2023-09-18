@@ -12,6 +12,7 @@
 #include <string>
 
 #include "DVMPKinematicModule.h"
+#include "TF1.h"
 
 namespace EPIC {
 class RandomNumberModule;
@@ -73,7 +74,15 @@ private:
      */
     void simulateDecayPi0(Event& event, std::shared_ptr<Particle> pi0);
 
+    /**
+     * Simulate J/Psi decay.
+     */
+    void simulateDecayJPsi(Event& event, std::shared_ptr<Particle> jpsi);
+
+
     std::shared_ptr<RandomNumberModule> m_randomNumberModule; ///< Random number module.
+
+    TF1* m_pWTheta, * m_pWPhi; ///< Theoretical distributions of Theta and Phi for muons
 };
 
 } /* namespace EPIC */
