@@ -49,6 +49,9 @@ std::string ParticleType::toString() const {
   case PROTON:
     return "p";
     break;
+  case JPSI:
+    return "J/Psi";
+    break;
 
   default:
     return "UNDEFINED";
@@ -80,8 +83,9 @@ ParticleType::Type ParticleType::fromString(const std::string &str) {
     type = ParticleType::PI0;
   } else if (strTrimmed == "p") {
     type = ParticleType::PROTON;
+  } else if (strTrimmed == "J/Psi") {
+  type = ParticleType::JPSI;
   }
-
   return type;
 }
 
@@ -115,6 +119,9 @@ double ParticleType::getMass() const {
     break;
   case PROTON:
     return PARTONS::Constant::PROTON_MASS;
+    break;
+  case JPSI:
+    return PARTONS::Constant::MESON_JPSI_MASS;
     break;
 
   default:
@@ -157,6 +164,9 @@ int ParticleType::getCharge() const {
     break;
   case PROTON:
     return 1;
+    break;
+  case JPSI:
+    return 0;
     break;
 
   default:

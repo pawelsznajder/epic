@@ -1,0 +1,7 @@
+# gamma + p -> J/Psi + p (coherent)
+# Reference: Mäntysaari, Salazar, Schenke, arXiv:2207.03712
+# Note: grid Q^2 values: [0, 1, 2, 4, 8, 16, 32, 64] GeV^2, xpom values = [0.01, 0.00454, 0.002062, 0.000936, 0.000425, 0.000193, 8.8e-05, 4e-05, 1.8e-05, 8e-06, 4e-06]
+# xp Q^2[GeV^2] -t[GeV^2] dsigma(Transverse)/dt[mb/GeV^2] dsigma(Longitudinal)/dt[mb/GeV^2]
+
+Heikki Mantysaari / heikki.mantysaari@jyu.fi
+22/09/2023

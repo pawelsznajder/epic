@@ -50,16 +50,33 @@ std::string DVMPKinematic::toString() const {
 
 PARTONS::DVMPObservableKinematic DVMPKinematic::toPARTONSDVMPObservableKinematic() const {
 
-    if (m_mesonType != ParticleType::PI0) {
-        throw ElemUtils::CustomException(getClassName(), __func__,
-                "Unknown conversion");
-    }
+
+    PARTONS::MesonType partonsMesonType = PARTONS::MesonType::UNDEFINED;
+
+	switch(m_mesonType){
+
+	case ParticleType::PI0:{
+		partonsMesonType = PARTONS::MesonType::PI0;
+		break;
+	}
+
+	case ParticleType::JPSI:{
+		partonsMesonType = PARTONS::MesonType::JPSI;
+		break;
+	}
+
+	default:{
+		 throw ElemUtils::CustomException(getClassName(), __func__,
+		                "Unknown conversion");
+		 break;
+	}
+	}
 
     //TODO mass of proton is explicitly set here. Instead, the function should get ExperimentalConditions with true target mass.
     double xB = m_Q2 / (2 * PARTONS::Constant::PROTON_MASS * m_E * m_y);
 
     return PARTONS::DVMPObservableKinematic(xB, m_t, m_Q2, m_E, m_phi,
-            PARTONS::MesonType::PI0);
+    		partonsMesonType);
 }
 
 double DVMPKinematic::getY() const {

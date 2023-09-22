@@ -42,7 +42,8 @@ public:
     TAU_PLUS = -15,  //!<  tau +
     PHOTON = 22,     //!<  gamma
     PI0 = 111,       //!<  pi0
-    PROTON = 2212    //!<  proton
+    PROTON = 2212,   //!<  proton
+	JPSI = 443		 //!<  J/Psi
   };
 
   /**

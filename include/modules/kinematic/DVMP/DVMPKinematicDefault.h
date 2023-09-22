@@ -73,6 +73,11 @@ private:
      */
     void simulateDecayPi0(Event& event, std::shared_ptr<Particle> pi0);
 
+    /**
+     * Simulate J/Psi decay.
+     */
+    void simulateDecayJPsi(Event& event, std::shared_ptr<Particle> jpsi);
+
     std::shared_ptr<RandomNumberModule> m_randomNumberModule; ///< Random number module.
 };
 

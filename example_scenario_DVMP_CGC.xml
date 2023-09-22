@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<!-- Scenario starts here -->
+<!-- For your convenience and for bookkeeping provide creation date and unique description -->
+<scenario date="2017-07-18" description="Select specific GPD types">
+
+   <!-- First task: evaluate GPD model for a single kinematics --> 
+   <!-- Indicate service and its methods to be used and indicate if the result should be stored in the database --> 
+   <task service="DVMPGeneratorService" method="generate">
+
+      <!-- General configuration -->
+      <general_configuration>
+         <param name="number_of_events" value="10" />
+	  <param name="histogram_file_path" value="epic_hist_file.root" />
+	  <param name="meson" value="J/Psi" />
+      </general_configuration>
+
+      <!-- Kinematic limits -->
+      <!-- Limit on 'y' is optional, if not set 0 < y < 1 is assumed -->
+      <kinematic_range>
+         <param name="range_y" value="0.|1." />
+         <param name="range_Q2" value="0.000001|0.05" />
+         <param name="range_t" value="-1.|0." />
+         <param name="range_phi" value="0.|2*pi" />
+	 <param name="range_phiS" value="0.|2*pi" />
+
+         <param name="range_xB" value="0.|1." />
+      </kinematic_range>
+
+      <!-- Experimental conditions -->
+      <experimental_conditions>
+         <param name="lepton_energy" value="10." />
+         <param name="lepton_type" value="e-" />
+         <param name="lepton_helicity" value="1" />
+         <param name="hadron_energy" value="100.0" />
+         <param name="hadron_type" value="p" />
+         <param name="hadron_polarisation" value="0.|0.|0." />
+      </experimental_conditions>
+
+      <!-- Computation scenario -->
+      <computation_configuration>
+
+         <module type="DVMPProcessModule" name="DVMPProcessMRSS21">
+
+	       <module type="DVMPScalesModule" name="DVMPScalesMesonMass">
+               </module>
+
+               <module type="DVMPXiConverterModule" name="DVMPXiConverterZetaToXi">
+               </module>
+
+         </module>
+      </computation_configuration>
+
+      <!-- Generator module configuration -->
+      <generator_configuration>
+         <module type="EventGeneratorModule" name="EventGeneratorFOAM">
+         	<param name="nCells" value="10" />
+         	<param name="nSamples" value="10" />
+         	<param name="nBins" value="10" />
+		      <!-- <param name="state_file_path" value="test.root" /> -->
+         </module>
+      </generator_configuration>
+
+      <!-- Kinematic module configuration -->
+      <kinematic_configuration>
+         <module type="DVMPKinematicModule" name="DVMPKinematicDefault">
+         </module>
+      </kinematic_configuration>
+
+      <!-- Radiative correction module configuration -->
+      <rc_configuration>
+         <module type="DVMPRCModule" name="DVMPRCNull">
+         </module>
+      </rc_configuration>
+
+      <!-- Writer module configuration-->
+      <writer_configuration>
+         <module type="WriterModule" name="WriterHepMC3">
+         	<param name="output_file_path" value="test.txt" />
+         	<param name="HepMC3_writer_type" value="ascii" />
+         </module>
+      </writer_configuration>
+
+   </task>
+
+</scenario>

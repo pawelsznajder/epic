@@ -447,15 +447,24 @@ void DVMPKinematicDefault::simulateDecay(Event& event) {
         for (it = event.getParticles().begin();
                 it != event.getParticles().end(); it++) {
 
-            if (it->first == ParticleCodeType::UNDECAYED
-                    && it->second->getType() == ParticleType::PI0) {
+			if (it->first == ParticleCodeType::UNDECAYED
+					&& it->second->getType() == ParticleType::PI0) {
 
-                event.alterParticleCode(
-                        size_t(it - event.getParticles().begin()),
-                        ParticleCodeType::DECAYED);
-                simulateDecayPi0(event, it->second);
-                break;
-            }
+				event.alterParticleCode(
+						size_t(it - event.getParticles().begin()),
+						ParticleCodeType::DECAYED);
+				simulateDecayPi0(event, it->second);
+				break;
+			}
+			else if (it->first == ParticleCodeType::UNDECAYED
+					&& it->second->getType() == ParticleType::JPSI) {
+
+				event.alterParticleCode(
+						size_t(it - event.getParticles().begin()),
+						ParticleCodeType::DECAYED);
+				simulateDecayJPsi(event, it->second);
+				break;
+			}
         }
 
         if (it == event.getParticles().end())
@@ -506,6 +515,51 @@ void DVMPKinematicDefault::simulateDecayPi0(Event& event,
     event.addParticle(particles.at(0));
     event.addParticle(particles.at(1));
     event.addVertex(vertex);
+}
+
+void DVMPKinematicDefault::simulateDecayJPsi(Event &event,
+		std::shared_ptr<Particle> jpsi) {
+
+	//mass
+	double Mjpsi = ParticleType(ParticleType::JPSI).getMass();
+
+	//decay angles
+	//TODO from W function
+	double phi = m_randomNumberModule->diceFlat(0., 2 * M_PI);
+	double theta = m_randomNumberModule->diceFlat(0., 2 * M_PI);
+
+	//particles in CMS
+	Particle muon1_CMS(ParticleType::MUON_PLUS,
+			TVector3(sin(theta) * cos(phi), sin(theta) * sin(phi), cos(theta)),
+			Mjpsi / 2);
+	Particle muon2_CMS(ParticleType::MUON_MINUS, -muon1_CMS.getMomentum(),
+			Mjpsi / 2);
+
+	//particles in LAB
+	Particle muon1_LAB = muon1_CMS;
+	Particle muon2_LAB = muon2_CMS;
+
+	muon1_LAB.boost(jpsi->getFourMomentum().BoostVector());
+	muon2_LAB.boost(jpsi->getFourMomentum().BoostVector());
+
+	//store and return
+	std::vector<std::pair<ParticleCodeType::Type, std::shared_ptr<Particle> > > particles(
+			2);
+
+	particles.at(0) = std::make_pair(ParticleCodeType::UNDECAYED,
+			std::make_shared<Particle>(muon1_LAB));
+	particles.at(1) = std::make_pair(ParticleCodeType::UNDECAYED,
+			std::make_shared<Particle>(muon2_LAB));
+
+	std::shared_ptr<Vertex> vertex = std::make_shared<Vertex>();
+
+	vertex->addParticleIn(jpsi);
+	vertex->addParticleOut(particles.at(0).second);
+	vertex->addParticleOut(particles.at(1).second);
+
+	event.addParticle(particles.at(0));
+	event.addParticle(particles.at(1));
+	event.addVertex(vertex);
 }
 
 } /* namespace EPIC */
