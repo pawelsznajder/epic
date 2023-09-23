@@ -13,12 +13,13 @@
          <param name="number_of_events" value="10" />
 	  <param name="histogram_file_path" value="epic_hist_file.root" />
 	  <param name="meson" value="J/Psi" />
+	  <param name="is_photoproduction" value="0" />
       </general_configuration>
 
       <!-- Kinematic limits -->
       <!-- Limit on 'y' is optional, if not set 0 < y < 1 is assumed -->
       <kinematic_range>
-         <param name="range_y" value="0.|1." />
+         <param name="range_y" value="0.01|0.95" />
          <param name="range_Q2" value="0.000001|0.05" />
          <param name="range_t" value="-1.|0." />
          <param name="range_phi" value="0.|2*pi" />

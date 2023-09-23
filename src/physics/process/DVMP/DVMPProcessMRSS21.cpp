@@ -214,6 +214,9 @@ std::shared_ptr<NDInterpolator_3_ML> DVMPProcessMRSS21::loadGrid(
 std::vector<std::vector<double> > DVMPProcessMRSS21::readGrid(
         size_t xsIndex) const {
 
+	//to avoid nan
+	const double zeroIs = 1.E-12;
+
     //open file
     TFile rootFile(m_gridFile.c_str(), "READ");
 
@@ -245,27 +248,47 @@ std::vector<std::vector<double> > DVMPProcessMRSS21::readGrid(
 
         std::vector<double> resultThis(4);
 
+        if(xB < zeroIs){
+        	warn(__func__, ElemUtils::Formatter() << "Value of xB " << xB << " below " << zeroIs << ", changing to the later to avoid NaN");
+        	xB = zeroIs;
+        }
+
+        if(Q2 < zeroIs){
+        	warn(__func__, ElemUtils::Formatter() << "Value of Q2 " << Q2 << " below " << zeroIs << ", changing to the later to avoid NaN");
+        	Q2 = zeroIs;
+        }
+
         resultThis.at(0) = xB;
         resultThis.at(1) = t;
         resultThis.at(2) = Q2;
 
-	if(xs[0] < 0. || xs[1] < 0.){
-        	throw ElemUtils::CustomException(getClassName(), __func__,
-        		ElemUtils::Formatter() << "Negative value of xs0 or xs1, " << xs[0] << ", " << xs[1]);
-	}
-
-	switch(xsIndex){
-
-		case 0: {
-        		resultThis.at(3) = log10(xs[0]);
-			break;
+		if(xs[0] < 0. || xs[1] < 0.){
+				throw ElemUtils::CustomException(getClassName(), __func__,
+					ElemUtils::Formatter() << "Negative value of xs0 or xs1, " << xs[0] << ", " << xs[1]);
 		}
 
-		case 1: {
-        		resultThis.at(3) = log10(xs[1]);
-			break;
+		switch(xsIndex){
+
+			case 0: {
+
+					if(xs[0] < zeroIs){
+						warn(__func__, ElemUtils::Formatter() << "Value of cross-section " << xs[0] << " below " << zeroIs << ", changing to the later to avoid NaN");
+					}
+
+					resultThis.at(3) = (xs[0] < zeroIs)?(log10(zeroIs)):(log10(xs[0]));
+				break;
+			}
+
+			case 1: {
+
+					if(xs[1] < zeroIs){
+						warn(__func__, ElemUtils::Formatter() << "Value of cross-section " << xs[1] << " below " << zeroIs << ", changing to the later to avoid NaN");
+					}
+
+					resultThis.at(3) = (xs[1] < zeroIs)?(log10(zeroIs)):(log10(xs[1]));
+				break;
+			}
 		}
-	}
 
         result.push_back(resultThis);
     }

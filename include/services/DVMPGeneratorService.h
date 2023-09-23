@@ -38,6 +38,7 @@ public:
 
     static const std::string DVMP_GENERATOR_SERVICE_MESON_TYPE; ///< String used to set meson type via XML scenario.
     static const std::string DVMP_GENERATOR_SERVICE_MESON_POLARIZATION; ///< String used to set polarization type via XML scenario.
+    static const std::string DVMP_GENERATOR_SERVICE_IS_PHOTOPRODUCTION; ///< String used to set switch to turn on photoproduction via XML scenario.
 
     static const unsigned int classId; ///< Unique ID to automatically register
                                        /// the class in the registry.
@@ -79,8 +80,14 @@ private:
     virtual void bookHistograms();
     void fillHistograms(const std::vector<double>& variables);
 
+    /**
+     * Get flux of photons.
+     */
+    double getFlux(const DVMPKinematic& kin) const;
+
     ParticleType::Type m_mesonType; ///< Meson type.
     PARTONS::PolarizationType::Type m_mesonPolarization; ///< Polarization type.
+    bool m_isPhotoproduction; ///< If true, generation includes flux of virtual photons.
 };
 
 } /* namespace EPIC */

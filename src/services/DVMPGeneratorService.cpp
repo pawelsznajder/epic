@@ -44,6 +44,8 @@ const std::string DVMPGeneratorService::DVMP_GENERATOR_SERVICE_MESON_TYPE =
         "meson";
 const std::string DVMPGeneratorService::DVMP_GENERATOR_SERVICE_MESON_POLARIZATION =
         "meson_polarisation";
+const std::string DVMPGeneratorService::DVMP_GENERATOR_SERVICE_IS_PHOTOPRODUCTION =
+        "is_photoproduction";
 
 const unsigned int DVMPGeneratorService::classId =
         PARTONS::Partons::getInstance()->getBaseObjectRegistry()->registerBaseObject(
@@ -55,6 +57,7 @@ DVMPGeneratorService::DVMPGeneratorService(const std::string &className) :
 
     m_mesonType = ParticleType::UNDEFINED;
     m_mesonPolarization = PARTONS::PolarizationType::UNDEFINED;
+    m_isPhotoproduction = false;
 }
 
 DVMPGeneratorService::DVMPGeneratorService(const DVMPGeneratorService &other) :
@@ -63,6 +66,7 @@ DVMPGeneratorService::DVMPGeneratorService(const DVMPGeneratorService &other) :
 
     m_mesonType = other.m_mesonType;
     m_mesonPolarization = other.m_mesonPolarization;
+    m_isPhotoproduction = other.m_isPhotoproduction;
 }
 
 DVMPGeneratorService *DVMPGeneratorService::clone() const {
@@ -110,6 +114,12 @@ double DVMPGeneratorService::getEventDistribution(
     PARTONS::DVMPObservableKinematic dvmpObservableKinematic =
         std::get<2>(rcTrue).toPARTONSDVMPObservableKinematic();
 
+    if(m_isPhotoproduction){
+    	dvmpObservableKinematic.setXB(0.);
+    	dvmpObservableKinematic.setQ2(0.);
+    	dvmpObservableKinematic.setE(std::get<2>(rcTrue).getY() * dvmpObservableKinematic.getE());
+    }
+
     //evaluate
     double result =
             std::get<0>(rcTrue)
@@ -122,9 +132,16 @@ double DVMPGeneratorService::getEventDistribution(
                             m_pProcessModule->getListOfAvailableGPDTypeForComputation()).getValue().makeSameUnitAs(
                             PARTONS::PhysicalUnit::NB).getValue();
 
+    if(m_isPhotoproduction){
+    	result *= getFlux(std::get < 2 > (rcTrue));
+    }
+
     //jacobian
     result *= getJacobian(kin);
-    result /= dvmpObservableKinematic.getQ2().getValue() / (2 * PARTONS::Constant::PROTON_MASS * dvmpObservableKinematic.getE().getValue() * pow(dvmpObservableKinematic.getXB().getValue(), 2));
+
+    if(! m_isPhotoproduction){
+    	result /= dvmpObservableKinematic.getQ2().getValue() / (2 * PARTONS::Constant::PROTON_MASS * dvmpObservableKinematic.getE().getValue() * pow(dvmpObservableKinematic.getXB().getValue(), 2));
+    }
 
     if ((! std::isfinite(result)) || (result < 0.)) {
 
@@ -228,6 +245,22 @@ void DVMPGeneratorService::run() {
     m_pWriterModule->close();
 }
 
+double DVMPGeneratorService::getFlux(const DVMPKinematic& kin) const {
+
+    double Q2 = kin.getQ2();
+    double y = kin.getY();
+
+    double Q2Min =
+            pow(
+                    y
+                            * ParticleType(
+                                    m_experimentalConditions.getLeptonType()).getMass(),
+                    2) / (1. - y);
+
+    return PARTONS::Constant::FINE_STRUCTURE_CONSTANT / (2 * M_PI * Q2)
+            * ((1. + pow(1. - y, 2)) / y - 2 * (1. - y) * Q2Min / (y * Q2));
+}
+
 void DVMPGeneratorService::getAdditionalGeneralConfigurationFromTask(
         const MonteCarloTask &task) {
 
@@ -257,6 +290,17 @@ void DVMPGeneratorService::getAdditionalGeneralConfigurationFromTask(
 
     formatter << "Meson polarisation: "
             << PARTONS::PolarizationType(m_mesonPolarization).toString()
+            << '\n';
+
+    // is photoproduction
+    if (task.getGeneralConfiguration().getParameters().isAvailable(
+    		DVMP_GENERATOR_SERVICE_IS_PHOTOPRODUCTION)) {
+    	m_isPhotoproduction =
+                        (task.getGeneralConfiguration().getParameters().getLastAvailable().getString() == "1");
+    }
+
+    formatter << "Is photoproduction: "
+            << ((m_isPhotoproduction)?("yes"):("no"))
             << '\n';
 
     info(__func__, formatter.str());
