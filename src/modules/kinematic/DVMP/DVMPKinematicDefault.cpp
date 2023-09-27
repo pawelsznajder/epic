@@ -523,10 +523,9 @@ void DVMPKinematicDefault::simulateDecayJPsi(Event &event,
 	//mass
 	double Mjpsi = ParticleType(ParticleType::JPSI).getMass();
 
-	//decay angles
-	//TODO from W function
-	double phi = m_randomNumberModule->diceFlat(0., 2 * M_PI);
-	double theta = m_randomNumberModule->diceFlat(0., 2 * M_PI);
+	//decay angles from W functions
+	double phi = VonNeumannPhi(2*M_PI);
+	double theta = VonNeumannTheta(M_PI);
 
 	//particles in CMS
 	Particle muon1_CMS(ParticleType::MUON_PLUS,
@@ -561,5 +560,41 @@ void DVMPKinematicDefault::simulateDecayJPsi(Event &event,
 	event.addParticle(particles.at(1));
 	event.addVertex(vertex);
 }
+
+// Distributions from https://arxiv.org/pdf/hep-ex/9808020.pdf
+double DVMPKinematicDefault::WPhi(double x){
+
+return 1./(2.*M_PI)*(1 - 0.04*cos(2*x));
+}
+
+double DVMPKinematicDefault::WTheta(double x){
+
+    return 3./8.*(1. + 0.29 + (1. - 3.*0.29)*cos(x)*cos(x));
+}
+
+double DVMPKinematicDefault::VonNeumannPhi(double range){
+    double x,y;
+	do{
+		x = m_randomNumberModule->diceFlat(0., range);
+		y = m_randomNumberModule->diceFlat(0., 1.);
+	}
+	while(y > WPhi(x)/WPhi(M_PI/2));
+
+	return x;
+
+}
+
+double DVMPKinematicDefault::VonNeumannTheta(double range){
+    double x,y;
+	do{
+		x = m_randomNumberModule->diceFlat(0., range);
+		y = m_randomNumberModule->diceFlat(0., 1.);
+	}
+	while(y >WTheta(x)/WTheta(0));
+
+	return x;
+
+}
+
 
 } /* namespace EPIC */

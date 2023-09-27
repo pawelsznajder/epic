@@ -78,7 +78,28 @@ private:
      */
     void simulateDecayJPsi(Event& event, std::shared_ptr<Particle> jpsi);
 
+    /**
+     * Distribution of phi of muon in J/Psi decay.
+     */
+    double WPhi(double x);
+
+    /**
+     * Distribution of theta of muon in J/Psi decay.
+     */
+    double WTheta(double x);
+
+    /**
+     * Get random phi from the WPhi distribution ranging from 0 to range using the Von Neumann method.
+     */
+    double VonNeumannPhi(double range);
+
+    /**
+     * Get random theta from the WTheta distribution ranging from 0 to range using the Von Neumann method.
+     */
+    double VonNeumannTheta(double range);
+
     std::shared_ptr<RandomNumberModule> m_randomNumberModule; ///< Random number module.
+
 };
 
 } /* namespace EPIC */

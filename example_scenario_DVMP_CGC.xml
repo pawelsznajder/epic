@@ -10,7 +10,7 @@
 
       <!-- General configuration -->
       <general_configuration>
-         <param name="number_of_events" value="10" />
+         <param name="number_of_events" value="100000" />
 	  <param name="histogram_file_path" value="epic_hist_file.root" />
 	  <param name="meson" value="J/Psi" />
 	  <param name="is_photoproduction" value="0" />
@@ -55,9 +55,9 @@
       <!-- Generator module configuration -->
       <generator_configuration>
          <module type="EventGeneratorModule" name="EventGeneratorFOAM">
-         	<param name="nCells" value="10" />
-         	<param name="nSamples" value="10" />
-         	<param name="nBins" value="10" />
+         	<param name="nCells" value="1000" />
+         	<param name="nSamples" value="1000" />
+         	<param name="nBins" value="1000" />
 		      <!-- <param name="state_file_path" value="test.root" /> -->
          </module>
       </generator_configuration>
