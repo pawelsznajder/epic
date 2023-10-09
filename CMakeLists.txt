@@ -101,6 +101,13 @@ find_package(ROOT COMPONENTS Core Hist Minuit Foam REQUIRED)
 # find libraries: HepMC3
 find_package(HepMC3 REQUIRED)
 
+foreach(HEPMC3_COMPONENT ${HEPMC3_COMPONENTS})
+	if(${HEPMC3_COMPONENT} STREQUAL "rootIO")
+		message("-- Found HEPMC3 root IO")
+		add_compile_definitions(WITH_HEPMC3ROOTIO)
+	endif()
+endforeach()
+
 # directories containing headers 
 include_directories(${GSL_INCLUDE_DIRS} ${QT_INCLUDE_DIRS} ${SFML_INCLUDE_DIR} ${ElementaryUtils_INCLUDE_DIR} ${NumA++_INCLUDE_DIR} ${PARTONS_INCLUDE_DIR} ${Apfel++_INCLUDE_DIR} ${ROOT_INCLUDE_DIRS} ${HEPMC3_INCLUDE_DIR})
 
