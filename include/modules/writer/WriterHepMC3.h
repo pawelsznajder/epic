@@ -19,6 +19,7 @@
 
 namespace HepMC3 {
 class Writer;
+class GenRunInfo;
 } /* namespace HepMC3 */
 
 namespace EPIC {
@@ -88,6 +89,7 @@ private:
 
 	WriterHepMC3Type::Type m_writerHepMC3Type;      ///< HepMC3 writer type.
 	std::shared_ptr<HepMC3::Writer> m_writerHepMC3; ///< Writer.
+	std::shared_ptr<HepMC3::GenRunInfo> m_runInfoHepMC3; ///< Run info.
 };
 
 } /* namespace EPIC */

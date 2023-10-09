@@ -21,7 +21,9 @@
 #include <HepMC3/Writer.h>
 #include <HepMC3/WriterAscii.h>
 #include <HepMC3/WriterHEPEVT.h>
-//#include <HepMC3/WriterRoot.h>
+#if WITH_HEPMC3ROOTIO
+	#include <HepMC3/WriterRoot.h>
+#endif
 #include <partons/BaseObjectRegistry.h>
 #include <stddef.h>
 #include <TLorentzVector.h>
@@ -46,12 +48,12 @@ const unsigned int WriterHepMC3::classId =
 
 WriterHepMC3::WriterHepMC3(const std::string &className) :
 		WriterModule(className), m_writerHepMC3Type(
-				WriterHepMC3Type::UNDEFINED), m_writerHepMC3(nullptr) {
+				WriterHepMC3Type::UNDEFINED), m_writerHepMC3(nullptr), m_runInfoHepMC3(nullptr) {
 }
 
 WriterHepMC3::WriterHepMC3(const WriterHepMC3 &other) :
 		WriterModule(other), m_writerHepMC3Type(other.m_writerHepMC3Type), m_writerHepMC3(
-				other.m_writerHepMC3) {
+				other.m_writerHepMC3), m_runInfoHepMC3(other.m_runInfoHepMC3) {
 	;
 }
 
@@ -104,11 +106,13 @@ void WriterHepMC3::open() {
 		break;
 	}
 
-//	case WriterHepMC3Type::ROOT: {
-//
-//		m_writerHepMC3 = std::make_shared<HepMC3::WriterRoot>(m_path);
-//		break;
-//	}
+#if WITH_HEPMC3ROOTIO
+	case WriterHepMC3Type::ROOT: {
+
+		m_writerHepMC3 = std::make_shared<HepMC3::WriterRoot>(m_path);
+		break;
+	}
+#endif
 
 	case WriterHepMC3Type::HEPEVT: {
 
@@ -122,6 +126,20 @@ void WriterHepMC3::open() {
 						<< WriterHepMC3Type(m_writerHepMC3Type).toString());
 	}
 	}
+
+	//delete if already set
+	if (m_runInfoHepMC3 != nullptr) {
+		m_runInfoHepMC3.reset(new HepMC3::GenRunInfo());
+	}else{
+		m_runInfoHepMC3 = std::make_shared<HepMC3::GenRunInfo>();
+	}
+
+	//set weight
+	std::vector<std::string> weights(1, "weight_default");
+	m_runInfoHepMC3->set_weight_names(weights);
+
+	//assign
+	m_writerHepMC3->set_run_info(m_runInfoHepMC3);
 }
 
 void WriterHepMC3::saveGenerationInformation(
@@ -133,42 +151,39 @@ void WriterHepMC3::saveGenerationInformation(
 		return;
 	}
 
-	std::shared_ptr<HepMC3::GenRunInfo> runInfo = std::make_shared<
-			HepMC3::GenRunInfo>();
-
 	HepMC3::GenRunInfo::ToolInfo toolInfo;
 
 	toolInfo.name = generationInformation.getGeneratorName();
 	toolInfo.version = generationInformation.getGeneratorVersion();
 	toolInfo.description = generationInformation.getDescription();
 
-	runInfo->tools().push_back(toolInfo);
+	m_runInfoHepMC3->tools().push_back(toolInfo);
 
 	std::shared_ptr<HepMC3::StringAttribute> attributeServiceName =
 			std::make_shared<HepMC3::StringAttribute>(
 					generationInformation.getServiceName());
-	runInfo->add_attribute("service_name", attributeServiceName);
+	m_runInfoHepMC3->add_attribute("service_name", attributeServiceName);
 
 	std::shared_ptr<HepMC3::UIntAttribute> attributeNEvents = std::make_shared<
 			HepMC3::UIntAttribute>(generationInformation.getNEvents());
-	runInfo->add_attribute("generated_events_number", attributeNEvents);
+	m_runInfoHepMC3->add_attribute("generated_events_number", attributeNEvents);
 
 	std::shared_ptr<HepMC3::DoubleAttribute> attributeICS_value =
 			std::make_shared<HepMC3::DoubleAttribute>(
 					generationInformation.getIntegratedCrossSection().first);
-	runInfo->add_attribute("integrated_cross_section_value",
+	m_runInfoHepMC3->add_attribute("integrated_cross_section_value",
 			attributeICS_value);
 
 	std::shared_ptr<HepMC3::DoubleAttribute> attributeICS_uncertainty =
 			std::make_shared<HepMC3::DoubleAttribute>(
 					generationInformation.getIntegratedCrossSection().second);
-	runInfo->add_attribute("integrated_cross_section_uncertainty",
+	m_runInfoHepMC3->add_attribute("integrated_cross_section_uncertainty",
 			attributeICS_uncertainty);
 
 	std::shared_ptr<HepMC3::StringAttribute> attributeGenerationDate =
 			std::make_shared<HepMC3::StringAttribute>(
 					generationInformation.getGenerationDate());
-	runInfo->add_attribute("generation_date", attributeGenerationDate);
+	m_runInfoHepMC3->add_attribute("generation_date", attributeGenerationDate);
 
 	for (std::vector<std::pair<std::string, std::string> >::const_iterator it =
 			generationInformation.getAdditionalInfo().begin();
@@ -176,10 +191,8 @@ void WriterHepMC3::saveGenerationInformation(
 
 		std::shared_ptr<HepMC3::StringAttribute> attributeAdditional =
 				std::make_shared<HepMC3::StringAttribute>(it->second);
-		runInfo->add_attribute(it->first, attributeAdditional);
+		m_runInfoHepMC3->add_attribute(it->first, attributeAdditional);
 	}
-
-	m_writerHepMC3->set_run_info(runInfo);
 
 	switch (m_writerHepMC3Type) {
 
@@ -189,11 +202,13 @@ void WriterHepMC3::saveGenerationInformation(
 		break;
 	}
 
-//	case WriterHepMC3Type::ROOT: {
-//
-//		std::static_pointer_cast<HepMC3::WriterRoot>(m_writerHepMC3)->write_run_info();
-//		break;
-//	}
+#if WITH_HEPMC3ROOTIO
+	case WriterHepMC3Type::ROOT: {
+
+		std::static_pointer_cast<HepMC3::WriterRoot>(m_writerHepMC3)->write_run_info();
+		break;
+	}
+#endif
 
 	case WriterHepMC3Type::HEPEVT: {
 
@@ -210,7 +225,6 @@ void WriterHepMC3::saveGenerationInformation(
 						<< WriterHepMC3Type(m_writerHepMC3Type).toString());
 	}
 	}
-
 }
 
 void WriterHepMC3::close() {
@@ -245,6 +259,9 @@ void WriterHepMC3::write(const Event &event) {
 
 	// set units
 	eventHepMC3.set_units(HepMC3::Units::GEV, HepMC3::Units::MM);
+
+	//set run info
+	eventHepMC3.set_run_info(m_runInfoHepMC3);
 
 	// attributes
 	for (std::map<EventAttributeType::Type, double>::const_iterator it =
