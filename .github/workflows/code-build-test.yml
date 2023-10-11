@@ -28,7 +28,7 @@ jobs:
          uses: actions/upload-artifact@v3
          with: 
           name: log_files
-          path: 
+          path: |
             /root/workspace/epic/test/compare/data/*.pdf
             /root/workspace/epic/test/compare/data/*.log
           retention-days: 1
