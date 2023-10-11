@@ -430,6 +430,7 @@ void TCSGeneratorService::transformVariables(std::vector<double>& variables) con
 
     variables.at(0) = -1 * exp(variables.at(0));
     variables.at(1) = exp(variables.at(1));
+    variables.at(4) = 2 * atan(exp(variables.at(4)));
     variables.at(5) = exp(variables.at(5));
     variables.at(6) = exp(variables.at(6));
 }
@@ -438,12 +439,13 @@ void TCSGeneratorService::transformRanges(std::vector<KinematicRange>& ranges) c
 
     ranges.at(0).setMinMax(log(-1 * ranges.at(0).getMax()), log(-1 * ranges.at(0).getMin()));
     ranges.at(1).setMinMax(log(ranges.at(1).getMin()), log(ranges.at(1).getMax()));
+    ranges.at(4).setMinMax(log(tan(ranges.at(4).getMin() / 2.)), log(tan(ranges.at(4).getMax() / 2.)));
     ranges.at(5).setMinMax(log(ranges.at(5).getMin()), log(ranges.at(5).getMax()));
     ranges.at(6).setMinMax(log(ranges.at(6).getMin()), log(ranges.at(6).getMax()));
 }
 
 double TCSGeneratorService::getJacobian(const std::vector<double>& variables) const{
-    return -1 * variables.at(0) * variables.at(1) * variables.at(5) * variables.at(6);
+    return -1 * variables.at(0) * variables.at(1) * sin(variables.at(4)) * variables.at(5) * variables.at(6);
 }
 
 } /* namespace EPIC */

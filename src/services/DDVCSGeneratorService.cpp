@@ -428,6 +428,7 @@ void DDVCSGeneratorService::transformVariables(std::vector<double>& variables) c
     variables.at(1) = exp(variables.at(1));
     variables.at(2) = -1 * exp(variables.at(2));
     variables.at(3) = exp(variables.at(3));
+    variables.at(7) = 2 * atan(exp(variables.at(7)));
 }
 
 void DDVCSGeneratorService::transformRanges(std::vector<KinematicRange>& ranges) const{
@@ -436,10 +437,12 @@ void DDVCSGeneratorService::transformRanges(std::vector<KinematicRange>& ranges)
     ranges.at(1).setMinMax(log(ranges.at(1).getMin()), log(ranges.at(1).getMax()));
     ranges.at(2).setMinMax(log(-1 * ranges.at(2).getMax()), log(-1 * ranges.at(2).getMin()));
     ranges.at(3).setMinMax(log(ranges.at(3).getMin()), log(ranges.at(3).getMax()));
+    ranges.at(7).setMinMax(log(tan(ranges.at(7).getMin() / 2.)), log(tan(ranges.at(7).getMax() / 2.)));
 }
 
 double DDVCSGeneratorService::getJacobian(const std::vector<double>& variables) const{
-    return -1 * variables.at(0) * variables.at(1) * variables.at(2) * variables.at(3);
+    return -1 * variables.at(0) * variables.at(1) * variables.at(2) * variables.at(3) *
+	    sin(variables.at(7));
 }
 
 } /* namespace EPIC */
