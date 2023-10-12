@@ -1,10 +1,5 @@
 # start from 
-FROM partons/partons:latest 
-
-# EpIC version
-ENV EPICTAG="1.1.0"
-ENV ROOTTAG="6.28.02"
-ENV HEPMC3TAG="3.2.6"
+FROM partons/epic:base
 
 # set WORKSPACE env. variable
 ENV WORKSPACE="/root/workspace"
@@ -12,38 +7,8 @@ ENV WORKSPACE="/root/workspace"
 # set working directory
 WORKDIR ${WORKSPACE}
 
-# install root
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends libx11-dev libxpm-dev libxft-dev libxext-dev python3 && \
-    apt-get clean && \
-    apt-get autoclean && \
-    rm -rf /var/lib/apt/lists/* && \
-    wget https://root.cern/download/root_v${ROOTTAG}.source.tar.gz && \
-    tar -zxf root_v${ROOTTAG}.source.tar.gz && \
-    mkdir root_build && \
-    cd root_build && \
-    cmake -Dminimal=ON ../root-${ROOTTAG} && \
-    make -j4 && \
-    make install && \
-    cd .. && \
-    rm -fr root_v${ROOTTAG}.source.tar.gz root-${ROOTTAG} root_build 
-
-# install hepmc3 
-RUN git clone --depth 1 --branch ${HEPMC3TAG} https://gitlab.cern.ch/hepmc/HepMC3.git && \
-    mkdir HepMC3_build && \
-    cd HepMC3_build && \
-    cmake -DHEPMC3_ENABLE_PYTHON=OFF ../HepMC3 && \
-    make -j4 && \
-    make install && \
-    cd .. && \
-    rm -fr HepMC3 HepMC3_build
-
 # install epic
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends libboost-dev && \
-    apt-get clean && \
-    apt-get autoclean && \
-    git clone --depth 1 --branch v${EPICTAG} https://github.com/pawelsznajder/epic.git && \
+RUN git clone https://github.com/pawelsznajder/epic.git && \
     cd epic/build && \
     cmake .. && \
     make -j4
