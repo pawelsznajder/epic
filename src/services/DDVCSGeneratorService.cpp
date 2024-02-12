@@ -123,7 +123,7 @@ double DDVCSGeneratorService::getEventDistribution(
 
    //jacobian
    result *= getJacobian(kin);
-   result /= ddvcsObservableKinematic.getQ2().getValue() / (2 * PARTONS::Constant::PROTON_MASS * ddvcsObservableKinematic.getE().getValue() * pow(ddvcsObservableKinematic.getXB().getValue(), 2));
+   result *= partonsKinObs.getQ2() / (2 * PARTONS::Constant::PROTON_MASS * partonsKinObs.getE() * pow(partonsKinObs.getY(), 2));
 
     if (std::isnan(result)) {
 
