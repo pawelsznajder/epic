@@ -119,10 +119,9 @@ double DVCSGeneratorService::getEventDistribution(
     
     //jacobian
     result *= getJacobian(kin);
-    result /= dvcsObservableKinematic.getQ2().getValue() / (2 * PARTONS::Constant::PROTON_MASS * dvcsObservableKinematic.getE().getValue() * pow(dvcsObservableKinematic.getXB().getValue(), 2));
+    result *= partonsKinObs.getQ2() / (2 * PARTONS::Constant::PROTON_MASS * partonsKinObs.getE() * pow(partonsKinObs.getY(), 2));
 
     if (std::isnan(result)) {
-
         warn(__func__,
                 "Value is NaN, setting zero instead, look for previous messages for a reason");
         result = 0.;

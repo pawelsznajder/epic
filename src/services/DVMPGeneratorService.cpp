@@ -124,7 +124,7 @@ double DVMPGeneratorService::getEventDistribution(
 
     //jacobian
     result *= getJacobian(kin);
-    result /= dvmpObservableKinematic.getQ2().getValue() / (2 * PARTONS::Constant::PROTON_MASS * dvmpObservableKinematic.getE().getValue() * pow(dvmpObservableKinematic.getXB().getValue(), 2));
+    result *= partonsKinObs.getQ2() / (2 * PARTONS::Constant::PROTON_MASS * partonsKinObs.getE() * pow(partonsKinObs.getY(), 2));
 
     if ((! std::isfinite(result)) || (result < 0.)) {
 
