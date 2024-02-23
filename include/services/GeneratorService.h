@@ -485,7 +485,7 @@ protected:
         }
 
         if (m_generalConfiguration.getNEvents() == 0) {
-            throw ElemUtils::CustomException(getClassName(), __func__,
+            info(__func__,
                     "Number of events to be generated is: 0");
         }
     }

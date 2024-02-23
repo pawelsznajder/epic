@@ -59,6 +59,9 @@
 
       <!-- Generator module configuration -->
       <generator_configuration>
+         <!--<module type="EventGeneratorModule" name="EventGeneratorROOT">
+           <param name="type" value="miser"/>
+         </module>-->
          <module type="EventGeneratorModule" name="EventGeneratorFOAM">
          	<param name="nCells" value="1000" />
          	<param name="nSamples" value="1000" />
