@@ -117,6 +117,14 @@ namespace EPIC {
         throw ElemUtils::CustomException(
             getClassName(), __func__, ElemUtils::Formatter() << "Invalid type retrieved: " << m_type);
       m_pROOT = new ROOT::Math::IntegratorMultiDim(type, m_absTol, m_relTol, m_nBin);
+      m_pROOT->Options().SetAbsTolerance(m_absTol);
+      m_pROOT->Options().SetRelTolerance(m_relTol);
+      m_pROOT->Options().SetWKSize(m_nBin);
+      {
+        std::ostringstream os;
+        m_pROOT->Options().Print(os);
+        info(__func__, ElemUtils::Formatter() << "List of options for ROOT integrator\n" << os.str());
+      }
 
       if (m_pEventGeneratorInterface == nullptr)
         throw ElemUtils::CustomException(getClassName(), __func__, "Pointer to EventGenerator is null");
