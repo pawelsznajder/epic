@@ -145,7 +145,8 @@ namespace EPIC {
     }
     if (!m_pROOT)
       throw ElemUtils::CustomException(getClassName(), __func__, "Pointer to ROOT integrator object is null");
-    return std::make_pair(m_pROOT->Integral(xmin.data(), xmax.data()), m_pROOT->Error());
+    const auto integral = m_pROOT->Integral(xmin.data(), xmax.data()), uncertainty = m_pROOT->Error();
+    return std::make_pair(integral, uncertainty);
   }
 
 } /* namespace EPIC */
