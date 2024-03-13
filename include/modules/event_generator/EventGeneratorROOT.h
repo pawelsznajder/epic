@@ -57,6 +57,8 @@ namespace EPIC {
     double m_absTol{-1.};         ///< Maximum absolute uncertainty.
     double m_relTol{-1.};         ///< Maximum relative uncertainty.
     size_t m_nBin{0};             ///< Number of bins in build-up.
+
+    std::pair<double, double> m_integral{0., 0.};  ///< Integrated cross section + uncertainty
   };
 }  // namespace EPIC
 

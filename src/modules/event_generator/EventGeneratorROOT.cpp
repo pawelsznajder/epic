@@ -138,6 +138,15 @@ namespace EPIC {
         return m_pEventGeneratorInterface->getEventDistribution(v);
       };
       m_pROOT->SetFunction(density, kinematicRanges.size() /* number of dimensions */);
+      std::vector<double> xmin, xmax;
+      for (const auto &range : m_kinematicRanges) {
+        xmin.emplace_back(range.getMin());
+        xmax.emplace_back(range.getMax());
+      }
+      if (!m_pROOT)
+        throw ElemUtils::CustomException(getClassName(), __func__, "Pointer to ROOT integrator object is null");
+      const auto integral = m_pROOT->Integral(xmin.data(), xmax.data()), uncertainty = m_pROOT->Error();
+      m_integral = std::make_pair(integral, uncertainty);
     }
   }
 
@@ -145,16 +154,6 @@ namespace EPIC {
     throw ElemUtils::CustomException(getClassName(), __func__, "Module is not yet ready for event generation");
   }
 
-  std::pair<double, double> EventGeneratorROOT::getIntegral() {
-    std::vector<double> xmin, xmax;
-    for (const auto &range : m_kinematicRanges) {
-      xmin.emplace_back(range.getMin());
-      xmax.emplace_back(range.getMax());
-    }
-    if (!m_pROOT)
-      throw ElemUtils::CustomException(getClassName(), __func__, "Pointer to ROOT integrator object is null");
-    const auto integral = m_pROOT->Integral(xmin.data(), xmax.data()), uncertainty = m_pROOT->Error();
-    return std::make_pair(integral, uncertainty);
-  }
+  std::pair<double, double> EventGeneratorROOT::getIntegral() { return m_integral; }
 
 } /* namespace EPIC */
