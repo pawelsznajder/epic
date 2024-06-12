@@ -22,7 +22,8 @@ namespace PARTONS {
  * Module for evaluation of CFF values from lookup tables (xB, t, Q2) with arbitrary t-profile.
  *
  * The module works as follows. The imaginary part of CFF H is evaluated from DVCSCFFCMILOU3DTables at t=0. Then,
- * the result is multiplied by the (x,t)-dependent profile function, where the code assumes xi = x. The real part of CFF H and other GPDs are set to 0.
+ * the result is multiplied by the (x,t)-dependent profile function, where the code assumes xi = x.
+ * The real part of CFF H and other GPDs are set to 0.
  * The profile function can be set via "t_profile" parameter, e.g.:
  * <param name="t_profile" value="exp(5*(1-x)*t)" />
  * The formula is parsed via TFormula ROOT class.
