@@ -27,9 +27,9 @@ jobs:
        - name: save 
          uses: actions/upload-artifact@v4
          with: 
-          name: log_files_${{ matrix.runs-on }}
+          name: log_files
           path: |
-            /root/workspace/epic/test/compare/data/*.${{ matrix.runs-on }}.pdf
-            /root/workspace/epic/test/compare/data/*.${{ matrix.runs-on }}.log
+            /root/workspace/epic/test/compare/data/*.pdf
+            /root/workspace/epic/test/compare/data/*.log
           retention-days: 1
         
