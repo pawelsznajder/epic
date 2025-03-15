@@ -500,33 +500,6 @@ protected:
     }
 
     /**
-     * Check target polarisation state. If not longitidinal and transverse, generate randomly polarisation state (in any direction).
-     */
-    void checkTargetPolarisation(
-            ExperimentalConditions& experimentalConditions) const {
-
-        //get
-        const NumA::Vector3D& currentHadronPolarisation =
-                experimentalConditions.getHadronPolarisation();
-
-        //check
-        if (fabs(currentHadronPolarisation.getX()) == 1.
-                || fabs(currentHadronPolarisation.getY()) == 1.
-                || fabs(currentHadronPolarisation.getZ()) == 1.)
-            return;
-
-        //generate
-        double cosThetaPol = m_randomNumberModule->diceFlat(-1., 1.);
-        double thetaPol = acos(cosThetaPol);
-        double phiPol = m_randomNumberModule->diceFlat(0., 2 * M_PI);
-
-        //set
-        experimentalConditions.setHadronPolarisation(
-                NumA::Vector3D(sin(thetaPol) * cos(phiPol),
-                        sin(thetaPol) * sin(phiPol), cos(thetaPol)));
-    }
-
-    /**
      * Transform variables.
      */
     virtual void transformVariables(std::vector<double>& variables) const = 0;  

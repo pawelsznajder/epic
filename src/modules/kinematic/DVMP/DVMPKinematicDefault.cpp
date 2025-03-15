@@ -318,10 +318,53 @@ Event DVMPKinematicDefault::evaluate(const ExperimentalConditions &conditions,
 
     // 9. Introduce phi angle
 
-    pS_TAR.rotate(gammaStar_TAR.getMomentum().Unit(), phi);
     exclusive_TAR.rotate(gammaStar_TAR.getMomentum().Unit(), phi);
+    pS_TAR.rotate(gammaStar_TAR.getMomentum().Unit(), phi);
 
-    // 10. Back to LAB
+    // 11. Introduce rotation around beam axis (phiS dependence in case of trans. pol. target)
+
+	//rotation angle
+	double psi;
+
+	//case of trans. target
+	if(fabs(conditions.getHadronPolarisation().getX()) != 0. || fabs(conditions.getHadronPolarisation().getY()) != 0.){
+
+		//evaluate a rotation angle
+		double cosa = 0.;
+		double sina = 0.;
+
+		if(fabs(conditions.getHadronPolarisation().getX()) != 0.){
+
+			double q1 = gammaStar_TAR.getMomentum().Unit().X();
+			double q3 = gammaStar_TAR.getMomentum().Unit().Z();
+
+			cosa = -((cos(phiS)*sqrt(-(pow(q3,2)/(-1 + pow(q1,2)*pow(sin(phiS),2)))))/q3);
+			sina = (q3*sin(phiS))/sqrt(1 - pow(q1,2)*pow(sin(phiS),2));
+
+			psi = M_PI - atan2(sina, cosa);
+		}
+
+		if(fabs(conditions.getHadronPolarisation().getY()) != 0.){
+
+			double q1 = gammaStar_TAR.getMomentum().Unit().X();
+			double q3 = gammaStar_TAR.getMomentum().Unit().Z();
+
+			cosa = (q3*sin(phiS))/sqrt(1 - pow(q1,2)*pow(sin(phiS),2));
+			sina = -((cos(phiS)*sqrt(-(pow(q3,2)/(-1 + pow(q1,2)*pow(sin(phiS),2)))))/q3);
+
+			psi = M_PI + atan2(sina, cosa);
+		}
+
+	}else{
+		psi = phiS;
+	}
+
+	eS_TAR.rotate(AxisType::Z, psi);
+	gammaStar_TAR.rotate(AxisType::Z, psi);
+	exclusive_TAR.rotate(AxisType::Z, psi);
+	pS_TAR.rotate(AxisType::Z, psi);
+
+    // 12. Back to LAB
 
     Particle eS_LAB = eS_TAR;
     Particle gammaStar_LAB = gammaStar_TAR;
@@ -333,63 +376,6 @@ Event DVMPKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     exclusive_LAB.boost(boost_LAB_to_TAR);
     pS_LAB.boost(boost_LAB_to_TAR);
 
-    // 11. Introduce phiS angle
-
-    //rotation angle
-    double psi;
-
-    //target polarisation has transverse component
-    if (conditions.getHadronPolarisation().getX() != 0.
-            || conditions.getHadronPolarisation().getY() != 0.) {
-
-        // Gamma factor
-        double gamma = 2 * Mp * xB / sqrt(Q2);
-
-        // Sine angle between the incoming lepton and the virtual photon
-        double sinTheta = gamma
-                * sqrt(
-                        (1 - y - 1 / 4 * pow(y, 2) * pow(gamma, 2))
-                                / (1 + pow(gamma, 2)));
-
-        // Cosine angle between the incoming lepton and the virtual photon
-        double cosTheta = sqrt(1. - pow(sinTheta, 2));
-
-        // Longitudinal polarization
-        double PL = conditions.getHadronPolarisation().getZ();
-
-        // Transverse polarization, a positive definite number between 0 and 1
-        double PT = sqrt(
-                pow(conditions.getHadronPolarisation().getX(), 2)
-                        + pow(conditions.getHadronPolarisation().getY(), 2));
-
-        // Transverse polarization w.r.t the virtual photon's direction
-        double ST = fabs(
-                (-PL * cos(phiS) * sinTheta
-                        + sqrt(
-                                pow(cosTheta, 2)
-                                        * (-pow(PL, 2) + pow(cosTheta, 2)
-                                                + pow(cos(phiS), 2)
-                                                        * pow(sinTheta, 2))))
-                        / (pow(cosTheta, 2)
-                                + pow(cos(phiS), 2) * pow(sinTheta, 2)));
-
-        // Sine angle value to be rotated in the lab frame
-        double sinPsi = ST / PT * sin(phiS);
-
-        // Cosine angle value to be rotated in the lab frame
-        double cosPsi = (ST * cos(phiS) + sinTheta * PL) / (cosTheta * PT);
-
-        // rotate angle
-        psi = atan2(sinPsi, cosPsi);
-
-    } else {
-        psi = phiS;
-    }
-
-    eS_LAB.rotate(AxisType::Z, psi);
-    gammaStar_LAB.rotate(AxisType::Z, psi);
-    exclusive_LAB.rotate(AxisType::Z, psi);
-    pS_LAB.rotate(AxisType::Z, psi);
 
     // 12. Store
 

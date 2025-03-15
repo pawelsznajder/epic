@@ -197,9 +197,6 @@ void DVCSGeneratorService::run() {
                 m_pRCModule->evaluate(m_experimentalConditions, partonsKinObs,
                         rcVariables);
 
-        //target polarisation
-        checkTargetPolarisation(std::get<1>(rcTrue));
-
         //create event
         Event event = m_pKinematicModule->evaluate(std::get<1>(rcTrue),
                 std::get<2>(rcTrue));
