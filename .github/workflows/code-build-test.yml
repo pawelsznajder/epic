@@ -25,11 +25,11 @@ jobs:
          run: cd /root/workspace/epic/test/compare; ./script
 
        - name: save 
-         uses: actions/upload-artifact@v3
+         uses: actions/upload-artifact@v4
          with: 
-          name: log_files
+          name: log_files_${{ matrix.runs-on }}
           path: |
-            /root/workspace/epic/test/compare/data/*.pdf
-            /root/workspace/epic/test/compare/data/*.log
+            /root/workspace/epic/test/compare/data/*.${{ matrix.runs-on }}.pdf
+            /root/workspace/epic/test/compare/data/*.${{ matrix.runs-on }}.log
           retention-days: 1
         
