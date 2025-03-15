@@ -361,6 +361,26 @@ Event DDVCSKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     lepton1_TAR.boost(boost_TAR_to_EXC);
     lepton2_TAR.boost(boost_TAR_to_EXC);
 
+    // 11. Introduce rotation around beam axis (phiS dependence in case of trans. pol. target)
+
+	//rotation angle
+	double psi;
+
+	//case of trans. target
+	if(fabs(conditions.getHadronPolarisation().getX()) != 0. || fabs(conditions.getHadronPolarisation().getY()) != 0.){
+        throw ElemUtils::CustomException(getClassName(), __func__,
+                ElemUtils::Formatter() << "Generation of phiS for transverse target polarisation not implemented");
+	}else{
+		psi = phiS;
+	}
+
+    gammaStar_TAR.rotate(AxisType::Z, psi);
+    exclusive_TAR.rotate(AxisType::Z, psi);
+    eS_TAR.rotate(AxisType::Z, psi);
+    pS_TAR.rotate(AxisType::Z, psi);
+    lepton1_TAR.rotate(AxisType::Z, psi);
+    lepton2_TAR.rotate(AxisType::Z, psi);
+
     // 10. Back to LAB
     Particle gammaStar_LAB = gammaStar_TAR;
     Particle exclusive_LAB = exclusive_TAR;
@@ -375,67 +395,6 @@ Event DDVCSKinematicDefault::evaluate(const ExperimentalConditions &conditions,
     pS_LAB.boost(boost_LAB_to_TAR);
     lepton1_LAB.boost(boost_LAB_to_TAR);
     lepton2_LAB.boost(boost_LAB_to_TAR);
-
-    // 11. Introduce phiS angle
-
-    //rotation angle
-    double psi;
-
-    //target polarisation has transverse component
-    if (conditions.getHadronPolarisation().getX() != 0.
-            || conditions.getHadronPolarisation().getY() != 0.) {
-
-        // Gamma factor
-        double xB = Q2 / (2 * Mp * E_e_TAR * y);
-        double gamma = 2 * Mp * xB / sqrt(Q2);
-
-        // Sine angle between the incoming lepton and the virtual photon
-        double sinTheta = gamma
-                * sqrt(
-                        (1 - y - 1 / 4 * pow(y, 2) * pow(gamma, 2))
-                                / (1 + pow(gamma, 2)));
-
-        // Cosine angle between the incoming lepton and the virtual photon
-        double cosTheta = sqrt(1. - pow(sinTheta, 2));
-
-        // Longitudinal polarization
-        double PL = conditions.getHadronPolarisation().getZ();
-
-        // Transverse polarization, a positive definite number between 0 and 1
-        double PT = sqrt(
-                pow(conditions.getHadronPolarisation().getX(), 2)
-                        + pow(conditions.getHadronPolarisation().getY(), 2));
-
-        // Transverse polarization w.r.t the virtual photon's direction
-        double ST = fabs(
-                (-PL * cos(phiS) * sinTheta
-                        + sqrt(
-                                pow(cosTheta, 2)
-                                        * (-pow(PL, 2) + pow(cosTheta, 2)
-                                                + pow(cos(phiS), 2)
-                                                        * pow(sinTheta, 2))))
-                        / (pow(cosTheta, 2)
-                                + pow(cos(phiS), 2) * pow(sinTheta, 2)));
-
-        // Sine angle value to be rotated in the lab frame
-        double sinPsi = ST / PT * sin(phiS);
-
-        // Cosine angle value to be rotated in the lab frame
-        double cosPsi = (ST * cos(phiS) + sinTheta * PL) / (cosTheta * PT);
-
-        // rotate angle
-        psi = atan2(sinPsi, cosPsi);
-
-    } else {
-        psi = phiS;
-    }
-
-    gammaStar_LAB.rotate(AxisType::Z, psi);
-    exclusive_LAB.rotate(AxisType::Z, psi);
-    eS_LAB.rotate(AxisType::Z, psi);
-    pS_LAB.rotate(AxisType::Z, psi);
-    lepton1_LAB.rotate(AxisType::Z, psi);
-    lepton2_LAB.rotate(AxisType::Z, psi);
 
     // 12. Store
 
