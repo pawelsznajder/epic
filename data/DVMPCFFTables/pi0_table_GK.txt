@@ -1,3 +1,7 @@
 Table of CFFs for pi0 created with DVMPCFFGK06 and GPDGK19COMPASS modules.
 Pawel Sznajder (NCBJ) / pawel.sznajder@ncbj.gov.pl
 04/02/2023
+
+Range of t-variable extended to -2 GeV 0
+Pawel Sznajder (NCBJ) / pawel.sznajder@ncbj.gov.pl
+15/03/2025
