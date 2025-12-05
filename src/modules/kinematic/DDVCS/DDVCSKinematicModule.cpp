@@ -9,6 +9,7 @@
 
 #include <ElementaryUtils/parameters/GenericType.h>
 #include <ElementaryUtils/string_utils/Formatter.h>
+#include <ElementaryUtils/logger/CustomException.h>
 #include <partons/beans/channel/ChannelType.h>
 #include <cmath>
 
