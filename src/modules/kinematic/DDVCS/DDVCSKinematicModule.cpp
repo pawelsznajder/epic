@@ -112,6 +112,11 @@ std::vector<KinematicRange> DDVCSKinematicModule::getKinematicRanges(const Exper
 bool DDVCSKinematicModule::checkIfValid(
         const ExperimentalConditions &conditions, const DDVCSKinematic &kin) {
 
+    if(m_decayType == conditions.getLeptonType()){
+        throw ElemUtils::CustomException(getClassName(), __func__,
+                "Same type of scattered lepton as decay type, not implemented"); 
+    }
+        
     // variables
     double Ee = conditions.getLeptonEnergy();
     double Ep = conditions.getHadronEnergy();
