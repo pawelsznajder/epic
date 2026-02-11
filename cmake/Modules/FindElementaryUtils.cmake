@@ -21,11 +21,15 @@ else (ElementaryUtils_INCLUDE_DIR AND ElementaryUtils_LIBRARIES)
       ${CMAKE_SOURCE_DIR}/../elementary-utils
       ${CMAKE_SOURCE_DIR}/elementary-utils
       ${CMAKE_SOURCE_DIR}
+      HINTS 
+      ${ElementaryUtils_HINT}
       PATH_SUFFIXES include/PARTONS include
     )
     
   find_library(ElementaryUtils_LIBRARIES
                      NAMES ElementaryUtils
+		     HINTS 
+		     ${ElementaryUtils_HINT}
                      PATHS
                      ${CMAKE_INSTALL_PREFIX}
                      ${CMAKE_SOURCE_DIR}/../ElementaryUtils
@@ -36,7 +40,7 @@ else (ElementaryUtils_INCLUDE_DIR AND ElementaryUtils_LIBRARIES)
                      PATH_SUFFIXES lib/PARTONS lib64/PARTONS bin/PARTONS lib lib64 bin)
 
   include(FindPackageHandleStandardArgs)
-  find_package_handle_standard_args(ElementaryUtils DEFAULT_MSG ElementaryUtils_INCLUDE_DIR ElementaryUtils_LIBRARIES)
+  find_package_handle_standard_args(ElementaryUtils DEFAULT_MSG ElementaryUtils_LIBRARIES)
 
 endif(ElementaryUtils_INCLUDE_DIR AND ElementaryUtils_LIBRARIES)
 

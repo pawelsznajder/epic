@@ -2,7 +2,6 @@
 #include <ElementaryUtils/logger/LoggerManager.h>
 #include <getopt.h>
 #include <partons/Partons.h>
-#include <QtCore/qcoreapplication.h>
 #include <stddef.h>
 #include <cstdlib>
 #include <iostream>
@@ -57,9 +56,6 @@ void printHelp(const std::string& path) {
  * Main function.
  */
 int main(int argc, char **argv) {
-
-    // Initialize Qt
-    QCoreApplication a(argc, argv);
 
     // Pointer to application
     EPIC::Epic* pEpic = nullptr;

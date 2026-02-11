@@ -1,0 +1,47 @@
+# LHAPDF
+
+find_program(
+	LHAPDF_CONFIG lhapdf-config
+	HINTS
+	${LHAPDF_HINT}
+	REQUIRED
+)
+
+if (LHAPDF_CONFIG)
+
+  exec_program(${LHAPDF_CONFIG}
+    ARGS --version
+    OUTPUT_VARIABLE LHAPDF_VERSION
+  )
+  set(LHAPDF_VERSION ${LHAPDF_VERSION} CACHE STRING INTERNAL)
+
+  exec_program(${LHAPDF_CONFIG}
+    ARGS --cppflags
+    OUTPUT_VARIABLE LHAPDF_CXX_FLAGS
+  )
+  set(LHAPDF_CXX_FLAGS ${LHAPDF_CXX_FLAGS} CACHE STRING INTERNAL)
+
+  exec_program(${LHAPDF_CONFIG}
+    ARGS --libdir
+    OUTPUT_VARIABLE LHAPDF_LIB_DIR
+  )
+  set(LHAPDF_LIB_DIR ${LHAPDF_LIB_DIR} CACHE STRING INTERNAL)
+
+  find_library(LHAPDF_LIBRARIES
+    NAMES lhapdf LHAPDF
+    PATHS ${LHAPDF_LIB_DIR} 
+    NO_DEFAULT_PATH
+  )
+
+  exec_program(${LHAPDF_CONFIG}
+    ARGS --incdir
+    OUTPUT_VARIABLE LHAPDF_INCLUDE_DIR
+  )
+  set(LHAPDF_INCLUDE_DIR ${LHAPDF_INCLUDE_DIR} CACHE PATH INTERNAL)
+
+  include(FindPackageHandleStandardArgs)
+  find_package_handle_standard_args(LHAPDF REQUIRED_VARS LHAPDF_LIBRARIES VERSION_VAR LHAPDF_VERSION)
+
+else(LHAPDF_CONFIG)
+   message(FATAL_ERROR "lhapdf not found")
+endif(LHAPDF_CONFIG)
