@@ -9,7 +9,7 @@
 #define SERVICES_AUTOMATIONSERVICE_H_
 
 #include <memory>
-#include <partons/services/automation/Qt4XMLValidator.h>
+#include <partons/services/automation/DefaultXMLValidator.h>
 #include <string>
 
 #include "../automation/MonteCarloParser.h"
@@ -67,7 +67,7 @@ private:
    */
   static AutomationService *m_pInstance;
 
-  PARTONS::Qt4XMLValidator m_validator; ///< Validator.
+  PARTONS::DefaultXMLValidator m_validator; ///< Validator.
   MonteCarloParser m_parser;            ///< Parser.
 };
 

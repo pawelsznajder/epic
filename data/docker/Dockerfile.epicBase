@@ -2,8 +2,8 @@
 FROM partons/partons:latest 
 
 # versions
-ENV ROOTTAG="6.28.02"
-ENV HEPMC3TAG="3.2.6"
+ENV ROOTTAG="6.32.20"
+ENV HEPMC3TAG="3.3.1"
 
 # set WORKSPACE env. variable
 ENV WORKSPACE="/root/workspace"

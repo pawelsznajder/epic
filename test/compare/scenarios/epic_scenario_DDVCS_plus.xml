@@ -80,7 +80,7 @@
       <!-- Kinematic module configuration -->
       <kinematic_configuration>
          <module type="DDVCSKinematicModule" name="DDVCSKinematicDefault">
-         	<param name="decay_type" value="e-" />
+         	<param name="decay_type" value="mu-" />
          </module>
       </kinematic_configuration>
 

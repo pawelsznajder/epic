@@ -21,11 +21,15 @@ else (PARTONS_INCLUDE_DIR AND PARTONS_LIBRARIES)
       ${CMAKE_SOURCE_DIR}/PARTONS
       ${CMAKE_SOURCE_DIR}/partons
       ${CMAKE_SOURCE_DIR}
+      HINTS 
+      ${PARTONS_HINT}
       PATH_SUFFIXES include/PARTONS include
     )
     
   find_library(PARTONS_LIBRARIES
                      NAMES PARTONS
+		     HINTS 
+		     ${PARTONS_HINT}
                      PATHS
                      ${CMAKE_INSTALL_PREFIX}
                      ${CMAKE_SOURCE_DIR}/../PARTONS
