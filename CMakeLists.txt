@@ -102,8 +102,6 @@ file(
 )
 
 # define target executable
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
-
 add_executable(
 
        	epic	
@@ -138,3 +136,9 @@ target_link_libraries(
         
         ${HEPMC3_LIBRARIES}
 )
+
+# INSTALL ==================================================================================
+
+install(TARGETS epic RUNTIME DESTINATION bin)
+
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/data/ DESTINATION share/epic/data)
